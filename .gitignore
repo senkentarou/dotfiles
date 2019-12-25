@@ -1,0 +1,50 @@
+#
+# gitignore setting
+#
+
+#
+# for .dotfiles
+#
+.DS_Store
+.python-version
+.env
+.vim
+.gitconfig
+!.vim/vimrc
+!.vim/tool
+
+#
+# for c++ requirements
+#
+# Prerequisites
+*.d
+*.o
+*.so
+*.a
+*.out
+
+#
+# for python requirements
+#
+__pycache__/
+*.pyc
+
+
+#
+# for other files
+#
+*.pdf
+*.doc
+*.docx
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+
+
+#
+# for other directories
+#
+out/
+obj/
+bin/
