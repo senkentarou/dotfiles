@@ -10,6 +10,7 @@
 .env
 .vim
 .gitconfig
+.template
 !.vim/vimrc
 !.vim/tool
 
