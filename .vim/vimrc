@@ -111,9 +111,6 @@ inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Right> <Nop>
 inoremap <Left> <Nop>
-"inoremap { {}<LEFT>
-"inoremap [ []<LEFT>
-"inoremap ( ()<LEFT>
 
 " general setting
 set ruler
