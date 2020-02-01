@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Time
+SECONDS=0
+
 # General Setting
 LOG='/dev/null'
 COLOR_PRECAP='\033['
@@ -44,8 +47,8 @@ function install_osx_command() {
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || echo_error 'brew installation was failed'; exit 1
     fi
 
-    local brew_commands=('git' 'wget' 'vim' 'tmux' 'pyenv' 'pyenv-virtualenv' 'docker' 'tree' 'reattach-to-user-namespace')
-    local brew_casks=('docker' 'iterm2' 'google-chrome')
+    local brew_commands=('git' 'wget' 'vim' 'tmux' 'pyenv' 'pyenv-virtualenv' 'docker' 'tree' 'reattach-to-user-namespace' 'tcl-tk' 'openssl')
+    local brew_casks=('docker' 'iterm2' 'google-chrome' 'firefox' 'slack' 'karabiner-elements')
 
     echo_normal 'Update and upgrade brew ..'
     brew update
@@ -116,7 +119,7 @@ function dotfiles_deploy() {
     fi
 
     # link
-    local exception_reexp="(.git|.matplotlib)"
+    local exception_reexp="(.git)"
     local point_find_curdirs="$(( ${#DOTPATH}+2 ))"
     echo_normal "make symbolic link"
     for dotfile in $(find "$DOTPATH" -maxdepth 1 -name '.??*' | cut -c ${point_find_curdirs}- | grep -Evx "$exception_reexp"); do
@@ -138,9 +141,7 @@ function dotfiles_initialize() {
 }
 
 #
-#
-# main procedure
-#
+# Main procedure
 #
 
 detect_os
@@ -149,7 +150,14 @@ dotfiles_download
 dotfiles_deploy
 dotfiles_initialize
 
-#reboot shell or change shell to zsh
+#
+# Finish procedure
+#
+echo "Installation is done: Time=${SECONDS}(Sec.)"
+echo "Reboot shell in seconds .."
+sleep 5
+
+# Reboot shell or change shell to zsh
 if [ "$SHELL" != '/bin/zsh' ]; then
     echo_info "change shell $SHELL to /bin/zsh"
     chsh -s /bin/zsh

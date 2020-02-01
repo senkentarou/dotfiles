@@ -7,12 +7,10 @@
 #
 .DS_Store
 .python-version
-.env
-.vim
+.env/*
+.vim/*
 .gitconfig
-.template
-!.vim/vimrc
-!.vim/tool
+.report/*
 
 #
 # for c++ requirements
@@ -27,7 +25,7 @@
 #
 # for python requirements
 #
-__pycache__/
+__pycache__/*
 *.pyc
 
 
@@ -46,6 +44,14 @@ __pycache__/
 #
 # for other directories
 #
-out/
-obj/
-bin/
+out/*
+obj/*
+bin/*
+res/*
+
+# for ignore case
+!.vim/vimrc
+!.vim/tool
+
+# for empty dir
+!.gitkeep

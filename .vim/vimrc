@@ -20,6 +20,7 @@ function! s:openTabs(list)
 endfunction
 
 " set vim dir to home dir
+let s:today = strftime("%Y-%m-%d")
 let s:vimdir = expand($HOME . '/.vim')
 let s:vimrc = s:vimdir . '/vimrc'
 let s:bkdir = s:vimdir . '/backup'
@@ -27,6 +28,10 @@ let s:swdir = s:vimdir . '/swap'
 let s:undodir = s:vimdir . '/undo'
 let s:colors = s:vimdir . '/colors'
 let s:info = s:vimdir . '/.viminfo'
+let s:tmpdir = expand($HOME . '/.template')
+let s:tmpdaily = s:tmpdir . '/daily_report.md'
+let s:repdir = expand($HOME . '/.report')
+let s:repdaily = s:repdir . '/' . s:today . '.md'
 
 " make color scheme dir
 call s:mkdir(s:colors)
@@ -70,10 +75,13 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 
+command! -bar DairyReport | :execute "e " . s:repdaily
+
 """ Tab settings (reference https://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca)
 command! -bar TabMoveNext :execute "tabmove " tabpagenr() % tabpagenr("$") + (tabpagenr("$") == tabpagenr() ? 0 : 1)
 command! -bar TabMovePrev :execute "tabmove" (tabpagenr() + tabpagenr("$") - 2) % tabpagenr("$") + (tabpagenr() == 1 ? 1 : 0)
-nnoremap <silent> <Space><Space> :<C-u>tabnew<CR>
+"nnoremap <silent> <Space><Space> :<C-u>tabnew<CR>
+nnoremap <silent> <Space><Space> :<C-u>DairyReport<CR>
 nnoremap <Tab> gt
 nnoremap <BS> gT
 nnoremap <silent> <Right> :<C-u>TabMoveNext<CR>
@@ -197,6 +205,11 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.js setlocal tabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.html setlocal tabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.css setlocal tabstop=2 shiftwidth=2
+augroup END
+
+augroup templateGroup
+    autocmd!
+    autocmd BufNewFile *.md if expand("%:t") == s:today . ".md" | execute "0read " . s:tmpdaily | endif
 augroup END
 
 " Define autocmd
