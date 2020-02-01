@@ -29,9 +29,7 @@ let s:undodir = s:vimdir . '/undo'
 let s:colors = s:vimdir . '/colors'
 let s:info = s:vimdir . '/.viminfo'
 let s:tmpdir = expand($HOME . '/.template')
-let s:tmpdaily = s:tmpdir . '/daily_report.md'
 let s:repdir = expand($HOME . '/.report')
-let s:repdaily = s:repdir . '/' . s:today . '.md'
 
 " make color scheme dir
 call s:mkdir(s:colors)
@@ -75,7 +73,7 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 
-command! -bar DairyReport | :execute "e " . s:repdaily
+command! -bar DairyReport | :execute 'e ' . s:repdir . '/' . s:today . '.md'
 
 """ Tab settings (reference https://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca)
 command! -bar TabMoveNext :execute "tabmove " tabpagenr() % tabpagenr("$") + (tabpagenr("$") == tabpagenr() ? 0 : 1)
@@ -209,7 +207,8 @@ augroup END
 
 augroup templateGroup
     autocmd!
-    autocmd BufNewFile *.md if expand("%:t") == s:today . ".md" | execute "0read " . s:tmpdaily | endif
+    autocmd BufNewFile *.md if expand("%:t") == s:today . ".md" | execute "0read " . s:tmpdir . '/daily_report.md' | endif
+    autocmd BufNewFile README.md execute "0read " . s:tmpdir . '/readme.md'
 augroup END
 
 " Define autocmd
