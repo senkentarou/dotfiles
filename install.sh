@@ -47,7 +47,7 @@ function install_osx_command() {
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || echo_error 'brew installation was failed'; exit 1
     fi
 
-    local brew_commands=('git' 'wget' 'vim' 'tmux' 'pyenv' 'pyenv-virtualenv' 'docker' 'tree' 'reattach-to-user-namespace' 'tcl-tk' 'openssl')
+    local brew_commands=('git' 'wget' 'vim' 'tmux' 'pyenv' 'pyenv-virtualenv' 'docker' 'tree' 'reattach-to-user-namespace' 'tcl-tk' 'openssl' 'rbenv' 'ruby-build' 'rbenv-gemset')
     local brew_casks=('docker' 'iterm2' 'google-chrome' 'firefox' 'slack' 'karabiner-elements')
 
     echo_normal 'Update and upgrade brew ..'

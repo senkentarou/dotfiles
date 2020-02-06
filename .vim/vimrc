@@ -155,7 +155,6 @@ set hlsearch
 
 " editor setting
 set number
-set relativenumber
 set cursorline
 set virtualedit=onemore
 set scrolloff=5
@@ -205,10 +204,18 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.css setlocal tabstop=2 shiftwidth=2
 augroup END
 
-augroup templateGroup
+augroup OpenTemplate
     autocmd!
     autocmd BufNewFile *.md if expand("%:t") == s:today . ".md" | execute "0read " . s:tmpdir . '/daily_report.md' | endif
     autocmd BufNewFile README.md execute "0read " . s:tmpdir . '/readme.md'
+augroup END
+
+augroup TmuxRename
+    autocmd!
+    if exists('$TMUX')
+        autocmd BufEnter * call system("tmux rename-window " . expand("%:t"))
+        autocmd VimLeave * call system("tmux setw automatic-rename")
+    endif
 augroup END
 
 " Define autocmd

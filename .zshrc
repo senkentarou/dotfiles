@@ -122,37 +122,47 @@ autoload -Uz add-zsh-hook
 autoload -Uz terminfo
 
 # prompt
-primary_prompt="%(?.%{${fg[green]}%}.%{${fg[red]}%})[@%m]%{${reset_color}%} %1~ %(!.#.$) "
-right_prompt="%{${fg[cyan]}%}[%/]%{${reset_color}%}"
-spelling_prompt="%{${fg[yellow]}%}%r is correct? [Yes, No, Abort, Edit]:%{${reset_color}%} "
+primary_prompt="[@%m:%/]"
+spelling_prompt="%{${fg[yellow]}%}%r is correct? [yes, no, abort, edit]:%{${reset_color}%} "
+SPROMPT="$spelling_prompt"
 
-# pyenv settings
-function pyenv_prompt() {
-    if [[ -n $PYENV_SHELL ]]; then
-        version=${(@)$(pyenv version)[1]}
-        if [[ $version != system ]]; then
-            primary_prompt="%(?.%{${fg[green]}%}.%{${fg[red]}%})[@%m]%{${reset_color}%} ($version) %1~ %(!.#.$) "
-        else
-            primary_prompt="%(?.%{${fg[green]}%}.%{${fg[red]}%})[@%m]%{${reset_color}%} %1~ %(!.#.$) "
-        fi
-    fi
-}
-add-zsh-hook precmd pyenv_prompt
+# git status
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats "[%b|%a]"
 
 # user status settings
 function status_prompt() {
+    # start prompt string
+    primary_prompt="%{${fg[green]}%}[@%m:%.]%{${reset_color}%}"
+    # set git status
+    vcs_info
+    primary_prompt="${primary_prompt}${vcs_info_msg_0_}"
+
+    # for pyenv
+    if [[ -n $PYENV_SHELL ]]; then
+        version=${(@)$(pyenv version)[1]}
+        if [[ $version != system ]]; then
+            primary_prompt="${primary_prompt} ($version)"
+        fi
+    fi
     # for root
     if [ ${UID} -eq 0 ]; then
-        primary_prompt="%B%U${primary_prompt}%u%b"
-        right_prompt="%B%U${right_prompt}%u%b"
-        spelling_prompt="%B%U${spelling_prompt}%u%b"
+        primary_prompt="(root) ${primary_prompt}"
     fi
     # for SSH
     if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
-        primary_prompt="%{${fg[white]}%}${HOST%%.*} ${primary_prompt}"
+        primary_prompt="${HOST%%.*} ${primary_prompt}"
     fi
+
+    # end prompt string
+    primary_prompt="${primary_prompt} %(!.#.$) "
 }
 add-zsh-hook precmd status_prompt
+
 
 # for rewriting secondary prompt on execution
 terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
@@ -174,21 +184,6 @@ function zle-line-init zle-keymap-select zle-line-finish ()
 zle -N zle-line-init
 zle -N zle-keymap-select
 zle -N zle-line-finish
-
-# git status
-autoload -Uz vcs_info
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats "[%b|%a]"
-function show_vcs_info () {
-    vcs_info
-    RPROMPT="${right_prompt}${vcs_info_msg_0_}"
-}
-add-zsh-hook precmd show_vcs_info
-
-SPROMPT="$spelling_prompt"
 
 autoload -Uz select-word-style
 select-word-style default
