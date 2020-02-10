@@ -141,7 +141,11 @@ function status_prompt() {
     tree=($(pwd | tr -s ' ' '_' | tr -s '/' ' '))
     if [[ ${#tree[@]} -gt 1 ]]; then
         for i in $(seq $(( ${#tree[@]}-1 ))); do
-            tmp="${tmp}/${tree[$i]:0:1}"
+            cont="${tree[$i]:0:1}"
+            if [[ "${cont}" = "." ]]; then
+                cont="${tree[$i]:0:2}"
+            fi
+            tmp="${tmp}/${cont}"
         done
         prompt="${tmp}/${tree[((${#tree[@]}))]}"
     else

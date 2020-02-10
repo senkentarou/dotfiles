@@ -73,7 +73,7 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 
-command! -bar DairyReport | :execute 'e ' . s:repdir . '/' . s:today . '.md'
+command! -bar DairyReport | :execute 'tabe ' . s:repdir . '/' . s:today . '.md'
 
 """ Tab settings (reference https://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca)
 command! -bar TabMoveNext :execute "tabmove " tabpagenr() % tabpagenr("$") + (tabpagenr("$") == tabpagenr() ? 0 : 1)
