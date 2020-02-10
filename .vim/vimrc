@@ -213,8 +213,9 @@ augroup END
 augroup TmuxRename
     autocmd!
     if exists('$TMUX')
+        let b:orgname = system("tmux display-message -p '#W'")
         autocmd BufEnter * call system("tmux rename-window " . expand("%:t"))
-        autocmd VimLeave * call system("tmux setw automatic-rename")
+        autocmd VimLeave * call system("tmux rename-window " . b:orgname)
     endif
 augroup END
 

@@ -82,7 +82,7 @@ export LC_ALL="${LANGUAGE}"
 export LC_CTYPE="${LANGUAGE}"
 
 # Add path
-export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH"
+export PATH="${HOME}/.bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH"
 
 export EDITOR=vim
 export SVN_EDITOR="${EDITOR}"
@@ -123,6 +123,7 @@ autoload -Uz terminfo
 
 # prompt
 primary_prompt="[@%m:%/]"
+rear_prompt=""
 spelling_prompt="%{${fg[yellow]}%}%r is correct? [yes, no, abort, edit]:%{${reset_color}%} "
 SPROMPT="$spelling_prompt"
 
@@ -136,25 +137,43 @@ zstyle ':vcs_info:*' actionformats "[%b|%a]"
 
 # user status settings
 function status_prompt() {
+    tmp=""
+    tree=($(pwd | tr -s ' ' '_' | tr -s '/' ' '))
+    if [[ ${#tree[@]} -gt 1 ]]; then
+        for i in $(seq $(( ${#tree[@]}-1 ))); do
+            tmp="${tmp}/${tree[$i]:0:1}"
+        done
+        prompt="${tmp}/${tree[((${#tree[@]}))]}"
+    else
+        prompt="$(pwd)"
+    fi
+
     # start prompt string
-    primary_prompt="%{${fg[green]}%}[@%m:%.]%{${reset_color}%}"
+    primary_prompt="%{${fg[green]}%}[@%m:${prompt}]%{${reset_color}%}"
+    rear_prompt=""
     # set git status
     vcs_info
     primary_prompt="${primary_prompt}${vcs_info_msg_0_}"
-
     # for pyenv
     if [[ -n $PYENV_SHELL ]]; then
         version=${(@)$(pyenv version)[1]}
         if [[ $version != system ]]; then
-            primary_prompt="${primary_prompt} ($version)"
+            rear_prompt="${rear_prompt}[pyenv:$version]"
+        fi
+    fi
+    # for rbenv
+    if [[ -n $RBENV_SHELL ]]; then
+        version=${(@)$(rbenv version)[1]}
+        if [[ $version != system ]]; then
+            rear_prompt="${rear_prompt}[rbenv:$version]"
         fi
     fi
     # for root
-    if [ ${UID} -eq 0 ]; then
+    if [[ ${UID} -eq 0 ]]; then
         primary_prompt="(root) ${primary_prompt}"
     fi
     # for SSH
-    if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
+    if [[ -n "${REMOTEHOST}${SSH_CONNECTION}" ]]; then
         primary_prompt="${HOST%%.*} ${primary_prompt}"
     fi
 
@@ -178,7 +197,8 @@ function zle-line-init zle-keymap-select zle-line-finish ()
         main|viins)  secondary_prompt="%{${fg[cyan]}%}-- INSERT --%{${reset_color}%}"  ;;
         vicmd)       secondary_prompt="%{${fg[white]}%}-- NORMAL --%{${reset_color}%}"  ;;
     esac
-    PROMPT="%{${terminfo_down_sc}${secondary_prompt}${terminfo[rc]}%}$primary_prompt"
+    PROMPT="%{${terminfo_down_sc}${secondary_prompt}${terminfo[rc]}%}${primary_prompt}"
+    RPROMPT="${rear_prompt}"
     zle reset-prompt
 }
 zle -N zle-line-init
@@ -271,6 +291,7 @@ alias ls='ls -lAGF'
 alias du='du -h'  # using space
 alias df='df -h'  # free space
 alias f='open'
+alias src="source ${HOME}/.zshrc"
 
 # tmux
 compdef tm=tmux
