@@ -210,14 +210,14 @@ augroup OpenTemplate
     autocmd BufNewFile README.md execute "0read " . s:tmpdir . '/readme.md'
 augroup END
 
-augroup TmuxRename
-    autocmd!
-    if exists('$TMUX')
-        let b:orgname = system("tmux display-message -p '#W'")
-        autocmd BufEnter * call system("tmux rename-window " . expand("%:t"))
-        autocmd VimLeave * call system("tmux rename-window " . b:orgname)
-    endif
-augroup END
+"augroup TmuxRename
+"    autocmd!
+"    if exists('$TMUX')
+"        let b:orgname = system("tmux display-message -p '#W'")
+"        autocmd BufEnter * call system("tmux rename-window " . expand("%:t"))
+"        autocmd VimLeave * call system("tmux rename-window " . b:orgname)
+"    endif
+"augroup END
 
 " Define autocmd
 """ Delete Extra Space in Each Line

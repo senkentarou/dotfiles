@@ -1,0 +1,11 @@
+#!/bin/bash
+echo '[Hello my command]'
+echo ' Registring command:'
+echo '  1. Create command'
+echo '    (command-like name and write #!/bin/bash in first line)'
+echo '  2. Add execute right'
+echo '    (chmod 755 <command>)'
+echo '  3. Set command path (or including directory path) in rc file'
+echo '    (PATH=$PATH:/path/to/command/directory)'
+echo '  4. Use it!'
+
