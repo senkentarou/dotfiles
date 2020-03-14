@@ -113,6 +113,7 @@ fi
 export RBENV_ROOT="$HOME/.rbenv"
 if [ -d "$RBENV_ROOT" ]; then
     export PATH="$RBENV_ROOT/bin:$PATH"
+    export PATH="$HOME/.rbenv/shims:$PATH"
     eval "$(rbenv init -)"
 fi
 

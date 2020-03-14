@@ -161,9 +161,9 @@ set scrolloff=5
 
 " indent setting
 set smartindent
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
-set tabstop=4
+set tabstop=2
 
 " clipboard setting
 set clipboard=unnamed,autoselect
@@ -197,11 +197,6 @@ augroup END
 augroup fileTypeIndent
     autocmd!
     autocmd BufNewFile,BufRead *.py setlocal tabstop=4 shiftwidth=4
-    autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.sh setlocal tabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.js setlocal tabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.html setlocal tabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.css setlocal tabstop=2 shiftwidth=2
 augroup END
 
 augroup OpenTemplate
