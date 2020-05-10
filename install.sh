@@ -84,7 +84,7 @@ function install_osx_command() {
 
 
 if [ -z "${DOTPATH:-}" ]; then
-    export DOTPATH="${HOME}/.dotfiles"
+    export DOTPATH="${HOME}/dotfiles"
 fi
 export DOTFILES_GITHUB='https://github.com/senkentarou/dotfiles.git'
 
