@@ -192,6 +192,7 @@ augroup TransparentBG
     autocmd Colorscheme * highlight LineNr ctermbg=none
     autocmd Colorscheme * highlight Folded ctermbg=none
     autocmd Colorscheme * highlight EndOfBuffer ctermbg=none
+    autocmd Colorscheme * highlight Comment ctermfg=119
 augroup END
 
 augroup fileTypeIndent

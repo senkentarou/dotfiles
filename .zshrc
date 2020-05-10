@@ -85,7 +85,6 @@ export LC_CTYPE="${LANGUAGE}"
 export PATH="${HOME}/.bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH"
 
 export EDITOR=vim
-export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
 
 export LSCOLORS=exfxcxdxbxegedabagacad
@@ -154,25 +153,29 @@ function status_prompt() {
     fi
 
     # start prompt string
-    primary_prompt="%{${fg[green]}%}[@%m:${prompt}]%{${reset_color}%}"
+    color="%{%(?.${fg[green]}.${fg[red]})%}"
+    reset="%{${reset_color}%}"
+
+    primary_prompt="${color}[@%m:${prompt}]${reset}"
     rear_prompt=""
     # set git status
     vcs_info
     primary_prompt="${primary_prompt}${vcs_info_msg_0_}"
-    # for pyenv
-    if [[ -n $PYENV_SHELL ]]; then
-        version=${(@)$(pyenv version)[1]}
-        if [[ $version != system ]]; then
-            rear_prompt="${rear_prompt}[pyenv:$version]"
-        fi
-    fi
-    # for rbenv
-    if [[ -n $RBENV_SHELL ]]; then
-        version=${(@)$(rbenv version)[1]}
-        if [[ $version != system ]]; then
-            rear_prompt="${rear_prompt}[rbenv:$version]"
-        fi
-    fi
+    ## for pyenv
+    #if [[ -n $PYENV_SHELL ]]; then
+    #    version=${(@)$(pyenv version)[1]}
+    #    if [[ $version != system ]]; then
+    #        rear_prompt="${rear_prompt}[pyenv:$version]"
+    #    fi
+    #fi
+    ## for rbenv
+    #if [[ -n $RBENV_SHELL ]]; then
+    #    version=${(@)$(rbenv version)[1]}
+    #    if [[ $version != system ]]; then
+    #        rear_prompt="${rear_prompt}[rbenv:$version]"
+    #    fi
+    #fi
+
     # for root
     if [[ ${UID} -eq 0 ]]; then
         primary_prompt="(root) ${primary_prompt}"
@@ -297,31 +300,4 @@ alias du='du -h'  # using space
 alias df='df -h'  # free space
 alias f='open'
 alias src="source ${HOME}/.zshrc"
-
-# tmux
-compdef tm=tmux
-alias tm='tmux new -s'
-alias tmls='tmux ls'
-alias tma='tmux attach -t'
-alias tmk='tmux kill-session -t'
-alias tmka='tmux kill-server'
-
-# git
-compdef g=git
-alias g='git'
-alias gs='git status --short --branch'
-alias ga='git add -A'
-alias gc='git commit -m'
-alias gp='git pull origin'
-alias gps='git push'
-alias gpsu='git push -u origin'
-alias gf='git fetch'
-alias gd='git diff'
-alias gr='git reset'
-alias gb='git checkout -b'
-alias gm='git remote updata -u'
-
-# docker
-alias dp='docker ps'
-alias di='docker images'
 
