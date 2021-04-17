@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cat << EOS
+[Hello my command]
+ Registring command:
+  1. Create command
+    (command-like name and write #!/bin/bash in first line)
+  2. Add execute right
+    (chmod 755 <command>)
+  3. Set command path (or including directory path) in run command (like .bashrc) file
+    (PATH=$PATH:/path/to/command/directory)
+  4. Use it!
+EOS
