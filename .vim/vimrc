@@ -14,6 +14,7 @@ let s:vimdir = expand($HOME . '/.vim')
 let s:vimrc = s:vimdir . '/vimrc'
 let s:colors = s:vimdir . '/colors'
 let s:undodir = s:vimdir . '/undo'
+let s:info = s:vimdir . '/.viminfo'
 
 " make color scheme dir
 call s:mkdir(s:colors)
@@ -44,9 +45,10 @@ inoremap <silent> jj <Esc>
 set ruler
 set showcmd
 set history=1000
+execute 'set viminfo+=n' . s:info
 set undolevels=1000
-
 set undofile
+execute 'set undodir=' . s:undodir
 
 " search setting
 set incsearch
