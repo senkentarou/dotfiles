@@ -1,120 +1,70 @@
-# Tree
-#[ -z "$ENHANCD_ROOT" ] && function chpwd { tree -L 1 }
-#[ -z "$ENHANCD_ROOT" ] || export ENHANCD_HOOK_AFTER_CD='tree -L 1'
-
-# tmux automatic attachment
-function attach_tmux() {
-    # Is exist tmux?
-    if [ ! type 'tmux' >/dev/null 2>&1 ]; then
-        echo 'tmux command not found.'
-        return 1
-    fi
-    # Is tmux mode?
-    if [ ! -z "$TMUX" ]; then
-        echo 'Hello, tmux!'
-        return 0
-    # Is sty mode?
-    elif [ ! -z "$STY" ]; then
-        echo 'This is on screen.'
-        return 0
-    # Is not ssh connection?
-    elif [ ! -z "$PS1" ] && [ -z "$SSH_CONECTION" ]; then
-        #
-        if tmux has-session >/dev/null 2>&1 && tmux list-sessions | grep -qE '(.*]|.*\))$'; then
-            tmux list-sessions
-            echo -n 'tmux: attach? {y(=latest)/N(=new)/<num>}: '
-            read
-            if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" == '' ]]; then
-                tmux attach-session
-                if [ $? -eq 0 ]; then
-                    echo "$(tmux -V) attached session."
-                    return 0
-                fi
-            elif [[ "$REPLY" =~ ^[0-9]+$ ]]; then
-                tmux attach -t "$REPLY"
-                if [ $? -eq 0 ]; then
-                    echo "$(tmux -V) attached session"
-                    return 0
-                fi
-            fi
-        fi
-        # mac OS settings (need to install: reattach-to-user-namespace (brew install reattach-to-user-namespace))
-        if [[ "$OSTYPE" == "darwin*" ]] && [ type 'reattach-to-user-namespace' >/dev/null 2>&1 ]; then
-            tmux_config=$(cat $HOME/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l $SHELL"'))
-            tmux -f <(echo "$tmux_config") new-session && echo "$(tmux -V) created new session supported OS X"
-        else
-            tmux new-session && echo "tmux created new session"
-        fi
-    fi
+# fzf
+# function refs: [
+#   https://github.com/mitubaEX/dotfiles/blob/d5bb5653597244c01c58b087f39e2baac93699ff/.zsh.d/utils/fzf-functions.zsh
+#   https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
+# ]
+__fzfcmd() {
+  [ -n "$TMUX_PANE" ] && { [ "${FZF_TMUX:-0}" != 0 ] || [ -n "$FZF_TMUX_OPTS" ]; } &&
+    echo "fzf-tmux ${FZF_TMUX_OPTS:--d${FZF_TMUX_HEIGHT:-40%}} -- " || echo "fzf"
 }
-attach_tmux  # execute
 
-setopt correct
-setopt nobeep
-setopt notify
-setopt auto_cd
-setopt auto_pushd
-setopt auto_param_keys
-setopt auto_menu
-setopt auto_param_slash
-setopt interactive_comments
-setopt prompt_subst
-setopt mark_dirs
-setopt list_types
-setopt interactive_comments
-setopt magic_equal_subst
-setopt complete_in_word
-setopt complete_aliases
-setopt globdots
-setopt extended_glob
-setopt ignore_eof
+function select-history() {
+  local selected num
+  setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
+  selected=( $(fc -rl 1 |
+    FZF_DEFAULT_OPTS="--prompt='Command History > ' --layout='reverse' --height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)) )
+  local ret=$?
+  if [ -n "$selected" ]; then
+    num=$selected[1]
+    if [ -n "$num" ]; then
+      zle vi-fetch-history -n $num
+    fi
+  fi
+  zle reset-prompt
+  return $ret
+}
+zle -N select-history
+bindkey -M viins '^R' select-history
 
-setopt hist_ignore_dups
-setopt hist_ignore_all_dups
+# Search a file with fzf inside a Tmux pane and then open it in an editor
+function fzf_open_file_by_name() {
+  local file=$(rg --files --hidden --glob '!.git' | FZF_DEFAULT_OPTS="--prompt='File Search > ' --layout='reverse' --height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS" $(__fzfcmd))
+
+  zle reset-prompt
+
+  if [ -n "$file" ]; then
+    BUFFER="${EDITOR:-vim} $file"
+  fi
+
+  return 0
+}
+zle -N fzf_open_file_by_name
+bindkey -M viins '^F' fzf_open_file_by_name
+
+function fzf_open_file_by_chars() {
+  read -r file line <<< "$(rg --glob '!.git' --line-number --invert-match '^\s*$' | FZF_DEFAULT_OPTS="--prompt='String Search > ' --layout='reverse' --height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS" $(__fzfcmd) --select-1 --exit-0 | awk -F: '{print $1, $2}')"
+
+  zle reset-prompt
+
+  if [ -n "$file" ] && [ -n "$line" ]; then
+    BUFFER="${EDITOR:-vim} $file"
+  fi
+
+  return 0
+}
+zle -N fzf_open_file_by_chars
+bindkey -M viins '^V' fzf_open_file_by_chars
+
+
+# Appends every command to the history file once it is executed
+setopt inc_append_history
+# Reloads the history whenever you use it
 setopt share_history
-setopt hist_no_store
-setopt hist_reduce_blanks
 
-# zsh_env
-export LANGUAGE='en_US.UTF-8'
-export LANG="${LANGUAGE}"
-export LC_ALL="${LANGUAGE}"
-export LC_CTYPE="${LANGUAGE}"
+# zsh
+export HISTSIZE=100000
+export SAVEHIST=100000
 
-# Add path
-export PATH="${HOME}/.bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH"
-
-export EDITOR=vim
-export GIT_EDITOR="${EDITOR}"
-
-export LSCOLORS=exfxcxdxbxegedabagacad
-export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-
-export HISTFILE='~/.z_history'
-export HISTSIZE=10000
-export SAVEHIST=10000
-
-# homebrew
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-# nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-if [ -d "$PYENV_ROOT" ]; then
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
-
-# rbenv
-export RBENV_ROOT="$HOME/.rbenv"
-if [ -d "$RBENV_ROOT" ]; then
-    export PATH="$RBENV_ROOT/bin:$PATH"
-    export PATH="$HOME/.rbenv/shims:$PATH"
-    eval "$(rbenv init -)"
-fi
 
 autoload -Uz colors
 colors
@@ -161,20 +111,6 @@ function status_prompt() {
     # set git status
     vcs_info
     primary_prompt="${primary_prompt}${vcs_info_msg_0_}"
-    ## for pyenv
-    #if [[ -n $PYENV_SHELL ]]; then
-    #    version=${(@)$(pyenv version)[1]}
-    #    if [[ $version != system ]]; then
-    #        rear_prompt="${rear_prompt}[pyenv:$version]"
-    #    fi
-    #fi
-    ## for rbenv
-    #if [[ -n $RBENV_SHELL ]]; then
-    #    version=${(@)$(rbenv version)[1]}
-    #    if [[ $version != system ]]; then
-    #        rear_prompt="${rear_prompt}[rbenv:$version]"
-    #    fi
-    #fi
 
     # for root
     if [[ ${UID} -eq 0 ]]; then
@@ -239,17 +175,17 @@ zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*' group-name ''
 
 # Vim-like keybind as default
+# If you use other bindkey, you should pick the bindkey setting here to your place
 bindkey -v
 bindkey -M viins '^A' beginning-of-line
 bindkey -M viins '^B' backward-delete-char
 bindkey -M viins '^C' self-insert
 bindkey -M viins '^D' delete-char-or-list
 bindkey -M viins '^E' end-of-line
-bindkey -M viins '^F' forward-char
+#bindkey -M viins '^F' forward-char
 bindkey -M viins '^G' send-break
 bindkey -M viins '^H' backward-char
 bindkey -M viins '^I' expand-or-complete
-bindkey -M viins 'jj' vi-cmd-mode
 bindkey -M viins '^K' kill-line
 bindkey -M viins '^L' clear-screen
 bindkey -M viins '^M' accept-line
@@ -260,7 +196,7 @@ bindkey -M viins '^Q' vi-quoted-insert
 bindkey -M viins '^S' self-insert
 bindkey -M viins '^T' self-insert
 bindkey -M viins '^U' backward-kill-line
-bindkey -M viins '^V' vi-quoted-insert
+#bindkey -M viins '^V' vi-quoted-insert
 bindkey -M viins '^W' backward-kill-word
 #bindkey -M viins '^X' self-insert
 bindkey -M viins '^Y' yank
@@ -282,22 +218,28 @@ bindkey -M vicmd 'G'  end-of-line
 bindkey -M vicmd 'O'  beginning-of-line
 bindkey -M vicmd 'o'  beginning-of-line
 
-# Aliases
-alias vim='/usr/local/bin/vim'
-alias vi='vim'
-alias vimrc='vim ~/.vim/vimrc'
-alias view='vim -R'
-alias disp='vim -M'
-alias ..='cd ..'
-alias :q='pwd'
-alias c='clear'
-alias grep='grep --color=auto'
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-alias ls='ls -lAGF'
-alias du='du -h'  # using space
-alias df='df -h'  # free space
-alias f='open'
-alias src="source ${HOME}/.zshrc"
+# vim
+export EDITOR=vim
+alias vim=$HOME/nvim-osx64/bin/nvim
+#alias vim=nvim
 
+# git
+function gcopr() {
+  git fetch upstream pull/$1/head:pr/$1
+  git checkout pr/$1
+}
+
+function gplpr() {
+  git pull upstream pull/$(git branch | grep \* | cut -d ' ' -f2 | sed -e 's/pr\///')/head
+}
+
+# alias
+alias mux='tmuxinator'
+alias k='kubectl'
+
+alias reload="source ${HOME}/.zshrc"
+alias zshconf="vim ${HOME}/.zshrc"
+alias vimconf="vim ${HOME}/.config/nvim/init.vim"
+
+alias less='less -qR'
+alias ls='ls -al'
