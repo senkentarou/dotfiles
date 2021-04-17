@@ -1,0 +1,41 @@
+{
+  "suggest.echodocSupport": true,
+  "suggest.maxCompleteItemCount": 20,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "ruby",
+    "html"
+  ],
+
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+
+  "diagnostic.infoSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.errorSign": "",
+
+  "solargraph.diagnostics": true,
+  "solargraph.completion": true,
+  "solargraph.symbols": true,
+  "solargraph.definitions": true,
+  "solargraph.rename": true,
+  "solargraph.references": true,
+
+  "tsserver.enableJavascript": true,
+  "typescript.referencesCodeLens.enable": false,
+
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
+    }
+  },
+  "yaml.schemas": {
+    "kubernetes": "/*.yaml"
+  }
+}
