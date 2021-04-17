@@ -51,7 +51,7 @@ res/*
 
 # for ignore case
 !.vim/vimrc
-!.vim/tool
+!.vim/tools
 
 # for empty dir
 !.gitkeep
