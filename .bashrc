@@ -1,6 +1,7 @@
 #
 # .bashrc Settings
 #
+
 # tmux automatic attachment
 function attach_tmux() {
     # Is exist tmux?
@@ -46,4 +47,5 @@ function attach_tmux() {
         fi
     fi
 }
+
 attach_tmux  # execute
