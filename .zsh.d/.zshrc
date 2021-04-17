@@ -220,8 +220,8 @@ bindkey -M vicmd 'o'  beginning-of-line
 
 # vim
 export EDITOR=vim
-alias vim=$HOME/nvim-osx64/bin/nvim
-#alias vim=nvim
+[[ -f $HOME/nvim-osx64/bin/nvim ]] && alias nvim=$HOME/nvim-osx64/bin/nvim
+alias vim=nvim
 
 # git
 function gcopr() {
@@ -237,8 +237,8 @@ function gplpr() {
 alias mux='tmuxinator'
 alias k='kubectl'
 
-alias reload="source ${HOME}/.zshrc"
-alias zshconf="vim ${HOME}/.zshrc"
+alias reload="source ${HOME}/.zsh.d/.zshrc"
+alias zshconf="vim ${HOME}/.zsh.d/.zshrc"
 alias vimconf="vim ${HOME}/.config/nvim/init.vim"
 
 alias less='less -qR'
