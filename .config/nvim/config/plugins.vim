@@ -1,6 +1,11 @@
 "
 " Plugin settings
 "
+" Before do :PlugInstall, download plug.vim
+" sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+"       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+"
+" See details: https://github.com/junegunn/vim-plug
 call plug#begin(stdpath('data') . '/plugged')
 
 " Color Scheme
