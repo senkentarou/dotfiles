@@ -10,113 +10,32 @@ function! s:mkdir(dir)
     endif
 endfunction
 
-" define open tabs
-function! s:openTabs(list)
-    for p in a:list
-        for c in glob(l:p, 0, 1)
-            execute 'tabedit ' . l:c
-        endfor
-    endfor
-endfunction
-
-" set vim dir to home dir
-let s:today = strftime("%Y-%m-%d")
 let s:vimdir = expand($HOME . '/.vim')
 let s:vimrc = s:vimdir . '/vimrc'
-let s:bkdir = s:vimdir . '/backup'
-let s:swdir = s:vimdir . '/swap'
-let s:undodir = s:vimdir . '/undo'
 let s:colors = s:vimdir . '/colors'
-let s:info = s:vimdir . '/.viminfo'
-let s:tmpdir = expand($HOME . '/.template')
-let s:repdir = expand($HOME . '/.report')
 
 " make color scheme dir
 call s:mkdir(s:colors)
-" make backup dir
-call s:mkdir(s:bkdir)
-" make swap dir
-call s:mkdir(s:swdir)
-" make undo dir
-call s:mkdir(s:undodir)
-
-""" Key Bindings
-" map: key mapping (on each mode)
-" noremap: no mapping (on each mode)
-" inoremap: noremap on insert mode
-" nnoremap: noremap on normal mode
-" vnoremap: noremap on visual mode
-
-""" key bindings on normal mode
-" <S> = Shift
-" <CR> = return
-" <C-u> = clear in ':' mode
-nnoremap <Space> <Nop>
-nnoremap <C-a> <Nop>
-nnoremap <C-b> 0Xi<Space><Esc>j0
-nnoremap <C-c> 'k
-nnoremap <C-d> dw
-nnoremap <C-h> g^
-nnoremap <C-u> %
-nnoremap <C-j> }
-nnoremap <C-k> {
-nnoremap <C-l> g$
-nnoremap <C-m> mk
-nnoremap <C-n> g,
-nnoremap <C-p> g;
-nnoremap <C-w> yw
-nnoremap <C-y> yl
-
-inoremap <C-b> <C-h>
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
-
-command! -bar DairyReport | :execute 'tabe ' . s:repdir . '/' . s:today . '.md'
 
 """ Tab settings (reference https://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca)
 command! -bar TabMoveNext :execute "tabmove " tabpagenr() % tabpagenr("$") + (tabpagenr("$") == tabpagenr() ? 0 : 1)
 command! -bar TabMovePrev :execute "tabmove" (tabpagenr() + tabpagenr("$") - 2) % tabpagenr("$") + (tabpagenr() == 1 ? 1 : 0)
-"nnoremap <silent> <Space><Space> :<C-u>tabnew<CR>
-nnoremap <silent> <Space><Space> :<C-u>DairyReport<CR>
+nnoremap <silent> <Space><Space> :<C-u>tabnew<CR>
 nnoremap <Tab> gt
 nnoremap <BS> gT
 nnoremap <silent> <Right> :<C-u>TabMoveNext<CR>
 nnoremap <silent> <Left> :<C-u>TabMovePrev<CR>
 nnoremap <Up> ylkP<Esc>
 nnoremap <Down> yljP<Esc>
-nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
-
-nnoremap q <Nop>
-nnoremap j gj
-nnoremap k gk
-nnoremap H ^
-nnoremap J }
-nnoremap K {
-nnoremap L $
-nnoremap Y y$
-nnoremap Q <Nop>
 
 command! -nargs=1 MyLineSearch let @m=<q-args> | call search('^\s*'. @m)
 command! -nargs=1 MyLineBackSearch let @m=<q-args> | call search('^\s*'. @m, 'b')
 nnoremap mf :MyLineSearch<Space>
 nnoremap mF :MyLineBackSearch<Space>
-"command! MyLineSameSearch call search('^\s*'. @m)
-"command! MyLineBackSameSearch call search('^\s*'. @m, 'b')
-"nnoremap m; :MyLineSameSearch<CR>
-"nnoremap m, :MyLineBackSameSearch<CR>
-
-execute "nnoremap ,v :<C-u>tabedit" . s:vimrc . "<CR>"
 
 inoremap <silent> jj <Esc>
-inoremap <BS> <Nop>
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Right> <Nop>
-inoremap <Left> <Nop>
 
 " general setting
 set ruler
@@ -124,27 +43,6 @@ set showcmd
 set history=1000
 set undolevels=1000
 
-" file setting
-""" There are three files (reference: https://nanasi.jp/articles/howto/file/seemingly-unneeded-file.html)
-" * backup file (/backup)
-"  - save to backup dir as <file name with extension>~
-"  - using '~' file, you can recovery at one generation
-"    (move backup file to current file)
-" * wap file (/swap)
-"  - save to swap dir as <file name without extension>.swp
-"  - holding current edit information and if your vim clashed, you can restart from .swp file.
-" * .viminfo (hidden file)
-"  - it has the information from command input to search history
-"  - if you restart vim, it is read to recovery the status
-execute 'set undodir=' . s:undodir
-execute 'set backupdir=' . s:bkdir
-execute 'set directory=' . s:swdir
-execute 'set viminfo+=n' . s:info
-
-set backup
-set swapfile
-set autoread
-set hidden
 set undofile
 
 " search setting
@@ -184,59 +82,8 @@ command! -nargs=*
     \ AutoCmd
     \ autocmd vimrc <args>
 
-" Define Helper Function
-augroup TransparentBG
-    autocmd!
-    autocmd Colorscheme * highlight Normal ctermbg=none
-    autocmd Colorscheme * highlight NonText ctermbg=none
-    autocmd Colorscheme * highlight LineNr ctermbg=none
-    autocmd Colorscheme * highlight Folded ctermbg=none
-    autocmd Colorscheme * highlight EndOfBuffer ctermbg=none
-    autocmd Colorscheme * highlight Comment ctermfg=119
-augroup END
-
-augroup fileTypeIndent
-    autocmd!
-    autocmd BufNewFile,BufRead *.py setlocal tabstop=4 shiftwidth=4
-augroup END
-
-augroup OpenTemplate
-    autocmd!
-    autocmd BufNewFile *.md if expand("%:t") == s:today . ".md" | execute "0read " . s:tmpdir . '/daily_report.md' | endif
-    autocmd BufNewFile README.md execute "0read " . s:tmpdir . '/readme.md'
-augroup END
-
-"augroup TmuxRename
-"    autocmd!
-"    if exists('$TMUX')
-"        let b:orgname = system("tmux display-message -p '#W'")
-"        autocmd BufEnter * call system("tmux rename-window " . expand("%:t"))
-"        autocmd VimLeave * call system("tmux rename-window " . b:orgname)
-"    endif
-"augroup END
-
-" Define autocmd
-""" Delete Extra Space in Each Line
-" autocmd: hook event and process
-"    hook timing: BufWritePre (See :help autocmd-events-abc)
-"    hook object: * (all)
-"    process: :%s/\s\+$//ge
 command! RmExSpace %s/\s\+$//ge
 AutoCmd BufWritePre * :RmExSpace
-
-""" Expand to tab in multiple files input
-" also you can open multiple files by command 'vim -p <file1> <file2> ...'
-if len(argv()) > 1
-    command! OpenFileTab call s:openTabs(argv()[1:])
-    AutoCmd BufRead * :OpenFileTab
-    AutoCmd BufReadPost * :tabn
-endif
-
-""" Go back to last cursor in last editing
-AutoCmd BufReadPost *
-\ if line("'\"") > 0 && line ("'\"") <= line("$") |
-\   exe "normal! g'\"" |
-\ endif
 
 " vim color scheme: hybrid (https://github.com/w0ng/vim-hybrid/colors/hybrid.vim)
 let s:color_scheme = s:colors . '/hybrid.vim'
