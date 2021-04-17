@@ -13,9 +13,12 @@ endfunction
 let s:vimdir = expand($HOME . '/.vim')
 let s:vimrc = s:vimdir . '/vimrc'
 let s:colors = s:vimdir . '/colors'
+let s:undodir = s:vimdir . '/undo'
 
 " make color scheme dir
 call s:mkdir(s:colors)
+" make undo dir
+call s:mkdir(s:undodir)
 
 """ Tab settings (reference https://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca)
 command! -bar TabMoveNext :execute "tabmove " tabpagenr() % tabpagenr("$") + (tabpagenr("$") == tabpagenr() ? 0 : 1)
