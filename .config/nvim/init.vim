@@ -37,3 +37,12 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
+"
+" Env settings
+"
+hi FloatermNF guibg=black
+hi FloatermBorderNF guibg=black guifg=white
+let g:floaterm_position = 'center'
+let g:floaterm_width = 0.9
+let g:floaterm_height = 0.8
+
