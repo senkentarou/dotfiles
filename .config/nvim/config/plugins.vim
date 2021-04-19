@@ -8,6 +8,9 @@
 " See details: https://github.com/junegunn/vim-plug
 call plug#begin(stdpath('data') . '/plugged')
 
+" Statusline
+Plug 'itchyny/lightline.vim'
+
 " Color Scheme
 Plug 'w0ng/vim-hybrid'
 

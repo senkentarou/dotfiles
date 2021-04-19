@@ -16,6 +16,9 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
 set undofile
 set cmdheight=2
 set ignorecase
+set hidden
+set autoread
+set noshowmode
 " Colorscheme
 set termguicolors
 colorscheme hybrid
@@ -40,6 +43,17 @@ set tabstop=2
 "
 " Env settings
 "
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gina#component#repo#branch'
+      \ },
+      \ }
+
 hi FloatermNF guibg=black
 hi FloatermBorderNF guibg=black guifg=white
 let g:floaterm_position = 'center'
