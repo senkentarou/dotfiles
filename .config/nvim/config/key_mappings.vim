@@ -8,10 +8,10 @@ let mapleader="\<Space>"
 nnoremap <Leader>o :<C-u>Gbrowse @upstream<CR>
 nnoremap <Leader>O :<C-u>Gbrowse @origin<CR>
 nnoremap <Leader>g :<C-u>GGrepCurrentWordQuery<CR>
+nnoremap <Leader>w :<C-u>w<CR>
 " Show buffers
 nnoremap <silent> ; :<C-u>Buffers<CR>
 " Close buffer
-nnoremap <silent> <C-a> :<C-u>w<CR>
 nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
 " Find files from current dir recursively
 nnoremap <silent> <C-f><C-f> :<C-u>FZFFileList<CR>
