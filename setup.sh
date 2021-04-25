@@ -49,6 +49,19 @@ link_my_dotfiles() {
     return 0
 }
 
+set_git_config() {
+    if ! is_exist_command 'git'; then
+        echo_error "git command is not found."
+        return 1
+    fi
+
+    git config --global core.editor 'vim -c "set fenc=utf-8"'
+    git config --global user.name 'senkentarou'
+    git config --global user.email 'masahiro-senda@c-fo.com'
+    git config --global merge.ff false
+    git config --global pull.ff only
+}
+
 #
 # Main procedure
 #
@@ -58,6 +71,7 @@ fi
 
 downlad_my_dotfiles
 link_my_dotfiles
+set_git_config
 
 #
 # Finish procedure
