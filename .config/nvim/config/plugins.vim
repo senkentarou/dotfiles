@@ -28,6 +28,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['javascript', 'javascrip
 Plug 'nvim-lua/completion-nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'mattn/vim-lsp-settings'
+"Plug 'cohama/lexima.vim'
+"Plug 'hrsh7th/nvim-compe'
+
 " Auto complete for bracket pairs
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
@@ -56,6 +59,11 @@ Plug 'voldikss/vim-floaterm'
 Plug 'tyru/open-browser.vim'
 " Accelerate up/down
 Plug 'rhysd/accelerated-jk'
+
+" Snipet
+"Plug 'rafamadriz/friendly-snippets'
+"Plug 'hrsh7th/vim-vsnip'
+"Plug 'hrsh7th/vim-vsnip-integ'
 
 call plug#end()
 

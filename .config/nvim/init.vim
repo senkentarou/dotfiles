@@ -54,6 +54,9 @@ let g:lightline = {
       \ },
       \ }
 
+let g:gitgutter_highlight_lines = 0
+hi GitGutterDelete guifg=red
+
 hi FloatermNF guibg=black
 hi FloatermBorderNF guibg=black guifg=white
 let g:floaterm_position = 'center'

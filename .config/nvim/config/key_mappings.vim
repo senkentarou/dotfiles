@@ -7,33 +7,37 @@ let mapleader="\<Space>"
 " Show file on github
 nnoremap <Leader>o :<C-u>Gbrowse @upstream<CR>
 nnoremap <Leader>O :<C-u>Gbrowse @origin<CR>
-nnoremap <Leader>b :<C-u>Gblame<CR>
 nnoremap <Leader>g :<C-u>GGrepCurrentWordQuery<CR>
 " Show buffers
 nnoremap <silent> ; :<C-u>Buffers<CR>
 " Close buffer
+nnoremap <silent> <C-a> :<C-u>w<CR>
 nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
 " Find files from current dir recursively
 nnoremap <silent> <C-f><C-f> :<C-u>FZFFileList<CR>
-" Find git files
-nnoremap <silent> <C-f><C-g> :<C-u>GFiles<CR>
 " Open Finder
-nnoremap <silent> <C-t><C-t> :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
+nmap <silent> <C-w><C-w> :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
 
-" Find and open history file
+nmap <C-g> <Nop>
 nnoremap <silent> <C-g><C-r> :<C-u>History<CR>
-" Jump next/prev on git change
-nnoremap <silent> <C-g><C-n> <Plug>(GitGutterNextHunk)
-nnoremap <silent> <C-g><C-p> <Plug>(GitGutterPrevHunk)
-nnoremap <silent> <C-g><C-b> :<C-u>OpenCurrentBlameFile<CR>
+nnoremap <silent> <C-g><C-g> :<C-u>ToggleGStatus<CR>
+nnoremap <silent> <C-g><C-f> :<C-u>RG<CR>
+nnoremap <silent> <C-g>b :<C-u>Gblame<CR>
+nnoremap <silent> <C-g>[ :<C-u>GitGutterNextHunk<CR>
+nnoremap <silent> <C-g>] :<C-u>GitGutterPrevHunk<CR>
+nnoremap <silent> <C-g>d :<C-u>Gvdiffsplit<CR>
 
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
-nmap K :LspPeekDefinition<CR>
+
+" nmap gf open file under cursor
+nmap gp :bprevious<CR>
+nmap gn :bnext<CR>
 nmap gd :LspDefinition<CR>
 nmap gl :LspReferences<CR>
 nmap gr :LspRename<CR>
 nmap gt :LspTypeDefinition<CR>
+nmap K :LspPeekDefinition<CR>
 
 """ vmaps
 " Show line on github
@@ -47,3 +51,6 @@ inoremap <silent> jj <ESC>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" floating window
+nnoremap <silent> <C-a><C-a> :<C-u>FloatermToggle<CR>
+tnoremap <silent> <C-a><C-a> <C-\><C-n>:<C-u>FloatermToggle<CR>
