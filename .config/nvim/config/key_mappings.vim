@@ -21,7 +21,8 @@ nmap <silent> <C-w><C-w> :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filenam
 nmap <C-g> <Nop>
 nnoremap <silent> <C-g><C-r> :<C-u>History<CR>
 nnoremap <silent> <C-g><C-g> :<C-u>ToggleGStatus<CR>
-nnoremap <silent> <C-g><C-f> :<C-u>RG<CR>
+nnoremap <silent> <C-g><C-f> :<C-u>FZFFileList<CR>
+nnoremap <silent> <C-g><C-w> :<C-u>RG<CR>
 nnoremap <silent> <C-g>b :<C-u>Gblame<CR>
 nnoremap <silent> <C-g>[ :<C-u>GitGutterNextHunk<CR>
 nnoremap <silent> <C-g>] :<C-u>GitGutterPrevHunk<CR>
