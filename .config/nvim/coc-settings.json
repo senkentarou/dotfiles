@@ -1,10 +1,5 @@
 {
-  "suggest.echodocSupport": true,
-  "suggest.maxCompleteItemCount": 20,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "ruby",
-    "html"
-  ],
+  "suggest.autoTrigger": "none",
 
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": [
