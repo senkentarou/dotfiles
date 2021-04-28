@@ -29,11 +29,11 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'mattn/vim-lsp-settings'
 "Plug 'cohama/lexima.vim'
-"Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/nvim-compe'
 
 " Auto complete for bracket pairs
 Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-endwise'
+"Plug 'tpope/vim-endwise'
 
 " Finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -61,9 +61,12 @@ Plug 'tyru/open-browser.vim'
 Plug 'rhysd/accelerated-jk'
 
 " Snipet
-"Plug 'rafamadriz/friendly-snippets'
-"Plug 'hrsh7th/vim-vsnip'
-"Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'rafamadriz/friendly-snippets'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+
+Plug 'kana/vim-operator-user'
+Plug 'kana/vim-operator-replace'
 
 call plug#end()
 
