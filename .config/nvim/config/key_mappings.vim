@@ -45,6 +45,8 @@ nmap K :LspPeekDefinition<CR>
 vnoremap <Leader>o :Gbrowse @upstream<CR>
 vnoremap <Leader>O :Gbrowse @origin<CR>
 
+vmap p <Plug>(operator-replace)
+
 """ imaps
 " Apply ESC
 inoremap <silent> jj <ESC>
