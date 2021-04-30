@@ -63,6 +63,17 @@ let g:floaterm_position = 'center'
 let g:floaterm_width = 0.9
 let g:floaterm_height = 0.8
 
+" nvim-lspconfig
+lua << EOF
+require'lspconfig'.tsserver.setup{
+  -- filetypes = {'typescript', 'typescript.tsx', 'typescriptreact'}
+}
+require'lspconfig'.solargraph.setup{}
+require'lspconfig'.flow.setup{}
+require'lspconfig'.yamlls.setup{}
+require'lspconfig'.pyright.setup{}
+EOF
+
 " vsnip
 " Expand
 imap <expr> <C-f> vsnip#expandable() ? '<Plug>(vsnip-expand)'         : '<C-j>'
@@ -105,3 +116,6 @@ EOF
 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+
+" rubocop a
+autocmd BufWrite *.rb :call CocActionAsync('format')

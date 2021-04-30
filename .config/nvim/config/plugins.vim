@@ -22,7 +22,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 " Language server
 Plug 'prabirshrestha/vim-lsp'
 " LSP client for js/ts
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact']}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby']}
 
 " Auto complete
 Plug 'nvim-lua/completion-nvim'

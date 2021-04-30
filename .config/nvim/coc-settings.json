@@ -1,6 +1,4 @@
 {
-  "suggest.autoTrigger": "none",
-
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": [
     "javascript",
@@ -9,11 +7,16 @@
     "typescriptreact"
   ],
 
+  "suggest.autoTrigger": "none",
+
   "diagnostic.infoSign": "",
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
 
+  "solargraph.useBundler": true,
+  "solargraph.bundlerPath": "~/.anyenv/envs/rbenv/shims/bundle",
   "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
   "solargraph.completion": true,
   "solargraph.symbols": true,
   "solargraph.definitions": true,

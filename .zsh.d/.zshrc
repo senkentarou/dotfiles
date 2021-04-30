@@ -1,3 +1,5 @@
+eval "$(anyenv init -)"
+
 # fzf
 # function refs: [
 #   https://github.com/mitubaEX/dotfiles/blob/d5bb5653597244c01c58b087f39e2baac93699ff/.zsh.d/utils/fzf-functions.zsh
@@ -243,3 +245,5 @@ alias vimconf="vim ${HOME}/.config/nvim/init.vim"
 
 alias less='less -qR'
 alias ls='ls -al'
+
+alias gs='git status'
