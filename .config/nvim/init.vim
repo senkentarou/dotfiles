@@ -47,6 +47,7 @@ cnoremap q w
 cnoremap <C-q> q
 " close without saving
 nmap <C-z> :<C-u><C-q>!<CR>
+nmap Q :<C-u><C-q><CR>
 
 "
 " Env settings
