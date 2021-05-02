@@ -3,7 +3,6 @@
 "
 let mapleader="\<Space>"
 
-""" nmaps
 " Show file on github
 nnoremap <Leader>o :<C-u>Gbrowse @upstream<CR>
 nnoremap <Leader>O :<C-u>Gbrowse @origin<CR>
@@ -15,7 +14,7 @@ nnoremap <silent> ; :<C-u>Buffers<CR>
 nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
 " Find files from current dir recursively
 nnoremap <silent> <C-f><C-f> :<C-u>FZFFileList<CR>
-" Open Finder
+" Open defx Finder
 nmap <silent> <C-w><C-w> :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
 
 nmap <C-g> <Nop>
@@ -32,6 +31,7 @@ nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 
 " nmap gf open file under cursor
+nmap g, :lua vim.lsp.buf.code_action()<CR>
 nmap gp :bprevious<CR>
 nmap gn :bnext<CR>
 nmap gd :LspDefinition<CR>
@@ -40,14 +40,12 @@ nmap gr :LspRename<CR>
 nmap gt :LspTypeDefinition<CR>
 nmap K :LspPeekDefinition<CR>
 
-""" vmaps
 " Show line on github
 vnoremap <Leader>o :Gbrowse @upstream<CR>
 vnoremap <Leader>O :Gbrowse @origin<CR>
 
 vmap p <Plug>(operator-replace)
 
-""" imaps
 " Apply ESC
 inoremap <silent> jj <ESC>
 " Use <Tab> / <S-Tab> to navigate through popup menu
@@ -57,3 +55,15 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " floating window
 nnoremap <silent> <C-a><C-a> :<C-u>FloatermToggle<CR>
 tnoremap <silent> <C-a><C-a> <C-\><C-n>:<C-u>FloatermToggle<CR>
+
+" vsnip
+" Expand
+imap <expr> <C-f> vsnip#expandable() ? '<Plug>(vsnip-expand)'         : '<C-j>'
+smap <expr> <C-f> vsnip#expandable() ? '<Plug>(vsnip-expand)'
+" Jump forward or backward
+imap <expr> <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
+smap <expr> <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
+
+" compe
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+

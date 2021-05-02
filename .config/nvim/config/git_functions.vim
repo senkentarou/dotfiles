@@ -9,8 +9,11 @@ function! ToggleGStatus()
     if buflisted(bufname('.git/index'))
         bd .git/index
     else
-        Gstatus
+        Git
     endif
 endfunction
 command!  -nargs=* ToggleGStatus call ToggleGStatus()
 
+" gitgutter
+let g:gitgutter_highlight_lines = 0
+hi GitGutterDelete guifg=red
