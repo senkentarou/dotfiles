@@ -1,6 +1,7 @@
 "
 " Key mappings
 "
+" * If you cannot apply your key mappings, you can see like ':verbose imap <C-h>' and can trace whole settings about it
 let mapleader="\<Space>"
 
 " Show file on github
@@ -38,6 +39,13 @@ nnoremap <silent> <C-g>d :<C-u>Gvdiffsplit<CR>
 
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
+imap <C-j> <Down>
+imap <C-k> <Up>
+imap <C-l> <Right>
+imap <C-h> <Left>
+
+noremap H ^
+noremap L $
 
 " nmap gf open file under cursor
 nmap g, :lua vim.lsp.buf.code_action()<CR>
@@ -67,7 +75,7 @@ tnoremap <silent> <C-a><C-a> <C-\><C-n>:<C-u>FloatermToggle<CR>
 
 " vsnip
 " Expand
-imap <expr> <C-f> vsnip#expandable() ? '<Plug>(vsnip-expand)'         : '<C-j>'
+imap <expr> <C-f> vsnip#expandable() ? '<Plug>(vsnip-expand)'         : '<C-m>'
 smap <expr> <C-f> vsnip#expandable() ? '<Plug>(vsnip-expand)'
 " Jump forward or backward
 imap <expr> <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
