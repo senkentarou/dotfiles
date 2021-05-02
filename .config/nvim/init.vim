@@ -45,6 +45,8 @@ set tabstop=2
 " do not want use :q command (cannot input original q in command mode...)
 cnoremap q w
 cnoremap <C-q> q
+" close without saving
+nmap <C-z> :<C-u><C-q>!<CR>
 
 "
 " Env settings
