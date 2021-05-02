@@ -8,6 +8,9 @@ nnoremap <Leader>o :<C-u>Gbrowse @upstream<CR>
 nnoremap <Leader>O :<C-u>Gbrowse @origin<CR>
 nnoremap <Leader>g :<C-u>GGrepCurrentWordQuery<CR>
 nnoremap <Leader>w :<C-u>w<CR>
+nnoremap <Leader>q :<C-u>BufferClose<CR>
+nmap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
+
 " Show buffers
 nnoremap <silent> ; :<C-u>Buffers<CR>
 " Close buffer
