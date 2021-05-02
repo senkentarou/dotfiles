@@ -15,16 +15,22 @@ nmap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
 nnoremap <silent> ; :<C-u>Buffers<CR>
 " Close buffer
 nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
-" Find files from current dir recursively
+
+" Find files
+" by word
+nnoremap <silent> <C-f><C-d> :<C-u>RG<CR>
+" by file name
 nnoremap <silent> <C-f><C-f> :<C-u>FZFFileList<CR>
+" by git file name
+nnoremap <silent> <C-f><C-g> :<C-u>GFiles<CR>
+" by open history
+nnoremap <silent> <C-f><C-r> :<C-u>History<CR>
+
 " Open defx Finder
 nmap <silent> <C-w><C-w> :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
 
 nmap <C-g> <Nop>
-nnoremap <silent> <C-g><C-r> :<C-u>History<CR>
 nnoremap <silent> <C-g><C-g> :<C-u>ToggleGStatus<CR>
-nnoremap <silent> <C-g><C-f> :<C-u>FZFFileList<CR>
-nnoremap <silent> <C-g><C-w> :<C-u>RG<CR>
 nnoremap <silent> <C-g>b :<C-u>Gblame<CR>
 nnoremap <silent> <C-g>[ :<C-u>GitGutterNextHunk<CR>
 nnoremap <silent> <C-g>] :<C-u>GitGutterPrevHunk<CR>
