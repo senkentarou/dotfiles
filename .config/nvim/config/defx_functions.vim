@@ -1,4 +1,7 @@
 " defx
+" you need to use nerd-fonts on iterm for expressing folder icon correctly
+" see https://github.com/ryanoasis/nerd-fonts#option-6-ad-hoc-curl-download
+" and configure it
 call defx#custom#option('_', {
   \ 'winwidth': 40,
   \ 'split': 'vertical',
