@@ -243,6 +243,7 @@ alias k='kubectl'
 alias reload="source ${HOME}/.zsh.d/.zshrc"
 alias zshconf="vim ${HOME}/.zsh.d/.zshrc"
 alias vimconf="vim ${HOME}/.config/nvim/init.vim"
+alias keyconf="vim ${HOME}/.config/nvim/config/key_mappings.vim"
 
 alias less='less -qR'
 alias ls='ls -al'
