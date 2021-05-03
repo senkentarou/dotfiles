@@ -42,7 +42,10 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
+"
 " WARNING here is my reforming things
+"
+
 " do not want use :q command (cannot input original q in command mode...)
 cnoremap q w
 cnoremap <C-q> q
