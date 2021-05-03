@@ -64,6 +64,7 @@ setopt inc_append_history
 setopt share_history
 
 # zsh
+export HISTFILE="$HOME/.z_history"
 export HISTSIZE=100000
 export SAVEHIST=100000
 
