@@ -12,6 +12,9 @@ nnoremap <Leader>w :<C-u>w<CR>
 nnoremap <Leader>q :<C-u>BufferClose<CR>
 nmap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
 
+nmap <Leader>c <Plug>(caw:i:toggle)
+vmap <Leader>c <Plug>(caw:i:toggle)
+
 " Show buffers
 nnoremap <silent> ; :<C-u>Buffers<CR>
 " Close buffer
@@ -75,8 +78,8 @@ tnoremap <silent> <C-a><C-a> <C-\><C-n>:<C-u>FloatermToggle<CR>
 
 " vsnip
 " Expand
-imap <expr> <C-f> vsnip#expandable() ? '<Plug>(vsnip-expand)'         : '<C-m>'
-smap <expr> <C-f> vsnip#expandable() ? '<Plug>(vsnip-expand)'
+imap <expr> <C-f> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-m>'
+smap <expr> <C-f> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-m>'
 " Jump forward or backward
 imap <expr> <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
 smap <expr> <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
