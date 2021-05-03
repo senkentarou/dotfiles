@@ -2,7 +2,7 @@
 " Load settings
 "
 source $HOME/.config/nvim/config/plugins.vim
-source $HOME/.config/nvim/config/common_functions.vim
+source $HOME/.config/nvim/config/general_functions.vim
 source $HOME/.config/nvim/config/git_functions.vim
 source $HOME/.config/nvim/config/fzf_functions.vim
 source $HOME/.config/nvim/config/defx_functions.vim
