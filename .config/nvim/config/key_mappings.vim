@@ -89,5 +89,5 @@ imap <expr> <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
 smap <expr> <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
 
 " compe
-inoremap <silent> <CR> compe#confirm('<CR>')
-
+inoremap <silent> <expr> <C-Space> compe#complete()
+inoremap <silent> <expr> <CR> compe#confirm('<CR>')
