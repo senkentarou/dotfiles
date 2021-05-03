@@ -73,8 +73,8 @@ vmap p <Plug>(operator-replace)
 " Apply ESC
 inoremap <silent> jj <ESC>
 " Use <Tab> / <S-Tab> to navigate through popup menu
-inoremap <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " floating window
 nnoremap <silent> <C-a><C-a> :<C-u>FloatermToggle<CR>
@@ -82,11 +82,11 @@ tnoremap <silent> <C-a><C-a> <C-\><C-n>:<C-u>FloatermToggle<CR>
 
 " vsnip
 " Expand
-imap <C-f> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-m>'
-smap <C-f> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-m>'
+imap <expr> <C-f> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-m>'
+smap <expr> <C-f> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-m>'
 " Jump forward or backward
-imap <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
-smap <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
+imap <expr> <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
+smap <expr> <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
 
 " compe
 inoremap <silent> <CR> compe#confirm('<CR>')
