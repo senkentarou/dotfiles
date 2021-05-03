@@ -5,8 +5,8 @@
 let mapleader="\<Space>"
 
 " Show file on github
-nnoremap <Leader>o :<C-u>Gbrowse @upstream<CR>
-nnoremap <Leader>O :<C-u>Gbrowse @origin<CR>
+nnoremap <Leader>o :<C-u>GBrowse @upstream<CR>
+nnoremap <Leader>O :<C-u>GBrowse @origin<CR>
 nnoremap <Leader>, :<C-u>GGrepCurrentWordQuery<CR>
 nnoremap <Leader>w :<C-u>w<CR>
 nnoremap <Leader>q :<C-u>BufferClose<CR>
@@ -35,7 +35,7 @@ nmap <silent> <C-w><C-w> :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filenam
 
 nmap <C-g> <Nop>
 nnoremap <silent> <C-g><C-g> :<C-u>ToggleGStatus<CR>
-nnoremap <silent> <C-g>b :<C-u>Gblame<CR>
+nnoremap <silent> <C-g>b :<C-u>Git blame<CR>
 nnoremap <silent> <C-g>[ :<C-u>GitGutterNextHunk<CR>
 nnoremap <silent> <C-g>] :<C-u>GitGutterPrevHunk<CR>
 nnoremap <silent> <C-g>d :<C-u>Gvdiffsplit<CR>
