@@ -68,5 +68,8 @@ Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
 
+" Comment out
+Plug 'tyru/caw.vim'
+
 call plug#end()
 
