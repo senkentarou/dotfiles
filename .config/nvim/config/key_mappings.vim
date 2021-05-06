@@ -77,8 +77,8 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " floating window
-nnoremap <silent> <C-a><C-a> :<C-u>FloatermToggle<CR>
-tnoremap <silent> <C-a><C-a> <C-\><C-n>:<C-u>FloatermToggle<CR>
+nnoremap <silent> <C-s><C-s> :<C-u>FloatermToggle<CR>
+tnoremap <silent> <C-s><C-s> <C-\><C-n>:<C-u>FloatermToggle<CR>
 
 " vsnip
 " Expand
