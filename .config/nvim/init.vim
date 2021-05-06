@@ -52,8 +52,5 @@ cnoremap <C-q> q
 " close without saving
 nmap <C-z> :<C-u><C-q>!<CR>
 nmap Q :<C-u><C-q><CR>
-" add auto completion of def end in ruby file
-" see https://github.com/jiangmiao/auto-pairs
-autocmd FileType ruby let b:AutoPairs = AutoPairsDefine({'\v(^|\W)\zsdef': 'end//n'})
 " rubocop a
 autocmd BufWrite *.rb :call CocActionAsync('format')
