@@ -226,14 +226,20 @@ export EDITOR=vim
 [[ -f $HOME/nvim-osx64/bin/nvim ]] && alias nvim=$HOME/nvim-osx64/bin/nvim
 alias vim=nvim
 
-# git
+# git checkout pull request by #PR number
 function gcopr() {
   git fetch upstream pull/$1/head:pr/$1
   git checkout pr/$1
 }
 
+# git pull pull request on current #PR number branch
 function gplpr() {
   git pull upstream pull/$(git branch | grep \* | cut -d ' ' -f2 | sed -e 's/pr\///')/head
+}
+
+# git open all file on vim
+function goaf() {
+  vim $(git status --porcelain | grep -wv D | awk '{print $2}')
 }
 
 # alias
