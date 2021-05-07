@@ -34,4 +34,3 @@ require'compe'.setup {
   };
 }
 EOF
-
