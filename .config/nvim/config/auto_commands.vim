@@ -2,8 +2,10 @@
 " Auto commands
 "
 
-" Delete extra space on closing file
+" Delete extra space on saving file
 autocmd! BufWritePre * :%s/\s\+$//ge
+" Delete control character on saving file
+autocmd! BufWritePre * :%s/[\x00-\x1F\x7F]//ge
 " Defx settings
 autocmd! FileType defx :DefxMySettings
 " Disable auto complete on comment next line
@@ -20,9 +22,3 @@ augroup LuaSettings
   autocmd!
   autocmd BufEnter * lua require'completion'.on_attach()
 augroup END
-
-lua << EOF
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.solargraph.setup{}
-EOF
-
