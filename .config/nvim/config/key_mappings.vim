@@ -66,6 +66,8 @@ nnoremap <silent> <C-s><C-s> :<C-u>FloatermToggle<CR>
 tnoremap <silent> <C-s><C-s> <C-\><C-n>:<C-u>FloatermToggle<CR>
 
 " Useful settings
+" git push origin
+nnoremap <silent> + :<C-u>exec "Git push origin " . fugitive#head()<CR>
 " Apply ESC
 inoremap <silent> jj <ESC>
 " Show buffers
