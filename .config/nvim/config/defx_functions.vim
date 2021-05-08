@@ -3,7 +3,7 @@
 " see https://github.com/ryanoasis/nerd-fonts#option-6-ad-hoc-curl-download
 " and configure it
 call defx#custom#option('_', {
-  \ 'winwidth': 40,
+  \ 'winwidth': 30,
   \ 'split': 'vertical',
   \ 'direction': 'topleft',
   \ 'show_ignored_files': 1,
