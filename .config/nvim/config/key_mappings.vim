@@ -27,9 +27,9 @@ nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
 " <C-f> Find files
 nmap <C-f> <Nop>
 " by word
-nnoremap <silent> <C-f><C-d> :<C-u>RG<CR>
+nnoremap <silent> <C-f><C-d> :<C-u>SearchWords<CR>
 " by file name
-nnoremap <silent> <C-f><C-f> :<C-u>FZFFileList<CR>
+nnoremap <silent> <C-f><C-f> :<C-u>SearchFiles<CR>
 " by git file name
 nnoremap <silent> <C-f><C-g> :<C-u>GFiles<CR>
 " by open history
@@ -43,7 +43,6 @@ nnoremap <silent> <C-g><C-d> :<C-u>Gvdiffsplit<CR>
 nnoremap <silent> <C-g><C-l> :<C-u>Gina log<CR>
 
 " <C-w>
-nmap <C-w> <Nop>
 " defx Finder
 nmap <silent> <C-w><C-w> :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
 
@@ -71,6 +70,8 @@ tnoremap <silent> <C-s><C-s> <C-\><C-n>:<C-u>FloatermToggle<CR>
 inoremap <silent> jj <ESC>
 " Show buffers
 nnoremap <silent> ; :<C-u>Buffers<CR>
+" Delete buffers
+nnoremap <silent> - :<C-u>DeleteBuffers<CR>
 " Close buffer
 nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
 " Replace word

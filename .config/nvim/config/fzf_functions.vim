@@ -1,17 +1,12 @@
-" 現在のウィンドウの半透明度を指定する。
+" Window alphas
 set winblend=20
-"
-" ポップアップメニューの半透明度を指定する
 set pumblend=30
 
-" ref: https://kassioborges.dev/2019/04/10/neovim-fzf-with-a-floating-window.html
 " Reverse the layout to make the FZF list top-down
 let $FZF_DEFAULT_OPTS="--layout=reverse"
 " Using the custom window creation function
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-" disable preview window
 let g:fzf_preview_window = ''
-
 let g:fzf_buffers_jump = 1
 
 " Function to create the custom floating window
@@ -27,23 +22,43 @@ function! FloatingFZF()
   let bot = "╰" . repeat("─", width - 2) . "╯"
   let lines = [top] + repeat([mid], height - 2) + [bot]
   let s:buf = nvim_create_buf(v:false, v:true)
+
   call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
   call nvim_open_win(s:buf, v:true, opts)
+
   set winhl=Normal:Floating
+
   let opts.row += 1
   let opts.height -= 2
   let opts.col += 2
   let opts.width -= 4
+
   call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+
   autocmd! BufWipeout <buffer> exe 'bw '.s:buf
 endfunction
-command! FZFFileList call fzf#run({'source': 'rg --files --hidden --glob "!.git/*"', 'window': 'call FloatingFZF()', 'sink': 'e'})
 
-function! FZGrep(query, fullscreen)
+command! SearchFiles call fzf#run(fzf#wrap({'source': 'rg --files --hidden --glob "!.git/*"', 'sink': 'e', 'options': ['--prompt', 'SearchFiles> ']}))
+
+function! FZFGrep(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command, '--prompt', 'SearchWords> ']}
+
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
-command! -nargs=* -bang RG call FZGrep(<q-args>, <bang>0)
+
+command! -nargs=* -bang SearchWords call FZFGrep(<q-args>, <bang>0)
+
+function! s:delete_buffer(lines)
+  let line_num_bracket = map(a:line, {_, l -> matchstr(split(l)[2], '\[\zs[0-9]*\ze\]')})
+  execute 'bd' join(line_num_bracket)
+endfunction
+
+command! DeleteBuffers call fzf#run(fzf#wrap({
+  \ 'source': map(fzf#vim#_buflisted_sorted(), 'fzf#vim#_format_buffer(v:val)'),
+  \ 'sink*': { lines -> s:delete_buffers(lines) },
+  \ 'options': ['-m', '-x', '--tiebreak=index', '--ansi', '-d', '\t', '--with-nth', '3..', '-n', '2,1..2', '--prompt', 'DeleteBuffers> ', '--reverse', '--bind', 'ctrl-a:select-all+accept']
+  \ }))
+
