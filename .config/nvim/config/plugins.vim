@@ -53,7 +53,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'lambdalisue/gina.vim'
 Plug 'airblade/vim-gitgutter'
 
-" Open floating window
+" Open floating terminal window
 Plug 'voldikss/vim-floaterm'
 " Open browser window
 Plug 'tyru/open-browser.vim'
@@ -70,6 +70,8 @@ Plug 'kana/vim-operator-replace'
 
 " Comment out
 Plug 'tyru/caw.vim'
+" Line comparison
+Plug 'AndrewRadev/linediff.vim'
 
 call plug#end()
 
