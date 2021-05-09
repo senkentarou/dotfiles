@@ -6,11 +6,10 @@
 # for .dotfiles
 #
 .DS_Store
-.python-version
 .env/*
 .vim/*
+.zsh.d/*
 .gitconfig
-.report/*
 
 #
 # for c++ requirements
@@ -25,6 +24,7 @@
 #
 # for python requirements
 #
+.python-version
 __pycache__/*
 *.pyc
 
@@ -51,9 +51,7 @@ res/*
 
 # for ignore case
 !.vim/vimrc
-!.vim/tools
-!.zsh.d/.zshrc
-!.zsh.d/.zshenv
+!.vim/tools/*
 
 # for empty dir
 !.gitkeep
