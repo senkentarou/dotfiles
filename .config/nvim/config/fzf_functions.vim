@@ -51,8 +51,8 @@ endfunction
 
 command! -nargs=* -bang SearchWords call FZFGrep(<q-args>, <bang>0)
 
-function! s:delete_buffer(lines)
-  let line_num_bracket = map(a:line, {_, l -> matchstr(split(l)[2], '\[\zs[0-9]*\ze\]')})
+function! s:delete_buffers(lines)
+  let line_num_bracket = map(a:lines, {_, line -> matchstr(split(line)[2], '\[\zs[0-9]*\ze\]')})
   execute 'bd' join(line_num_bracket)
 endfunction
 
