@@ -37,7 +37,7 @@ nnoremap <silent> <C-f><C-r> :<C-u>History<CR>
 " <C-g> Git
 nmap <C-g> <Nop>
 nnoremap <silent> <C-g><C-g> :<C-u>ToggleGStatus<CR>
-nnoremap <silent> <C-g><C-b> :<C-u>Git blame<CR>
+nnoremap <silent> <C-g><C-b> :<C-u>Git blame --date=relative<CR>
 vnoremap <silent> <C-g><C-b> :Git blame<CR>
 nnoremap <silent> <C-g><C-d> :<C-u>Gvdiffsplit<CR>
 nnoremap <silent> <C-g><C-l> :<C-u>Gina log<CR>
