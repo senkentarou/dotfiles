@@ -90,6 +90,7 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " diff line
 vnoremap <silent> <C-y> :Linediff<CR>
+nnoremap <C-y> :<C-u>LinediffReset<CR>
 
 " Cursor moving
 nnoremap H ^
