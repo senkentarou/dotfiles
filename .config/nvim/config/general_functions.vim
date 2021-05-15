@@ -4,6 +4,7 @@ command! NotQuit :bp | :sp | :bn | :bd
 function! s:BufferClose() abort
   if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
     NotQuit
+    echo 'Please do :q'
     " I do NOT want to quit vim.
     " execute "q"
   else
