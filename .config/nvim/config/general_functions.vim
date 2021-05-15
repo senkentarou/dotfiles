@@ -1,7 +1,11 @@
+command! NotQuit :bp | :sp | :bn | :bd
+
 " bd or q command
 function! s:BufferClose() abort
   if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-    execute "q"
+    NotQuit
+    " I do NOT want to quit vim.
+    " execute "q"
   else
     execute "bd"
   endif
