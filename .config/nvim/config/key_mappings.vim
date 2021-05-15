@@ -103,6 +103,11 @@ imap <C-k> <Up>
 imap <C-l> <Right>
 imap <C-h> <Left>
 
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
+
 " vsnip
 " Expand
 imap <expr> <C-e> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-m>'
