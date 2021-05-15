@@ -13,11 +13,10 @@ vnoremap <silent> <Leader>o :GBrowse @upstream<CR>
 vnoremap <silent> <Leader>O :GBrowse @origin<CR>
 " grep word
 nnoremap <silent> <Leader>, :<C-u>GGrepCurrentWordQuery<CR>
-nnoremap <silent> <Leader>n :<C-u>Gina grep<CR>
+nnoremap <silent> <Leader>m :<C-u>Gina grep<CR>
 " buffers
 nnoremap <Leader>w :<C-u>w<CR>
 nnoremap <Leader>q :<C-u>BufferClose<CR>
-nnoremap <silent> <Leader>m :<C-u>b #<CR>
 " comments
 nmap <Leader>c <Plug>(caw:hatpos:toggle)
 vmap <Leader>c <Plug>(caw:hatpos:toggle)
@@ -82,6 +81,8 @@ nnoremap <silent> ; :<C-u>Buffers<CR>
 nnoremap <silent> - :<C-u>DeleteBuffers<CR>
 " Close buffer
 nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
+nmap <C-z> :<C-u><C-q>all!<CR>
+nmap QQ :<C-u><C-q>!<CR>
 " Replace word
 vmap p <Plug>(operator-replace)
 " Use <Tab> / <S-Tab> to navigate through popup menu
