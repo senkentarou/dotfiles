@@ -13,8 +13,11 @@
   "diagnostic.warningSign": "",
   "diagnostic.errorSign": "",
 
-  "solargraph.useBundler": true,
-  "solargraph.bundlerPath": "~/.anyenv/envs/rbenv/shims/bundle",
+  "solargraph.externalServer": {
+    "host": "localhost",
+    "port": 7658
+  },
+  "solargraph.transport": "external",
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,
   "solargraph.completion": true,
@@ -24,7 +27,6 @@
   "solargraph.references": true,
 
   "tsserver.enableJavascript": true,
-  "typescript.referencesCodeLens.enable": false,
 
   "languageserver": {
     "terraform": {
@@ -33,7 +35,4 @@
       "initializationOptions": {}
     }
   },
-  "yaml.schemas": {
-    "kubernetes": "/*.yaml"
-  }
 }
