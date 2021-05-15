@@ -82,7 +82,7 @@ nnoremap <silent> - :<C-u>DeleteBuffers<CR>
 " Close buffer
 nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
 nmap <C-z> :<C-u><C-q>all!<CR>
-nmap QQ :<C-u><C-q>!<CR>
+nmap Q :<C-u><C-q>!<CR>
 " Replace word
 vmap p <Plug>(operator-replace)
 " Use <Tab> / <S-Tab> to navigate through popup menu
