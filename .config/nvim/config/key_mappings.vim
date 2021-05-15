@@ -43,7 +43,7 @@ nnoremap <silent> <C-g><C-d> :<C-u>Gvdiffsplit<CR>
 nnoremap <silent> <C-g><C-l> :<C-u>Gina log<CR>
 nnoremap <silent> <C-g><C-u> :<C-u>GitGutterUndoHunk<CR>
 nnoremap <silent> <C-g><C-p> :<C-u>GitGutterPrevHunk<CR>
-nnoremap <silent> <C-g><C-n> :<C-u>GitGutterNextGunk<CR>
+nnoremap <silent> <C-g><C-n> :<C-u>GitGutterNextHunk<CR>
 
 " <C-w>
 " defx Finder
