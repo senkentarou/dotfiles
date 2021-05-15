@@ -54,16 +54,16 @@ nmap <C-e> <Nop>
 " nmap gf open file under cursor
 nmap <silent> gd <Plug>(coc-definition)
 
-nmap <silent> g, :<C-u>LspCodeAction<CR>
-nmap <silent> ga :<C-u>LspDocumentDiagnostics<CR>
-nmap <silent> g[ :<C-u>LspPreviousDiagnostic<CR>
-nmap <silent> g] :<C-u>LspNextDiagnostic<CR>
+" nmap <silent> g, :<C-u>LspCodeAction<CR>
+" nmap <silent> ga :<C-u>LspDocumentDiagnostics<CR>
+" nmap <silent> g[ :<C-u>LspPreviousDiagnostic<CR>
+" nmap <silent> g] :<C-u>LspNextDiagnostic<CR>
 " nmap <silent> gd :<C-u>LspDefinition<CR>
-nmap <silent> gr :<C-u>LspReferences<CR>
-nmap <silent> T :<C-u>LspPeekTypeDefinition<CR>
-nmap <silent> gt :<C-u>LspTypeDefinition<CR>
-nmap <silent> K :<C-u>LspPeekDefinition<CR>
-nmap <silent> gK :<C-u>LspDefinition<CR>
+" nmap <silent> gr :<C-u>LspReferences<CR>
+" nmap <silent> T :<C-u>LspPeekTypeDefinition<CR>
+" nmap <silent> gt :<C-u>LspTypeDefinition<CR>
+" nmap <silent> K :<C-u>LspPeekDefinition<CR>
+" nmap <silent> gK :<C-u>LspDefinition<CR>
 
 " <C-s>
 " floating terminal window
