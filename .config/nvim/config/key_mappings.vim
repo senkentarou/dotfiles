@@ -49,7 +49,6 @@ nnoremap <silent> <C-g><C-n> :<C-u>GitGutterNextGunk<CR>
 " <C-w>
 " defx Finder
 nmap <silent> <C-w><C-w> :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
-" <C-w> hjkl: move to target pane
 
 " <C-e>
 nmap <C-e> <Nop>
