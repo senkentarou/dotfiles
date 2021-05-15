@@ -2,12 +2,8 @@
 lua << EOF
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.solargraph.setup{}
+require'lspconfig'.yamlls.setup{}
 EOF
-
-" If you want to use snippet for multiple filetypes, you can `g:vsnip_filetypes` for it.
-let g:vsnip_filetypes = {}
-let g:vsnip_filetypes.javascriptreact = ['javascript']
-let g:vsnip_filetypes.typescriptreact = ['typescript']
 
 " nvim-compe
 lua << EOF
