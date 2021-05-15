@@ -42,19 +42,25 @@ nnoremap <silent> <C-g><C-b> :<C-u>Git blame<CR>
 vnoremap <silent> <C-g><C-b> :Git blame<CR>
 nnoremap <silent> <C-g><C-d> :<C-u>Gvdiffsplit<CR>
 nnoremap <silent> <C-g><C-l> :<C-u>Gina log<CR>
+nnoremap <silent> <C-g><C-u> :<C-u>GitGutterUndoHunk<CR>
+nnoremap <silent> <C-g><C-p> :<C-u>GitGutterPrevHunk<CR>
+nnoremap <silent> <C-g><C-n> :<C-u>GitGutterNextGunk<CR>
 
 " <C-w>
 " defx Finder
 nmap <silent> <C-w><C-w> :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
+" <C-w> hjkl: move to target pane
 
 " <C-e>
 nmap <C-e> <Nop>
 " nmap gf open file under cursor
+nmap <silent> gd <Plug>(coc-definition)
+
 nmap <silent> g, :<C-u>LspCodeAction<CR>
 nmap <silent> ga :<C-u>LspDocumentDiagnostics<CR>
 nmap <silent> g[ :<C-u>LspPreviousDiagnostic<CR>
 nmap <silent> g] :<C-u>LspNextDiagnostic<CR>
-nmap <silent> gd :<C-u>LspDefinition<CR>
+" nmap <silent> gd :<C-u>LspDefinition<CR>
 nmap <silent> gr :<C-u>LspReferences<CR>
 nmap <silent> T :<C-u>LspPeekTypeDefinition<CR>
 nmap <silent> gt :<C-u>LspTypeDefinition<CR>
@@ -82,6 +88,8 @@ vmap p <Plug>(operator-replace)
 " Use <Tab> / <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" diff line
+vnoremap <silent> <C-y> :Linediff<CR>
 
 " Cursor moving
 nnoremap H ^
