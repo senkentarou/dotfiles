@@ -51,19 +51,11 @@ nmap <silent> <C-w><C-w> :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filenam
 
 " <C-e>
 nmap <C-e> <Nop>
-" nmap gf open file under cursor
-nmap <silent> gd <Plug>(coc-definition)
-
-" nmap <silent> g, :<C-u>LspCodeAction<CR>
-" nmap <silent> ga :<C-u>LspDocumentDiagnostics<CR>
-" nmap <silent> g[ :<C-u>LspPreviousDiagnostic<CR>
-" nmap <silent> g] :<C-u>LspNextDiagnostic<CR>
-" nmap <silent> gd :<C-u>LspDefinition<CR>
-" nmap <silent> gr :<C-u>LspReferences<CR>
-" nmap <silent> T :<C-u>LspPeekTypeDefinition<CR>
-" nmap <silent> gt :<C-u>LspTypeDefinition<CR>
-" nmap <silent> K :<C-u>LspPeekDefinition<CR>
-" nmap <silent> gK :<C-u>LspDefinition<CR>
+nmap <silent> <C-e><C-e> :<C-u>CocDiagnostics<CR>
+nmap <silent> <C-e><C-p> <Plug>(coc-diagnostic-prev)
+nmap <silent> <C-e><C-n> <Plug>(coc-diagnostic-next)
+nmap <silent> <C-e><C-d> <Plug>(coc-definition)
+nmap <silent> <C-e><C-r> <Plug>(coc-references)
 
 " <C-s>
 " floating terminal window
