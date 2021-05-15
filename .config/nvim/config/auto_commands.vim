@@ -16,9 +16,3 @@ augroup SyntaxSettings
   autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
   autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
 augroup END
-
-" Use completion-nvim in every buffer
-augroup LuaSettings
-  autocmd!
-  autocmd BufEnter * lua require'completion'.on_attach()
-augroup END
