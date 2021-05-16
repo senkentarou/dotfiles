@@ -50,4 +50,10 @@ set tabstop=2
 cnoremap q w
 cnoremap <C-q> q
 " rubocop a
-autocmd BufWrite *.rb :call CocActionAsync('format')
+"autocmd BufWrite *.rb :call CocActionAsync('format')
+nnoremap <Leader>n :<C-u>call RubocopAutoFix()<CR>
+
+function! RubocopAutoFix()
+  exe "w"
+  silent exe "!rubocop -A % &> /dev/null"
+endfunction
