@@ -14,6 +14,8 @@ vnoremap <silent> <Leader>O :GBrowse @origin<CR>
 " grep word
 nnoremap <silent> <Leader>, :<C-u>GGrepCurrentWordQuery<CR>
 nnoremap <silent> <Leader>m :<C-u>Gina grep<CR>
+vnoremap <silent> <Leader>m :<C-u>GGrepVisualWordQuery<CR>
+
 " buffers
 nnoremap <Leader>w :<C-u>w<CR>
 nnoremap <Leader>q :<C-u>BufferClose<CR>

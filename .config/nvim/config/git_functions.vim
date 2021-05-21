@@ -1,9 +1,16 @@
 " Git grep on current word
-function! s:gGrepCurrentWordQuery() abort
+function! s:GGrepCurrentWordQuery() abort
   let cword = expand('<cword>')
   execute 'Gina grep ' . cword
 endfunction
-command! -nargs=* GGrepCurrentWordQuery call s:gGrepCurrentWordQuery()
+command! -nargs=* GGrepCurrentWordQuery call s:GGrepCurrentWordQuery()
+
+function! s:GGrepVisualWordQuery() abort
+  execute "normal! `<v`>y"
+  let vtext = @@
+  execute 'Gina grep ' . vtext
+endfunction
+command! -nargs=* GGrepVisualWordQuery call s:GGrepVisualWordQuery()
 
 function! ToggleGStatus()
   if buflisted(bufname('.git/index'))
