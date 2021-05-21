@@ -69,10 +69,5 @@ function! s:DefxMySettings() abort
     \ defx#do_action('cd')
   nnoremap <silent><buffer><expr> q
     \ defx#do_action('quit')
-  nnoremap <silent><buffer><expr> <C-l>
-    \ defx#do_action('redraw')
-  nnoremap <silent><buffer><expr> <C-g>
-    \ defx#do_action('print')
 endfunction
 command! -nargs=* DefxMySettings call s:DefxMySettings()
-
