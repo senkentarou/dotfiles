@@ -16,4 +16,4 @@ command!  -nargs=* ToggleGStatus call ToggleGStatus()
 
 " gitgutter
 let g:gitgutter_highlight_lines = 0
-hi GitGutterDelete guifg=red
+hi GitGutterDelete guifg=#ff2222 ctermfg=1
