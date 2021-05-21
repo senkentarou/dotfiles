@@ -70,7 +70,7 @@ inoremap <silent> jj <ESC>
 " Show buffers
 nnoremap <silent> ; :<C-u>Buffers<CR>
 " Delete buffers
-nnoremap <silent> - :<C-u>DeleteBuffers<CR>
+nnoremap <silent> ' :<C-u>DeleteBuffers<CR>
 " Close buffer
 nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
 nmap <C-z> :<C-u><C-q>all!<CR>
