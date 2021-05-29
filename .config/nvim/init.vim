@@ -49,11 +49,3 @@ set tabstop=2
 " do not want use :q command (cannot input original q in command mode...)
 cnoremap q w
 cnoremap <C-q> q
-" rubocop a
-"autocmd BufWrite *.rb :call CocActionAsync('format')
-nnoremap <Leader>n :<C-u>call RubocopAutoFix()<CR>
-
-function! RubocopAutoFix()
-  exe "w"
-  silent exe "!rubocop -A % &> /dev/null"
-endfunction
