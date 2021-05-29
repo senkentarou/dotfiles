@@ -14,6 +14,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'w0ng/vim-hybrid'
 " Syntax highlight
 Plug 'sheerun/vim-polyglot'
+" Plug 'mechatroner/rainbow_csv'
 " Indent highlight
 Plug 'nathanaelkane/vim-indent-guides'
 " Auto complete
