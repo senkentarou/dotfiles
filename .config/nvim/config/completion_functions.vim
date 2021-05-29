@@ -1,8 +1,20 @@
 " nvim-lspconfig
 lua << EOF
 require'lspconfig'.tsserver.setup{}
-require'lspconfig'.solargraph.setup{}
 require'lspconfig'.yamlls.setup{}
+require'lspconfig'.solargraph.setup{
+  filetypes = {"ruby", "rakefile"},
+  settings = {
+    solargraph = {
+      completion = true,
+      diagnostic = true,
+      folding = true,
+      references = true,
+      rename = true,
+      symbols = true
+    }
+  }
+}
 EOF
 
 " nvim-compe

@@ -9,15 +9,13 @@ let g:lightline = {
       \   'right': [
       \     [ 'lineinfo' ],
       \     [ 'percent' ],
-      \     [ 'cocstatus', 'currentfunction', 'fileformat', 'fileencoding', 'filetype' ]
+      \     [ 'fileformat', 'fileencoding', 'filetype' ]
       \   ]
       \ },
       \ 'component_function': {
       \   'gitbase': 'GitBase',
       \   'gitbranch': 'gina#component#repo#branch',
       \   'filename': 'FilePathFromGitBase',
-      \   'cocstatus': 'coc#status',
-      \   'currentfunction': 'CocCurrentFunction'
       \ },
       \ }
 
@@ -45,8 +43,4 @@ function! GitBase()
     return '[NO GIT]'
   endif
   return root
-endfunction
-
-function! CocCurrentFunction()
-  return get(b:, 'coc_current_function', '')
 endfunction
