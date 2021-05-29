@@ -16,9 +16,6 @@ Plug 'w0ng/vim-hybrid'
 Plug 'sheerun/vim-polyglot'
 " Indent highlight
 Plug 'nathanaelkane/vim-indent-guides'
-" Language server
-" LSP client for js/ts
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby']}
 " Auto complete
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
