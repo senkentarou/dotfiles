@@ -28,13 +28,6 @@ function! s:toggleRspecFile() abort
 endfunction
 command! -nargs=* ToggleRspecFile call s:toggleRspecFile()
 
-" coc
-let g:coc_global_extensions = [
-  \ 'coc-eslint',
-  \ 'coc-prettier',
-  \ 'coc-solargraph',
-  \ ]
-
 " indent setting
 let g:indent_guides_enable_on_vim_startup = 1
 
