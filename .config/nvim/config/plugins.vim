@@ -18,6 +18,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'nathanaelkane/vim-indent-guides'
 " Auto complete
 Plug 'neovim/nvim-lspconfig'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'folke/trouble.nvim'
+Plug 'folke/lsp-colors.nvim'
 Plug 'hrsh7th/nvim-compe'
 " Snipet
 Plug 'rafamadriz/friendly-snippets'

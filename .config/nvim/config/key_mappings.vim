@@ -53,11 +53,11 @@ nmap <silent> <C-w><C-w> :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filenam
 
 " <C-e>
 nmap <C-e> <Nop>
-nmap <silent> <C-e><C-e> :<C-u>CocDiagnostics<CR>
-nmap <silent> <C-e><C-p> <Plug>(coc-diagnostic-prev)
-nmap <silent> <C-e><C-n> <Plug>(coc-diagnostic-next)
-nmap <silent> <C-e><C-d> <Plug>(coc-definition)
-nmap <silent> <C-e><C-r> <Plug>(coc-references)
+nmap <silent> <C-e><C-e> :<C-u>TroubleToggle<CR>
+nmap <silent> <C-e><C-p> :<C-u>lua vim.lsp.diagnostic.goto_prev()<CR>
+nmap <silent> <C-e><C-n> :<C-u>lua vim.lsp.diagnostic.goto_next()<CR>
+nmap <silent> <C-e><C-d> :<C-u>lua vim.lsp.buf.definition()<CR>
+nmap <silent> <C-e><C-r> :<C-u>lua vim.lsp.buf.references()<CR>
 
 " <C-s>
 " floating terminal window
