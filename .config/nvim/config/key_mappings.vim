@@ -13,11 +13,12 @@ vnoremap <silent> <Leader>o :GBrowse @upstream<CR>
 vnoremap <silent> <Leader>O :GBrowse @origin<CR>
 " grep word
 nnoremap <silent> <Leader>, :<C-u>GGrepCurrentWordQuery<CR>
-nnoremap <silent> <Leader>m :<C-u>Gina grep<CR>
+nnoremap <silent> <Leader>m :<C-u>Gina grep --opener=split<CR>
 vnoremap <silent> <Leader>m :<C-u>GGrepVisualWordQuery<CR>
 
 " buffers
 nnoremap <Leader>w :<C-u>w<CR>
+nnoremap Q <Nop>
 nnoremap <Leader>q :<C-u>BufferClose<CR>
 " comments
 nmap <Leader>c <Plug>(caw:hatpos:toggle)
@@ -42,7 +43,7 @@ nnoremap <silent> <C-g><C-g> :<C-u>ToggleGStatus<CR>
 nnoremap <silent> <C-g><C-b> :<C-u>Git blame --date=relative<CR>
 vnoremap <silent> <C-g><C-b> :Git blame<CR>
 nnoremap <silent> <C-g><C-d> :<C-u>Gvdiffsplit<CR>
-nnoremap <silent> <C-g><C-l> :<C-u>Gina log<CR>
+nnoremap <silent> <C-g><C-l> :<C-u>Gina log --opener=vsplit<CR>
 nnoremap <silent> <C-g><C-u> :<C-u>GitGutterUndoHunk<CR>
 nnoremap <silent> <C-g><C-p> :<C-u>GitGutterPrevHunk<CR>
 nnoremap <silent> <C-g><C-n> :<C-u>GitGutterNextHunk<CR>
@@ -50,6 +51,7 @@ nnoremap <silent> <C-g><C-n> :<C-u>GitGutterNextHunk<CR>
 " <C-w>
 " defx Finder
 nmap <silent> <C-w><C-w> :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
+nmap <silent> <C-w><C-q> :<C-u>close<CR>
 
 " <C-e>
 nmap <C-e> <Nop>
@@ -58,6 +60,8 @@ nmap <silent> <C-e><C-p> :<C-u>lua vim.lsp.diagnostic.goto_prev()<CR>
 nmap <silent> <C-e><C-n> :<C-u>lua vim.lsp.diagnostic.goto_next()<CR>
 nmap <silent> <C-e><C-d> :<C-u>lua vim.lsp.buf.definition()<CR>
 nmap <silent> <C-e><C-r> :<C-u>lua vim.lsp.buf.references()<CR>
+nmap <silent> <C-e><C-f> :<C-u>lua vim.lsp.buf.formatting()<CR>
+nmap <silent> <C-e>r :<C-u>lua vim.lsp.buf.rename()<CR>
 
 " <C-s>
 " floating terminal window
@@ -76,7 +80,6 @@ nnoremap <silent> - :<C-u>b #<CR>
 " Close buffer
 nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
 nmap <C-z> :<C-u><C-q>all!<CR>
-nmap Q :<C-u><C-q>!<CR>
 " Replace word
 vmap p <Plug>(operator-replace)
 " Use <Tab> / <S-Tab> to navigate through popup menu
