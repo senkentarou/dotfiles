@@ -2,10 +2,14 @@
 " Auto commands
 "
 
-" Delete extra space on saving file
-autocmd! BufWritePre * :%s/\s\+$//ge
-" Delete control character on saving file
-autocmd! BufWritePre * :%s/[\x00-\x1F\x7F]//ge
+augroup Formatting
+  autocmd!
+  " Delete control character on saving file
+  autocmd BufWritePre * :%s/[\x00-\x1F\x7F]//ge
+  " Delete extra space on saving file
+  autocmd BufWritePre * :%s/\s\+$//ge
+augroup END
+
 " Defx settings
 autocmd! FileType defx :DefxMySettings
 autocmd! BufWritePost * call defx#redraw()
