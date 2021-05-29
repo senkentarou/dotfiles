@@ -10,12 +10,15 @@ augroup Formatting
   autocmd BufWritePre * :%s/\s\+$//ge
 augroup END
 
-" Defx settings
-autocmd! FileType defx :DefxMySettings
-autocmd! BufWritePost * call defx#redraw()
-autocmd! BufEnter * call defx#redraw()
+augroup DefxSettings
+  autocmd!
+  autocmd FileType defx :DefxMySettings
+  autocmd BufWritePost * call defx#redraw()
+  autocmd BufEnter * call defx#redraw()
+augroup END
+
 " Disable auto complete on comment next line
-autocmd! FileType * setlocal formatoptions-=ro
+autocmd FileType * setlocal formatoptions-=ro
 
 augroup SyntaxSettings
   autocmd!
