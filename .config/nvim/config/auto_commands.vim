@@ -24,6 +24,7 @@ augroup SyntaxSettings
   autocmd!
   autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
   autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
+  autocmd BufNewfile,BufRead *_spec.rb set filetype=rspec
 augroup END
 
 augroup ColorSchemeSettings
