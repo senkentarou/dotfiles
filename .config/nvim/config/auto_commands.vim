@@ -25,3 +25,11 @@ augroup SyntaxSettings
   autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
   autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
 augroup END
+
+augroup ColorSchemeSettings
+  autocmd!
+  autocmd VimEnter,ColorScheme * highlight GitGutterDelete ctermfg=52 guifg=#ff2222 ctermbg=NONE guibg=NONE
+  autocmd VimEnter,ColorScheme * highlight GitGutterAdd ctermfg=22 guifg=#009900 ctermbg=NONE guibg=NONE
+  autocmd VimEnter,ColorScheme * highlight GitGutterChange ctermfg=58 guifg=#bbbb00 ctermbg=NONE guibg=NONE
+  autocmd VimEnter,ColorScheme * highlight GitGutterChangeDelete ctermfg=52 guifg=#ff2222 ctermbg=NONE guibg=NONE
+augroup END
