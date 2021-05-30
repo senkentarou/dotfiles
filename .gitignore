@@ -28,19 +28,6 @@
 __pycache__/*
 *.pyc
 
-
-#
-# for other files
-#
-*.pdf
-*.doc
-*.docx
-*.ppt
-*.pptx
-*.xls
-*.xlsx
-
-
 #
 # for other directories
 #
