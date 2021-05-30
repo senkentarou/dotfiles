@@ -3,7 +3,7 @@ lua << EOF
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.yamlls.setup{}
 require'lspconfig'.solargraph.setup{
-  filetypes = {"ruby", "rakefile"},
+  filetypes = {"ruby", "rakefile", "rspec"},
   settings = {
     solargraph = {
       completion = true,
