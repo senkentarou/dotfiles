@@ -9,7 +9,7 @@
 call plug#begin(stdpath('data') . '/plugged')
 
 " Statusline
-Plug 'itchyny/lightline.vim'
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 " Color Scheme
 Plug 'w0ng/vim-hybrid'
 " Syntax highlight
