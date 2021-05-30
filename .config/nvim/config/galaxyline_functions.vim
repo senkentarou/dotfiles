@@ -78,9 +78,6 @@ lua << EOF
           highlight('GalaxyViModeInv', fg, nested_fg)
           highlight('GalaxyViModeNested', colors.fg, nested_fg)
           highlight('GalaxyViModeInvNested', nested_fg, colors.bg)
-          highlight('DiffAdd', colors.bright_green, colors.bg)
-          highlight('DiffChange', colors.bright_orange, colors.bg)
-          highlight('DiffDelete', colors.bright_red, colors.bg)
           return string.format('  %s ', label)
         end,
         separator = sep.left_filled,
