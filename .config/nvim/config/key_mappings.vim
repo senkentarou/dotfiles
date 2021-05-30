@@ -6,6 +6,8 @@
 
 " Leaders
 let mapleader="\<Space>"
+" reload config file
+nnoremap <Leader>R :so ~/.config/nvim/init.vim<CR>
 " open git browser
 nnoremap <silent> <Leader>o :<C-u>GBrowse @upstream<CR>
 nnoremap <silent> <Leader>O :<C-u>GBrowse @origin<CR>
@@ -73,6 +75,8 @@ tnoremap <silent> <C-s><C-s> <C-\><C-n>:<C-u>FloatermToggle<CR>
 " Useful settings
 " Apply ESC
 inoremap <silent> jj <ESC>
+" No highlight
+nnoremap <Esc><Esc> :noh<CR>
 " Show buffers
 nnoremap <silent> ; :<C-u>Buffers<CR>
 " Delete buffers
