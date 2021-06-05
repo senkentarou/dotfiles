@@ -13,6 +13,22 @@ function! s:BufferClose() abort
 endfunction
 command! -nargs=* BufferClose call s:BufferClose()
 
+" Open all additional change files in buffer
+function! s:GitOpenAdditionalFiles() abort
+  let goafs = systemlist("git status --porcelain | grep -wv D | awk '{print $2}'")
+  let length = len(goafs)
+  if length == 0
+    echo 'No git additional files.'
+    return
+  endif
+
+  for goaf in goafs
+    execute 'e ' . goaf
+  endfor
+  echo 'Opened ' . length . ' git additional files.'
+endfunction
+command! -nargs=* GitOpenAdditionalFiles call s:GitOpenAdditionalFiles()
+
 " rspec script
 function! s:toggleRspecFile() abort
   let filename = expand('%:t')

@@ -51,6 +51,7 @@ nnoremap <silent> <C-g><C-m> :<C-u>GitGutterPreviewHunk<CR>
 nnoremap <silent> <C-g><C-u> :<C-u>GitGutterUndoHunk<CR>
 nnoremap <silent> <C-g><C-p> :<C-u>GitGutterPrevHunk<CR>
 nnoremap <silent> <C-g><C-n> :<C-u>GitGutterNextHunk<CR>
+nnoremap <C-g><C-o> :<C-u>GitOpenAdditionalFiles<CR>
 
 " <C-w>
 " defx Finder
