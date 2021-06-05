@@ -11,6 +11,7 @@ nnoremap <Leader>R :so ~/.config/nvim/init.vim<CR>
 " open git browser
 nnoremap <silent> <Leader>o :<C-u>GBrowse @upstream<CR>
 nnoremap <silent> <Leader>O :<C-u>GBrowse @origin<CR>
+nnoremap <silent> <Leader>b :<C-u>OpenCurrentBlameFile<CR>
 vnoremap <silent> <Leader>o :GBrowse @upstream<CR>
 vnoremap <silent> <Leader>O :GBrowse @origin<CR>
 " grep word
