@@ -51,6 +51,15 @@ endfunction
 
 command! -nargs=* -bang SearchWords call FZFGrep(<q-args>, <bang>0)
 
+" buffer histories (Using https://github.com/yegappan/mru)
+function! FZFHistory()
+  let mru_files = MruGetFiles()
+
+  call fzf#run(fzf#wrap({'source': mru_files, 'options': ['--prompt', 'SearchHistories> ']}))
+endfunction
+
+command! -nargs=* -bang SearchHistories call FZFHistory()
+
 function! s:delete_buffers(lines)
   let line_num_bracket = map(a:lines, {_, line -> matchstr(split(line)[2], '\[\zs[0-9]*\ze\]')})
   execute 'bd' join(line_num_bracket)

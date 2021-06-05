@@ -30,14 +30,14 @@ nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
 
 " <C-f> Find files
 nmap <C-f> <Nop>
-" by word
-nnoremap <silent> <C-f><C-d> :<C-u>SearchWords<CR>
-" by file name
-nnoremap <silent> <C-f><C-f> :<C-u>SearchFiles<CR>
 " by git file name
-nnoremap <silent> <C-f><C-g> :<C-u>GFiles<CR>
+nnoremap <silent> <C-f><C-f> :<C-u>GFiles<CR>
+" by word with file preview
+nnoremap <silent> <C-f><C-d> :<C-u>SearchWords<CR>
+" by file name with file preview
+nnoremap <silent> <C-f><C-g> :<C-u>SearchFiles<CR>
 " by open history
-nnoremap <silent> <C-f><C-r> :<C-u>History<CR>
+nnoremap <silent> <C-f><C-r> :<C-u>SearchHistories<CR>
 
 " <C-g> Git
 nmap <C-g> <Nop>
