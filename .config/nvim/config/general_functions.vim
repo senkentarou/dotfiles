@@ -21,7 +21,7 @@ function! s:GitOpenAdditionalFiles() abort
     echo 'No git additional files.'
     return
   endif
-
+  " Open each file in buffer
   for goaf in goafs
     execute 'e ' . goaf
   endfor
