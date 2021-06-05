@@ -15,7 +15,7 @@ vnoremap <silent> <Leader>o :GBrowse @upstream<CR>
 vnoremap <silent> <Leader>O :GBrowse @origin<CR>
 " grep word
 nnoremap <silent> <Leader>, :<C-u>GGrepCurrentWordQuery<CR>
-nnoremap <silent> <Leader>m :<C-u>Gina grep --opener=split<CR>
+nnoremap <silent> <Leader>m :<C-u>Gina grep<CR>
 vnoremap <silent> <Leader>m :<C-u>GGrepVisualWordQuery<CR>
 
 " buffers
