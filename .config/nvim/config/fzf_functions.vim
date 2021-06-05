@@ -38,7 +38,7 @@ function! FloatingFZF()
   autocmd! BufWipeout <buffer> exe 'bw '.s:buf
 endfunction
 
-command! SearchFiles call fzf#run(fzf#wrap({'source': 'rg --files --hidden --glob "!.git/*"', 'sink': 'e', 'options': ['--prompt', 'SearchFiles> ']}))
+command! SearchFiles call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': 'rg --files --hidden --glob "!.git/*"', 'sink': 'e', 'options': ['--prompt', 'SearchFiles> ']}, 'right:50%', 'ctrl-/')))
 
 function! FZFGrep(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
@@ -46,7 +46,7 @@ function! FZFGrep(query, fullscreen)
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': ['--reverse', '--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command, '--prompt', 'SearchWords> ']}
 
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec, 'right:50%', 'ctrl-/'), a:fullscreen)
 endfunction
 
 command! -nargs=* -bang SearchWords call FZFGrep(<q-args>, <bang>0)
