@@ -8,6 +8,7 @@
 " See details: https://github.com/junegunn/vim-plug
 call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'yegappan/mru'
 " Statusline
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 " Color Scheme
