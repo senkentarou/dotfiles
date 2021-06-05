@@ -45,6 +45,7 @@ nnoremap <silent> <C-g><C-g> :<C-u>ToggleGStatus<CR>
 nnoremap <silent> <C-g><C-b> :<C-u>Git blame --date=relative<CR>
 vnoremap <silent> <C-g><C-b> :Git blame<CR>
 nnoremap <silent> <C-g><C-d> :<C-u>Gvdiffsplit<CR>
+nnoremap <silent> <C-g><C-r> :<C-u>Gina reflog --opener=vsplit<CR>
 nnoremap <silent> <C-g><C-l> :<C-u>Gina log --opener=vsplit<CR>
 nnoremap <silent> <C-g><C-a> :<C-u>GitGutterStageHunk<CR>
 nnoremap <silent> <C-g><C-m> :<C-u>GitGutterPreviewHunk<CR>
