@@ -8,7 +8,6 @@
 " See details: https://github.com/junegunn/vim-plug
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'yegappan/mru'
 " Statusline
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 " Color Scheme
@@ -58,6 +57,10 @@ Plug 'tpope/vim-surround'
 Plug 'tyru/caw.vim'
 " Line comparison
 Plug 'AndrewRadev/linediff.vim'
+" Most recentry used history
+Plug 'yegappan/mru'
+" Start window
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
