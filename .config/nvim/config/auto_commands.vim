@@ -34,3 +34,8 @@ augroup ColorSchemeSettings
   autocmd VimEnter,ColorScheme * highlight GitGutterChange ctermfg=58 guifg=#a9a1e1 ctermbg=NONE guibg=NONE
   autocmd VimEnter,ColorScheme * highlight GitGutterChangeDelete ctermfg=52 guifg=#ec5f67 ctermbg=NONE guibg=NONE
 augroup END
+
+augroup WindowCloseSettings
+  autocmd!
+  autocmd FileType help nnoremap <buffer> <C-q> <C-w><C-q>
+augroup END
