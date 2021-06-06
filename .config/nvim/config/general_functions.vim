@@ -2,14 +2,14 @@ command! NotQuit :bp | :sp | :bn | :bd
 
 " bd or q command
 function! s:BufferClose() abort
-  if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-    NotQuit
-    " set mhinz/vim-startify
-    execute 'Startify'
-    " I do NOT want to quit vim.
-    " execute "q"
+  if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1
+    execute 'bd'
+  elseif &filetype == 'startify'
+    :
   else
-    execute "bd"
+    " set mhinz/vim-startify
+    NotQuit
+    execute 'Startify'
   endif
 endfunction
 command! -nargs=* BufferClose call s:BufferClose()
@@ -73,7 +73,6 @@ let g:startify_custom_header = []
 let g:startify_lists = [
   \ { 'type': 'files', 'header': ['   MRU']            },
   \ { 'type': 'dir', 'header': ['   MRU '. getcwd()] },
-  \ { 'type': 'sessions', 'header': ['   Sessions']       },
   \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
   \ { 'type': 'commands', 'header': ['   Commands']       },
   \ ]
