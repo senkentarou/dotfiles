@@ -256,4 +256,27 @@ lua << EOF
       },
     },
   }
+
+  gl.short_line_list = {
+    "Floaterm",
+    "Trouble",
+    "help",
+    "defx",
+    "startify",
+    "fugitive",
+    "gina-log",
+    "gina-reflog",
+    "gina-grep",
+  }
+
+  gls.short_line_left = {
+    {
+      FileTypeName = {
+        provider = function()
+          return string.format('  %s ', buffer.get_buffer_filetype())
+        end,
+        highlight = {colors.fg, colors.bg},
+      }
+    },
+  }
 EOF
