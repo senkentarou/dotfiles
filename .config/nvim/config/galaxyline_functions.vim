@@ -104,7 +104,7 @@ lua << EOF
     {
       FileName = {
         provider = function()
-          if not condition.buffer_not_empty then
+          if not condition.buffer_not_empty() then
             return ' '
           end
           local fname
@@ -125,7 +125,6 @@ lua << EOF
           return ' ' .. fname .. ' '
         end,
         highlight = {colors.fg, colors.bg},
-        condition = condition.buffer_not_empty,
       },
     },
     {
@@ -220,7 +219,7 @@ lua << EOF
     {
       FileEncode = {
         provider = function()
-          return string.format(' %s ', fileinfo.get_file_encode())
+          return string.format('%s ', fileinfo.get_file_encode())
         end,
         condition = function()
           return condition.hide_in_width()
