@@ -1,8 +1,8 @@
 " mhinz/vim-startify
 let g:startify_custom_header = []
 let g:startify_lists = [
-  \ { 'type': 'files', 'header': ['   MRU']            },
-  \ { 'type': 'dir', 'header': ['   MRU '. getcwd()] },
+  \ { 'type': 'files', 'header': ['   MRU files']            },
+  \ { 'type': 'dir', 'header': ['   MRU in '. getcwd()] },
   \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
   \ { 'type': 'commands', 'header': ['   Commands']       },
   \ ]
