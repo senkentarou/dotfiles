@@ -21,7 +21,7 @@ function! s:OpenLatestClosedBuffer() abort
     execute 'e ' . mru_files[1]
   endif
 endfunction
-command -nargs=0 OpenLatestClosedBuffer call s:OpenLatestClosedBuffer()
+command -nargs=* OpenLatestClosedBuffer call s:OpenLatestClosedBuffer()
 
 " rspec script
 function! s:toggleRspecFile() abort
