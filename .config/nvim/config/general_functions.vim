@@ -45,8 +45,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 hi FloatermNF guibg=black
 hi FloatermBorderNF guibg=black guifg=white
 let g:floaterm_position = 'center'
-let g:floaterm_width = 0.9
-let g:floaterm_height = 0.8
+let g:floaterm_width = 0.95
+let g:floaterm_height = 0.95
 
 " auto-pair
 " avoid inoremap <C-h>
