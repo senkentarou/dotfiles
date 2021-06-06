@@ -7,3 +7,4 @@ let g:startify_lists = [
   \ { 'type': 'commands', 'header': ['   Commands']       },
   \ ]
 let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, {'m': '~/.config/nvim/config/key_mappings.vim'} ]
+let g:startify_change_to_dir = 0
