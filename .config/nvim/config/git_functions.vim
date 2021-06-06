@@ -12,6 +12,14 @@ function! s:GGrepVisualWordQuery() abort
 endfunction
 command! -nargs=* GGrepVisualWordQuery call s:GGrepVisualWordQuery()
 
+function! s:GGrepPreviousWordQuery() abort
+  let prev_word = histget('@', -1)
+  if len(prev_word) > 0
+    execute 'Gina grep ' . prev_word
+  endif
+endfunction
+command! -nargs=* GGrepPreviousWordQuery call s:GGrepPreviousWordQuery()
+
 function! ToggleGStatus()
   if buflisted(bufname('.git/index'))
     bd .git/index
