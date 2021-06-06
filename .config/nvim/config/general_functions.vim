@@ -67,13 +67,3 @@ let g:floaterm_height = 0.8
 " auto-pair
 " avoid inoremap <C-h>
 let g:AutoPairsMapCh = 0
-
-" mhinz/vim-startify
-let g:startify_custom_header = []
-let g:startify_lists = [
-  \ { 'type': 'files', 'header': ['   MRU']            },
-  \ { 'type': 'dir', 'header': ['   MRU '. getcwd()] },
-  \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-  \ { 'type': 'commands', 'header': ['   Commands']       },
-  \ ]
-let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'} ]
