@@ -44,5 +44,21 @@ function! s:openCurrentBlameFile() abort
 endfunction
 command! -nargs=* OpenCurrentBlameFile call s:openCurrentBlameFile()
 
+" Open all additional change files in buffer
+function! s:GitOpenAdditionalFiles() abort
+  let goafs = systemlist("git status --porcelain | grep -wv D | awk '{print $2}'")
+  let length = len(goafs)
+  if length == 0
+    echo 'No git additional files.'
+    return
+  endif
+  " Open each file in buffer
+  for goaf in goafs
+    execute 'e ' . goaf
+  endfor
+  echo 'Opened ' . length . ' git additional files.'
+endfunction
+command! -nargs=* GitOpenAdditionalFiles call s:GitOpenAdditionalFiles()
+
 " gitgutter
 let g:gitgutter_highlight_lines = 0
