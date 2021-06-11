@@ -22,7 +22,8 @@ command! -nargs=* GGrepPreviousWordQuery call s:GGrepPreviousWordQuery()
 
 function! ToggleGStatus()
   if buflisted(bufname('.git/index'))
-    bd .git/index
+    "bd .git/index
+    execute 'close'
   else
     execute 'vertical Git'
   endif
