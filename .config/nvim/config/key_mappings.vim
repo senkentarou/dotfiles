@@ -46,18 +46,17 @@ nmap <C-g> <Nop>
 nnoremap <silent> <C-g><C-g> :<C-u>ToggleGStatus<CR>
 nnoremap <silent> <C-g><C-b> :<C-u>Git blame --date=relative<CR>
 vnoremap <silent> <C-g><C-b> :Git blame<CR>
-nnoremap <silent> <C-g><C-j> :<C-u>Gina status<CR>
+nnoremap <silent> <C-g><C-j> :<C-u>GitGutterStageHunk<CR>
 nnoremap <silent> <C-g><C-k> :<C-u>OpenGitCommit<CR>
 nnoremap <silent> <C-g><C-d> :<C-u>Gvdiffsplit<CR>
 nnoremap <silent> <C-g><C-s> :<C-u>Gina diff --cached --opener=split<CR>
 nnoremap <silent> <C-g><C-r> :<C-u>Gina reflog --opener=vsplit<CR>
 nnoremap <silent> <C-g><C-l> :<C-u>Gina log --opener=vsplit<CR>
-nnoremap <silent> <C-g><C-a> :<C-u>GitGutterStageHunk<CR>
 nnoremap <silent> <C-g><C-m> :<C-u>GitGutterPreviewHunk<CR>
 nnoremap <silent> <C-g><C-u> :<C-u>GitGutterUndoHunk<CR>
 nnoremap <silent> <C-g><C-p> :<C-u>GitGutterPrevHunk<CR>
 nnoremap <silent> <C-g><C-n> :<C-u>GitGutterNextHunk<CR>
-nnoremap <C-g><C-o> :<C-u>GitOpenAdditionalFiles<CR>
+nnoremap <silent> <C-g><C-o> :<C-u>GitOpenAdditionalFiles<CR>
 
 " <C-w>
 " defx Finder
