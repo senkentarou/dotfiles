@@ -3,8 +3,13 @@ command! NotQuit :bp | :sp | :bn | :bd
 " bd or q command
 function! s:BufferClose() abort
   if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1
+    " delete buffer
     execute 'bd'
+  elseif index(['fugitive'], &filetype) >= 0
+    " close pane
+    execute 'close'
   elseif &filetype == 'startify'
+    " no action
     :
   else
     " set mhinz/vim-startify
