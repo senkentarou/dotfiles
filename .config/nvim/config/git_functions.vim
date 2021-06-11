@@ -68,5 +68,18 @@ function! s:GitOpenAdditionalFiles() abort
 endfunction
 command! -nargs=* GitOpenAdditionalFiles call s:GitOpenAdditionalFiles()
 
+" Open gina commit with opening message
+function! s:OpenGitCommit() abort
+  function! s:clearDisplay(timer)
+      echo ''
+  endfunction
+  if len(systemlist('git diff --shortstat')) > 0
+    echo 'Opening git commit ...'
+    call timer_start(1000, function("s:clearDisplay"))
+    execute 'Gina commit -v'
+  endif
+endfunction
+command! -nargs=* OpenGitCommit call s:OpenGitCommit()
+
 " gitgutter
 let g:gitgutter_highlight_lines = 0
