@@ -90,6 +90,8 @@ nnoremap <silent> ; :<C-u>Buffers<CR>
 nnoremap <silent> ' :<C-u>DeleteBuffers<CR>
 " Open most recent buffer
 nnoremap <silent> - :<C-u>OpenLatestClosedBuffer<CR>
+" Open next buffer
+nnoremap <silent> + :<C-u>bn<CR>
 " Close buffer
 nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
 nmap <C-z><C-z> :<C-u>qall!<CR>
