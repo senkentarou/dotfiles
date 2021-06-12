@@ -74,11 +74,6 @@ nmap <silent> <C-e><C-r> :<C-u>lua vim.lsp.buf.references()<CR>
 nmap <silent> <C-e><C-f> :<C-u>lua vim.lsp.buf.formatting()<CR>
 nmap <silent> <C-e>r :<C-u>lua vim.lsp.buf.rename()<CR>
 
-" <C-s>
-" floating terminal window
-nnoremap <silent> <C-s><C-s> :<C-u>FloatermToggle<CR>
-tnoremap <silent> <C-s><C-s> <C-\><C-n>:<C-u>FloatermToggle<CR>
-
 " Useful settings
 " Apply ESC
 inoremap <silent> jj <ESC>
