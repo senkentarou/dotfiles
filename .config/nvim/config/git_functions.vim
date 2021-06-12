@@ -20,6 +20,12 @@ function! s:GGrepPreviousWordQuery() abort
 endfunction
 command! -nargs=* GGrepPreviousWordQuery call s:GGrepPreviousWordQuery()
 
+function! s:GLogCurrentFile() abort
+	let cfile = expand('%')
+	execute "Gina log --opener=vsplit " . cfile
+endfunction
+command! -nargs=* GLogCurrentFile call s:GLogCurrentFile()
+
 function! ToggleGStatus()
   if buflisted(bufname('.git/index'))
     "bd .git/index

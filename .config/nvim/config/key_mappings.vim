@@ -51,7 +51,8 @@ nnoremap <silent> <C-g><C-k> :<C-u>OpenGitCommit<CR>
 nnoremap <silent> <C-g><C-d> :<C-u>Gvdiffsplit<CR>
 nnoremap <silent> <C-g><C-s> :<C-u>Gina diff --cached --opener=split<CR>
 nnoremap <silent> <C-g><C-r> :<C-u>Gina reflog --opener=vsplit<CR>
-nnoremap <silent> <C-g><C-l> :<C-u>Gina log --opener=vsplit<CR>
+nnoremap <silent> <C-g>L :<C-u>Gina log --opener=vsplit<CR>
+nnoremap <silent> <C-g><C-l> :<C-u>GLogCurrentFile<CR>
 nnoremap <silent> <C-g><C-m> :<C-u>GitGutterPreviewHunk<CR>
 nnoremap <silent> <C-g><C-u> :<C-u>GitGutterUndoHunk<CR>
 nnoremap <silent> <C-g><C-p> :<C-u>GitGutterPrevHunk<CR>
