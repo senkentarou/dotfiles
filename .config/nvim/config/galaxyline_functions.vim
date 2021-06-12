@@ -258,8 +258,8 @@ lua << EOF
   }
 
   gl.short_line_list = {
-    "Floaterm",
     "Trouble",
+    "toggleterm",
     "help",
     "defx",
     "startify",

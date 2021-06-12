@@ -44,8 +44,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'lambdalisue/gina.vim'
 Plug 'airblade/vim-gitgutter'
-" Open floating terminal window
-Plug 'voldikss/vim-floaterm'
+" Open terminal window
+Plug 'akinsho/nvim-toggleterm.lua'
 " Open browser window
 Plug 'tyru/open-browser.vim'
 " Accelerate up/down
