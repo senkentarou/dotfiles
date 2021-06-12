@@ -80,7 +80,7 @@ function! s:OpenGitCommit() abort
   if len(systemlist('git diff --cached --shortstat')) > 0
     echo 'Opening git commit ...'
     execute 'Gina commit -v'
-  echo
+  else
     echo 'No staged file.'
   endif
   function! s:clearDisplay(timer)
