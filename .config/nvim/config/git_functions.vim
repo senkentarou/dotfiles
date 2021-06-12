@@ -61,17 +61,23 @@ command! -nargs=* OpenCurrentBlameFile call s:openCurrentBlameFile()
 
 " Open all additional change files in buffer
 function! s:GitOpenAdditionalFiles() abort
+  " check diff files
   let goafs = systemlist("git status --porcelain | grep -wv D | awk '{print $2}'")
-  let length = len(goafs)
-  if length == 0
+  let len_goafs = len(goafs)
+  if len_goafs == 0
     echo 'No git additional files.'
     return
   endif
-  " Open each file in buffer
+  " delete current open all buffers
+  let open_buffers = filter(range(1, bufnr('$')), 'buflisted(v:val)')
+  if len(open_buffers) > 0
+    execute 'bd ' . join(open_buffers, ' ')
+  end
+  " open each diff file in buffer
   for goaf in goafs
     execute 'e ' . goaf
   endfor
-  echo 'Opened ' . length . ' git additional files.'
+  echo 'Opened ' . len_goafs . ' git additional files.'
 endfunction
 command! -nargs=* GitOpenAdditionalFiles call s:GitOpenAdditionalFiles()
 
