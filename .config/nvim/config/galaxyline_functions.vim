@@ -267,6 +267,7 @@ lua << EOF
     "gina-log",
     "gina-reflog",
     "gina-grep",
+    "gina-commit",
   }
 
   gls.short_line_left = {
