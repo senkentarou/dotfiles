@@ -42,7 +42,7 @@ function! s:openCurrentBlameFile() abort
   " search current buffer filename by fzf.vim function
   let current_file = bufname(fzf#vim#_buflisted_sorted()[0])
   let commit_hash = substitute(system('git blame -l -L ' . line . ',+1 ' . current_file . ' | cut -d" " -f1'), '\n', '', 'g')
-  if len(commit_hash) == 0 || commit_hash == 0000000000000000000000000000000000000000
+  if len(commit_hash) == 0 || string(commit_hash) =~ '0000000000000000000000000000000000000000'
     echo 'commit hash is not found in git: ' . commit_hash
     return
   endif
