@@ -1,17 +1,66 @@
 " nvim-lspconfig
 lua << EOF
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.yamlls.setup{}
-require'lspconfig'.solargraph.setup{
+local nvim_lsp = require "lspconfig"
+
+nvim_lsp.yamlls.setup{}
+nvim_lsp.tsserver.setup{
+  -- filetypes = {'typescript', 'typescript.tsx', 'typescriptreact'}
+  settings = {documentFormatting = false}
+}
+nvim_lsp.solargraph.setup{
+  init_options = {codeAction = false},
   filetypes = {"ruby", "rakefile", "rspec"},
   settings = {
     solargraph = {
       completion = true,
-      diagnostic = true,
+      diagnostic = false,
       folding = true,
       references = true,
       rename = true,
       symbols = true
+    }
+  }
+}
+
+-- efm
+local eslint = {
+  lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
+  lintIgnoreExitCode = true,
+  lintStdin = true,
+  lintFormats = {"%f:%l:%c: %m"},
+  formatCommand = "eslint_d --fix ${INPUT}",
+  formatStdin = true
+}
+
+local rubocop = {
+  formatCommand = "rubocop -a ${INPUT}",
+  formatStdin = true
+}
+
+nvim_lsp.efm.setup {
+  init_options = {documentFormatting = true, codeAction = false},
+  filetypes = {"javascriptreact", "javascript", "typescript", "typescriptreact", "ruby", "rspec"},
+  settings = {
+    rootMarkers = {".git/"},
+    languages = {
+      javascript = {
+        eslint
+      },
+      javascriptreact = {
+        eslint
+      },
+      typescript = {
+        eslint
+      },
+      typescriptreact = {
+        eslint
+      },
+      ruby = {
+        rubocop
+      },
+      rspec = {
+        rubocop
+      }
     }
   }
 }
@@ -71,7 +120,7 @@ EOF
 
 " nvim-compe
 lua << EOF
-require'compe'.setup {
+require('compe').setup {
   enabled = true;
   autocomplete = true;
   debug = false;
