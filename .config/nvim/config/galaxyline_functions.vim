@@ -279,5 +279,31 @@ lua << EOF
         highlight = {colors.fg, colors.bg},
       }
     },
+    {
+      FileName = {
+        provider = function()
+          if not condition.buffer_not_empty() then
+            return ' '
+          end
+          local fname
+          if condition.hide_in_width() then
+            fname = vim.fn.fnamemodify(vim.fn.expand '%', ':~:.')
+          else
+            fname = vim.fn.expand '%:t'
+          end
+          if #fname == 0 then
+            return ' '
+          end
+          if vim.bo.readonly then
+            fname = fname .. ' ' .. '[RO]'
+          end
+          if vim.bo.modified then
+            fname = fname .. ' ' .. '[+]'
+          end
+          return ' ' .. fname .. ' '
+        end,
+        highlight = {colors.fg, colors.bg},
+      },
+    },
   }
 EOF
