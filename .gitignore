@@ -9,6 +9,7 @@
 .env/*
 .vim/*
 .gitconfig
+.zsh.local
 
 #
 # for c++ requirements
