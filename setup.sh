@@ -26,29 +26,6 @@ downlad_my_dotfiles() {
     return 0
 }
 
-link_my_dotfiles() {
-    if [ ! -d "$MY_DOTFILES_PATH" ]; then
-        echo_error "$MY_DOTFILES_PATH: not found"
-        exit 1
-    fi
-
-    echo_normal 'Deploying dotfiles..'
-    # link
-    # add symbolic links about dotfiles from $HOME to
-    # first, find the dotfiles on $MY_DOTFILES_PATH,
-    # and next, select the dotdirs yourself.
-    dots=$(find $MY_DOTFILES_PATH -type f -maxdepth 1 -name '.??*' | awk -F/ '{print $NF}')
-    dots="$dots .zsh.d .vim .config/nvim"
-
-    for dot in $dots; do
-      [[ -L $HOME/$dot ]] && unlink $HOME/$dot
-      ln -sv $MY_DOTFILES_PATH/$dot $HOME/$dot
-    done
-
-    echo_normal 'Deployed'
-    return 0
-}
-
 set_git_config() {
     if ! is_exist_command 'git'; then
         echo_error "git command is not found."
@@ -70,11 +47,10 @@ if [ -z "${MY_DOTFILES_PATH:-}" ]; then
 fi
 
 downlad_my_dotfiles
-link_my_dotfiles
 set_git_config
 
 #
 # Finish procedure
 #
-echo "Installation is done: Time=${SECONDS}(Sec.)"
+echo "Setupping is done: Time=${SECONDS}(Sec.)"
 exit 0

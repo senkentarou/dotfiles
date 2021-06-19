@@ -3,3 +3,7 @@ install:
 
 setup:
 	sh ./setup.sh
+	sh ./link.sh
+
+link:
+	sh ./link.sh
