@@ -2,43 +2,30 @@
 # gitignore setting
 #
 
-#
-# for .dotfiles
-#
+# for dotfiles
 .DS_Store
 .env/*
 .vim/*
 .gitconfig
-.zsh.local
+.zshrc.local
+.zsh_history
+.z_history
+.zcompdump
 
-#
-# for c++ requirements
-#
-# Prerequisites
-*.d
-*.o
-*.so
-*.a
-*.out
-
-#
-# for python requirements
-#
-.python-version
-__pycache__/*
-*.pyc
-
-#
-# for other directories
-#
+# for directories
 out/*
 obj/*
 bin/*
 res/*
 
-# for ignore case
+# for python
+.python-version
+__pycache__/*
+*.pyc
+
+# for ignore cases
 !.vim/vimrc
 !.vim/tools/*
 
-# for empty dir
+# for empty dirs
 !.gitkeep
