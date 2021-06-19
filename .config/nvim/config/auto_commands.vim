@@ -8,12 +8,6 @@ augroup Formatting
   " autocmd BufWritePre * :%s/[\x00-\x1F\x7F]//ge
   " Delete extra space on saving file
   autocmd BufWritePre * :%s/\s\+$//ge
-  " lspconfig
-  autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
-  autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
-  autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
-  autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
-  autocmd BufWritePre *.rb lua vim.lsp.buf.formatting_sync(nil, 100)
 augroup END
 
 augroup DefxSettings

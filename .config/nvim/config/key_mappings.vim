@@ -22,6 +22,7 @@ nnoremap <silent> <Leader>n :<C-u>GGrepPreviousWordQuery<CR>
 
 " buffers
 nnoremap <Leader>w :<C-u>w<CR>
+nnoremap <Leader>W :lua vim.lsp.buf.formatting_sync(nil, 100)<CR>
 nnoremap Q <Nop>
 nnoremap <Leader>q :<C-u>BufferClose<CR>
 " comments

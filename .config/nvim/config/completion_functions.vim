@@ -32,6 +32,8 @@ local eslint = {
   formatStdin = true
 }
 
+-- If you get warning or error on rubocop setup,
+-- please confirm rubocop version and install its correct version
 local rubocop = {
   formatCommand = "rubocop -a ${INPUT}",
   formatStdin = true
