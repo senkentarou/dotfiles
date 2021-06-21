@@ -1,4 +1,7 @@
 # Preloads
+# color
+export BAT_THEME='gruvbox-dark'
+
 # pyenv
 export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
