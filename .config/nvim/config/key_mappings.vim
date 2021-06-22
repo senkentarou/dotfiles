@@ -16,7 +16,7 @@ vnoremap <silent> <Leader>o :GBrowse @upstream<CR>
 vnoremap <silent> <Leader>O :GBrowse @origin<CR>
 " grep word
 nnoremap <silent> <Leader>, :<C-u>GGrepCurrentWordQuery<CR>
-nnoremap <silent> <Leader>m :<C-u>Gitgrep<CR>
+nnoremap <silent> <Leader>m :<C-u>GGrepInteractiveInput<CR>
 vnoremap <silent> <Leader>m :<C-u>GGrepVisualWordQuery<CR>
 nnoremap <silent> <Leader>n :<C-u>GGrepPreviousWordQuery<CR>
 

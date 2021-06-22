@@ -1,18 +1,4 @@
 " git-grepをfzf(preview)で開く
-function! s:Gitgrep(query) abort
-  if len(a:query) > 0
-    let query_word = a:query
-  else
-    let query_word = input('[Gitgrep] ')
-  endif
-
-  call fzf#run(fzf#wrap(fzf#vim#with_preview({
-    \ 'source': 'git grep -n -I -i --color=always ' . query_word,
-    \ 'sink': function('s:line_handler'),
-    \ 'dir': s:get_git_base_path(expand("%:p:h")),
-    \ 'options': '+m --ansi'
-    \ }, 'right:50%', 'ctrl-/')))
-endfunction
 
 command! -nargs=* -bang Gitgrep call s:Gitgrep(<q-args>)
 
@@ -38,24 +24,54 @@ function! s:line_handler(line)
   normal! ^zz
 endfunction
 
+function! GGrep(query, fullscreen)
+  let command_fmt = 'rg --hidden --glob "!.git/*" --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'sink': function('s:line_handler'), 'dir': s:get_git_base_path(expand("%:p:h")), 'options': ['--reverse', '--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command, '--prompt', 'GitGrep> ']}
+
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec, 'right:50%', 'ctrl-/'), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang GGrep call GGrep(<q-args>, <bang>0)
+
+" Git grep by interactive input
+function! s:GGrepInteractiveInput(query) abort
+  if len(a:query) > 0
+    let query_word = a:query
+  else
+    let query_word = input('[GitGrep] ')
+  endif
+
+  if len(query_word) > 0
+    execute 'GGrep ' . query_word
+    call histadd('@', query_word)
+  end
+endfunction
+command! -nargs=* GGrepInteractiveInput call s:GGrepInteractiveInput(<q-args>)
+
 " Git grep on current word
 function! s:GGrepCurrentWordQuery() abort
   let cword = expand('<cword>')
-  execute 'Gitgrep ' . cword
+  execute 'GGrep ' . cword
 endfunction
 command! -nargs=* GGrepCurrentWordQuery call s:GGrepCurrentWordQuery()
 
 function! s:GGrepVisualWordQuery() abort
   execute "normal! `<v`>y"
   let vtext = @@
-  execute 'Gitgrep ' . vtext
+  if len(vtext) > 0
+    execute 'GGrep ' . vtext
+    call histadd('@', vtext)
+  end
 endfunction
 command! -nargs=* GGrepVisualWordQuery call s:GGrepVisualWordQuery()
 
 function! s:GGrepPreviousWordQuery() abort
   let prev_word = histget('@', -1)
   if len(prev_word) > 0
-    execute 'Gitgrep ' . prev_word
+    execute 'GGrep ' . prev_word
+    call histadd('@', prev_word)
   endif
 endfunction
 command! -nargs=* GGrepPreviousWordQuery call s:GGrepPreviousWordQuery()
