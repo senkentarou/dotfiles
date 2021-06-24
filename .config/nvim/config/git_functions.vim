@@ -152,7 +152,7 @@ function! s:OpenGitCommit() abort
     echo 'No staged file.'
   endif
   function! s:clearDisplay(timer)
-      echo ''
+    echo ''
   endfunction
   call timer_start(1000, function("s:clearDisplay"))
 endfunction
