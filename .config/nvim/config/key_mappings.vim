@@ -15,11 +15,14 @@ nnoremap <silent> <Leader>b :<C-u>OpenCurrentBlameFile<CR>
 vnoremap <silent> <Leader>o :GBrowse @upstream<CR>
 vnoremap <silent> <Leader>O :GBrowse @origin<CR>
 " grep word
-nnoremap <silent> <Leader>, :<C-u>GGrepCurrentWordQuery<CR>
-nnoremap <silent> <Leader>M :<C-u>Gina grep<CR>
-nnoremap <silent> <Leader>m :<C-u>GGrepInteractiveInput<CR>
-vnoremap <silent> <Leader>m :<C-u>GGrepVisualWordQuery<CR>
-nnoremap <silent> <Leader>n :<C-u>GGrepPreviousWordQuery<CR>
+nnoremap <silent> <Leader>, :<C-u>GinaGrepCurrentWordQuery<CR>
+nnoremap <silent> <Leader>< :<C-u>GGrepCurrentWordQuery<CR>
+nnoremap <silent> <Leader>m :<C-u>GinaGrepInteractiveInput<CR>
+nnoremap <silent> <Leader>M :<C-u>GGrepInteractiveInput<CR>
+vnoremap <silent> <Leader>m :<C-u>GinaGrepVisualWordQuery<CR>
+vnoremap <silent> <Leader>M :<C-u>GGrepVisualWordQuery<CR>
+nnoremap <silent> <Leader>n :<C-u>GinaGrepPreviousWordQuery<CR>
+nnoremap <silent> <Leader>N :<C-u>GGrepPreviousWordQuery<CR>
 
 " buffers
 nnoremap <Leader>w :<C-u>w<CR>
@@ -51,7 +54,8 @@ vnoremap <silent> <C-g><C-b> :Git blame<CR>
 nnoremap <silent> <C-g><C-j> :<C-u>GitGutterStageHunk<CR>
 nnoremap <silent> <C-g><C-k> :<C-u>OpenGitCommit<CR>
 nnoremap <silent> <C-g><C-d> :<C-u>Gvdiffsplit<CR>
-nnoremap <silent> <C-g><C-h> :<C-u>Gina diff --cached --opener=split<CR>
+nnoremap <silent> <C-g><C-f> :<C-u>Gina diff --cached --opener=split<CR>
+nnoremap <silent> <C-g><C-h> :<C-u>Gina reset<CR>
 nnoremap <silent> <C-g><C-r> :<C-u>Gina reflog --opener=vsplit<CR>
 nnoremap <silent> <C-g>L :<C-u>Gina log --opener=vsplit<CR>
 nnoremap <silent> <C-g><C-l> :<C-u>GLogCurrentFile<CR>

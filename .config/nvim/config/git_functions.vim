@@ -25,7 +25,7 @@ function! s:line_handler(line)
 endfunction
 
 function! GGrep(query, fullscreen)
-  let command_fmt = 'rg --hidden --glob "!.git/*" --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let command_fmt = 'rg --sort-files --hidden --glob "!.git/*" --column --line-number --no-heading --color=always --smart-case -- %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'sink': function('s:line_handler'), 'dir': s:get_git_base_path(expand("%:p:h")), 'options': ['--reverse', '--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command, '--prompt', 'GitGrep> ']}
@@ -36,7 +36,7 @@ endfunction
 command! -nargs=* -bang GGrep call GGrep(<q-args>, <bang>0)
 
 " Git grep by interactive input
-function! s:GGrepInteractiveInput(query) abort
+function! s:GGrepInteractiveInput(cmd, query) abort
   if len(a:query) > 0
     let query_word = a:query
   else
@@ -44,37 +44,41 @@ function! s:GGrepInteractiveInput(query) abort
   endif
 
   if len(query_word) > 0
-    execute 'GGrep ' . query_word
+    execute a:cmd . ' ' . query_word
     call histadd('@', query_word)
   end
 endfunction
-command! -nargs=* GGrepInteractiveInput call s:GGrepInteractiveInput(<q-args>)
+command! -nargs=* GGrepInteractiveInput call s:GGrepInteractiveInput('GGrep', <q-args>)
+command! -nargs=* GinaGrepInteractiveInput call s:GGrepInteractiveInput('Gina grep', <q-args>)
 
 " Git grep on current word
-function! s:GGrepCurrentWordQuery() abort
+function! s:GGrepCurrentWordQuery(cmd) abort
   let cword = expand('<cword>')
-  execute 'GGrep ' . cword
+  execute a:cmd . ' ' . cword
 endfunction
-command! -nargs=* GGrepCurrentWordQuery call s:GGrepCurrentWordQuery()
+command! -nargs=* GGrepCurrentWordQuery call s:GGrepCurrentWordQuery('GGrep')
+command! -nargs=* GinaGrepCurrentWordQuery call s:GGrepCurrentWordQuery('Gina grep')
 
-function! s:GGrepVisualWordQuery() abort
+function! s:GGrepVisualWordQuery(cmd) abort
   execute "normal! `<v`>y"
   let vtext = @@
   if len(vtext) > 0
-    execute 'GGrep ' . vtext
+    execute a:cmd . ' ' . vtext
     call histadd('@', vtext)
   end
 endfunction
-command! -nargs=* GGrepVisualWordQuery call s:GGrepVisualWordQuery()
+command! -nargs=* GGrepVisualWordQuery call s:GGrepVisualWordQuery('GGrep')
+command! -nargs=* GinaGrepVisualWordQuery call s:GGrepVisualWordQuery('Gina grep')
 
-function! s:GGrepPreviousWordQuery() abort
+function! s:GGrepPreviousWordQuery(cmd) abort
   let prev_word = histget('@', -1)
   if len(prev_word) > 0
-    execute 'GGrep ' . prev_word
+    execute a:cmd . ' ' . prev_word
     call histadd('@', prev_word)
   endif
 endfunction
-command! -nargs=* GGrepPreviousWordQuery call s:GGrepPreviousWordQuery()
+command! -nargs=* GGrepPreviousWordQuery call s:GGrepPreviousWordQuery('GGrep')
+command! -nargs=* GinaGrepPreviousWordQuery call s:GGrepPreviousWordQuery('Gina grep')
 
 function! s:GLogCurrentFile() abort
 	let cfile = expand('%')
