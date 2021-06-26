@@ -131,5 +131,9 @@ imap <expr> <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
 smap <expr> <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
 
 " compe
-inoremap <silent> <expr> <C-Space> compe#complete()
+" show compe suggestions without word input
+inoremap <silent> <expr> <C-e> compe#complete()
+" decide compe suggention
 inoremap <silent> <expr> <CR> compe#confirm('<CR>')
+" unshow compe suggentions
+inoremap <silent> <expr> <C-c> compe#close('<C-c>')
