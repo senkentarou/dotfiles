@@ -12,6 +12,7 @@
 .zsh_history
 .z_history
 .zcompdump
+.zprezto
 
 # for directories
 out/*

@@ -1,5 +1,6 @@
 # Preloads
 # color
+export LSCOLORS=gxfxcxdxbxegedabagacad
 export BAT_THEME='gruvbox-dark'
 
 # pyenv
