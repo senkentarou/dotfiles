@@ -112,6 +112,20 @@ nnoremap L $
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 
+nmap sj <Plug>(columnskip:nonblank:next)
+omap sj <Plug>(columnskip:nonblank:next)
+xmap sj <Plug>(columnskip:nonblank:next)
+nmap sk <Plug>(columnskip:nonblank:prev)
+omap sk <Plug>(columnskip:nonblank:prev)
+xmap sk <Plug>(columnskip:nonblank:prev)
+
+nmap sJ <Plug>(columnskip:first-nonblank:next)
+omap sJ <Plug>(columnskip:first-nonblank:next)
+xmap sJ <Plug>(columnskip:first-nonblank:next)
+nmap sK <Plug>(columnskip:first-nonblank:prev)
+omap sK <Plug>(columnskip:first-nonblank:prev)
+xmap sK <Plug>(columnskip:first-nonblank:prev)
+
 imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-l> <Right>

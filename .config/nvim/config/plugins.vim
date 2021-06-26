@@ -50,6 +50,8 @@ Plug 'akinsho/nvim-toggleterm.lua'
 Plug 'tyru/open-browser.vim'
 " Accelerate up/down
 Plug 'rhysd/accelerated-jk'
+" Jump spaces
+Plug 'tyru/columnskip.vim'
 " Replacer
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
