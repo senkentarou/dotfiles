@@ -6,6 +6,8 @@ export ZDOTDIR=$HOME/.zsh.d
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+# Git repository
+#   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 #
 
 # Ensure that a non-login, non-interactive shell has a defined environment.
