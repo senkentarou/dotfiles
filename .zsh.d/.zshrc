@@ -14,6 +14,11 @@ fi
 # anyenv
 eval "$(anyenv init -)"
 
+# Load Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
 # Load .zsh submodules
 ZSHHOME="${HOME}/.zsh.d"
 ZSHCONFIG="${ZSHHOME}/config"
