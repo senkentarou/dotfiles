@@ -91,7 +91,11 @@ lua << EOF
           if cur_git_dir == '.' then
             return ' '
           end
-          return string.format(" %s:%s ", cur_git_dir, vcs.get_git_branch())
+          local branch = vcs.get_git_branch()
+          if branch == nil then
+            return ' '
+          end
+          return string.format(" %s:%s ", cur_git_dir, branch)
         end,
         condition = function()
           return condition.check_git_workspace() and is_show_branch() and condition.hide_in_width()
