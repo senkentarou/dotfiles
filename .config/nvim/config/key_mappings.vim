@@ -54,7 +54,7 @@ vnoremap <silent> <C-g><C-b> :Git blame<CR>
 nnoremap <silent> <C-g><C-h> :<C-u>Gina reset<CR>
 nnoremap <silent> <C-g><C-j> :<C-u>GitGutterStageHunk<CR>
 nnoremap <silent> <C-g><C-k> :<C-u>OpenGitCommit<CR>
-nnoremap <silent> <C-g><C-,> :<C-u>Gina push<CR>
+nnoremap <silent> <C-g>P :<C-u>Gina push<CR>
 nnoremap <silent> <C-g><C-r> :<C-u>Gvdiffsplit<CR>
 nnoremap <silent> <C-g><C-i> :<C-u>Gina diff --cached --opener=split<CR>
 nnoremap <silent> <C-g><C-f> :<C-u>Gina diff --opener=split<CR>
