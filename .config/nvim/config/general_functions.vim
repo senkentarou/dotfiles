@@ -30,15 +30,35 @@ command -nargs=* OpenLatestClosedBuffer call s:OpenLatestClosedBuffer()
 
 " rspec script
 function! s:toggleRspecFile() abort
-  let filename = expand('%:t')
-  if filename =~ '\.rb$'
-    let current_dir = expand('%:r')
-    let basename = @%
-    if current_dir =~ 'spec'
-      execute 'e ' . substitute(substitute(basename, filename, '', 'g'), 'spec', 'app', 'g') . substitute(filename, '_spec.rb', '', 'g') . '.rb'
+  let current_fname = expand('%:t')
+  let current_rdir = expand('%:h')
+
+  " Execute only rb file.
+  if current_fname =~ '\.rb$'
+    if current_fname =~ '_spec.rb'
+      let target_fname = substitute(current_fname, '_spec.rb', '.rb', '')
     else
-      execute 'e ' . substitute(substitute(basename, filename, '', 'g'), 'app', 'spec', 'g') . substitute(filename, '.rb', '', 'g') . '_spec.rb'
+      let target_fname = substitute(current_fname, '.rb', '_spec.rb', '')
     endif
+
+    if current_rdir =~ 'spec'
+      let target_rdir = substitute(current_rdir, 'spec', 'app', '')
+
+      if target_rdir =~ 'requests'
+        let target_rdir = substitute(target_rdir, 'requests', 'controllers', '')
+      endif
+    else
+      let target_rdir = substitute(current_rdir, 'app', 'spec', '')
+
+      " Open request spec file for controllers. (Open controller spec file if it exists already.)
+      if target_rdir =~ 'controllers' && !filereadable(target_rdir . '/' . target_fname)
+        let target_rdir = substitute(target_rdir, 'controllers', 'requests', '')
+      endif
+    endif
+
+    call mkdir(target_rdir, 'p')
+
+    execute 'e ' . target_rdir . '/' . target_fname
   endif
 endfunction
 command! -nargs=* ToggleRspecFile call s:toggleRspecFile()
