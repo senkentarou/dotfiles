@@ -60,7 +60,7 @@ lua << EOF
     vim.cmd(cmd)
   end
 
-  local function is_show_branch()
+  local function is_show_dir()
     local ignore_list = {'FUGITIVE', 'HELP'}
     for _, il in pairs(ignore_list) do
       if il == buffer.get_buffer_filetype() then return false end
@@ -85,20 +85,16 @@ lua << EOF
       }
     },
     {
-      GitBranch = {
+      GitDir = {
         provider = function()
           local cur_git_dir = vim.fn.fnamemodify(vim.fn.fnamemodify(vim.b.git_dir, ':h'), ':t')
           if cur_git_dir == '.' then
             return ' '
           end
-          local branch = vcs.get_git_branch()
-          if branch == nil then
-            return ' '
-          end
-          return string.format(" %s:%s ", cur_git_dir, branch)
+          return string.format(" %s ", cur_git_dir)
         end,
         condition = function()
-          return condition.check_git_workspace() and is_show_branch() and condition.hide_in_width()
+          return condition.check_git_workspace() and is_show_dir() and condition.hide_in_width()
         end,
         highlight = {colors.fg, colors.bg},
         separator = sep.left,
