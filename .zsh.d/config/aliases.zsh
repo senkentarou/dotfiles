@@ -17,6 +17,9 @@ alias gd='git diff'
 [[ -f $HOME/nvim-osx64/bin/nvim ]] && alias nvim=$HOME/nvim-osx64/bin/nvim
 alias vim=nvim
 
+# tmux
+[[ -f $HOME/tmuxinator-3.0.1/bin/tmuxinator ]] && alias mux=$HOME/tmuxinator-3.0.1/bin/tmuxinator
+
 # git checkout pull request by #PR number
 function gcopr() {
   git fetch upstream pull/$1/head:pr/$1
