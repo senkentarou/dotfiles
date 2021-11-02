@@ -35,13 +35,13 @@ local eslint = {
 -- If you get warning or error on rubocop setup,
 -- please confirm rubocop version and install its correct version
 local rubocop = {
-  formatCommand = "rubocop -a ${INPUT}",
+  formatCommand = "rubocop-daemon exec ${INPUT} --auto-correct",
   formatStdin = true
 }
 
 nvim_lsp.efm.setup {
   init_options = {documentFormatting = true, codeAction = false},
-  filetypes = {"javascriptreact", "javascript", "typescript", "typescriptreact", "ruby", "rspec"},
+  filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact", "ruby", "rspec"},
   settings = {
     rootMarkers = {".git/"},
     languages = {
