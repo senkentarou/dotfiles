@@ -4,13 +4,13 @@ install_by_brew() {
     echo 'Update and upgrade brew ..'
     brew update && brew upgrade
 
-    local brew_commands=('zsh' 'tmux' 'tmuxinator' 'git' 'vim' 'neovim' 'bat' 'anyenv' 'direnv' 'node' 'mysql' 'mycli' 'jq' 'ripgrep' 'fzf' 'docker' 'reattach-to-user-namespace' 'efm-langserver')
+    local brew_commands=('zsh' 'tmux' 'tmuxinator' 'git' 'git-secrets' 'vim' 'neovim' 'bat' 'anyenv' 'direnv' 'node' 'mysql' 'mycli' 'jq' 'ripgrep' 'fzf' 'docker' 'reattach-to-user-namespace' 'efm-langserver')
     local brew_casks=('docker' 'iterm2' 'google-chrome' 'slack' 'karabiner-elements')
 
     echo 'Install brew packages'
     for bc in ${brew_commands[@]}; do
         if ! brew list | grep -wq "$bc"; then
-            echo_normal "Installing $bc .."
+            echo "Installing $bc .."
             brew install "$bc"
             echo "Installed $bc"
         else
