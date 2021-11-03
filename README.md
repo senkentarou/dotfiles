@@ -13,6 +13,11 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ```
 :PlugInstall
 ```
+3. Defxを使用する場合は`python3`がnvim上で使える必要がある。
+  * nvim上で:echo has('python3')をして1が返るとOK
+```
+pip3 install pynvim
+```
 
 ### aquaSKKの設定
 1. `aquaSKK`フォルダを開く
@@ -28,3 +33,7 @@ open ~/Library/Application\ Support/AquaSKK
 ```
 iTerm2 > Preferences > Advanced > aquaSKKで検索
 ```
+
+### トラブルシューティング
+  * nvimで何かしらのエラーが出ている。
+    * `:checkhealth`でエラー内容を確認する。
