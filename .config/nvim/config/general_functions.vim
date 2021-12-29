@@ -5,7 +5,7 @@ function! s:BufferClose() abort
   if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1
     " delete buffer
     execute 'bd'
-  elseif index(['fugitive', 'gina-log', 'gina-reflog'], &filetype) >= 0
+  elseif index(['fugitive', 'gina-log', 'gina-reflog', 'Trouble'], &filetype) >= 0
     " close pane
     execute 'close'
   elseif &filetype == 'startify'
