@@ -63,6 +63,8 @@ Plug 'AndrewRadev/linediff.vim'
 Plug 'yegappan/mru'
 " Start window
 Plug 'mhinz/vim-startify'
+" tree-sitter
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
 call plug#end()
 
