@@ -45,12 +45,12 @@ function goaf() {
 }
 
 # git pull upstream and push origin
-function gpapd() {
-  UPSTREAM_CONFIG=$(git config --list | grep 'remote.upstream' | wc -l | tr -d " ")
+function gpaph() {
+  UPSTREAM_CONFIG=$(git config --list | grep 'remote.upstream' | wc -l | tr -d ' ')
   if [[ $UPSTREAM_CONFIG -eq 0 ]]; then
     echo 'no upstream config.'
     return 1
   fi
-  git pull upstream develop
-  git push origin develop
+  git pull upstream HEAD
+  git push origin HEAD
 }
