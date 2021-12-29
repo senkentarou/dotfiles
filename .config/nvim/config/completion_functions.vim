@@ -40,6 +40,7 @@ local rubocop = {
 }
 
 nvim_lsp.efm.setup {
+  cmd = {'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '5'},
   init_options = {documentFormatting = true, codeAction = false},
   filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact", "ruby", "rspec"},
   settings = {
