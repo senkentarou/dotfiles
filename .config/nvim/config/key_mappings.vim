@@ -26,7 +26,7 @@ nnoremap <silent> <Leader>N :<C-u>GGrepPreviousWordQuery<CR>
 
 " buffers
 nnoremap <Leader>w :<C-u>w<CR>
-nnoremap <Leader>W :lua vim.lsp.buf.formatting_sync(nil, 1000)<CR>
+nnoremap <Leader>W :lua vim.lsp.buf.formatting()<CR>
 nnoremap Q <Nop>
 nnoremap <Leader>q :<C-u>BufferClose<CR>
 " comments
@@ -78,7 +78,6 @@ nmap <silent> <C-e><C-p> :<C-u>lua vim.lsp.diagnostic.goto_prev()<CR>
 nmap <silent> <C-e><C-n> :<C-u>lua vim.lsp.diagnostic.goto_next()<CR>
 nmap <silent> <C-e><C-d> :<C-u>lua vim.lsp.buf.definition()<CR>
 nmap <silent> <C-e><C-r> :<C-u>lua vim.lsp.buf.references()<CR>
-nmap <silent> <C-e><C-f> :<C-u>lua vim.lsp.buf.formatting()<CR>
 nmap <silent> <C-e>r :<C-u>lua vim.lsp.buf.rename()<CR>
 
 " Useful settings
