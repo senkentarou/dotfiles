@@ -23,7 +23,8 @@ vnoremap <silent> <Leader>m :<C-u>GinaGrepVisualWordQuery<CR>
 vnoremap <silent> <Leader>M :<C-u>GGrepVisualWordQuery<CR>
 nnoremap <silent> <Leader>n :<C-u>GinaGrepPreviousWordQuery<CR>
 nnoremap <silent> <Leader>N :<C-u>GGrepPreviousWordQuery<CR>
-
+" tabs
+nnoremap <silent> <Leader>t :<C-u>tabe<CR>
 " buffers
 nnoremap <Leader>w :<C-u>w<CR>
 nnoremap <Leader>W :lua vim.lsp.buf.formatting()<CR>
