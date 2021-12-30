@@ -11,6 +11,12 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# goenv
+export GOENV_ROOT="$HOME/.anyenv/envs/goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+export GO111MODULE=on
+eval "$(goenv init -)"
+
 # anyenv
 eval "$(anyenv init -)"
 
