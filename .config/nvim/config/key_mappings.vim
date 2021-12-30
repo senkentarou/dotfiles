@@ -131,6 +131,7 @@ imap <C-k> <Up>
 imap <C-l> <Right>
 imap <C-h> <Left>
 
+" moving panes
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
