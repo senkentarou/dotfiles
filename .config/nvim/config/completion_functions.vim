@@ -1,6 +1,6 @@
 " nvim-lspconfig
 lua << EOF
-local nvim_lsp = require "lspconfig"
+local nvim_lsp = require('lspconfig')
 
 nvim_lsp.yamlls.setup{}
 nvim_lsp.tsserver.setup{
@@ -9,7 +9,7 @@ nvim_lsp.tsserver.setup{
 }
 nvim_lsp.solargraph.setup{
   init_options = {codeAction = false},
-  filetypes = {"ruby", "rakefile", "rspec"},
+  filetypes = {'ruby', 'rakefile', 'rspec'},
   settings = {
     solargraph = {
       completion = true,
@@ -42,9 +42,9 @@ local rubocop = {
 nvim_lsp.efm.setup {
   cmd = {'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '5'},
   init_options = {documentFormatting = true, codeAction = false},
-  filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact", "ruby", "rspec"},
+  filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby', 'rspec'},
   settings = {
-    rootMarkers = {".git/"},
+    rootMarkers = {'.git/'},
     languages = {
       javascript = {
         eslint
@@ -71,39 +71,39 @@ EOF
 
 " lsp-colors
 lua << EOF
-  require("lsp-colors").setup{
-    Error = "#db4b4b",
-    Warning = "#e0af68",
-    Information = "#0db9d7",
-    Hint = "#10B981"
+  require('lsp-colors').setup{
+    Error = '#db4b4b',
+    Warning = '#e0af68',
+    Information = '#0db9d7',
+    Hint = '#10B981'
   }
 EOF
 
 " trouble
 lua << EOF
-  require("trouble").setup{
-    position = "bottom",
+  require('trouble').setup{
+    position = 'bottom',
     height = 10,
     width = 50,
     icons = true,
-    mode = "workspace_diagnostics",
-    fold_open = "",
-    fold_closed = "",
+    mode = 'workspace_diagnostics',
+    fold_open = '',
+    fold_closed = '',
     action_keys = {
-      close = "q",
-      cancel = "<esc>",
-      refresh = "r",
-      jump = {"<cr>","<tab>"},
-      jump_close = {"o"},
-      toggle_mode = "m",
-      toggle_preview = "P",
-      hover = "K",
-      preview = "p",
-      close_folds = {"zM","zm"},
-      open_folds = {"zR","zr"},
-      toggle_fold = {"zA","za"},
-      previous = "k",
-      next = "j"
+      close = 'q',
+      cancel = '<esc>',
+      refresh = 'r',
+      jump = {'<cr>','<tab>'},
+      jump_close = {'o'},
+      toggle_mode = 'm',
+      toggle_preview = 'P',
+      hover = 'K',
+      preview = 'p',
+      close_folds = {'zM','zm'},
+      open_folds = {'zR','zr'},
+      toggle_fold = {'zA','za'},
+      previous = 'k',
+      next = 'j'
     },
     indent_lines = true,
     auto_open = false,
@@ -111,11 +111,11 @@ lua << EOF
     auto_preview = true,
     auto_fold = false,
     signs = {
-      error = "",
-      warning = "",
-      hint = "",
-      information = "",
-      other = "﫠"
+      error = '',
+      warning = '',
+      hint = '',
+      information = '',
+      other = '﫠'
     },
     use_lsp_diagnostic_signs = false
   }
