@@ -1,8 +1,11 @@
 " nvim-lspconfig
+" * see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md to know configurations
 lua << EOF
 local nvim_lsp = require('lspconfig')
 
 nvim_lsp.yamlls.setup{}
+nvim_lsp.pylsp.setup{}
+nvim_lsp.gopls.setup{}
 nvim_lsp.tsserver.setup{
   -- filetypes = {'typescript', 'typescript.tsx', 'typescriptreact'}
   settings = {documentFormatting = false}
@@ -22,7 +25,6 @@ nvim_lsp.solargraph.setup{
   }
 }
 
--- efm
 local eslint = {
   lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
   lintIgnoreExitCode = true,
