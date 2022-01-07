@@ -2,15 +2,15 @@ command! NotQuit :bp | :sp | :bn | :bd
 
 " bd or q command
 function! s:BufferClose() abort
-  if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1
-    " delete buffer
-    execute 'bd'
-  elseif index(['defx', 'fugitive', 'fugitiveblame', 'gina-log', 'gina-reflog', 'Trouble'], &filetype) >= 0
+  if index(['vim', 'defx', 'fugitive', 'fugitiveblame', 'gina-log', 'gina-reflog', 'Trouble'], &filetype) >= 0
     " close pane
     execute 'close'
   elseif &filetype == 'startify'
     " no action
     :
+  elseif len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1
+    " delete buffer
+    execute 'bd'
   else
     " set mhinz/vim-startify
     NotQuit
