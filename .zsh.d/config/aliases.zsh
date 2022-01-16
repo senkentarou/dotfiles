@@ -15,11 +15,6 @@ alias gc='git checkout'
 alias gsu='git stash -u'
 alias gsp='git stash pop'
 
-# git rebase -i
-function gri() {
-  git rebase -i $1
-}
-
 # vim
 [[ -f $HOME/nvim-osx64/bin/nvim ]] && alias nvim=$HOME/nvim-osx64/bin/nvim
 alias vim=nvim
