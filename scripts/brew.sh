@@ -4,7 +4,7 @@ install_by_brew() {
     echo 'Update and upgrade brew ..'
     brew update && brew upgrade
 
-    local brew_commands=('zsh' 'tmux' 'tmuxinator' 'git' 'git-secrets' 'vim' 'neovim' 'bat' 'anyenv' 'direnv' 'node' 'mysql' 'mycli' 'jq' 'ripgrep' 'fzf' 'docker' 'reattach-to-user-namespace' 'efm-langserver')
+    local brew_commands=('zsh' 'tmux' 'tmuxinator' 'git' 'git-secrets' 'vim' 'neovim' 'bat' 'anyenv' 'direnv' 'node' 'mysql' 'mycli' 'jq' 'ripgrep' 'fzf' 'docker' 'reattach-to-user-namespace' 'efm-langserver' 'gitmoji')
     local brew_casks=('docker' 'iterm2' 'google-chrome' 'slack' 'karabiner-elements')
 
     echo 'Install brew packages'
