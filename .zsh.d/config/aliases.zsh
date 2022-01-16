@@ -44,15 +44,23 @@ function goaf() {
 }
 
 # git pull upstream and push origin
-function gpaph() {
-  UPSTREAM_CONFIG=$(git config --list | grep 'remote.upstream' | wc -l | tr -d ' ')
-  if [[ $UPSTREAM_CONFIG -eq 0 ]]; then
+function gpap() {
+  if [[ $# = 0 ]]; then
+    echo 'gpap <branch_name>'
+    return 1
+  fi
+
+  local upstream_conf=$(git config --list | grep 'remote.upstream' | wc -l | tr -d ' ')
+  if [[ $upstream_conf -eq 0 ]]; then
     echo 'no upstream config.'
     return 1
   fi
-  git pull upstream HEAD
-  git push origin HEAD
+  git pull upstream $1
+  git push origin $1
 }
+
+alias gpapd='gpap develop'
+alias gpapm='gpap master'
 
 # tmuxinator
 function mux() {
