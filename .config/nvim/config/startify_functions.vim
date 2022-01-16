@@ -6,6 +6,10 @@ let g:startify_lists = [
   \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
   \ { 'type': 'commands', 'header': ['   Commands']       },
   \ ]
-let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}, {'m': '~/.config/nvim/config/key_mappings.vim'} ]
+let g:startify_bookmarks = [
+  \ {'c': '~/.config/nvim/init.vim'},
+  \ {'m': '~/.config/nvim/config/key_mappings.vim'},
+  \ {'z': '~/.zsh.d/.zshrc'}
+  \ ]
 let g:startify_change_to_dir = 0
 let g:startify_update_oldfiles = 1
