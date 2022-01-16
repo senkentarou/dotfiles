@@ -1,5 +1,4 @@
 # aliases
-alias mux='tmuxinator'
 alias k='kubectl'
 
 alias reload="source ${HOME}/.zsh.d/.zshrc"
@@ -53,4 +52,13 @@ function gpaph() {
   fi
   git pull upstream HEAD
   git push origin HEAD
+}
+
+# tmuxinator
+function mux() {
+  if [ $# = 0 ]; then
+    tmuxinator default
+  else
+    tmuxinator $1
+  fi
 }
