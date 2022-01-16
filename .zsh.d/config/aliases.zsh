@@ -14,6 +14,7 @@ alias gd='git diff'
 alias gc='git checkout'
 alias gsu='git stash -u'
 alias gsp='git stash pop'
+alias gmc='gitmoji -c'
 
 # vim
 [[ -f $HOME/nvim-osx64/bin/nvim ]] && alias nvim=$HOME/nvim-osx64/bin/nvim
