@@ -92,7 +92,7 @@ tools:
     format-stdin: true
 
   javascript-eslint: &javascript-eslint
-    lint-command: 'eslint_d -f unix --stdin'
+    lint-command: 'eslint_d -f unix --stdin --stdin-filename ${INPUT}'
     lint-ignore-exit-code: true
     lint-stdin: true
 
@@ -182,6 +182,12 @@ languages:
     - <<: *sh-shfmt
 
   javascript:
+    - <<: *javascript-eslint
+
+  typescript:
+    - <<: *javascript-eslint
+
+  typescriptreact:
     - <<: *javascript-eslint
 
   php:
