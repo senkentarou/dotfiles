@@ -14,8 +14,10 @@ fi
 # goenv
 export GOENV_ROOT="$HOME/.anyenv/envs/goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
-export GO111MODULE=on
-eval "$(goenv init -)"
+if command -v goenv 1>/dev/null 2>&1; then
+  export GO111MODULE=on
+  eval "$(goenv init -)"
+fi
 
 # anyenv
 eval "$(anyenv init -)"
