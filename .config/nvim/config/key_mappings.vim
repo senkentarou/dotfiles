@@ -2,7 +2,52 @@
 " Key mappings
 "
 
-" * If you cannot apply your key mappings, you can see like ':verbose imap <C-h>' and can trace whole settings about it
+"
+" [[Text Objects]]
+" Thanks to https://shnsprk.com/entry/2015/11/12/070000
+"
+" Operator + a/i + Object
+"
+" [Operator]
+" c: change
+" d: delete
+" y: yank
+" (v: visual)
+"
+" [a/i]
+" a: an object
+" i: inner
+"
+" [Object]
+" w: word
+" W: WORD (with white space)
+" s: sentence (bun)
+" p: paragraph (danraku)
+" t: tag (html tag)
+" ' " ` [ { <: 'inner from symbol'
+"
+" [[vim-surround]]
+" Thanks to https://github.com/tpope/vim-surround
+"
+" Operator + Surround
+"
+" [Surround]
+" [e]: exist surrounding char
+" [d]: desire surrounding char
+" [mo]: motion (a/i + Object)
+"
+" [Operator]
+" ds [e]: delete surround [e]
+" cs [e] [d]: change surround from [e] to [d]
+" ys [mo] [d]: you surround with [d] on [mo]
+"
+" * If you want to surround without white space, you select end part of surrounding. ) } >
+
+"
+" Custom mappings
+"
+"
+" * If you cannot apply your key mappings, you can see like ':verbose imap <C-h>' and can trace whole settings about it.
 
 " Leaders
 let mapleader="\<Space>"
