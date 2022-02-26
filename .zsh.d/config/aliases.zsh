@@ -9,12 +9,18 @@ alias keyconf="vim ${HOME}/.config/nvim/config/key_mappings.vim"
 alias less='less -qR'
 alias ls='ls -al'
 
+alias gc='git checkout'
+alias gri='git rebase -i'
 alias gs='git status'
 alias gd='git diff'
-alias gc='git checkout'
-alias gsu='git stash -u'
-alias gsp='git stash pop'
+alias gdc='git diff --cached'
+alias gr='git reset'
+alias gcm='git commit -m'
 alias gmc='gitmoji -c'
+alias gpo='git push origin'
+alias gpu='git push upstream'
+
+alias tf=terraform
 
 alias gskip='git update-index --skip-worktree'
 alias gnoskip='git update-index --no-skip-worktree'
