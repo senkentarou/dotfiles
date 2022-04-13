@@ -16,6 +16,10 @@ alias gsu='git stash -u'
 alias gsp='git stash pop'
 alias gmc='gitmoji -c'
 
+alias gskip='git update-index --skip-worktree'
+alias gnoskip='git update-index --no-skip-worktree'
+alias gls='git ls-files -v | grep "^S"'
+
 # vim
 [[ -f $HOME/nvim-osx64/bin/nvim ]] && alias nvim=$HOME/nvim-osx64/bin/nvim
 alias vim=nvim
