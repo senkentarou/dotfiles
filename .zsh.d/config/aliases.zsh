@@ -19,12 +19,11 @@ alias gcm='git commit -m'
 alias gmc='gitmoji -c'
 alias gpo='git push origin'
 alias gpu='git push upstream'
-
-alias tf=terraform
-
 alias gskip='git update-index --skip-worktree'
 alias gnoskip='git update-index --no-skip-worktree'
 alias gls='git ls-files -v | grep "^S"'
+
+alias tf=terraform
 
 # vim
 [[ -f $HOME/nvim-osx64/bin/nvim ]] && alias nvim=$HOME/nvim-osx64/bin/nvim
