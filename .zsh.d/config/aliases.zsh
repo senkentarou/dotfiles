@@ -20,6 +20,7 @@ alias gdc='git diff --cached'
 alias gr='git reset'
 
 alias gri='git rebase -i'
+alias grc='git rebase --continue'
 
 alias gc='git checkout'
 alias gcb='git checkout -b'
