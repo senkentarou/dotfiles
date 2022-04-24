@@ -1,5 +1,6 @@
 # aliases
 alias k='kubectl'
+alias tf=terraform
 
 alias reload="source ${HOME}/.zsh.d/.zshrc"
 alias zshconf="vim ${HOME}/.zsh.d/.zshrc"
@@ -9,21 +10,32 @@ alias keyconf="vim ${HOME}/.config/nvim/config/key_mappings.vim"
 alias less='less -qR'
 alias ls='ls -al'
 
-alias gc='git checkout'
-alias gri='git rebase -i'
+alias gl='git log'
+alias glp='git log -p'
+alias glno='git log --name-only'
+
 alias gs='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gr='git reset'
+
+alias gri='git rebase -i'
+
+alias gc='git checkout'
+alias gcb='git checkout -b'
+
+alias gsu='git stash -u'
+alias gsp='git stash pop'
+
+alias gau='git add -u'
 alias gcm='git commit -m'
 alias gmc='gitmoji -c'
 alias gpo='git push origin'
 alias gpu='git push upstream'
+
 alias gskip='git update-index --skip-worktree'
 alias gnoskip='git update-index --no-skip-worktree'
 alias gls='git ls-files -v | grep "^S"'
-
-alias tf=terraform
 
 # vim
 [[ -f $HOME/nvim-osx64/bin/nvim ]] && alias nvim=$HOME/nvim-osx64/bin/nvim
