@@ -1,6 +1,6 @@
 # aliases
 alias k='kubectl'
-alias tf=terraform
+alias tf='terraform'
 
 alias reload="source ${HOME}/.zsh.d/.zshrc"
 alias zshconf="vim ${HOME}/.zsh.d/.zshrc"
