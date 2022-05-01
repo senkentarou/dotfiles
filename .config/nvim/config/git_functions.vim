@@ -82,7 +82,9 @@ command! -nargs=* GinaGrepPreviousWordQuery call s:GGrepPreviousWordQuery('Gina 
 
 function! s:GLogCurrentFile() abort
 	let cfile = expand('%')
-	execute "Gina log --opener=vsplit " . cfile
+  if &filetype != 'gina-log'
+    execute "Gina log --opener=vsplit " . cfile
+  endif
 endfunction
 command! -nargs=* GLogCurrentFile call s:GLogCurrentFile()
 
