@@ -45,6 +45,17 @@ alias vim=nvim
 # tmux
 [[ -f $HOME/tmuxinator-3.0.1/bin/tmuxinator ]] && alias mux=$HOME/tmuxinator-3.0.1/bin/tmuxinator
 
+# git open in log files
+function golf() {
+  local target='HEAD^..HEAD'
+  if [[ $1 =~ [0-9a-f]{40} ]]; then
+    # select files by range
+    target="$1^..HEAD"
+  fi
+
+  vim $(git log ${target} --name-only --oneline | grep -Ev '.{7} ' | uniq)
+}
+
 # git checkout pull request by #PR number
 function gcopr() {
   git fetch upstream pull/$1/head:pr/$1
