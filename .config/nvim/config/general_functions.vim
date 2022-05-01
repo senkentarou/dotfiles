@@ -2,7 +2,10 @@ command! NotQuit :bp | :sp | :bn | :bd
 
 " bd or q command
 function! s:BufferClose() abort
-  if index(['defx', 'fugitive', 'fugitiveblame', 'gina-log', 'gina-reflog', 'Trouble'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
+  if index(['defx'], &filetype) >= 0
+    " close by defx command
+    Defx
+  elseif index(['fugitive', 'fugitiveblame', 'gina-log', 'gina-reflog', 'Trouble'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
     " close pane
     execute 'close'
   elseif &filetype == 'startify'
