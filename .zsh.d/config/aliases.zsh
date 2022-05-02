@@ -13,6 +13,7 @@ alias ls='ls -al'
 alias gl='git log'
 alias glp='git log -p'
 alias glno='git log --name-only'
+alias glm='git log --merges'
 
 alias gs='git status'
 alias gd='git diff'
