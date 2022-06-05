@@ -88,7 +88,6 @@ lua << EOF
     height = 10,
     width = 50,
     icons = true,
-    mode = 'workspace_diagnostics',
     fold_open = '',
     fold_closed = '',
     action_keys = {
