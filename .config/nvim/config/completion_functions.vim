@@ -41,6 +41,8 @@ local rubocop = {
   formatStdin = true
 }
 
+-- If you cannot access language servers,
+-- please see less ~/.cache/nvim/lsp.log
 nvim_lsp.efm.setup {
   cmd = {'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '5'},
   init_options = {documentFormatting = true, codeAction = false},
