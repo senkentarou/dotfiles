@@ -114,13 +114,14 @@ nmap <silent> <C-w><C-q> :<C-u>close<CR>
 
 " <C-e>
 nmap <C-e> <Nop>
-nmap <silent> <C-e><C-e> :<C-u>TroubleToggle<CR>
+nmap <silent> <C-e><C-e> :<C-u>lua vim.lsp.buf.definition()<CR>
 nmap <silent> <C-e><C-p> :<C-u>lua vim.lsp.diagnostic.goto_prev()<CR>
 nmap <silent> <C-e><C-n> :<C-u>lua vim.lsp.diagnostic.goto_next()<CR>
-nmap <silent> <C-e><C-d> :<C-u>lua vim.lsp.buf.definition()<CR>
+nmap <silent> <C-e><C-d> :<C-u>TroubleToggle<CR>
 nmap <silent> <C-e><C-r> :<C-u>lua vim.lsp.buf.references()<CR>
 nmap <silent> <C-e>r :<C-u>lua vim.lsp.buf.rename()<CR>
 nmap <silent> K :<C-u>lua vim.lsp.buf.hover()<CR>
+nmap <silent> <C-k> :<C-u>lua vim.lsp.buf.signature_help()<CR>
 
 " Useful settings
 " Apply ESC
