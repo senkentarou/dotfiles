@@ -19,6 +19,9 @@ if command -v goenv 1>/dev/null 2>&1; then
   eval "$(goenv init -)"
 fi
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # anyenv
 eval "$(anyenv init -)"
 
