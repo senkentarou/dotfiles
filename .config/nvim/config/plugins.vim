@@ -19,10 +19,14 @@ Plug 'sheerun/vim-polyglot'
 Plug 'nathanaelkane/vim-indent-guides'
 " Auto complete
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
 Plug 'hrsh7th/nvim-compe'
+" null-ls
+Plug 'nvim-lua/plenary.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 " Snipet
 Plug 'rafamadriz/friendly-snippets'
 Plug 'hrsh7th/vim-vsnip'

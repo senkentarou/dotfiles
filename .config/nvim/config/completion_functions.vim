@@ -1,76 +1,49 @@
-" nvim-lspconfig
-" * see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md to know configurations
+" nvim-lsp-installer
 lua << EOF
-local nvim_lsp = require('lspconfig')
+  require("nvim-lsp-installer").setup {}
+EOF
 
-nvim_lsp.yamlls.setup{}
-nvim_lsp.pylsp.setup{}
-nvim_lsp.gopls.setup{}
-nvim_lsp.tsserver.setup{
-  -- filetypes = {'typescript', 'typescript.tsx', 'typescriptreact'}
-  settings = {documentFormatting = false}
-}
-nvim_lsp.solargraph.setup{
-  init_options = {codeAction = false},
-  filetypes = {'ruby', 'rakefile', 'rspec'},
-  settings = {
-    solargraph = {
-      completion = true,
-      diagnostic = false,
-      folding = true,
-      references = true,
-      rename = true,
-      symbols = true
-    }
+" nvim-lspconfig: use diagnostics and formatting for ruby/rspec and nvim-compe nvim_lsp setting to auto import on typescriptreact
+lua << EOF
+  local nvim_lsp = require('lspconfig')
+  local nvim_lsp_config = require('lspconfig.configs')
+
+  -- For ruby (needs ruby-lsp gem on your development)
+  nvim_lsp_config.ruby_lsp = {
+    default_config = {
+      cmd = { 'bundle', 'exec', 'ruby-lsp' },
+      init_options = {
+        enabledFeatures = { 'formatting', 'codeActions' },
+      },
+      filetypes = { 'ruby', 'rspec' },
+      root_dir = require('lspconfig.util').root_pattern('Gemfile', '.git'),
+    },
   }
-}
+  nvim_lsp.ruby_lsp.setup {}
 
-local eslint = {
-  lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
-  lintIgnoreExitCode = true,
-  lintStdin = true,
-  lintFormats = {"%f:%l:%c: %m"},
-  formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
-  formatStdin = true
-}
+  -- For nvim-compe nvim_lsp setting to auto import on typescriptreact
+  nvim_lsp.tsserver.setup{
+    -- filetypes = {'typescript', 'typescript.tsx', 'typescriptreact'}
+    settings = { documentFormatting = false }
+  }
+EOF
 
--- If you get warning or error on rubocop setup,
--- please confirm rubocop version and install its correct version
-local rubocop = {
-  formatCommand = "rubocop-daemon exec ${INPUT} --auto-correct",
-  formatStdin = true
-}
-
--- If you cannot access language servers,
--- please see less ~/.cache/nvim/lsp.log
-nvim_lsp.efm.setup {
-  cmd = {'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '5'},
-  init_options = {documentFormatting = true, codeAction = false},
-  filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby', 'rspec'},
-  settings = {
-    rootMarkers = {'.git/'},
-    languages = {
-      javascript = {
-        eslint
-      },
-      javascriptreact = {
-        eslint
-      },
-      typescript = {
-        eslint
-      },
-      typescriptreact = {
-        eslint
-      },
-      ruby = {
-        rubocop
-      },
-      rspec = {
-        rubocop
+" null-ls: use diagnostics and formatting for js/ts/jsx/tsx
+"   prettier: use for formatting
+"   eslint: use for diagnostics (formatting is delegated to prettier)
+" see: https://zenn.dev/ryusou/articles/nodejs-prettier-eslint2021 and official documentation
+lua << EOF
+  local null_ls = require('null-ls')
+  null_ls.setup {
+    root_dir = require('lspconfig.util').root_pattern('package.json', '.git'),
+    sources = {
+      null_ls.builtins.diagnostics.eslint_d,
+      null_ls.builtins.formatting.prettier.with {
+        filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+        prefer_local = 'node_modules/.bin'
       }
     }
   }
-}
 EOF
 
 " lsp-colors
@@ -126,40 +99,35 @@ EOF
 
 " nvim-compe
 lua << EOF
-require('compe').setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = true;
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    vsnip = true;
-  };
-}
+  require('compe').setup {
+    enabled = true;
+    autocomplete = true;
+    debug = false;
+    min_length = 1;
+    preselect = 'enable';
+    throttle_time = 80;
+    source_timeout = 200;
+    incomplete_delay = 400;
+    max_abbr_width = 100;
+    max_kind_width = 100;
+    max_menu_width = 100;
+    documentation = true;
+    source = {
+      path = true;
+      buffer = true;
+      calc = true;
+      nvim_lsp = true;
+      nvim_lua = true;
+      vsnip = true;
+    };
+  }
 EOF
 
 " tree-sitter
 lua <<EOF
-require('nvim-treesitter.configs').setup {
-  ensure_installed = 'maintained',
-  highlight = {
-    enable = true,
-    disable = {
-      'typescript',
-      'javascript'
+  require('nvim-treesitter.configs').setup {
+    highlight = {
+      enable = true
     }
   }
-}
 EOF
