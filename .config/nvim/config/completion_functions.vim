@@ -180,6 +180,12 @@ lua << EOF
       { name = 'buffer' }
     }
   })
+
+  -- If you want insert `(` after select function or method item
+  cmp.event:on(
+    'confirm_done',
+    require('nvim-autopairs.completion.cmp').on_confirm_done()
+  )
 EOF
 
 " luasnip
@@ -198,4 +204,9 @@ lua <<EOF
       enable = true
     }
   }
+EOF
+
+" auto-pairs
+lua << EOF
+  require("nvim-autopairs").setup {}
 EOF

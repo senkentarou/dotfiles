@@ -38,7 +38,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 " Auto complete for bracket pairs
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 " Finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
