@@ -43,3 +43,6 @@ fi
 
 # Load .zshrc.local file
 [[ -f "${ZSHHOME}/.zshrc.local" ]] && . $ZSHHOME/.zshrc.local
+
+# Open tmux with tmuxinator default setting
+mux
