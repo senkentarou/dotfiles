@@ -159,13 +159,6 @@ nmap sk <Plug>(columnskip:nonblank:prev)
 omap sk <Plug>(columnskip:nonblank:prev)
 xmap sk <Plug>(columnskip:nonblank:prev)
 
-nmap sJ <Plug>(columnskip:first-nonblank:next)
-omap sJ <Plug>(columnskip:first-nonblank:next)
-xmap sJ <Plug>(columnskip:first-nonblank:next)
-nmap sK <Plug>(columnskip:first-nonblank:prev)
-omap sK <Plug>(columnskip:first-nonblank:prev)
-xmap sK <Plug>(columnskip:first-nonblank:prev)
-
 imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-l> <Right>
