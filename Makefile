@@ -1,9 +1,14 @@
+all: install setup link reboot
+
 install:
-	sh ./install.sh
+	sh ./scripts/install.sh
 
 setup:
-	sh ./setup.sh
-	sh ./link.sh
+	sh ./scripts/setup.sh
+	sh ./scripts/link.sh
 
 link:
-	sh ./link.sh
+	sh ./scripts/link.sh
+
+reboot:
+	sh ./scripts/reboot_shell.sh

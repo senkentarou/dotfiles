@@ -1,7 +1,10 @@
 #!/bin/bash
 
 install_by_anyenv() {
-    local envs=('rbenv' 'nodenv' 'pyenv' 'goenv' 'tfenv' 'luaenv')
+    local envs=('direnv' 'rbenv' 'nodenv' 'pyenv' 'goenv' 'tfenv' 'luaenv')
+
+    echo 'Install anyenv init'
+    anyenv install --init
 
     echo 'Install anyenv packages'
     for e in ${envs[@]}; do

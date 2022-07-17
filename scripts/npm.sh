@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install_by_npm() {
-    local npms=('typescript' 'typescript-language-server' 'yaml-language-server' 'eslint_d')
+    local npms=('typescript' 'eslint_d' 'prettier')
 
     echo 'Install npm packages'
     for n in ${npms[@]}; do
