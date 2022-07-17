@@ -1,10 +1,11 @@
 " nvim-lsp-installer
 lua << EOF
-  require("nvim-lsp-installer").setup {}
+  require('nvim-lsp-installer').setup {}
 EOF
 
 " nvim-lspconfig: use diagnostics and formatting for ruby/rspec and nvim-compe nvim_lsp setting to auto import on typescriptreact
 lua << EOF
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   local nvim_lsp = require('lspconfig')
   local nvim_lsp_config = require('lspconfig.configs')
 
@@ -19,12 +20,15 @@ lua << EOF
       root_dir = require('lspconfig.util').root_pattern('Gemfile', '.git'),
     },
   }
-  nvim_lsp.ruby_lsp.setup {}
+  nvim_lsp.ruby_lsp.setup {
+    capabilities = capabilities
+  }
 
   -- For nvim-compe nvim_lsp setting to auto import on typescriptreact
   nvim_lsp.tsserver.setup{
     -- filetypes = {'typescript', 'typescript.tsx', 'typescriptreact'}
-    settings = { documentFormatting = false }
+    settings = { documentFormatting = false },
+    capabilities = capabilities
   }
 EOF
 
@@ -99,28 +103,92 @@ EOF
 
 " nvim-compe
 lua << EOF
-  require('compe').setup {
-    enabled = true;
-    autocomplete = true;
-    debug = false;
-    min_length = 1;
-    preselect = 'enable';
-    throttle_time = 80;
-    source_timeout = 200;
-    incomplete_delay = 400;
-    max_abbr_width = 100;
-    max_kind_width = 100;
-    max_menu_width = 100;
-    documentation = true;
-    source = {
-      path = true;
-      buffer = true;
-      calc = true;
-      nvim_lsp = true;
-      nvim_lua = true;
-      vsnip = true;
-    };
-  }
+  local cmp = require('cmp')
+  local luasnip = require('luasnip')
+  local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+  end
+
+  cmp.setup({
+    formatting = {
+      format = require('lspkind').cmp_format({
+        with_text = true,
+        menu = {
+          buffer = '[Buf]',
+          nvim_lsp = '[LSP]',
+          nvim_lua = '[API]',
+          luasnip = '[Snip]',
+          path = '[PATH]',
+        },
+      }),
+    },
+    snippet = {
+      expand = function(args)
+        luasnip.lsp_expand(args.body)
+      end
+
+    },
+    window = {
+      documentation = {
+        border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+      },
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<C-c>'] = cmp.mapping.abort(),
+      ['<Tab>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        elseif has_words_before() then
+          cmp.complete()
+        else
+          fallback()
+        end
+      end, {'i', 's'}),
+      ['<S-Tab>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        else
+          fallback()
+        end
+      end, {'i', 's'}),
+    }),
+    sources = cmp.config.sources({
+      { name = 'buffer' },
+      { name = 'nvim_lsp' },
+      { name = 'nvim_lua' },
+      { name = 'luasnip' },
+      { name = 'path' },
+    }, {
+      { name = 'buffer' },
+    }),
+  })
+
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'cmdline' }
+    }
+  })
+
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+EOF
+
+" luasnip
+lua <<EOF
+  -- local ls = require('luasnip')
+
+  -- load from friendly-snippets
+  -- https://github.com/L3MON4D3/LuaSnip
+  require('luasnip.loaders.from_vscode').lazy_load()
 EOF
 
 " tree-sitter

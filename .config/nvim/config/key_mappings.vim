@@ -141,9 +141,6 @@ nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
 nmap <C-z><C-z> :<C-u>qall!<CR>
 " Replace word
 vmap p <Plug>(operator-replace)
-" Use <Tab> / <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " diff line
 vnoremap <silent> <C-y> :Linediff<CR>
 nnoremap <C-y> :<C-u>LinediffReset<CR>
@@ -179,19 +176,3 @@ nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
-
-" vsnip
-" Expand
-imap <expr> <C-e> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-m>'
-smap <expr> <C-e> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-m>'
-" Jump forward or backward
-imap <expr> <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
-smap <expr> <C-b> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-b>'
-
-" compe
-" show compe suggestions without word input
-inoremap <silent> <expr> <C-e> compe#complete()
-" decide compe suggention
-inoremap <silent> <expr> <CR> compe#confirm('<CR>')
-" unshow compe suggentions
-inoremap <silent> <expr> <C-c> compe#close('<C-c>')

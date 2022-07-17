@@ -23,14 +23,20 @@ Plug 'williamboman/nvim-lsp-installer'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
-Plug 'hrsh7th/nvim-compe'
+" Snipet
+Plug 'rafamadriz/friendly-snippets'
+Plug 'onsails/lspkind.nvim'
+Plug 'L3MON4D3/LuaSnip'
+" Completion
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 " null-ls
 Plug 'nvim-lua/plenary.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
-" Snipet
-Plug 'rafamadriz/friendly-snippets'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
 " Auto complete for bracket pairs
 Plug 'jiangmiao/auto-pairs'
 " Finder
