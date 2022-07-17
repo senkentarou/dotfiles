@@ -1,9 +1,13 @@
 ### 導入方法
-1. TODO
+1. 使用するアプリをインストール(パスワード入力が必要・ユーザ入力が必要な場合がある) `make install`
+2. アプリをセットアップ `make setup`
+3. dotfilesをローカルにリンク `make link`
+4. ターミナルを再起動 `make reboot`
+(上記全てをまとめて実行する `make all` or `make`)
 
 ### nvimの設定
 
-1. 初回起動時にvim-plugの設定が入っていない場合はダウンロードしてくる必要がある。
+1. 初回起動時にvim-plugの設定が入っていないエラーになる場合は先にダウンロードする
 https://github.com/junegunn/vim-plug
 ```
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -14,12 +18,15 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 :PlugInstall
 ```
 3. Defxを使用する場合は`python3`がnvim上で使える必要がある。
-  * nvim上で:echo has('python3')をして1が返るとOK
+  * nvim上で`:echo has('python3')`をして1が返るとOK
 ```
 pip3 install pynvim
 ```
+  * `[defx] defx failed to load. Try the :UpdateRemotePlugins command and restart Neovim. See also :checkhealth.` のエラーが出る場合は表示の対応方法に従う。
 
 ### aquaSKKの設定
+0. [aquaSKK](https://github.com/codefirst/aquaskk)をインストールする
+
 1. `aquaSKK`フォルダを開く
 ```
 open aquaSKK
@@ -35,5 +42,5 @@ iTerm2 > Preferences > Advanced > aquaSKKで検索
 ```
 
 ### トラブルシューティング
-  * nvimで何かしらのエラーが出ている。
+  * nvimで何かしらのエラーが出ている場合
     * `:checkhealth`でエラー内容を確認する。
