@@ -1,3 +1,8 @@
+" fidget (show starting status of language server)
+lua << EOF
+  require('fidget').setup {}
+EOF
+
 " nvim-lsp-installer
 lua << EOF
   require('nvim-lsp-installer').setup {}

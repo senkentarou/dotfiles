@@ -18,6 +18,7 @@ Plug 'sheerun/vim-polyglot'
 " Indent highlight
 Plug 'nathanaelkane/vim-indent-guides'
 " Auto complete
+Plug 'j-hui/fidget.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'kyazdani42/nvim-web-devicons'
