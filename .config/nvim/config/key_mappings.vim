@@ -81,6 +81,13 @@ vmap <Leader>c <Plug>(caw:hatpos:toggle)
 " rspec (for ruby file)
 nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
 
+nmap <silent> <Leader>j <Plug>(columnskip:nonblank:next)
+omap <silent> <Leader>j <Plug>(columnskip:nonblank:next)
+xmap <silent> <Leader>j <Plug>(columnskip:nonblank:next)
+nmap <silent> <Leader>k <Plug>(columnskip:nonblank:prev)
+omap <silent> <Leader>k <Plug>(columnskip:nonblank:prev)
+xmap <silent> <Leader>k <Plug>(columnskip:nonblank:prev)
+
 " <C-f> Find files
 nmap <C-f> <Nop>
 " by git file name
@@ -151,13 +158,6 @@ nnoremap L $
 
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
-
-nmap sj <Plug>(columnskip:nonblank:next)
-omap sj <Plug>(columnskip:nonblank:next)
-xmap sj <Plug>(columnskip:nonblank:next)
-nmap sk <Plug>(columnskip:nonblank:prev)
-omap sk <Plug>(columnskip:nonblank:prev)
-xmap sk <Plug>(columnskip:nonblank:prev)
 
 imap <C-j> <Down>
 imap <C-k> <Up>
