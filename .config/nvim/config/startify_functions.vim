@@ -7,7 +7,8 @@ let g:startify_lists = [
   \ { 'type': 'commands', 'header': ['   Commands']       },
   \ ]
 let g:startify_bookmarks = [
-  \ {'c': '~/.config/nvim/init.vim'},
+  \ {'i': '~/.config/nvim/init.vim'},
+  \ {'c': '~/.config/nvim/config/completion_functions.vim'},
   \ {'m': '~/.config/nvim/config/key_mappings.vim'},
   \ {'z': '~/.zsh.d/.zshrc'}
   \ ]
