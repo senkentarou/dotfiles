@@ -69,10 +69,6 @@ command! -nargs=* ToggleRspecFile call s:toggleRspecFile()
 " indent setting
 let g:indent_guides_enable_on_vim_startup = 1
 
-" auto-pair
-" avoid inoremap <C-h>
-let g:AutoPairsMapCh = 0
-
 lua << EOF
 require("toggleterm").setup{
   -- size can be a number or function which is passed the current terminal
