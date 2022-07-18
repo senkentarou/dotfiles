@@ -102,17 +102,21 @@ nnoremap <silent> <C-f><C-r> :<C-u>SearchHistories<CR>
 " <C-g> Git
 nmap <C-g> <Nop>
 nnoremap <silent> <C-g><C-g> :<C-u>ToggleGStatus<CR>
+nnoremap <silent> <C-g><C-o> :<C-u>GitOpenAdditionalFiles<CR>
+" add
+nnoremap <silent> <C-g><C-p> :<C-u>Gitsigns prev_hunk<CR>
+nnoremap <silent> <C-g><C-n> :<C-u>Gitsigns next_hunk<CR>
+nnoremap <silent> <C-g><C-j> :<C-u>Gitsigns preview_hunk<CR>
+nnoremap <silent> <C-g>j :<C-u>Gitsigns stage_hunk<CR>
+nnoremap <silent> <C-g>k :<C-u>Gitsigns undo_stage_hunk<CR>
+nnoremap <silent> <C-g><C-r> :<C-u>Gitsigns reset_hunk<CR>
+" commit
+nnoremap <silent> <C-g><C-k> :<C-u><CR>
+" view
 nnoremap <silent> <C-g><C-b> :<C-u>Git blame --date=relative<CR>
-nnoremap <silent> <C-g><C-j> :<C-u>GitGutterStageHunk<CR>
-nnoremap <silent> <C-g><C-k> :<C-u>OpenGitCommit<CR>
-nnoremap <silent> <C-g><C-h> :<C-u>Gvdiffsplit<CR>
 nnoremap <silent> <C-g><C-l> :<C-u>GLogCurrentFile<CR>
 nnoremap <silent> <C-g>L :<C-u>Gina log --merges --opener=vsplit<CR>
-nnoremap <silent> <C-g><C-m> :<C-u>GitGutterPreviewHunk<CR>
-nnoremap <silent> <C-g><C-u> :<C-u>GitGutterUndoHunk<CR>
-nnoremap <silent> <C-g><C-p> :<C-u>GitGutterPrevHunk<CR>
-nnoremap <silent> <C-g><C-n> :<C-u>GitGutterNextHunk<CR>
-nnoremap <silent> <C-g><C-o> :<C-u>GitOpenAdditionalFiles<CR>
+nnoremap <silent> + :<C-u>Gitsigns diffthis<CR>
 
 " <C-w>
 " defx Finder
@@ -122,13 +126,12 @@ nmap <silent> <C-w><C-q> :<C-u>close<CR>
 " <C-e>
 nmap <C-e> <Nop>
 nmap <silent> <C-e><C-e> :<C-u>lua vim.lsp.buf.definition()<CR>
+nmap <silent> <C-e><C-r> :<C-u>lua vim.lsp.buf.references()<CR>
+nmap <silent> <C-e>r :<C-u>lua vim.lsp.buf.rename()<CR>
 nmap <silent> <C-e><C-p> :<C-u>lua vim.lsp.diagnostic.goto_prev()<CR>
 nmap <silent> <C-e><C-n> :<C-u>lua vim.lsp.diagnostic.goto_next()<CR>
 nmap <silent> <C-e><C-d> :<C-u>TroubleToggle<CR>
-nmap <silent> <C-e><C-r> :<C-u>lua vim.lsp.buf.references()<CR>
-nmap <silent> <C-e>r :<C-u>lua vim.lsp.buf.rename()<CR>
 nmap <silent> K :<C-u>lua vim.lsp.buf.hover()<CR>
-nmap <silent> <C-k> :<C-u>lua vim.lsp.buf.signature_help()<CR>
 
 " Useful settings
 " Apply ESC
@@ -137,12 +140,8 @@ inoremap <silent> jj <ESC>
 nnoremap <Esc><Esc> :noh<CR>
 " Show buffers
 nnoremap <silent> ; :<C-u>Buffers<CR>
-" Delete buffers
-nnoremap <silent> ' :<C-u>DeleteBuffers<CR>
 " Open most recent buffer
 nnoremap <silent> - :<C-u>OpenLatestClosedBuffer<CR>
-" Open next buffer
-nnoremap <silent> + :<C-u>bn<CR>
 " Close buffer
 nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
 nmap <C-z><C-z> :<C-u>qall!<CR>

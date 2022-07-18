@@ -57,7 +57,7 @@ Plug 'kristijanhusak/defx-icons'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'lambdalisue/gina.vim'
-Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
 " Open terminal window
 " Plug 'akinsho/nvim-toggleterm.lua'
 " Open browser window

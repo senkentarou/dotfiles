@@ -145,20 +145,21 @@ function! s:GitOpenAdditionalFiles() abort
 endfunction
 command! -nargs=* GitOpenAdditionalFiles call s:GitOpenAdditionalFiles()
 
-" Open gina commit with opening message
-function! s:OpenGitCommit() abort
-  if len(systemlist('git diff --cached --shortstat')) > 0
-    echo 'Opening git commit ...'
-    execute 'Gina commit -v'
-  else
-    echo 'No staged file.'
-  endif
-  function! s:clearDisplay(timer)
-    echo ''
-  endfunction
-  call timer_start(1000, function("s:clearDisplay"))
-endfunction
-command! -nargs=* OpenGitCommit call s:OpenGitCommit()
+"" Open gina commit with opening message
+"function! s:OpenGitCommit() abort
+"  if len(systemlist('git diff --cached --shortstat')) > 0
+"    echo 'Opening git commit ...'
+"    execute 'Gina commit -v'
+"  else
+"    echo 'No staged file.'
+"  endif
+"  function! s:clearDisplay(timer)
+"    echo ''
+"  endfunction
+"  call timer_start(1000, function("s:clearDisplay"))
+"endfunction
+"command! -nargs=* OpenGitCommit call s:OpenGitCommit()
 
-" gitgutter
-let g:gitgutter_highlight_lines = 0
+lua << EOF
+  require('gitsigns').setup {}
+EOF
