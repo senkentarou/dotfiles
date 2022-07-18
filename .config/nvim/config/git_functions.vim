@@ -88,16 +88,6 @@ function! s:GLogCurrentFile() abort
 endfunction
 command! -nargs=* GLogCurrentFile call s:GLogCurrentFile()
 
-function! ToggleGStatus()
-  if buflisted(bufname('.git/index'))
-    "bd .git/index
-    execute 'close'
-  else
-    execute 'vertical Git'
-  endif
-endfunction
-command!  -nargs=* ToggleGStatus call ToggleGStatus()
-
 " Open git blame file on web browser
 function! s:openCurrentBlameFile() abort
   let line = line('.')
@@ -162,4 +152,8 @@ command! -nargs=* GitOpenAdditionalFiles call s:GitOpenAdditionalFiles()
 
 lua << EOF
   require('gitsigns').setup {}
+EOF
+
+lua << EOF
+  require('neogit').setup {}
 EOF
