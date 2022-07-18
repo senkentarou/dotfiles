@@ -155,5 +155,9 @@ lua << EOF
 EOF
 
 lua << EOF
-  require('neogit').setup {}
+  require('neogit').setup {
+    integrations = {
+      diffview = true
+    }
+  }
 EOF

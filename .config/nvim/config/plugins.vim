@@ -58,6 +58,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'lambdalisue/gina.vim'
 Plug 'TimUntersberger/neogit'
+Plug 'sindrets/diffview.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 " Open terminal window
 " Plug 'akinsho/nvim-toggleterm.lua'
