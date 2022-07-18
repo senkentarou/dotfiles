@@ -78,6 +78,7 @@ Plug 'yegappan/mru'
 Plug 'mhinz/vim-startify'
 " tree-sitter
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'windwp/nvim-ts-autotag'
 
 call plug#end()
 

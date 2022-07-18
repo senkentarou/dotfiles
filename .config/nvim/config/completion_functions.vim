@@ -205,6 +205,12 @@ EOF
 " tree-sitter
 lua <<EOF
   require('nvim-treesitter.configs').setup {
+    autoload = {
+      enable = true,
+      require('nvim-ts-autotag').setup({
+        filetypes = { 'html', 'xml', 'tsx', 'typescript', 'typescriptreact' }
+      })
+    },
     highlight = {
       enable = true
     }
