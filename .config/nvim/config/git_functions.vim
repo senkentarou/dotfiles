@@ -59,17 +59,6 @@ endfunction
 command! -nargs=* GGrepCurrentWordQuery call s:GGrepCurrentWordQuery('GGrep')
 command! -nargs=* GinaGrepCurrentWordQuery call s:GGrepCurrentWordQuery('Gina grep')
 
-function! s:GGrepVisualWordQuery(cmd) abort
-  execute "normal! `<v`>y"
-  let vtext = @@
-  if len(vtext) > 0
-    execute a:cmd . ' ' . vtext
-    call histadd('@', vtext)
-  end
-endfunction
-command! -nargs=* GGrepVisualWordQuery call s:GGrepVisualWordQuery('GGrep')
-command! -nargs=* GinaGrepVisualWordQuery call s:GGrepVisualWordQuery('Gina grep')
-
 function! s:GLogCurrentFile() abort
 	let cfile = expand('%')
   if &filetype != 'gina-log'
