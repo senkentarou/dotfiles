@@ -40,6 +40,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 " Auto complete for bracket pairs
 Plug 'windwp/nvim-autopairs'
+" Search word
+Plug 'phaazon/hop.nvim'
 " Finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
