@@ -62,13 +62,11 @@ nnoremap <silent> <Leader>, :<C-u>GinaGrepCurrentWordQuery<CR>
 nnoremap <silent> <Leader>< :<C-u>GGrepCurrentWordQuery<CR>
 nnoremap <silent> <Leader>m :<C-u>GinaGrepInteractiveInput<CR>
 nnoremap <silent> <Leader>M :<C-u>GGrepInteractiveInput<CR>
-" tabs
-nnoremap <silent> <Leader>t :<C-u>tabe<CR>
 " buffers
 nnoremap <Leader>w :<C-u>w<CR>
 nnoremap <Leader>W :lua vim.lsp.buf.formatting()<CR>
-nnoremap Q <Nop>
 nnoremap <Leader>q :<C-u>BufferClose<CR>
+nnoremap Q <Nop>
 " comments
 nmap <Leader>c <Plug>(caw:hatpos:toggle)
 vmap <Leader>c <Plug>(caw:hatpos:toggle)
@@ -100,12 +98,10 @@ nnoremap <silent> <C-g><C-o> :<C-u>GitOpenAdditionalFiles<CR>
 " add
 nnoremap <silent> <C-g><C-p> :<C-u>Gitsigns prev_hunk<CR>
 nnoremap <silent> <C-g><C-n> :<C-u>Gitsigns next_hunk<CR>
-nnoremap <silent> <C-g><C-j> :<C-u>Gitsigns preview_hunk<CR>
-nnoremap <silent> <C-g>j :<C-u>Gitsigns stage_hunk<CR>
-nnoremap <silent> <C-g>k :<C-u>Gitsigns undo_stage_hunk<CR>
+nnoremap <silent> <C-g><C-h> :<C-u>Gitsigns preview_hunk<CR>
+nnoremap <silent> <C-g><C-j> :<C-u>Gitsigns stage_hunk<CR>
+nnoremap <silent> <C-g><C-k> :<C-u>Gitsigns undo_stage_hunk<CR>
 nnoremap <silent> <C-g><C-r> :<C-u>Gitsigns reset_hunk<CR>
-" commit
-nnoremap <silent> <C-g><C-k> :<C-u><CR>
 " view
 nnoremap <silent> <C-g><C-b> :<C-u>Git blame --date=relative<CR>
 nnoremap <silent> <C-g><C-l> :<C-u>GLogCurrentFile<CR>
