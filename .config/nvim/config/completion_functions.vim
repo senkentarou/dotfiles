@@ -213,7 +213,10 @@ lua <<EOF
     },
     highlight = {
       enable = true
-    }
+    },
+    matchup = {
+      enable = true
+    },
   }
 EOF
 

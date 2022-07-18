@@ -79,6 +79,7 @@ Plug 'mhinz/vim-startify'
 " tree-sitter
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'windwp/nvim-ts-autotag'
+Plug 'andymass/vim-matchup'
 
 call plug#end()
 
