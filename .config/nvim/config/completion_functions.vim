@@ -132,7 +132,6 @@ lua << EOF
       expand = function(args)
         luasnip.lsp_expand(args.body)
       end
-
     },
     window = {
       documentation = {
