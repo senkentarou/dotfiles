@@ -8,6 +8,9 @@ function! s:BufferClose() abort
   elseif index(['fugitive', 'fugitiveblame', 'gina-log', 'Trouble'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
     " close pane
     execute 'close'
+  elseif index(['DiffviewFiles', 'DiffviewFileHistory'], &filetype) >= 0
+    " close pane
+    execute 'tabclose'
   elseif &filetype == 'startify'
     " no action
     :

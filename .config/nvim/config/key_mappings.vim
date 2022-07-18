@@ -104,8 +104,8 @@ nnoremap <silent> <C-g><C-k> :<C-u>Gitsigns undo_stage_hunk<CR>
 nnoremap <silent> <C-g><C-r> :<C-u>Gitsigns reset_hunk<CR>
 " view
 nnoremap <silent> <C-g><C-b> :<C-u>Git blame --date=relative<CR>
-nnoremap <silent> <C-g><C-l> :<C-u>GLogCurrentFile<CR>
-nnoremap <silent> <C-g>L :<C-u>Gina log --merges --opener=vsplit<CR>
+nnoremap <silent> <C-g><C-l> :<C-u>DiffviewFileHistory<CR>
+nnoremap <silent> <C-g>L :<C-u>DiffviewFileHistory --merges<CR>
 nnoremap <silent> <C-g>P :<C-u>TermExec cmd='git push origin HEAD'<CR>
 nnoremap <silent> + :<C-u>Gitsigns diffthis<CR>
 

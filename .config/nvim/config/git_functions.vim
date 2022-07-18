@@ -59,14 +59,6 @@ endfunction
 command! -nargs=* GGrepCurrentWordQuery call s:GGrepCurrentWordQuery('GGrep')
 command! -nargs=* GinaGrepCurrentWordQuery call s:GGrepCurrentWordQuery('Gina grep')
 
-function! s:GLogCurrentFile() abort
-	let cfile = expand('%')
-  if &filetype != 'gina-log'
-    execute "Gina log --opener=vsplit " . cfile
-  endif
-endfunction
-command! -nargs=* GLogCurrentFile call s:GLogCurrentFile()
-
 " Open git blame file on web browser
 function! s:openCurrentBlameFile() abort
   let line = line('.')
