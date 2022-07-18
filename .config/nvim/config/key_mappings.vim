@@ -51,8 +51,6 @@
 
 " Leaders
 let mapleader="\<Space>"
-" reload config file
-nnoremap <Leader>R :so ~/.config/nvim/init.vim<CR>
 " open git browser
 nnoremap <silent> <Leader>o :<C-u>GBrowse @upstream<CR>
 nnoremap <silent> <Leader>O :<C-u>GBrowse @origin<CR>
