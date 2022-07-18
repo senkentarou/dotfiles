@@ -66,8 +66,6 @@ nnoremap <silent> <Leader>m :<C-u>GinaGrepInteractiveInput<CR>
 nnoremap <silent> <Leader>M :<C-u>GGrepInteractiveInput<CR>
 vnoremap <silent> <Leader>m :<C-u>GinaGrepVisualWordQuery<CR>
 vnoremap <silent> <Leader>M :<C-u>GGrepVisualWordQuery<CR>
-nnoremap <silent> <Leader>n :<C-u>GinaGrepPreviousWordQuery<CR>
-nnoremap <silent> <Leader>N :<C-u>GGrepPreviousWordQuery<CR>
 " tabs
 nnoremap <silent> <Leader>t :<C-u>tabe<CR>
 " buffers

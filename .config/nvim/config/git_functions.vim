@@ -70,16 +70,6 @@ endfunction
 command! -nargs=* GGrepVisualWordQuery call s:GGrepVisualWordQuery('GGrep')
 command! -nargs=* GinaGrepVisualWordQuery call s:GGrepVisualWordQuery('Gina grep')
 
-function! s:GGrepPreviousWordQuery(cmd) abort
-  let prev_word = histget('@', -1)
-  if len(prev_word) > 0
-    execute a:cmd . ' ' . prev_word
-    call histadd('@', prev_word)
-  endif
-endfunction
-command! -nargs=* GGrepPreviousWordQuery call s:GGrepPreviousWordQuery('GGrep')
-command! -nargs=* GinaGrepPreviousWordQuery call s:GGrepPreviousWordQuery('Gina grep')
-
 function! s:GLogCurrentFile() abort
 	let cfile = expand('%')
   if &filetype != 'gina-log'
@@ -134,21 +124,6 @@ function! s:GitOpenAdditionalFiles() abort
   echo 'Opened ' . len_goafs . ' git additional files.'
 endfunction
 command! -nargs=* GitOpenAdditionalFiles call s:GitOpenAdditionalFiles()
-
-"" Open gina commit with opening message
-"function! s:OpenGitCommit() abort
-"  if len(systemlist('git diff --cached --shortstat')) > 0
-"    echo 'Opening git commit ...'
-"    execute 'Gina commit -v'
-"  else
-"    echo 'No staged file.'
-"  endif
-"  function! s:clearDisplay(timer)
-"    echo ''
-"  endfunction
-"  call timer_start(1000, function("s:clearDisplay"))
-"endfunction
-"command! -nargs=* OpenGitCommit call s:OpenGitCommit()
 
 lua << EOF
   require('gitsigns').setup {}
