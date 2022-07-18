@@ -124,7 +124,7 @@ lua << EOF
           nvim_lsp = '[LSP]',
           nvim_lua = '[API]',
           luasnip = '[Snip]',
-          path = '[PATH]',
+          path = '[Path]',
         },
       }),
     },
