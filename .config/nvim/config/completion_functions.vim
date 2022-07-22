@@ -139,7 +139,7 @@ lua << EOF
       },
     },
     mapping = cmp.mapping.preset.insert({
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<CR>'] = cmp.mapping.confirm({ select = false }),
       ['<C-c>'] = cmp.mapping.abort(),
       ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
