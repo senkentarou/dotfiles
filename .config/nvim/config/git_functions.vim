@@ -1,7 +1,3 @@
-" git-grepをfzf(preview)で開く
-
-command! -nargs=* -bang Gitgrep call s:Gitgrep(<q-args>)
-
 " 現在開いているファイルパス(current_dir)から.gitディレクトリがあるパスまで辿る
 function! s:get_git_base_path(current_dir) abort
   if isdirectory(expand(a:current_dir . '/.git'))
@@ -32,7 +28,6 @@ function! GGrep(query, fullscreen)
 
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec, 'right:50%', 'ctrl-/'), a:fullscreen)
 endfunction
-
 command! -nargs=* -bang GGrep call GGrep(<q-args>, <bang>0)
 
 " Git grep by interactive input
@@ -45,7 +40,6 @@ function! s:GGrepInteractiveInput(cmd, query) abort
 
   if len(query_word) > 0
     execute a:cmd . ' ' . query_word
-    call histadd('@', query_word)
   end
 endfunction
 command! -nargs=* GGrepInteractiveInput call s:GGrepInteractiveInput('GGrep', <q-args>)
@@ -58,31 +52,6 @@ function! s:GGrepCurrentWordQuery(cmd) abort
 endfunction
 command! -nargs=* GGrepCurrentWordQuery call s:GGrepCurrentWordQuery('GGrep')
 command! -nargs=* GinaGrepCurrentWordQuery call s:GGrepCurrentWordQuery('Gina grep')
-
-" Open git blame file on web browser
-function! s:openCurrentBlameFile() abort
-  let line = line('.')
-  " search current buffer filename by fzf.vim function
-  let current_file = bufname(fzf#vim#_buflisted_sorted()[0])
-  let commit_hash = substitute(system('git blame -l -L ' . line . ',+1 ' . current_file . ' | cut -d" " -f1'), '\n', '', 'g')
-  if len(commit_hash) == 0 || string(commit_hash) =~ '0000000000000000000000000000000000000000'
-    echo 'commit hash is not found in git: ' . commit_hash
-    return
-  endif
-
-  let git_remote_path = substitute(system("git remote -v | grep $(git remote | tail -1) | awk '{print $2}' | uniq | cut -d '/' -f 4,5 | sed 's/.git//g'"), '\n', '', 'g')
-  let joined_path = join([git_remote_path, 'commit', commit_hash], '/')
-  let open_url = 'https://github.com/' . joined_path
-
-  if exists('g:loaded_openbrowser') && g:loaded_openbrowser
-    " open browser directly
-    execute 'OpenBrowser ' . open_url
-  else
-    " show only open_url
-    echo open_url
-  endif
-endfunction
-command! -nargs=* OpenCurrentBlameFile call s:openCurrentBlameFile()
 
 " Open all additional change files in buffer
 function! s:GitOpenAdditionalFiles() abort
