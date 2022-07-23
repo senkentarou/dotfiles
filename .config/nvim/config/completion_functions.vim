@@ -29,8 +29,23 @@ lua << EOF
     capabilities = capabilities
   }
 
+  nvim_lsp.solargraph.setup {
+    cmd = { 'solargraph', 'stdio' },
+    init_options = {
+      formatting = false,
+    },
+    filetypes = { 'ruby', 'rspec' },
+    root_dir = require('lspconfig.util').root_pattern('Gemfile', '.git'),
+    settings = {
+      solargraph = {
+        diagnostics = true,
+      },
+    },
+    capabilities = capabilities
+  }
+
   -- For nvim-compe nvim_lsp setting to auto import on typescriptreact
-  nvim_lsp.tsserver.setup{
+  nvim_lsp.tsserver.setup {
     -- filetypes = {'typescript', 'typescript.tsx', 'typescriptreact'}
     settings = { documentFormatting = false },
     capabilities = capabilities
