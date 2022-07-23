@@ -29,10 +29,7 @@ augroup END
 
 augroup ColorSchemeSettings
   autocmd!
-  autocmd VimEnter,ColorScheme * highlight GitGutterDelete ctermfg=52 guifg=#ec5f67 ctermbg=NONE guibg=NONE
-  autocmd VimEnter,ColorScheme * highlight GitGutterAdd ctermfg=22 guifg=#98be65 ctermbg=NONE guibg=NONE
-  autocmd VimEnter,ColorScheme * highlight GitGutterChange ctermfg=58 guifg=#a9a1e1 ctermbg=NONE guibg=NONE
-  autocmd VimEnter,ColorScheme * highlight GitGutterChangeDelete ctermfg=52 guifg=#ec5f67 ctermbg=NONE guibg=NONE
+  autocmd VimEnter,ColorScheme * highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 augroup END
 
 augroup WindowCloseSettings

@@ -31,6 +31,7 @@ set encoding=utf-8
 set number
 set backspace=indent,eol,start
 set whichwrap=b,s,<,>,[,],h,l
+set cursorline
 " Clipboard sharing
 set clipboard=unnamed
 " Completion settings
