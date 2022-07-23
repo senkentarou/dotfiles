@@ -73,13 +73,6 @@ vmap <Leader>c <Plug>(caw:hatpos:toggle)
 " rspec (for ruby file)
 nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
 
-nmap <silent> <Leader>j <Plug>(columnskip:nonblank:next)
-omap <silent> <Leader>j <Plug>(columnskip:nonblank:next)
-xmap <silent> <Leader>j <Plug>(columnskip:nonblank:next)
-nmap <silent> <Leader>k <Plug>(columnskip:nonblank:prev)
-omap <silent> <Leader>k <Plug>(columnskip:nonblank:prev)
-xmap <silent> <Leader>k <Plug>(columnskip:nonblank:prev)
-
 " <C-f> Find files
 nmap <C-f> <Nop>
 " by git file name
