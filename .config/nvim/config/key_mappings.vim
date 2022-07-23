@@ -68,8 +68,8 @@ nnoremap <Leader>W :lua vim.lsp.buf.formatting()<CR>
 nnoremap <Leader>q :<C-u>BufferClose<CR>
 nnoremap Q <Nop>
 " comments
-nmap <Leader>c <Plug>(caw:hatpos:toggle)
-vmap <Leader>c <Plug>(caw:hatpos:toggle)
+nmap <Leader>c :<C-u>CommentToggle<CR>
+vmap <Leader>c :CommentToggle<CR>
 " rspec (for ruby file)
 nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
 

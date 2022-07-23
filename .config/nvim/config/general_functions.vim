@@ -94,3 +94,7 @@ EOF
 lua << EOF
   require('hop').setup {}
 EOF
+
+lua << EOF
+  require('nvim_comment').setup {}
+EOF

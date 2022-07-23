@@ -69,7 +69,7 @@ Plug 'rhysd/accelerated-jk'
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
 Plug 'tpope/vim-surround'
-Plug 'tyru/caw.vim'
+Plug 'terrortylor/nvim-comment'
 " Line comparison
 Plug 'AndrewRadev/linediff.vim'
 " Most recentry used history
