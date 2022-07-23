@@ -1,0 +1,27 @@
+#
+# gitignore global setting
+#
+.DS_Store
+.env/*
+
+.vim/*
+.netrwhist
+
+.gitconfig
+
+.zshrc.local
+.zsh_history
+.z_history
+.zcompdump
+.zprezto
+
+.solargraph.yml
+
+#
+# for ignore cases
+#
+!.vim/vimrc
+!.vim/tools/*
+
+# for empty dirs
+!.gitkeep
