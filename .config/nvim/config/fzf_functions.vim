@@ -37,7 +37,6 @@ function! FloatingFZF()
 
   autocmd! BufWipeout <buffer> exe 'bw '.s:buf
 endfunction
-
 command! SearchFiles call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': 'rg --files --hidden --glob "!.git/*"', 'sink': 'e', 'options': ['--prompt', 'SearchFiles> ']}, 'right:50%', 'ctrl-/')))
 
 function! FZFGrep(query, fullscreen)
@@ -48,7 +47,6 @@ function! FZFGrep(query, fullscreen)
 
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec, 'right:50%', 'ctrl-/'), a:fullscreen)
 endfunction
-
 command! -nargs=* -bang SearchWords call FZFGrep(<q-args>, <bang>0)
 
 " buffer histories (Using https://github.com/yegappan/mru)
@@ -57,17 +55,4 @@ function! FZFHistory()
 
   call fzf#run(fzf#wrap({'source': mru_files, 'options': ['--prompt', 'SearchHistories> ']}))
 endfunction
-
 command! -nargs=* -bang SearchHistories call FZFHistory()
-
-function! s:delete_buffers(lines)
-  let line_num_bracket = map(a:lines, {_, line -> matchstr(split(line)[2], '\[\zs[0-9]*\ze\]')})
-  execute 'bd' join(line_num_bracket)
-endfunction
-
-command! DeleteBuffers call fzf#run(fzf#wrap({
-  \ 'source': map(fzf#vim#_buflisted_sorted(), 'fzf#vim#_format_buffer(v:val)'),
-  \ 'sink*': { lines -> s:delete_buffers(lines) },
-  \ 'options': ['-m', '-x', '--tiebreak=index', '--ansi', '-d', '\t', '--with-nth', '3..', '-n', '2,1..2', '--prompt', 'DeleteBuffers> ', '--reverse', '--bind', 'ctrl-a:select-all+accept']
-  \ }))
-
