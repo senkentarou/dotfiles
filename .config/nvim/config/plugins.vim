@@ -82,4 +82,3 @@ Plug 'windwp/nvim-ts-autotag'
 Plug 'andymass/vim-matchup'
 
 call plug#end()
-
