@@ -152,3 +152,12 @@ nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
+
+" moving hop keyword
+nnoremap s <Nop>
+nnoremap sj :<C-u>HopVerticalAC<CR>
+nnoremap sk :<C-u>HopVerticalBC<CR>
+nnoremap sh :<C-u>HopChar1BC<CR>
+nnoremap sl :<C-u>HopChar1AC<CR>
+nnoremap f :<C-u>HopChar1CurrentLineAC<CR>
+nnoremap F :<C-u>HopChar1CurrentLineBC<CR>
