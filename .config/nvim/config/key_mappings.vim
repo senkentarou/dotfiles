@@ -53,8 +53,8 @@
 let mapleader="\<Space>"
 " open git browser
 nnoremap <silent> <Leader>o :<C-u>GBrowse @upstream<CR>
-nnoremap <silent> <Leader>O :<C-u>GBrowse @origin<CR>
 vnoremap <silent> <Leader>o :GBrowse @upstream<CR>
+nnoremap <silent> <Leader>O :<C-u>GBrowse @origin<CR>
 vnoremap <silent> <Leader>O :GBrowse @origin<CR>
 " grep word
 nnoremap <silent> <Leader>, :<C-u>GinaGrepCurrentWordQuery<CR>
