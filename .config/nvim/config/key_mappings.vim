@@ -159,4 +159,6 @@ nnoremap sk :<C-u>HopVerticalBC<CR>
 nnoremap sh :<C-u>HopChar1BC<CR>
 nnoremap sl :<C-u>HopChar1AC<CR>
 nnoremap f :<C-u>HopChar1CurrentLineAC<CR>
+vnoremap f <CMD>HopChar1CurrentLineAC<CR>
 nnoremap F :<C-u>HopChar1CurrentLineBC<CR>
+vnoremap F <CMD>HopChar1CurrentLineBC<CR>
