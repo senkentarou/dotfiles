@@ -81,4 +81,7 @@ Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'windwp/nvim-ts-autotag'
 Plug 'andymass/vim-matchup'
 
+" my plugin
+Plug 'senkentarou/gopr.nvim'
+
 call plug#end()
