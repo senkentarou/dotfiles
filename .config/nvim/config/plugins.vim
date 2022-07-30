@@ -83,5 +83,6 @@ Plug 'andymass/vim-matchup'
 
 " my plugin
 Plug 'senkentarou/gopr.nvim'
+Plug 'senkentarou/goacf.nvim'
 
 call plug#end()

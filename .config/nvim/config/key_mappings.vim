@@ -90,7 +90,7 @@ nnoremap <silent> <C-f><C-r> :<C-u>SearchHistories<CR>
 " <C-g> Git
 nmap <C-g> <Nop>
 nnoremap <silent> <C-g><C-g> :<C-u>Neogit<CR>
-nnoremap <silent> <C-g><C-o> :<C-u>GitOpenAdditionalFiles<CR>
+nnoremap <silent> <C-g><C-o> :<C-u>Goacf<CR>
 " add
 nnoremap <silent> <C-g><C-p> :<C-u>Gitsigns prev_hunk<CR>
 nnoremap <silent> <C-g><C-n> :<C-u>Gitsigns next_hunk<CR>
