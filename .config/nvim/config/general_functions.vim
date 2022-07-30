@@ -34,41 +34,6 @@ function! s:OpenLatestClosedBuffer() abort
 endfunction
 command -nargs=* OpenLatestClosedBuffer call s:OpenLatestClosedBuffer()
 
-" rspec script
-function! s:toggleRspecFile() abort
-  let current_fname = expand('%:t')
-  let current_rdir = expand('%:h')
-
-  " Execute only rb file.
-  if current_fname =~ '\.rb$'
-    if current_fname =~ '_spec.rb'
-      let target_fname = substitute(current_fname, '_spec.rb', '.rb', '')
-    else
-      let target_fname = substitute(current_fname, '.rb', '_spec.rb', '')
-    endif
-
-    if current_rdir =~ 'spec'
-      let target_rdir = substitute(current_rdir, 'spec', 'app', '')
-
-      if target_rdir =~ 'requests'
-        let target_rdir = substitute(target_rdir, 'requests', 'controllers', '')
-      endif
-    else
-      let target_rdir = substitute(current_rdir, 'app', 'spec', '')
-
-      " Open request spec file for controllers. (Open controller spec file if it exists already.)
-      if target_rdir =~ 'controllers' && !filereadable(target_rdir . '/' . target_fname)
-        let target_rdir = substitute(target_rdir, 'controllers', 'requests', '')
-      endif
-    endif
-
-    call mkdir(target_rdir, 'p')
-
-    execute 'e ' . target_rdir . '/' . target_fname
-  endif
-endfunction
-command! -nargs=* ToggleRspecFile call s:toggleRspecFile()
-
 " indent guide setting
 let g:indent_guides_enable_on_vim_startup = 1
 
