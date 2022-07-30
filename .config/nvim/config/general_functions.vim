@@ -34,8 +34,10 @@ function! s:OpenLatestClosedBuffer() abort
 endfunction
 command -nargs=* OpenLatestClosedBuffer call s:OpenLatestClosedBuffer()
 
-" indent guide setting
-let g:indent_guides_enable_on_vim_startup = 1
+lua << EOF
+  -- indent guide setting
+  vim.g.indent_guides_enable_on_vim_startup = 1
+EOF
 
 lua << EOF
   local term = require("toggleterm")
