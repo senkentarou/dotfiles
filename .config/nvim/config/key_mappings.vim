@@ -73,6 +73,9 @@ vmap <Leader>c :CommentToggle<CR>
 " rspec (for ruby file)
 nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
 
+" :ss replace command
+cnoremap <expr> s getcmdtype() == ':' && getcmdline() == 's' ? '<BS>%s/' : 's'
+
 " <C-f> Find files
 nmap <C-f> <Nop>
 " by git file name
