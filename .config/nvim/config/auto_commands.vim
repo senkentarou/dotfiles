@@ -29,7 +29,10 @@ augroup END
 
 augroup ColorSchemeSettings
   autocmd!
+  " General
   autocmd VimEnter,ColorScheme * highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+  " Telescope
+  autocmd VimEnter,ColorScheme * highlight TelescopeMatching ctermfg=167 guifg=#cc6666
 augroup END
 
 augroup WindowCloseSettings

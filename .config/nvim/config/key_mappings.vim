@@ -59,9 +59,9 @@ vnoremap <silent> <Leader>O :GBrowse @origin<CR>
 nnoremap <silent> <Leader>p :<C-u>Gopr<CR>
 " grep word
 nnoremap <silent> <Leader>, :<C-u>GinaGrepCurrentWordQuery<CR>
-nnoremap <silent> <Leader>< :<C-u>GGrepCurrentWordQuery<CR>
+nnoremap <silent> <Leader>< :<C-u>lua require('telescope.builtin').grep_string()<CR>
 nnoremap <silent> <Leader>m :<C-u>GinaGrepInteractiveInput<CR>
-nnoremap <silent> <Leader>M :<C-u>GGrepInteractiveInput<CR>
+nnoremap <silent> <Leader>M :<C-u>lua require('telescope.builtin').grep_string({ search = vim.fn.input("[GitGrep] ")})<CR>
 " buffers
 nnoremap <Leader>w :<C-u>w<CR>
 nnoremap <Leader>W :lua vim.lsp.buf.formatting()<CR>
@@ -79,13 +79,15 @@ cnoremap <expr> s getcmdtype() == ':' && getcmdline() == 's' ? '<BS>%s/' : 's'
 " <C-f> Find files
 nmap <C-f> <Nop>
 " by git file name
-nnoremap <silent> <C-f><C-f> :<C-u>GFiles<CR>
+" nnoremap <silent> <C-f><C-f> :<C-u>lua require('telescope.builtin').find_files{ cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1], hidden = true, find_command = {'rg', '--files', '--hidden', '-g', '!.git' } }<CR>
+nnoremap <silent> <C-f><C-f> :<C-u>lua require('telescope.builtin').find_files()<CR>
 " by word with file preview
-nnoremap <silent> <C-f><C-d> :<C-u>SearchWords<CR>
+" nnoremap <silent> <C-f><C-d> :<C-u>lua require('telescope.builtin').live_grep{ cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1], hidden=true }<CR>
+nnoremap <silent> <C-f><C-d> :<C-u>lua require('telescope.builtin').live_grep()<CR>
 " by file name with file preview
-nnoremap <silent> <C-f><C-g> :<C-u>SearchFiles<CR>
+nnoremap <silent> <C-f><C-g> :<C-u>lua require('telescope.builtin').git_status()<CR>
 " by open history
-nnoremap <silent> <C-f><C-r> :<C-u>SearchHistories<CR>
+nnoremap <silent> <C-f><C-r> :<C-u>lua require('telescope.builtin').oldfiles()<CR>
 
 " <C-g> Git
 nmap <C-g> <Nop>
@@ -126,7 +128,7 @@ inoremap <silent> jj <ESC>
 " No highlight
 nnoremap <Esc><Esc> :noh<CR>
 " Show buffers
-nnoremap <silent> ; :<C-u>Buffers<CR>
+nnoremap <silent> ; :<C-u>lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true })<CR>
 " Open most recent buffer
 nnoremap <silent> - :<C-u>OpenLatestClosedBuffer<CR>
 " Close buffer

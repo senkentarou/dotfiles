@@ -43,8 +43,9 @@ Plug 'windwp/nvim-autopairs'
 " Search word
 Plug 'phaazon/hop.nvim'
 " Finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 " Filer
 Plug 'Shougo/defx.nvim'
 Plug 'roxma/nvim-yarp'

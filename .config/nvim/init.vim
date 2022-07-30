@@ -5,7 +5,7 @@ source $HOME/.config/nvim/config/plugins.vim
 source $HOME/.config/nvim/config/general_functions.vim
 source $HOME/.config/nvim/config/startify_functions.vim
 source $HOME/.config/nvim/config/git_functions.vim
-source $HOME/.config/nvim/config/fzf_functions.vim
+source $HOME/.config/nvim/config/telescope_functions.vim
 source $HOME/.config/nvim/config/defx_functions.vim
 source $HOME/.config/nvim/config/completion_functions.vim
 source $HOME/.config/nvim/config/galaxyline_functions.vim
