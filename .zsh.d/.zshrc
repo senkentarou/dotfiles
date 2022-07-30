@@ -3,6 +3,9 @@
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export BAT_THEME='gruvbox-dark'
 
+# anyenv
+eval "$(anyenv init -)"
+
 # pyenv
 export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -19,14 +22,15 @@ if command -v goenv 1>/dev/null 2>&1; then
   eval "$(goenv init -)"
 fi
 
+# rbenv
+export RBENV_ROOT="$HOME/.anyenv/envs/rbenv"
+export PATH="$RBENV_ROOT/bin:$PATH"
+if command -v rbenv 1>/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
+
 # direnv
 eval "$(direnv hook zsh)"
-
-# rbenv
-eval "$(rbenv init -)"
-
-# anyenv
-eval "$(anyenv init -)"
 
 # Load Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
