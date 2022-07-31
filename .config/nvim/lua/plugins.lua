@@ -20,7 +20,8 @@ vim.cmd([[
   " Auto complete
   Plug 'j-hui/fidget.nvim'
   Plug 'neovim/nvim-lspconfig'
-  Plug 'williamboman/nvim-lsp-installer'
+  Plug 'williamboman/mason.nvim'
+  Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'folke/trouble.nvim'
   Plug 'folke/lsp-colors.nvim'

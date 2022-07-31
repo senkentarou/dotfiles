@@ -1,8 +1,8 @@
 -- fidget (show starting status of language server)
 require('fidget').setup {}
 
--- nvim-lsp-installer
-require('nvim-lsp-installer').setup {}
+-- mason (lsp server installer)
+require('mason').setup {}
 
 -- nvim-lspconfig: use diagnostics and formatting for ruby/rspec and nvim-compe nvim_lsp setting to auto import on typescriptreact
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
