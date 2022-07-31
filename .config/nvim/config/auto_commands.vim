@@ -34,8 +34,3 @@ augroup ColorSchemeSettings
   " Telescope
   autocmd VimEnter,ColorScheme * highlight TelescopeMatching ctermfg=167 guifg=#cc6666
 augroup END
-
-augroup WindowCloseSettings
-  autocmd!
-  autocmd FileType help nnoremap <buffer> <C-q> <C-w><C-q>
-augroup END
