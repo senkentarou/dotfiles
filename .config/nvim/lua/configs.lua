@@ -1,0 +1,8 @@
+require('configs.auto_commands')
+require('configs.completions')
+require('configs.defx')
+require('configs.galaxyline')
+require('configs.general_functions')
+require('configs.gits')
+require('configs.startify')
+require('configs.telescope')
