@@ -13,8 +13,7 @@ augroup END
 augroup DefxSettings
   autocmd!
   autocmd FileType defx :DefxMySettings
-  autocmd BufWritePost * call defx#redraw()
-  autocmd BufEnter * call defx#redraw()
+  autocmd BufEnter,BufWritePost * call defx#redraw()
 augroup END
 
 " Disable auto complete on comment next line
