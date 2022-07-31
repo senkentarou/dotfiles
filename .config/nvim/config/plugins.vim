@@ -73,8 +73,6 @@ Plug 'tpope/vim-surround'
 Plug 'terrortylor/nvim-comment'
 " Line comparison
 Plug 'AndrewRadev/linediff.vim'
-" Most recentry used history
-Plug 'yegappan/mru'
 " Start window
 Plug 'mhinz/vim-startify'
 " tree-sitter

@@ -25,15 +25,6 @@ function! s:BufferClose() abort
 endfunction
 command! -nargs=* BufferClose call s:BufferClose()
 
-" re-open delete buffer (Using https://github.com/yegappan/mru)
-function! s:OpenLatestClosedBuffer() abort
-  let mru_files = MruGetFiles()
-  if len(mru_files) > 1
-    execute 'e ' . mru_files[1]
-  endif
-endfunction
-command -nargs=* OpenLatestClosedBuffer call s:OpenLatestClosedBuffer()
-
 lua << EOF
   -- indent guide setting
   vim.g.indent_guides_enable_on_vim_startup = 1
