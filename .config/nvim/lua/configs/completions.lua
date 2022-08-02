@@ -54,7 +54,10 @@ local null_ls = require('null-ls')
 null_ls.setup {
   root_dir = require('lspconfig.util').root_pattern('package.json', '.git'),
   sources = {
-    null_ls.builtins.diagnostics.eslint_d,
+    null_ls.builtins.diagnostics.eslint_d.with {
+      filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+      prefer_local = 'node_modules/.bin'
+    },
     null_ls.builtins.formatting.prettier.with {
       filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
       prefer_local = 'node_modules/.bin'
