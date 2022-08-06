@@ -53,10 +53,8 @@ vim.cmd([[
   " Leaders
   let mapleader="\<Space>"
   " open git browser
-  nnoremap <silent> <Leader>o :<C-u>Gina browse :<CR>
-  vnoremap <silent> <Leader>o :Gina browse :<CR>
-  nnoremap <silent> <Leader>O :<C-u>Gina browse master:<CR>
-  vnoremap <silent> <Leader>O :Gina browse master:<CR>
+  nnoremap <silent> <Leader>o :<C-u>Gina browse master:<CR>
+  vnoremap <silent> <Leader>o :Gina browse master:<CR>
   nnoremap <silent> <Leader>p :<C-u>Gopr<CR>
   " grep word
   nnoremap <silent> <Leader>, :<C-u>GinaGrepCurrentWordQuery<CR>
