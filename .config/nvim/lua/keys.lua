@@ -53,10 +53,10 @@ vim.cmd([[
   " Leaders
   let mapleader="\<Space>"
   " open git browser
-  nnoremap <silent> <Leader>o :<C-u>GBrowse @upstream<CR>
-  vnoremap <silent> <Leader>o :GBrowse @upstream<CR>
-  nnoremap <silent> <Leader>O :<C-u>GBrowse @origin<CR>
-  vnoremap <silent> <Leader>O :GBrowse @origin<CR>
+  nnoremap <silent> <Leader>o :<C-u>Gina browse :<CR>
+  vnoremap <silent> <Leader>o :Gina browse :<CR>
+  nnoremap <silent> <Leader>O :<C-u>Gina browse master:<CR>
+  vnoremap <silent> <Leader>O :Gina browse master:<CR>
   nnoremap <silent> <Leader>p :<C-u>Gopr<CR>
   " grep word
   nnoremap <silent> <Leader>, :<C-u>GinaGrepCurrentWordQuery<CR>
@@ -98,7 +98,7 @@ vim.cmd([[
   nnoremap <silent> <C-g><C-k> :<C-u>Gitsigns undo_stage_hunk<CR>
   nnoremap <silent> <C-g><C-r> :<C-u>Gitsigns reset_hunk<CR>
   " view
-  nnoremap <silent> <C-g><C-b> :<C-u>Git blame --date=relative<CR>
+  nnoremap <silent> <C-g><C-b> :<C-u>Gina blame :<CR>
   nnoremap <silent> <C-g>P :<C-u>TermExec cmd='git push origin HEAD'<CR>
   nnoremap <silent> + :<C-u>Gitsigns diffthis<CR>
 
@@ -163,4 +163,10 @@ vim.cmd([[
   vnoremap f <cmd>HopChar1CurrentLineAC<CR>
   nnoremap F :<C-u>HopChar1CurrentLineBC<CR>
   vnoremap F <cmd>HopChar1CurrentLineBC<CR>
+
+	call gina#custom#mapping#nmap(
+    \ 'blame',
+    \ '<Leader>o',
+    \ ':call gina#action#call(''browse:exact'')<CR>',
+    \)
 ]])
