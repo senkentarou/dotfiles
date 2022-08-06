@@ -54,8 +54,6 @@ vim.cmd([[
   Plug 'ryanoasis/vim-devicons'
   Plug 'kristijanhusak/defx-icons'
   " Git
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-rhubarb'
   Plug 'lambdalisue/gina.vim'
   Plug 'TimUntersberger/neogit'
   Plug 'sindrets/diffview.nvim'
