@@ -96,7 +96,7 @@ vim.cmd([[
   nnoremap <silent> <C-g><C-k> :<C-u>Gitsigns undo_stage_hunk<CR>
   nnoremap <silent> <C-g><C-r> :<C-u>Gitsigns reset_hunk<CR>
   " view
-  nnoremap <silent> <C-g><C-b> :<C-u>Gina blame :<CR>
+  nnoremap <silent> <C-g><C-b> :<C-u>Gitsigns toggle_current_line_blame<CR>
   nnoremap <silent> <C-g>P :<C-u>TermExec cmd='git push origin HEAD'<CR>
   nnoremap <silent> + :<C-u>Gitsigns diffthis<CR>
 
@@ -161,10 +161,4 @@ vim.cmd([[
   vnoremap f <cmd>HopChar1CurrentLineAC<CR>
   nnoremap F :<C-u>HopChar1CurrentLineBC<CR>
   vnoremap F <cmd>HopChar1CurrentLineBC<CR>
-
-	call gina#custom#mapping#nmap(
-    \ 'blame',
-    \ '<Leader>o',
-    \ ':call gina#action#call(''browse:exact'')<CR>',
-    \)
 ]])

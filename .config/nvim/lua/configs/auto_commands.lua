@@ -32,5 +32,7 @@ vim.cmd([[
     autocmd VimEnter,ColorScheme * highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
     " Telescope
     autocmd VimEnter,ColorScheme * highlight TelescopeMatching ctermfg=167 guifg=#cc6666
+    " Gitsigns
+    autocmd VimEnter,ColorScheme * highlight GitSignsCurrentLineBlame ctermfg=110 guifg=#81a2be
   augroup END
 ]])
