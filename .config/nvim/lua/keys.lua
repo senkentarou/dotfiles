@@ -52,14 +52,16 @@
 vim.cmd([[
   " Leaders
   let mapleader="\<Space>"
+  nnoremap Z <Nop>
+  nnoremap Q <Nop>
   " open git browser
   nnoremap <silent> <Leader>o :<C-u>Gina browse master:<CR>
   vnoremap <silent> <Leader>o :Gina browse master:<CR>
   nnoremap <silent> <Leader>p :<C-u>Gopr<CR>
   nnoremap <silent> <Leader>b :<C-u>Gitsigns toggle_current_line_blame<CR>
   nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
-  nnoremap <silent> <Leader>X :<C-u>RunRspec<CR>
-  vnoremap <silent> <Leader>X :<C-u>RunRspecAtLine<CR>
+  nnoremap <silent> <Leader>z :<C-u>RunRspec<CR>
+  nnoremap <silent> <Leader>Z :<C-u>RunRspecAtLine<CR>
   " grep word
   nnoremap <silent> <Leader>, :<C-u>GinaGrepCurrentWordQuery<CR>
   nnoremap <silent> <Leader>< :<C-u>lua require('telescope.builtin').grep_string()<CR>
@@ -69,7 +71,6 @@ vim.cmd([[
   nnoremap <Leader>w :<C-u>w<CR>
   nnoremap <Leader>W :lua vim.lsp.buf.formatting()<CR>
   nnoremap <Leader>q :<C-u>BufferClose<CR>
-  nnoremap Q <Nop>
   " comments
   nmap <Leader>c :<C-u>CommentToggle<CR>
   vmap <Leader>c :CommentToggle<CR>
