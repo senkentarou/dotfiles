@@ -73,9 +73,6 @@ vim.cmd([[
   nmap <Leader>c :<C-u>CommentToggle<CR>
   vmap <Leader>c :CommentToggle<CR>
 
-  " :ss replace command
-  cnoremap <expr> s getcmdtype() == ':' && getcmdline() == 's' ? '<BS>%s/' : 's'
-
   " <C-f> Find files
   nmap <C-f> <Nop>
   " by git file name
