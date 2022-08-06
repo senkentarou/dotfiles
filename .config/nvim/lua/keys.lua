@@ -56,6 +56,9 @@ vim.cmd([[
   nnoremap <silent> <Leader>o :<C-u>Gina browse master:<CR>
   vnoremap <silent> <Leader>o :Gina browse master:<CR>
   nnoremap <silent> <Leader>p :<C-u>Gopr<CR>
+  nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
+  nnoremap <silent> <Leader>X :<C-u>RunRspec<CR>
+  vnoremap <silent> <Leader>X :<C-u>RunRspecAtLine<CR>
   " grep word
   nnoremap <silent> <Leader>, :<C-u>GinaGrepCurrentWordQuery<CR>
   nnoremap <silent> <Leader>< :<C-u>lua require('telescope.builtin').grep_string()<CR>
