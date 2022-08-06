@@ -9,8 +9,7 @@ vim.g.startify_lists = {
   { type = 'commands', header = {'   Commands'} },
 }
 vim.g.startify_bookmarks = {
-  { i = '~/.config/nvim/init.vim'},
-  { c = '~/.config/nvim/config/completion_functions.vim'},
-  { m = '~/.config/nvim/config/key_mappings.vim'},
+  { c = '~/.config/nvim/lua/configs/completions.lua'},
+  { m = '~/.config/nvim/lua/keys.lua'},
   { z = '~/.zsh.d/.zshrc'}
 }
