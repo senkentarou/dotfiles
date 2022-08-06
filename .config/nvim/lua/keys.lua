@@ -56,6 +56,7 @@ vim.cmd([[
   nnoremap <silent> <Leader>o :<C-u>Gina browse master:<CR>
   vnoremap <silent> <Leader>o :Gina browse master:<CR>
   nnoremap <silent> <Leader>p :<C-u>Gopr<CR>
+  nnoremap <silent> <Leader>b :<C-u>Gitsigns toggle_current_line_blame<CR>
   nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
   nnoremap <silent> <Leader>X :<C-u>RunRspec<CR>
   vnoremap <silent> <Leader>X :<C-u>RunRspecAtLine<CR>
@@ -88,6 +89,7 @@ vim.cmd([[
   nmap <C-g> <Nop>
   nnoremap <silent> <C-g><C-g> :<C-u>Neogit<CR>
   nnoremap <silent> <C-g><C-o> :<C-u>Goacf<CR>
+  nnoremap <silent> <C-g><C-b> :<C-u>bufdo bwipeout | Startify<CR>
   " add
   nnoremap <silent> <C-g><C-p> :<C-u>Gitsigns prev_hunk<CR>
   nnoremap <silent> <C-g><C-n> :<C-u>Gitsigns next_hunk<CR>
@@ -96,7 +98,6 @@ vim.cmd([[
   nnoremap <silent> <C-g><C-k> :<C-u>Gitsigns undo_stage_hunk<CR>
   nnoremap <silent> <C-g><C-r> :<C-u>Gitsigns reset_hunk<CR>
   " view
-  nnoremap <silent> <C-g><C-b> :<C-u>Gitsigns toggle_current_line_blame<CR>
   nnoremap <silent> <C-g>P :<C-u>TermExec cmd='git push origin HEAD'<CR>
   nnoremap <silent> + :<C-u>Gitsigns diffthis<CR>
 
