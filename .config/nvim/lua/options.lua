@@ -15,7 +15,7 @@ vim.opt.whichwrap = [[b,s,<,>,[,],h,l]]
 vim.opt.cursorline = true
 vim.opt.clipboard = 'unnamed'
 vim.opt.completeopt = [[menuone,noinsert,noselect]]
-vim.opt.shortmess = vim.opt.shortmess + { c = true }
+vim.opt.shortmess:append({ c = true })
 vim.opt.expandtab = true
 vim.opt.smarttab = true
 vim.opt.shiftwidth = 2
