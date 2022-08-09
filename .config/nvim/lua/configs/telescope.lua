@@ -6,6 +6,7 @@ telescope.setup {
     mappings = {
       i = {
         ["<C-q>"] = actions.close,
+        ["<C-f>"] = actions.which_key,
         ["<C-u>"] = false,
       },
       n = {
