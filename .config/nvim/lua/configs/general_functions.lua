@@ -74,3 +74,8 @@ require('ruby_spec').setup {
     'rspec'
   }
 }
+
+require('gopr').setup {
+  remote_base_url = 'github.com',
+  default_remote = 'upstream'
+}
