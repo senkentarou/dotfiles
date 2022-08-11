@@ -33,6 +33,6 @@ vim.cmd([[
     " Telescope
     autocmd VimEnter,ColorScheme * highlight TelescopeMatching ctermfg=167 guifg=#cc6666
     " Gitsigns
-    autocmd VimEnter,ColorScheme * highlight GitSignsCurrentLineBlame ctermfg=110 guifg=#81a2be
+    autocmd VimEnter,ColorScheme * highlight GitSignsCurrentLineBlame ctermfg=243 guifg=#707880
   augroup END
 ]])

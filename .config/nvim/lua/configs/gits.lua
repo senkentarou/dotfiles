@@ -26,7 +26,7 @@ vim.cmd([[
 -- gitsigns
 require('gitsigns').setup {
   current_line_blame = true,
-  current_line_blame_formatter = '[<abbrev_sha>] <summary> (<author_time:%R>)'
+  current_line_blame_formatter = '-- <summary> (<author_time:%R>) [<abbrev_sha>]'
 }
 
 -- neogit
