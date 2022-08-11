@@ -64,3 +64,13 @@ require('hop').setup {}
 
 -- nvim_comment
 require('nvim_comment').setup {}
+
+-- ruby_spec
+require('ruby_spec').setup {
+  marker_directory = '.git',  -- .git is commonly seen on rails project
+  rspec_commands = {
+    'bundle',
+    'exec',
+    'rspec'
+  }
+}
