@@ -128,7 +128,6 @@ vim.cmd([[
   nnoremap <silent> - :<C-u>e #<CR>
   " Close buffer
   nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
-  nmap <C-z><C-z> :<C-u>qall!<CR>
   " Replace word
   vmap p <Plug>(operator-replace)
   " diff line
