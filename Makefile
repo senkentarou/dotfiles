@@ -1,3 +1,5 @@
+.PHONY: all install setup link reboot
+
 all: install setup link reboot
 
 install:
