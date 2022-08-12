@@ -55,8 +55,8 @@ vim.cmd([[
   nnoremap Z <Nop>
   nnoremap Q <Nop>
   " open git browser
-  nnoremap <silent> <Leader>o :<C-u>Gina browse master:<CR>
-  vnoremap <silent> <Leader>o :Gina browse master:<CR>
+  nnoremap <silent> <Leader>o :<C-u>Godch<CR>
+  vnoremap <silent> <Leader>o :Godch<CR>
   nnoremap <silent> <Leader>p :<C-u>Gopr<CR>
   nnoremap <silent> <Leader>b :<C-u>Gitsigns toggle_current_line_blame<CR>
   nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
