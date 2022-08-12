@@ -5,6 +5,9 @@ telescope.setup {
   defaults = {
     mappings = {
       i = {
+        ["<C-a>"] = function() vim.cmd ":norm! I" end,
+        ["<C-k>"] = function() vim.cmd ":norm! D" end,
+        ["<C-u>"] = function() vim.cmd ":norm! c0" end,
         ["<C-q>"] = actions.close,
         ["<C-f>"] = actions.which_key,
         ["<C-u>"] = false,
