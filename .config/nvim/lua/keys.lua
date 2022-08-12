@@ -80,17 +80,15 @@ vim.cmd([[
   " by git file name
   nnoremap <silent> <C-f><C-f> :<C-u>lua require('telescope.builtin').find_files()<CR>
   " by word with file preview
-  nnoremap <silent> <C-f><C-d> :<C-u>lua require('telescope.builtin').live_grep()<CR>
-  " by file name with file preview
-  nnoremap <silent> <C-f><C-g> :<C-u>lua require('telescope.builtin').git_status()<CR>
+  nnoremap <silent> <C-f><C-g> :<C-u>lua require('telescope.builtin').live_grep()<CR>
   " by open history
   nnoremap <silent> <C-f><C-r> :<C-u>lua require('telescope.builtin').oldfiles()<CR>
 
   " <C-g> Git
   nmap <C-g> <Nop>
-  nnoremap <silent> <C-g><C-g> :<C-u>Neogit<CR>
+  nnoremap <silent> <C-g><C-g> :<C-u>lua require('telescope.builtin').git_status()<CR>
   nnoremap <silent> <C-g><C-o> :<C-u>Goacf<CR>
-  nnoremap <silent> <C-g><C-b> :<C-u>bufdo bwipeout<CR>
+  nnoremap <silent> <C-g><C-b> :<C-u>Neogit<CR>
   " add
   nnoremap <silent> <C-g><C-p> :<C-u>Gitsigns prev_hunk<CR>
   nnoremap <silent> <C-g><C-n> :<C-u>Gitsigns next_hunk<CR>
@@ -100,7 +98,7 @@ vim.cmd([[
   nnoremap <silent> <C-g><C-r> :<C-u>Gitsigns reset_hunk<CR>
   " view
   nnoremap <silent> <C-g>P :<C-u>TermExec cmd='git push origin HEAD'<CR>
-  nnoremap <silent> + :<C-u>Gitsigns diffthis<CR>
+  nnoremap <silent> + :<C-u>lua require('telescope').extensions.gh.pull_request({ search = 'is:pr is:open user-review-requested:@me' })<CR>
 
   " <C-w>
   " defx Finder

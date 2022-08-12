@@ -46,6 +46,7 @@ vim.cmd([[
   Plug 'phaazon/hop.nvim'
   " Finder
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+  Plug 'nvim-telescope/telescope-github.nvim'
   " Filer
   Plug 'Shougo/defx.nvim'
   Plug 'roxma/nvim-yarp'
