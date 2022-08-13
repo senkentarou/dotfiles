@@ -8,7 +8,7 @@ vim.cmd([[
     if &filetype == 'defx'
       " close by defx command
       Defx
-    elseif index(['fugitive', 'fugitiveblame', 'gina-log', 'Trouble', 'help'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
+    elseif index(['Trouble', 'help'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
       " close pane
       execute 'close'
     elseif &filetype == 'startify'
