@@ -1,8 +1,6 @@
 vim.cmd([[
   command! NotQuit :bp | :sp | :bn | :bd
-]])
 
-vim.cmd([[
   " bd or q command
   function! s:BufferClose() abort
     if &filetype == 'defx'
