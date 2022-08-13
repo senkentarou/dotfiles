@@ -65,4 +65,7 @@ require('gopr').setup {
   default_remote = 'upstream'
 }
 
-require('godch').setup {}
+require('godch').setup {
+  remote_base_url = 'github.com',
+  default_remote = 'upstream'
+}
