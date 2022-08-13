@@ -1,27 +1,10 @@
--- Git grep by interactive input
-vim.cmd([[
-  function! s:GGrepInteractiveInput(cmd, query) abort
-    if len(a:query) > 0
-      let query_word = a:query
-    else
-      let query_word = input('[GitGrep] ')
-    endif
+function _G.git_grep_on_input_word()
+  vim.api.nvim_command('Gina grep ' .. vim.fn.input('[GitGrep] '))
+end
 
-    if len(query_word) > 0
-      execute a:cmd . ' ' . query_word
-    end
-  endfunction
-  command! -nargs=* GinaGrepInteractiveInput call s:GGrepInteractiveInput('Gina grep', <q-args>)
-]])
-
--- Git grep on current word
-vim.cmd([[
-  function! s:GGrepCurrentWordQuery(cmd) abort
-    let cword = expand('<cword>')
-    execute a:cmd . ' ' . cword
-  endfunction
-  command! -nargs=* GinaGrepCurrentWordQuery call s:GGrepCurrentWordQuery('Gina grep')
-]])
+function _G.git_grep_on_current_word()
+  vim.api.nvim_command('Gina grep ' .. vim.fn.expand('<cword>'))
+end
 
 -- gitsigns
 require('gitsigns').setup {

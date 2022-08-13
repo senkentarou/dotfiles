@@ -65,9 +65,9 @@ vim.cmd([[
   nnoremap <silent> <Leader>z :<C-u>RunRspec<CR>
   nnoremap <silent> <Leader>Z :<C-u>RunRspecAtLine<CR>
   " grep word
-  nnoremap <silent> <Leader>, :<C-u>GinaGrepCurrentWordQuery<CR>
+  nnoremap <silent> <Leader>, :<C-u>lua git_grep_on_current_word()<CR>
   nnoremap <silent> <Leader>< :<C-u>lua require('telescope.builtin').grep_string()<CR>
-  nnoremap <silent> <Leader>m :<C-u>GinaGrepInteractiveInput<CR>
+  nnoremap <silent> <Leader>m :<C-u>lua git_grep_on_input_word()<CR>
   nnoremap <silent> <Leader>M :<C-u>lua require('telescope.builtin').grep_string({ search = vim.fn.input('[GitGrep] ')})<CR>
   " buffers
   nnoremap <Leader>w :<C-u>w<CR>
