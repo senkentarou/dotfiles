@@ -22,3 +22,7 @@ require('neogit').setup {
 require('gopr').setup {
   default_remote = 'upstream'
 }
+
+require('gobf').setup {
+  default_remote = 'upstream'
+}

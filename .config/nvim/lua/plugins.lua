@@ -82,6 +82,7 @@ vim.cmd([[
   " my plugin
   Plug 'senkentarou/gopr.nvim'
   Plug 'senkentarou/goacf.nvim'
+  Plug 'senkentarou/gobf.nvim'
   Plug 'senkentarou/ruby_spec.nvim'
 
   call plug#end()

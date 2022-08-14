@@ -55,10 +55,10 @@ vim.cmd([[
   nnoremap Z <Nop>
   nnoremap Q <Nop>
   " open git browser
-  "nnoremap <silent> <Leader>o :<C-u>Godch<CR>
-  "vnoremap <silent> <Leader>o :Godch<CR>
-  "nnoremap <silent> <Leader>O :<C-u>lua require('godch').open_git_diff_commit_hash({ on_current_hash = true })<CR>
-  "vnoremap <silent> <Leader>O :lua require('godch').open_git_diff_commit_hash({ on_current_hash = true })<CR>
+  nnoremap <silent> <Leader>o :<C-u>Gobf<CR>
+  vnoremap <silent> <Leader>o :Gobf<CR>
+  nnoremap <silent> <Leader>O :<C-u>lua require('gobf').open_git_blob_file({ on_current_hash = true })<CR>
+  vnoremap <silent> <Leader>O :lua require('gobf').open_git_blob_file({ on_current_hash = true })<CR>
   nnoremap <silent> <Leader>p :<C-u>Gocd<CR>
   nnoremap <silent> <Leader>P :<C-u>Gopr<CR>
   nnoremap <silent> <Leader>b :<C-u>Gitsigns toggle_current_line_blame<CR>
