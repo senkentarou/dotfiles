@@ -20,7 +20,6 @@ require('neogit').setup {
 }
 
 require('gopr').setup {
-  remote_base_url = 'github.com',
   default_remote = 'upstream'
 }
 
