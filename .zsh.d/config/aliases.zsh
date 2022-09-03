@@ -70,7 +70,7 @@ function gplpr() {
 
 # git open all file on vim
 function goaf() {
-  vim $(git status --porcelain | grep -wv D | awk '{print $2}')
+  vim $(git status -uall --porcelain | grep -wv D | awk '{print $2}')
 }
 
 # git pull upstream and push origin
