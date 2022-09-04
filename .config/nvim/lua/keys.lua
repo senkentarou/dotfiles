@@ -63,8 +63,8 @@ vim.cmd([[
   nnoremap <silent> <Leader>P :<C-u>Gopr<CR>
   nnoremap <silent> <Leader>b :<C-u>Gitsigns toggle_current_line_blame<CR>
   nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
-  nnoremap <silent> <Leader>z :<C-u>RunRspec<CR>
-  nnoremap <silent> <Leader>Z :<C-u>RunRspecAtLine<CR>
+  nnoremap <silent> <Leader>z :<C-u>CopyRspecCommand<CR>
+  nnoremap <silent> <Leader>Z :<C-u>CopyRspecAtLineCommand<CR>
   " grep word
   nnoremap <silent> <Leader>, :<C-u>lua git_grep_on_current_word()<CR>
   nnoremap <silent> <Leader>< :<C-u>lua require('telescope.builtin').grep_string()<CR>
