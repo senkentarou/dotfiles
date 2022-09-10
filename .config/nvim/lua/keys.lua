@@ -85,7 +85,7 @@ vim.cmd([[
   " by word with file preview
   nnoremap <silent> <C-f><C-g> :<C-u>lua require('telescope.builtin').live_grep()<CR>
   " by open history
-  nnoremap <silent> <C-f><C-r> :<C-u>lua require('telescope.builtin').oldfiles()<CR>
+  nnoremap <silent> <C-f><C-d> :<C-u>lua require('telescope.builtin').oldfiles()<CR>
 
   " <C-g> Git
   nmap <C-g> <Nop>
