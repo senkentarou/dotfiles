@@ -104,8 +104,8 @@ vim.cmd([[
   nnoremap <silent> + :<C-u>lua require('telescope').extensions.gh.pull_request({ search = 'is:pr is:open user-review-requested:@me' })<CR>
 
   " <C-w>
-  " defx Finder
-  nmap <silent> <C-w><C-w> :<C-u>Defx `expand('%:p:h')` -columns=git:icons:filename:type -search=`expand('%:p')`<CR>
+  " Finder
+  nmap <silent> <C-w><C-w> :<C-u>lua require('vfiler').start(vim.fn.expand('%:p:h'))<CR>
   nmap <silent> <C-w><C-q> :<C-u>close<CR>
 
   " <C-e>

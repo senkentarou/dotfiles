@@ -3,10 +3,7 @@ vim.cmd([[
 
   " bd or q command
   function! s:BufferClose() abort
-    if &filetype == 'defx'
-      " close by defx command
-      Defx
-    elseif index(['Trouble', 'help'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
+    if index(['Trouble', 'help', 'vim-plug'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
       " close pane
       execute 'close'
     elseif &filetype == 'startify'

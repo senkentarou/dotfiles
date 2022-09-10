@@ -260,13 +260,8 @@ gl.short_line_list = {
   "Trouble",
   "toggleterm",
   "help",
-  "defx",
+  "vim-plug",
   "startify",
-  "fugitive",
-  "gina-log",
-  "gina-reflog",
-  "gina-grep",
-  "gina-commit",
 }
 
 gls.short_line_left = {

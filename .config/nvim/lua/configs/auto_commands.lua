@@ -23,10 +23,9 @@ vim.cmd([[
     autocmd BufWritePre * :%s/\s\+$//ge
   augroup END
 
-  augroup DefxSettings
+  augroup FilerSettings
     autocmd!
-    autocmd FileType defx :DefxMySettings
-    autocmd BufEnter,BufWritePost * call defx#redraw()
+    autocmd BufLeave vfiler:* :bdelete
   augroup END
 
   augroup SyntaxSettings

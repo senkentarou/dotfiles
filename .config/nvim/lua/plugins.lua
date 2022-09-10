@@ -48,13 +48,10 @@ vim.cmd([[
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
   Plug 'nvim-telescope/telescope-github.nvim'
   " Filer
-  Plug 'Shougo/defx.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
   Plug 'yegappan/mru'
+  Plug 'obaland/vfiler.vim'
   " Filer icons
   Plug 'ryanoasis/vim-devicons'
-  Plug 'kristijanhusak/defx-icons'
   " Git
   Plug 'lambdalisue/gina.vim'
   Plug 'TimUntersberger/neogit'

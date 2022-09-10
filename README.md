@@ -17,12 +17,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ```
 :PlugInstall
 ```
-3. Defxを使用する場合は`python3`がnvim上で使える必要がある。
-  * nvim上で`:echo has('python3')`をして1が返るとOK
-```
-pip3 install pynvim
-```
-  * `[defx] defx failed to load. Try the :UpdateRemotePlugins command and restart Neovim. See also :checkhealth.` のエラーが出る場合は表示の対応方法に従う。
 
 ### aquaSKKの設定
 0. [aquaSKK](https://github.com/codefirst/aquaskk)をインストールする
