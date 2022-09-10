@@ -126,7 +126,7 @@ vim.cmd([[
   " Show buffers
   nnoremap <silent> ; :<C-u>lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true })<CR>
   " Open most recent buffer
-  nnoremap <silent> - :<C-u>e #<CR>
+  nnoremap <silent> - :<C-u>OpenLatestClosedBuffer<CR>
   " Close buffer
   nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
   nnoremap <silent> ZZ :<C-u>qall!<CR>

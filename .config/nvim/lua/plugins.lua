@@ -51,6 +51,7 @@ vim.cmd([[
   Plug 'Shougo/defx.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'yegappan/mru'
   " Filer icons
   Plug 'ryanoasis/vim-devicons'
   Plug 'kristijanhusak/defx-icons'
