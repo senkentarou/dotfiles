@@ -50,22 +50,18 @@
 -- * If you cannot apply your key mappings, you can see like ':verbose imap <C-h>' and can trace whole settings about it.
 
 vim.cmd([[
-  " Leaders
+  " <Space> Leaders
   let mapleader="\<Space>"
   nnoremap Z <Nop>
   nnoremap Q <Nop>
-  " open git browser
+  " git operations
   nnoremap <silent> <Leader>o :<C-u>Gobf<CR>
   vnoremap <silent> <Leader>o :Gobf<CR>
   nnoremap <silent> <Leader>O :<C-u>lua require('gobf').open_git_blob_file({ on_current_hash = true })<CR>
   vnoremap <silent> <Leader>O :lua require('gobf').open_git_blob_file({ on_current_hash = true })<CR>
   nnoremap <silent> <Leader>p :<C-u>Gocd<CR>
   nnoremap <silent> <Leader>P :<C-u>Gopr<CR>
-  nnoremap <silent> <Leader>b :<C-u>Gitsigns toggle_current_line_blame<CR>
-  nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
-  nnoremap <silent> <Leader>z :<C-u>CopyRspecCommand<CR>
-  nnoremap <silent> <Leader>Z :<C-u>CopyRspecAtLineCommand<CR>
-  " grep word
+  " grep words
   nnoremap <silent> <Leader>, :<C-u>lua git_grep_on_current_word()<CR>
   nnoremap <silent> <Leader>< :<C-u>lua require('telescope.builtin').grep_string()<CR>
   nnoremap <silent> <Leader>m :<C-u>lua git_grep_on_input_word()<CR>
@@ -77,14 +73,15 @@ vim.cmd([[
   " comments
   nmap <Leader>c :<C-u>CommentToggle<CR>
   vmap <Leader>c :CommentToggle<CR>
+  " rspecs
+  nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
+  nnoremap <silent> <Leader>z :<C-u>CopyRspecCommand<CR>
+  nnoremap <silent> <Leader>Z :<C-u>CopyRspecAtLineCommand<CR>
 
   " <C-f> Find files
   nmap <C-f> <Nop>
-  " by git file name
   nnoremap <silent> <C-f><C-f> :<C-u>lua require('telescope.builtin').find_files()<CR>
-  " by word with file preview
   nnoremap <silent> <C-f><C-g> :<C-u>lua require('telescope.builtin').live_grep()<CR>
-  " by open history
   nnoremap <silent> <C-f><C-d> :<C-u>lua require('telescope.builtin').oldfiles()<CR>
 
   " <C-g> Git
@@ -92,7 +89,6 @@ vim.cmd([[
   nnoremap <silent> <C-g><C-g> :<C-u>lua require('telescope.builtin').git_status()<CR>
   nnoremap <silent> <C-g><C-o> :<C-u>Goacf<CR>
   nnoremap <silent> <C-g><C-b> :<C-u>Neogit<CR>
-  " add
   nnoremap <silent> <C-g><C-p> :<C-u>Gitsigns prev_hunk<CR>
   nnoremap <silent> <C-g><C-n> :<C-u>Gitsigns next_hunk<CR>
   nnoremap <silent> <C-g><C-h> :<C-u>Gitsigns preview_hunk<CR>
@@ -101,17 +97,42 @@ vim.cmd([[
   nnoremap <silent> <C-g><C-f> :<C-u>Gitsigns reset_hunk<CR>
   nnoremap <silent> + :<C-u>lua require('telescope').extensions.gh.pull_request({ search = 'is:pr is:open user-review-requested:@me' })<CR>
 
-  " <C-w>
-  " Finder
+  " <C-w> Finder
   nmap <silent> <C-w><C-w> :<C-u>lua require('vfiler').start(vim.fn.expand('%:p:h'))<CR>
   nmap <silent> <C-w><C-q> :<C-u>close<CR>
 
-  " <C-e>
+  " <C-e> LSP
   nmap <C-e> <Nop>
   nmap <silent> <C-e><C-e> :<C-u>lua require('telescope.builtin').lsp_definitions()<CR>
   nmap <silent> <C-e><C-r> :<C-u>lua require('telescope.builtin').lsp_references()<CR>
   nmap <silent> <C-e><C-d> :<C-u>TroubleToggle<CR>
   nmap <silent> K :<C-u>lua vim.lsp.buf.hover()<CR>
+
+  " Cursor moving
+  nmap j <Plug>(accelerated_jk_gj)
+  nmap k <Plug>(accelerated_jk_gk)
+  nnoremap H ^
+  nnoremap L $
+  " moving panes
+  nnoremap <C-j> <C-w><C-j>
+  nnoremap <C-k> <C-w><C-k>
+  nnoremap <C-l> <C-w><C-l>
+  nnoremap <C-h> <C-w><C-h>
+  " moving hop keyword
+  nnoremap s <Nop>
+  nnoremap sj :<C-u>HopVerticalAC<CR>
+  nnoremap sk :<C-u>HopVerticalBC<CR>
+  nnoremap sh :<C-u>HopChar1BC<CR>
+  nnoremap sl :<C-u>HopChar1AC<CR>
+  nnoremap f :<C-u>HopChar1CurrentLineAC<CR>
+  vnoremap f <cmd>HopChar1CurrentLineAC<CR>
+  nnoremap F :<C-u>HopChar1CurrentLineBC<CR>
+  vnoremap F <cmd>HopChar1CurrentLineBC<CR>
+  " moving on insert mode
+  imap <C-j> <Down>
+  imap <C-k> <Up>
+  imap <C-l> <Right>
+  imap <C-h> <Left>
 
   " Useful settings
   " Apply ESC
@@ -129,33 +150,4 @@ vim.cmd([[
   " diff line
   vnoremap <silent> <C-y> :Linediff<CR>
   nnoremap <C-y> :<C-u>LinediffReset<CR>
-
-  " Cursor moving
-  nnoremap H ^
-  nnoremap L $
-
-  nmap j <Plug>(accelerated_jk_gj)
-  nmap k <Plug>(accelerated_jk_gk)
-
-  imap <C-j> <Down>
-  imap <C-k> <Up>
-  imap <C-l> <Right>
-  imap <C-h> <Left>
-
-  " moving panes
-  nnoremap <C-j> <C-w><C-j>
-  nnoremap <C-k> <C-w><C-k>
-  nnoremap <C-l> <C-w><C-l>
-  nnoremap <C-h> <C-w><C-h>
-
-  " moving hop keyword
-  nnoremap s <Nop>
-  nnoremap sj :<C-u>HopVerticalAC<CR>
-  nnoremap sk :<C-u>HopVerticalBC<CR>
-  nnoremap sh :<C-u>HopChar1BC<CR>
-  nnoremap sl :<C-u>HopChar1AC<CR>
-  nnoremap f :<C-u>HopChar1CurrentLineAC<CR>
-  vnoremap f <cmd>HopChar1CurrentLineAC<CR>
-  nnoremap F :<C-u>HopChar1CurrentLineBC<CR>
-  vnoremap F <cmd>HopChar1CurrentLineBC<CR>
 ]])
