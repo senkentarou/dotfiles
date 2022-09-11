@@ -3,12 +3,12 @@ vim.cmd([[
 
   " bd or q command
   function! s:BufferClose() abort
-    if index(['Trouble', 'help', 'vim-plug'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
-      " close pane
-      execute 'close'
-    elseif &filetype == 'startify'
+    if &filetype == 'startify'
       " no action
       :
+    elseif index(['Trouble', 'help', 'vim-plug'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
+      " close pane
+      execute 'close'
     elseif len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1
       " delete buffer
       execute 'bd'
