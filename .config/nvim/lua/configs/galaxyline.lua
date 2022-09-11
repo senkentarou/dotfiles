@@ -258,7 +258,6 @@ gls.right = {
 
 gl.short_line_list = {
   "Trouble",
-  "toggleterm",
   "help",
   "vim-plug",
   "startify",

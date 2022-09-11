@@ -57,8 +57,6 @@ vim.cmd([[
   Plug 'TimUntersberger/neogit'
   Plug 'sindrets/diffview.nvim'
   Plug 'lewis6991/gitsigns.nvim'
-  " Open terminal window
-  Plug 'akinsho/nvim-toggleterm.lua'
   " Open browser window
   Plug 'tyru/open-browser.vim'
   " Accelerate up/down
