@@ -98,9 +98,7 @@ vim.cmd([[
   nnoremap <silent> <C-g><C-h> :<C-u>Gitsigns preview_hunk<CR>
   nnoremap <silent> <C-g><C-j> :<C-u>Gitsigns stage_hunk<CR>
   nnoremap <silent> <C-g><C-k> :<C-u>Gitsigns undo_stage_hunk<CR>
-  nnoremap <silent> <C-g><C-r> :<C-u>Gitsigns reset_hunk<CR>
-  " view
-  nnoremap <silent> <C-g>P :<C-u>TermExec cmd='git push origin HEAD'<CR>
+  nnoremap <silent> <C-g><C-f> :<C-u>Gitsigns reset_hunk<CR>
   nnoremap <silent> + :<C-u>lua require('telescope').extensions.gh.pull_request({ search = 'is:pr is:open user-review-requested:@me' })<CR>
 
   " <C-w>
@@ -126,7 +124,6 @@ vim.cmd([[
   nnoremap <silent> - :<C-u>OpenLatestClosedBuffer<CR>
   " Close buffer
   nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
-  nnoremap <silent> ZZ :<C-u>qall!<CR>
   " Replace word
   vmap p <Plug>(operator-replace)
   " diff line
