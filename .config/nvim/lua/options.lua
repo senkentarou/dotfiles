@@ -11,6 +11,7 @@ vim.opt.termguicolors = true
 vim.opt.encoding = 'utf-8'
 vim.opt.number = true
 vim.opt.backspace = [[indent,eol,start]]
+vim.opt.wrap = true
 vim.opt.whichwrap = [[b,s,<,>,[,],h,l]]
 vim.opt.cursorline = true
 vim.opt.clipboard = 'unnamed'
