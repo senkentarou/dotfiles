@@ -73,7 +73,7 @@ vim.cmd([[
   " buffers
   nnoremap <Leader>w :<C-u>w<CR>
   nnoremap <Leader>W :lua vim.lsp.buf.formatting()<CR>
-  nnoremap <Leader>q :<C-u>BufferClose<CR>
+  nnoremap <Leader>q :<C-u>xa<CR>
   " comments
   nmap <Leader>c :<C-u>CommentToggle<CR>
   vmap <Leader>c :CommentToggle<CR>
