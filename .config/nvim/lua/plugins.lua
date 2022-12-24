@@ -9,27 +9,26 @@
 vim.cmd([[
   call plug#begin(stdpath('data') . '/plugged')
 
-  " Statusline
-  Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
   " Color Scheme
   Plug 'w0ng/vim-hybrid'
   " Syntax highlight
   Plug 'sheerun/vim-polyglot'
   " Indent highlight
   Plug 'nathanaelkane/vim-indent-guides'
-  " Auto complete
+  " Statusline
+  Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
+  Plug 'kyazdani42/nvim-web-devicons'
+  " LSP
+  Plug 'nvim-lua/plenary.nvim'
   Plug 'j-hui/fidget.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
-  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'folke/trouble.nvim'
   Plug 'folke/lsp-colors.nvim'
-  " Snipet
   Plug 'rafamadriz/friendly-snippets'
   Plug 'onsails/lspkind.nvim'
   Plug 'L3MON4D3/LuaSnip'
-  " Completion
   Plug 'saadparwaiz1/cmp_luasnip'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
@@ -37,8 +36,6 @@ vim.cmd([[
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
-  " null-ls
-  Plug 'nvim-lua/plenary.nvim'
   Plug 'jose-elias-alvarez/null-ls.nvim'
   " Auto complete for bracket pairs
   Plug 'windwp/nvim-autopairs'
@@ -48,10 +45,9 @@ vim.cmd([[
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
   Plug 'nvim-telescope/telescope-github.nvim'
   " Filer
-  Plug 'yegappan/mru'
-  Plug 'obaland/vfiler.vim'
-  " Filer icons
   Plug 'ryanoasis/vim-devicons'
+  Plug 'obaland/vfiler.vim'
+  Plug 'yegappan/mru'
   " Git
   Plug 'lambdalisue/gina.vim'
   Plug 'TimUntersberger/neogit'
