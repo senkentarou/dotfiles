@@ -1,5 +1,15 @@
 -- fidget (show starting status of language server)
-require('fidget').setup {}
+require('fidget').setup {
+  text = {
+    spinner = "pipe",         -- animation shown when tasks are ongoing
+    done = "✔",               -- character shown when all tasks are complete
+    commenced = "Started",    -- message shown when task starts
+    completed = "Completed",  -- message shown when task completes
+  },
+  align = {
+    bottom = false,            -- align fidgets along bottom edge of buffer
+  },
+}
 
 -- mason (lsp server installer)
 require('mason').setup {}
