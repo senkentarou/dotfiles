@@ -84,22 +84,14 @@ require('trouble').setup{
   action_keys = {
     close = 'q',
     cancel = '<esc>',
-    refresh = 'r',
     jump = {'<cr>','<tab>'},
-    jump_close = {'o'},
-    toggle_mode = 'm',
-    toggle_preview = 'P',
     hover = 'K',
-    preview = 'p',
-    close_folds = {'zM','zm'},
-    open_folds = {'zR','zr'},
-    toggle_fold = {'zA','za'},
     previous = 'k',
     next = 'j'
   },
   indent_lines = true,
-  auto_open = false,
-  auto_close = false,
+  auto_open = true,
+  auto_close = true,
   auto_preview = true,
   auto_fold = false,
   signs = {
@@ -109,7 +101,7 @@ require('trouble').setup{
     information = '',
     other = '﫠'
   },
-  use_lsp_diagnostic_signs = false
+  use_diagnostic_signs = true
 }
 
 -- nvim-compe
