@@ -62,7 +62,7 @@ vim.cmd([[
   Plug 'kana/vim-operator-user'
   Plug 'kana/vim-operator-replace'
   Plug 'tpope/vim-surround'
-  Plug 'terrortylor/nvim-comment'
+  Plug 'numToStr/Comment.nvim'
   " Line comparison
   Plug 'AndrewRadev/linediff.vim'
   " Start window

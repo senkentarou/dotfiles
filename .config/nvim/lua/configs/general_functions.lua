@@ -36,8 +36,8 @@ vim.g.indent_guides_enable_on_vim_startup = 1
 -- hop
 require('hop').setup {}
 
--- nvim_comment
-require('nvim_comment').setup {}
+-- Comment
+require('Comment').setup {}
 
 -- ruby_spec
 require('ruby_spec').setup {

@@ -71,8 +71,8 @@ vim.cmd([[
   nnoremap <Leader>W :lua vim.lsp.buf.formatting()<CR>
   nnoremap <Leader>q :<C-u>xa<CR>
   " comments
-  nmap <Leader>c :<C-u>CommentToggle<CR>
-  vmap <Leader>c :CommentToggle<CR>
+  nmap <Leader>c <Plug>(comment_toggle_linewise_current)
+  vmap <Leader>c <Plug>(comment_toggle_linewise_visual)
   " rspecs
   nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
   nnoremap <silent> <Leader>z :<C-u>CopyRspecCommand<CR>
