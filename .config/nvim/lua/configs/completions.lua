@@ -83,6 +83,14 @@ require('lsp-colors').setup{
   Hint = '#10B981'
 }
 
+-- lsp-lines
+require("lsp_lines").setup{}
+
+-- Disable virtual_text since it's redundant due to lsp_lines.
+vim.diagnostic.config({
+  virtual_text = false,
+})
+
 -- trouble
 require('trouble').setup{
   position = 'bottom',
