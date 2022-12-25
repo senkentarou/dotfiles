@@ -71,6 +71,7 @@ vim.cmd([[
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'windwp/nvim-ts-autotag'
   Plug 'andymass/vim-matchup'
+  Plug 'RRethy/nvim-treesitter-endwise'
 
   " my plugin
   Plug 'senkentarou/gopr.nvim'
