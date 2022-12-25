@@ -1,10 +1,10 @@
 -- fidget (show starting status of language server)
 require('fidget').setup {
   text = {
-    spinner = "pipe",         -- animation shown when tasks are ongoing
-    done = "✔",               -- character shown when all tasks are complete
-    commenced = "Started",    -- message shown when task starts
-    completed = "Completed",  -- message shown when task completes
+    spinner = 'pipe',         -- animation shown when tasks are ongoing
+    done = '✔',               -- character shown when all tasks are complete
+    commenced = 'Started',    -- message shown when task starts
+    completed = 'Completed',  -- message shown when task completes
   },
   align = {
     bottom = false,            -- align fidgets along bottom edge of buffer
@@ -49,16 +49,6 @@ nvim_lsp.solargraph.setup {
   capabilities = capabilities
 }
 
--- For nvim-compe nvim_lsp setting to auto import on typescriptreact
-nvim_lsp.tsserver.setup {
-  -- filetypes = {'typescript', 'typescript.tsx', 'typescriptreact'}
-  settings = { documentFormatting = false },
-  capabilities = capabilities,
-  on_attach = function(client)
-     client.resolved_capabilities.document_formatting = false
-  end,
-}
-
 -- null-ls: use diagnostics and formatting for js/ts/jsx/tsx
 --   prettier: use for formatting
 --   eslint: use for diagnostics (formatting is delegated to prettier)
@@ -74,9 +64,27 @@ null_ls.setup {
     null_ls.builtins.formatting.prettier.with {
       filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
       prefer_local = 'node_modules/.bin'
-    }
-  }
+    },
+    require('typescript.extensions.null-ls.code-actions'),
+  },
 }
+
+-- null-ls typescript integration
+require('typescript').setup({
+  disable_commands = false, -- prevent the plugin from creating Vim commands
+  debug = false, -- enable debug logging for commands
+  go_to_source_definition = {
+    fallback = true, -- fall back to standard LSP definition on failure
+  },
+  server = { -- pass options to lspconfig's setup method
+    -- filetypes = {'typescript', 'typescript.tsx', 'typescriptreact'}
+    settings = { documentFormatting = false },
+    capabilities = capabilities,
+    on_attach = function(client)
+       client.resolved_capabilities.document_formatting = false
+    end,
+  },
+})
 
 -- lsp-colors
 require('lsp-colors').setup{
@@ -87,7 +95,7 @@ require('lsp-colors').setup{
 }
 
 -- lsp-lines
-require("lsp_lines").setup{}
+require('lsp_lines').setup{}
 
 -- Disable virtual_text since it's redundant due to lsp_lines.
 vim.diagnostic.config({
