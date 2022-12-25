@@ -119,7 +119,7 @@ require('trouble').setup{
     next = 'j'
   },
   indent_lines = true,
-  auto_open = true,
+  auto_open = false,
   auto_close = true,
   auto_preview = true,
   auto_fold = false,
