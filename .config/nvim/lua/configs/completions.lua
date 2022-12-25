@@ -53,7 +53,10 @@ nvim_lsp.solargraph.setup {
 nvim_lsp.tsserver.setup {
   -- filetypes = {'typescript', 'typescript.tsx', 'typescriptreact'}
   settings = { documentFormatting = false },
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = function(client)
+     client.resolved_capabilities.document_formatting = false
+  end,
 }
 
 -- null-ls: use diagnostics and formatting for js/ts/jsx/tsx
