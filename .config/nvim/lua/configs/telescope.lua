@@ -5,6 +5,8 @@ telescope.setup {
   defaults = {
     mappings = {
       i = {
+        ["<Up>"] = actions.cycle_history_prev,
+        ["<Down>"] = actions.cycle_history_next,
         ["<C-a>"] = function() vim.cmd ":norm! I" end,
         ["<C-e>"] = function() vim.cmd ":norm! D" end,
         ["<C-u>"] = function() vim.cmd ":norm! c0" end,
