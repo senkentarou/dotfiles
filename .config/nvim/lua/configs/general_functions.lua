@@ -30,8 +30,12 @@ vim.cmd([[
   command! -nargs=0 OpenLatestClosedBuffer call s:OpenLatestClosedBuffer()
 ]])
 
--- indent guide setting
-vim.g.indent_guides_enable_on_vim_startup = 1
+-- indent setting
+require('indent_blankline').setup {
+    -- for example, context is off by default, use this to turn it on
+    show_current_context = true,
+    show_current_context_start = true,
+}
 
 -- hop
 require('hop').setup {}

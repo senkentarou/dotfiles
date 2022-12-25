@@ -14,7 +14,7 @@ vim.cmd([[
   " Syntax highlight
   Plug 'sheerun/vim-polyglot'
   " Indent highlight
-  Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'lukas-reineke/indent-blankline.nvim'
   " Statusline
   Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
   Plug 'kyazdani42/nvim-web-devicons'
