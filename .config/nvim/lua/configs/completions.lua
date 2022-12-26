@@ -1,13 +1,13 @@
 -- fidget (show starting status of language server)
 require('fidget').setup {
   text = {
-    spinner = 'pipe',         -- animation shown when tasks are ongoing
-    done = '✔',               -- character shown when all tasks are complete
-    commenced = 'Started',    -- message shown when task starts
-    completed = 'Completed',  -- message shown when task completes
+    spinner = 'pipe', -- animation shown when tasks are ongoing
+    done = '✔', -- character shown when all tasks are complete
+    commenced = 'Started', -- message shown when task starts
+    completed = 'Completed', -- message shown when task completes
   },
   align = {
-    bottom = false,            -- align fidgets along bottom edge of buffer
+    bottom = false, -- align fidgets along bottom edge of buffer
   },
 }
 
@@ -50,6 +50,18 @@ nvim_lsp.solargraph.setup {
   capabilities = capabilities
 }
 
+nvim_lsp.sumneko_lua.setup {
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { 'vim' },
+      },
+    },
+  },
+}
+
 -- null-ls: use diagnostics and formatting for js/ts/jsx/tsx
 --   prettier: use for formatting
 --   eslint: use for diagnostics (formatting is delegated to prettier)
@@ -82,13 +94,13 @@ require('typescript').setup({
     settings = { documentFormatting = false },
     capabilities = capabilities,
     on_attach = function(client)
-       client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_formatting = false
     end,
   },
 })
 
 -- lsp-colors
-require('lsp-colors').setup{
+require('lsp-colors').setup {
   Error = '#db4b4b',
   Warning = '#e0af68',
   Information = '#0db9d7',
@@ -96,7 +108,7 @@ require('lsp-colors').setup{
 }
 
 -- lsp-lines
-require('lsp_lines').setup{}
+require('lsp_lines').setup {}
 
 -- Disable virtual_text since it's redundant due to lsp_lines.
 vim.diagnostic.config({
@@ -104,7 +116,7 @@ vim.diagnostic.config({
 })
 
 -- trouble
-require('trouble').setup{
+require('trouble').setup {
   position = 'bottom',
   height = 10,
   width = 50,
@@ -114,7 +126,7 @@ require('trouble').setup{
   action_keys = {
     close = 'q',
     cancel = '<esc>',
-    jump = {'<cr>','<tab>'},
+    jump = { '<cr>', '<tab>' },
     hover = 'K',
     previous = 'k',
     next = 'j'
@@ -138,7 +150,7 @@ require('trouble').setup{
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
@@ -178,14 +190,14 @@ cmp.setup({
       else
         fallback()
       end
-    end, {'i', 's'}),
+    end, { 'i', 's' }),
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       else
         fallback()
       end
-    end, {'i', 's'}),
+    end, { 'i', 's' }),
   }),
   sources = cmp.config.sources({
     { name = 'buffer' },
