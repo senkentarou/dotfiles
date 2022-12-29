@@ -125,6 +125,8 @@ null_ls.setup {
         '--extra-sep-at-table-end',
       },
     },
+    null_ls.builtins.formatting.shfmt,
+    null_ls.builtins.code_actions.shellcheck,
     require('typescript.extensions.null-ls.code-actions'),
   },
 }
