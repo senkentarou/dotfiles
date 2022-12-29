@@ -12,13 +12,6 @@ require('gitsigns').setup {
   current_line_blame_formatter = '-- <summary> (<author_time:%R>) [<abbrev_sha>]',
 }
 
--- neogit
-require('neogit').setup {
-  integrations = {
-    diffview = true,
-  },
-}
-
 require('gopr').setup {
   default_remote = 'upstream',
 }

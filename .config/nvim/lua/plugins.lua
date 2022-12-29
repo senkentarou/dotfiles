@@ -53,7 +53,6 @@ vim.cmd([[
   Plug 'yegappan/mru'
   " Git
   Plug 'lambdalisue/gina.vim'
-  Plug 'TimUntersberger/neogit'
   Plug 'sindrets/diffview.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   " Open browser window
