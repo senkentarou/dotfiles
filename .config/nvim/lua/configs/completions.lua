@@ -62,6 +62,8 @@ nvim_lsp.sumneko_lua.setup {
   },
 }
 
+nvim_lsp.bashls.setup {}
+
 -- null-ls: use diagnostics and formatting for js/ts/jsx/tsx
 --   prettier: use for formatting
 --   eslint: use for diagnostics (formatting is delegated to prettier)
