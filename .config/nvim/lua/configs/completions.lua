@@ -14,6 +14,19 @@ require('fidget').setup {
 -- mason (lsp server installer)
 require('mason').setup {}
 require('mason-lspconfig').setup {}
+require('mason-tool-installer').setup {
+  ensure_installed = {
+    'bash-language-server',
+    'eslint-lsp',
+    'eslint_d',
+    'lua-language-server',
+    'luaformatter',
+    'shellcheck',
+    'shfmt',
+    'solargraph',
+    'typescript-language-server',
+  },
+}
 
 -- nvim-lspconfig: use diagnostics and formatting for ruby/rspec and nvim-compe nvim_lsp setting to auto import on typescriptreact
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())

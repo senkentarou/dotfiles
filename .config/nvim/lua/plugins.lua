@@ -23,6 +23,7 @@ vim.cmd([[
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
+  Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
   Plug 'folke/lsp-colors.nvim'
   Plug 'folke/trouble.nvim'
   Plug 'Maan2003/lsp_lines.nvim'
