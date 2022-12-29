@@ -34,17 +34,61 @@ local colors = {
 }
 
 local mode_map = {
-  ['n'] = {'NORMAL', colors.fg, colors.bg},
-  ['i'] = {'INSERT', colors.bright_blue, colors.faded_blue},
-  ['R'] = {'REPLACE', colors.bright_red, colors.faded_red},
-  ['v'] = {'VISUAL', colors.bright_orange, colors.faded_orange},
-  ['V'] = {'V-LINE', colors.bright_orange, colors.faded_orange},
-  ['c'] = {'COMMAND', colors.bright_yellow, colors.faded_yellow},
-  ['s'] = {'SELECT', colors.bright_orange, colors.faded_orange},
-  ['S'] = {'S-LINE', colors.bright_orange, colors.faded_orange},
-  ['t'] = {'TERMINAL', colors.bright_aqua, colors.faded_aqua},
-  [''] = {'V-BLOCK', colors.bright_orange, colors.faded_orange},
-  ['v'] = {'S-BLOCK', colors.bright_orange, colors.faded_orange},
+  ['n'] = {
+    'NORMAL',
+    colors.fg,
+    colors.bg,
+  },
+  ['i'] = {
+    'INSERT',
+    colors.bright_blue,
+    colors.faded_blue,
+  },
+  ['R'] = {
+    'REPLACE',
+    colors.bright_red,
+    colors.faded_red,
+  },
+  ['v'] = {
+    'VISUAL',
+    colors.bright_orange,
+    colors.faded_orange,
+  },
+  ['V'] = {
+    'V-LINE',
+    colors.bright_orange,
+    colors.faded_orange,
+  },
+  ['c'] = {
+    'COMMAND',
+    colors.bright_yellow,
+    colors.faded_yellow,
+  },
+  ['s'] = {
+    'SELECT',
+    colors.bright_orange,
+    colors.faded_orange,
+  },
+  ['S'] = {
+    'S-LINE',
+    colors.bright_orange,
+    colors.faded_orange,
+  },
+  ['t'] = {
+    'TERMINAL',
+    colors.bright_aqua,
+    colors.faded_aqua,
+  },
+  [''] = {
+    'V-BLOCK',
+    colors.bright_orange,
+    colors.faded_orange,
+  },
+  ['C-v'] = {
+    'S-BLOCK',
+    colors.bright_orange,
+    colors.faded_orange,
+  },
 }
 
 local sep = {
@@ -60,9 +104,14 @@ local function highlight(group, fg, bg)
 end
 
 local function is_show_dir()
-  local ignore_list = {'FUGITIVE', 'HELP'}
+  local ignore_list = {
+    'FUGITIVE',
+    'HELP',
+  }
   for _, il in pairs(ignore_list) do
-    if il == buffer.get_buffer_filetype() then return false end
+    if il == buffer.get_buffer_filetype() then
+      return false
+    end
   end
   return true
 end
@@ -81,7 +130,7 @@ gls.left = {
       end,
       separator = sep.left_filled,
       separator_highlight = 'GalaxyViModeFront',
-    }
+    },
   },
   {
     GitDir = {
@@ -95,10 +144,16 @@ gls.left = {
       condition = function()
         return condition.check_git_workspace() and is_show_dir() and condition.hide_in_width()
       end,
-      highlight = {colors.fg, colors.bg},
+      highlight = {
+        colors.fg,
+        colors.bg,
+      },
       separator = sep.left,
-      separator_highlight = {colors.fg, colors.bg},
-    }
+      separator_highlight = {
+        colors.fg,
+        colors.bg,
+      },
+    },
   },
   {
     FileName = {
@@ -123,7 +178,10 @@ gls.left = {
         end
         return ' ' .. fname .. ' '
       end,
-      highlight = {colors.fg, colors.bg},
+      highlight = {
+        colors.fg,
+        colors.bg,
+      },
     },
   },
   {
@@ -133,7 +191,10 @@ gls.left = {
       condition = function()
         return condition.check_git_workspace() and condition.hide_in_width()
       end,
-      highlight = {colors.bright_blue, colors.bg},
+      highlight = {
+        colors.bright_blue,
+        colors.bg,
+      },
     },
   },
   {
@@ -143,7 +204,10 @@ gls.left = {
       condition = function()
         return condition.check_git_workspace() and condition.hide_in_width()
       end,
-      highlight = {colors.bright_yellow, colors.bg},
+      highlight = {
+        colors.bright_yellow,
+        colors.bg,
+      },
     },
   },
   {
@@ -153,9 +217,15 @@ gls.left = {
       condition = function()
         return condition.check_git_workspace() and condition.hide_in_width()
       end,
-      highlight = {colors.bright_red, colors.bg},
+      highlight = {
+        colors.bright_red,
+        colors.bg,
+      },
       separator = sep.left,
-      separator_highlight = {colors.fg, colors.bg},
+      separator_highlight = {
+        colors.fg,
+        colors.bg,
+      },
     },
   },
   {
@@ -166,38 +236,56 @@ gls.left = {
       condition = function()
         return condition.hide_in_width()
       end,
-      highlight = {colors.fg, colors.bg}
-    }
+      highlight = {
+        colors.fg,
+        colors.bg,
+      },
+    },
   },
   {
     DiagnosticError = {
       provider = 'DiagnosticError',
       icon = '  ',
-      highlight = {colors.bright_red, colors.bg},
-    }
+      highlight = {
+        colors.bright_red,
+        colors.bg,
+      },
+    },
   },
   {
     DiagnosticWarn = {
       provider = 'DiagnosticWarn',
       icon = '  ',
-      highlight = {colors.bright_yellow, colors.bg},
-    }
+      highlight = {
+        colors.bright_yellow,
+        colors.bg,
+      },
+    },
   },
   {
     DiagnosticHint = {
       provider = 'DiagnosticHint',
       icon = '  ',
-      highlight = {colors.bright_aqua, colors.bg},
-    }
+      highlight = {
+        colors.bright_aqua,
+        colors.bg,
+      },
+    },
   },
   {
     DiagnosticInfo = {
       provider = 'DiagnosticInfo',
       icon = '  ',
-      highlight = {colors.bright_blue, colors.bg},
+      highlight = {
+        colors.bright_blue,
+        colors.bg,
+      },
       separator = sep.left,
-      separator_highlight = {colors.fg, colors.bg},
-    }
+      separator_highlight = {
+        colors.fg,
+        colors.bg,
+      },
+    },
   },
 }
 
@@ -210,10 +298,16 @@ gls.right = {
       condition = function()
         return condition.hide_in_width()
       end,
-      highlight = {colors.fg, colors.bg},
+      highlight = {
+        colors.fg,
+        colors.bg,
+      },
       separator = sep.right,
-      separator_highlight = {colors.fg, colors.bg},
-    }
+      separator_highlight = {
+        colors.fg,
+        colors.bg,
+      },
+    },
   },
   {
     FileEncode = {
@@ -223,10 +317,16 @@ gls.right = {
       condition = function()
         return condition.hide_in_width()
       end,
-      highlight = {colors.fg, colors.bg},
+      highlight = {
+        colors.fg,
+        colors.bg,
+      },
       separator = sep.right,
-      separator_highlight = {colors.fg, colors.bg},
-    }
+      separator_highlight = {
+        colors.fg,
+        colors.bg,
+      },
+    },
   },
   {
     FileFormat = {
@@ -236,10 +336,16 @@ gls.right = {
       condition = function()
         return condition.hide_in_width()
       end,
-      highlight = {colors.fg, colors.bg},
+      highlight = {
+        colors.fg,
+        colors.bg,
+      },
       separator = sep.right,
-      separator_highlight = {colors.fg, colors.bg},
-    }
+      separator_highlight = {
+        colors.fg,
+        colors.bg,
+      },
+    },
   },
   {
     LineInfo = {
@@ -249,9 +355,15 @@ gls.right = {
       condition = function()
         return condition.hide_in_width()
       end,
-      highlight = {colors.fg, colors.bg},
+      highlight = {
+        colors.fg,
+        colors.bg,
+      },
       separator = sep.right,
-      separator_highlight = {colors.fg, colors.bg},
+      separator_highlight = {
+        colors.fg,
+        colors.bg,
+      },
     },
   },
 }
@@ -269,8 +381,11 @@ gls.short_line_left = {
       provider = function()
         return string.format('  %s ', buffer.get_buffer_filetype())
       end,
-      highlight = {colors.fg, colors.bg},
-    }
+      highlight = {
+        colors.fg,
+        colors.bg,
+      },
+    },
   },
   {
     FileName = {
@@ -295,7 +410,10 @@ gls.short_line_left = {
         end
         return ' ' .. fname .. ' '
       end,
-      highlight = {colors.fg, colors.bg},
+      highlight = {
+        colors.fg,
+        colors.bg,
+      },
     },
   },
 }

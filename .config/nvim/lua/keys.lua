@@ -1,7 +1,6 @@
 --
 -- Key mappings
 --
-
 --
 -- [[Text Objects]]
 -- Thanks to https://shnsprk.com/entry/2015/11/12/070000
@@ -42,13 +41,10 @@
 -- ys [mo] [d]: you surround with [d] on [mo]
 --
 -- * If you want to surround without white space, you select end part of surrounding. ) } >
-
 --
 -- Custom mappings
 --
-
 -- * If you cannot apply your key mappings, you can see like ':verbose imap <C-h>' and can trace whole settings about it.
-
 vim.cmd([[
   " <Space> Leaders
   let mapleader="\<Space>"

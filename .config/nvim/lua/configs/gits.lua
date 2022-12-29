@@ -9,18 +9,18 @@ end
 -- gitsigns
 require('gitsigns').setup {
   current_line_blame = true,
-  current_line_blame_formatter = '-- <summary> (<author_time:%R>) [<abbrev_sha>]'
+  current_line_blame_formatter = '-- <summary> (<author_time:%R>) [<abbrev_sha>]',
 }
 
 -- neogit
 require('neogit').setup {
   integrations = {
-    diffview = true
-  }
+    diffview = true,
+  },
 }
 
 require('gopr').setup {
-  default_remote = 'upstream'
+  default_remote = 'upstream',
 }
 
 require('gobf').setup {
@@ -28,6 +28,6 @@ require('gobf').setup {
   default_branches = {
     'main',
     'master',
-    'develop'
-  }
+    'develop',
+  },
 }
