@@ -28,6 +28,41 @@ require('mason-tool-installer').setup {
   },
 }
 
+-- lspsaga
+local saga = require("lspsaga")
+saga.init_lsp_saga({
+  -- preview lines of lsp_finder and definition preview
+  max_preview_lines = 10,
+  -- use emoji lightbulb in default
+  code_action_icon = "💡",
+  -- if true can press number to execute the codeaction in codeaction window
+  code_action_num_shortcut = true,
+  -- same as nvim-lightbulb but async
+  code_action_lightbulb = {
+    enable = true,
+    enable_in_insert = true,
+    cache_code_action = true,
+    sign = true,
+    update_time = 150,
+    sign_priority = 20,
+    virtual_text = true,
+  },
+  finder_action_keys = {
+    open = '<CR>',
+    quit = '<C-q>',
+  },
+  code_action_keys = {
+    exec = '<CR>',
+    quit = '<C-q>',
+  },
+  definition_action_keys = {
+    edit = 'e',
+    quit = '<C-q>',
+  },
+  rename_action_quit = '<C-q>',
+  rename_in_select = true,
+})
+
 -- nvim-lspconfig: use diagnostics and formatting for ruby/rspec and nvim-compe nvim_lsp setting to auto import on typescriptreact
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local nvim_lsp = require('lspconfig')
