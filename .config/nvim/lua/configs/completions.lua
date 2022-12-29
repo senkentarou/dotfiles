@@ -23,31 +23,47 @@ local nvim_lsp_config = require('lspconfig.configs')
 -- For ruby (needs ruby-lsp gem on your development)
 nvim_lsp_config.ruby_lsp = {
   default_config = {
-    cmd = { 'bundle', 'exec', 'ruby-lsp' },
-    init_options = {
-      enabledFeatures = { 'formatting', 'codeActions' },
+    cmd = {
+      'bundle',
+      'exec',
+      'ruby-lsp',
     },
-    filetypes = { 'ruby', 'rspec' },
+    init_options = {
+      enabledFeatures = {
+        'formatting',
+        'codeActions',
+      },
+    },
+    filetypes = {
+      'ruby',
+      'rspec',
+    },
     root_dir = require('lspconfig.util').root_pattern('Gemfile', '.git'),
   },
 }
 nvim_lsp.ruby_lsp.setup {
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 nvim_lsp.solargraph.setup {
-  cmd = { 'solargraph', 'stdio' },
+  cmd = {
+    'solargraph',
+    'stdio',
+  },
   init_options = {
     formatting = false,
   },
-  filetypes = { 'ruby', 'rspec' },
+  filetypes = {
+    'ruby',
+    'rspec',
+  },
   root_dir = require('lspconfig.util').root_pattern('Gemfile', '.git'),
   settings = {
     solargraph = {
       diagnostics = true,
     },
   },
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 nvim_lsp.sumneko_lua.setup {
@@ -56,10 +72,15 @@ nvim_lsp.sumneko_lua.setup {
     Lua = {
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
+        globals = {
+          'vim',
+        },
       },
     },
   },
+  on_attach = function(client)
+    client.resolved_capabilities.document_formatting = false
+  end,
 }
 
 nvim_lsp.bashls.setup {}
@@ -73,12 +94,36 @@ null_ls.setup {
   root_dir = require('lspconfig.util').root_pattern('package.json', '.git'),
   sources = {
     null_ls.builtins.diagnostics.eslint_d.with {
-      filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
-      prefer_local = 'node_modules/.bin'
+      filetypes = {
+        'javascript',
+        'javascriptreact',
+        'typescript',
+        'typescriptreact',
+      },
+      prefer_local = 'node_modules/.bin',
     },
     null_ls.builtins.formatting.prettier.with {
-      filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
-      prefer_local = 'node_modules/.bin'
+      filetypes = {
+        'javascript',
+        'javascriptreact',
+        'typescript',
+        'typescriptreact',
+      },
+      prefer_local = 'node_modules/.bin',
+    },
+    null_ls.builtins.formatting.lua_format.with {
+      args = {
+        '--column-limit=180',
+        '--column-table-limit=20',
+        '--indent-width=2',
+        '--continuation-indent-width=2',
+        '--no-keep-simple-control-block-one-line',
+        '--no-keep-simple-function-one-line',
+        '--spaces-inside-table-braces',
+        '--chop-down-table',
+        '--chop-down-kv-table',
+        '--extra-sep-at-table-end',
+      },
     },
     require('typescript.extensions.null-ls.code-actions'),
   },
@@ -93,7 +138,9 @@ require('typescript').setup({
   },
   server = { -- pass options to lspconfig's setup method
     -- filetypes = {'typescript', 'typescript.tsx', 'typescriptreact'}
-    settings = { documentFormatting = false },
+    settings = {
+      documentFormatting = false,
+    },
     capabilities = capabilities,
     on_attach = function(client)
       client.resolved_capabilities.document_formatting = false
@@ -106,7 +153,7 @@ require('lsp-colors').setup {
   Error = '#db4b4b',
   Warning = '#e0af68',
   Information = '#0db9d7',
-  Hint = '#10B981'
+  Hint = '#10B981',
 }
 
 -- lsp-lines
@@ -128,10 +175,13 @@ require('trouble').setup {
   action_keys = {
     close = 'q',
     cancel = '<esc>',
-    jump = { '<cr>', '<tab>' },
+    jump = {
+      '<cr>',
+      '<tab>',
+    },
     hover = 'K',
     previous = 'k',
-    next = 'j'
+    next = 'j',
   },
   indent_lines = true,
   auto_open = false,
@@ -143,9 +193,9 @@ require('trouble').setup {
     warning = '',
     hint = '',
     information = '',
-    other = '﫠'
+    other = '﫠',
   },
-  use_diagnostic_signs = true
+  use_diagnostic_signs = true,
 }
 
 -- nvim-compe
@@ -172,15 +222,26 @@ cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
-    end
+    end,
   },
   window = {
     documentation = {
-      border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+      border = {
+        '╭',
+        '─',
+        '╮',
+        '│',
+        '╯',
+        '─',
+        '╰',
+        '│',
+      },
     },
   },
   mapping = cmp.mapping.preset.insert({
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    ['<CR>'] = cmp.mapping.confirm({
+      select = false,
+    }),
     ['<C-c>'] = cmp.mapping.abort(),
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -202,36 +263,49 @@ cmp.setup({
     end, { 'i', 's' }),
   }),
   sources = cmp.config.sources({
-    { name = 'buffer' },
-    { name = 'nvim_lsp' },
-    { name = 'nvim_lsp_signature_help' },
-    { name = 'nvim_lua' },
-    { name = 'luasnip' },
+    {
+      name = 'buffer',
+    },
+    {
+      name = 'nvim_lsp',
+    },
+    {
+      name = 'nvim_lsp_signature_help',
+    },
+    {
+      name = 'nvim_lua',
+    },
+    {
+      name = 'luasnip',
+    },
     { name = 'path' },
   }, {
-    { name = 'buffer' },
+    {
+      name = 'buffer',
+    },
   }),
 })
 
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = 'cmdline' }
-  }
+    {
+      name = 'cmdline',
+    },
+  },
 })
 
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = 'buffer' }
-  }
+    {
+      name = 'buffer',
+    },
+  },
 })
 
 -- If you want insert `(` after select function or method item
-cmp.event:on(
-  'confirm_done',
-  require('nvim-autopairs.completion.cmp').on_confirm_done()
-)
+cmp.event:on('confirm_done', require('nvim-autopairs.completion.cmp').on_confirm_done())
 
 -- luasnip
 -- load from friendly-snippets
@@ -243,17 +317,23 @@ require('nvim-treesitter.configs').setup {
   autoload = {
     enable = true,
     require('nvim-ts-autotag').setup({
-      filetypes = { 'html', 'xml', 'tsx', 'typescript', 'typescriptreact' }
-    })
+      filetypes = {
+        'html',
+        'xml',
+        'tsx',
+        'typescript',
+        'typescriptreact',
+      },
+    }),
   },
   highlight = {
-    enable = true
+    enable = true,
   },
   matchup = {
-    enable = true
+    enable = true,
   },
   endwise = {
-    enable = true
+    enable = true,
   },
 }
 
