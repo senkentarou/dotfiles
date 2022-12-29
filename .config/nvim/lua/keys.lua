@@ -48,9 +48,13 @@
 vim.cmd([[
   " <Space> Leaders
   let mapleader="\<Space>"
+  nmap <C-z> <Nop>
   nnoremap Z <Nop>
   nnoremap Q <Nop>
   " git operations
+  nnoremap <silent> <Leader><Leader> :<C-u>Lspsaga lsp_finder<CR>
+  nnoremap <silent> <Leader>q :<C-u>Lspsaga code_action<CR>
+  nnoremap <silent> <Leader>r :<C-u>Lspsaga rename<CR>
   nnoremap <silent> <Leader>o :<C-u>Gobf<CR>
   vnoremap <silent> <Leader>o :Gobf<CR>
   nnoremap <silent> <Leader>O :<C-u>lua require('gobf').open_git_blob_file({ on_current_hash = true })<CR>
@@ -65,7 +69,6 @@ vim.cmd([[
   " buffers
   nnoremap <Leader>w :<C-u>w<CR>
   nnoremap <Leader>W :lua vim.lsp.buf.format({ async = true })<CR>
-  nnoremap <Leader>q :<C-u>xa<CR>
   " comments
   nmap <Leader>c <Plug>(comment_toggle_linewise_current)
   vmap <Leader>c <Plug>(comment_toggle_linewise_visual)
@@ -77,32 +80,33 @@ vim.cmd([[
   " <C-f> Find files
   nmap <C-f> <Nop>
   nnoremap <silent> <C-f><C-f> :<C-u>lua require('telescope.builtin').find_files()<CR>
-  nnoremap <silent> <C-f><C-g> :<C-u>lua require('telescope.builtin').live_grep()<CR>
-  nnoremap <silent> <C-f><C-d> :<C-u>lua require('telescope.builtin').oldfiles()<CR>
+  nnoremap <silent> <C-f>, :<C-u>lua require('telescope.builtin').grep_string()<CR>
+  nnoremap <silent> <C-f>m :<C-u>lua require('telescope.builtin').live_grep()<CR>
+  nnoremap <silent> <C-f><C-r> :<C-u>lua require('telescope.builtin').oldfiles()<CR>
 
   " <C-g> Git
   nmap <C-g> <Nop>
   nnoremap <silent> <C-g><C-g> :<C-u>lua require('telescope.builtin').git_status()<CR>
   nnoremap <silent> <C-g><C-o> :<C-u>Goacf<CR>
-  nnoremap <silent> <C-g><C-b> :<C-u>Neogit<CR>
+  nnoremap <silent> <C-g><C-l> :<C-u>DiffviewFileHistory %<CR>
   nnoremap <silent> <C-g><C-p> :<C-u>Gitsigns prev_hunk<CR>
   nnoremap <silent> <C-g><C-n> :<C-u>Gitsigns next_hunk<CR>
   nnoremap <silent> <C-g><C-h> :<C-u>Gitsigns preview_hunk<CR>
   nnoremap <silent> <C-g><C-j> :<C-u>Gitsigns stage_hunk<CR>
-  nnoremap <silent> <C-g><C-k> :<C-u>Gitsigns undo_stage_hunk<CR>
-  nnoremap <silent> <C-g><C-f> :<C-u>Gitsigns reset_hunk<CR>
+  nnoremap <silent> <C-g>j :<C-u>Gitsigns undo_stage_hunk<CR>
+  nnoremap <silent> <C-g><C-k> :<C-u>Gina commit --verbose<CR>
+  nnoremap <silent> <C-g><C-r> :<C-u>Gitsigns reset_buffer<CR>
   nnoremap <silent> + :<C-u>lua require('telescope').extensions.gh.pull_request({ search = 'is:pr is:open user-review-requested:@me' })<CR>
 
-  " <C-w> Finder
+  " <C-w> Filer
+  nmap <C-w> <Nop>
   nmap <silent> <C-w><C-w> :<C-u>lua require('vfiler').start(vim.fn.expand('%:p:h'))<CR>
   nmap <silent> <C-w><C-q> :<C-u>close<CR>
 
   " <C-e> LSP
   nmap <C-e> <Nop>
-  nmap <silent> <C-e><C-e> :<C-u>lua require('telescope.builtin').lsp_definitions()<CR>
-  nmap <silent> <C-e><C-r> :<C-u>lua require('telescope.builtin').lsp_references()<CR>
-  nmap <silent> <C-e><C-d> :<C-u>TroubleToggle<CR>
-  nmap <silent> K :<C-u>lua vim.lsp.buf.hover()<CR>
+  nmap <silent> <C-e><C-e> :<C-u>TroubleToggle<CR>
+  nmap <silent> K :<C-u>Lspsaga hover_doc<CR>
 
   " Cursor moving
   nmap j <Plug>(accelerated_jk_gj)
