@@ -64,7 +64,7 @@ vim.cmd([[
   nnoremap <silent> <Leader>M :<C-u>lua require('telescope.builtin').grep_string({ search = vim.fn.input('[GitGrep] ')})<CR>
   " buffers
   nnoremap <Leader>w :<C-u>w<CR>
-  nnoremap <Leader>W :lua vim.lsp.buf.formatting()<CR>
+  nnoremap <Leader>W :lua vim.lsp.buf.format({ async = true })<CR>
   nnoremap <Leader>q :<C-u>xa<CR>
   " comments
   nmap <Leader>c <Plug>(comment_toggle_linewise_current)

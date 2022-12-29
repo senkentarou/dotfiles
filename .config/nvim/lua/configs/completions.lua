@@ -127,7 +127,7 @@ nvim_lsp.sumneko_lua.setup {
     },
   },
   on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
   end,
 }
 
@@ -193,7 +193,7 @@ require('typescript').setup({
     },
     capabilities = capabilities,
     on_attach = function(client)
-      client.resolved_capabilities.document_formatting = false
+      client.server_capabilities.documentFormattingProvider = false
     end,
   },
 })
