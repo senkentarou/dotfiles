@@ -6,6 +6,9 @@ vim.cmd([[
     if &filetype == 'startify'
       " no action
       :
+    elseif index(['DiffviewFileHistory'], &filetype) >= 0
+      " close diffview history
+      execute 'DiffviewClose'
     elseif index(['Trouble', 'help', 'vim-plug'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
       " close pane
       execute 'close'
