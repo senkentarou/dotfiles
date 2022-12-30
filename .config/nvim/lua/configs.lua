@@ -1,6 +1,5 @@
 require('configs.auto_commands')
 require('configs.completions')
-require('configs.filer')
 require('configs.galaxyline')
 require('configs.general_functions')
 require('configs.gits')
