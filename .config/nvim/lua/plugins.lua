@@ -16,6 +16,7 @@ vim.cmd([[
   Plug 'lukas-reineke/indent-blankline.nvim'
   " Statusline
   Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
+  Plug 'ryanoasis/vim-devicons'
   Plug 'kyazdani42/nvim-web-devicons'
   " LSP
   Plug 'nvim-lua/plenary.nvim'
@@ -47,9 +48,8 @@ vim.cmd([[
   " Finder
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
   Plug 'nvim-telescope/telescope-github.nvim'
+  Plug 'nvim-telescope/telescope-file-browser.nvim'
   " Filer
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'obaland/vfiler.vim'
   Plug 'yegappan/mru'
   " Git
   Plug 'lambdalisue/gina.vim'

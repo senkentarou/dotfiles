@@ -25,11 +25,6 @@ vim.cmd([[
     autocmd BufWritePre * :%s/\s\+$//ge
   augroup END
 
-  augroup FilerSettings
-    autocmd!
-    autocmd BufLeave vfiler:* :bdelete
-  augroup END
-
   augroup SyntaxSettings
     autocmd!
     autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
