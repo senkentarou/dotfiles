@@ -391,6 +391,17 @@ require('nvim-treesitter.configs').setup {
       },
     }),
   },
+  ensure_installed = {
+    'help',
+    'ruby',
+    'html',
+    'lua',
+    'typescript',
+    'javascript',
+    'tsx',
+    'vim',
+    'markdown',
+  },
   highlight = {
     enable = true,
   },
