@@ -89,6 +89,7 @@ vim.cmd([[
   nnoremap <silent> <C-g><C-h> :<C-u>Gitsigns preview_hunk<CR>
   nnoremap <silent> <C-g><C-j> :<C-u>Gitsigns stage_hunk<CR>
   nnoremap <silent> <C-g>j :<C-u>Gitsigns undo_stage_hunk<CR>
+  nnoremap <silent> <C-g>J :<C-u>Gitsigns stage_buffer<CR>
   nnoremap <silent> <C-g><C-k> :<C-u>Gina commit --verbose<CR>
   nnoremap <silent> <C-g><C-r> :<C-u>Gitsigns reset_buffer<CR>
   nnoremap <silent> + :<C-u>lua require('telescope').extensions.gh.pull_request({ search = 'is:pr is:open user-review-requested:@me' })<CR>
