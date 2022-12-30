@@ -13,15 +13,20 @@ require('mason').setup {}
 require('mason-lspconfig').setup {}
 require('mason-tool-installer').setup {
   ensure_installed = {
+    'jq',
     'bash-language-server',
     'eslint-lsp',
     'eslint_d',
+    'json-lsp',
     'lua-language-server',
     'luaformatter',
     'shellcheck',
     'shfmt',
     'solargraph',
     'typescript-language-server',
+    'yaml-language-server',
+    'yamlfmt',
+    'yamllint',
   },
 }
 
@@ -129,6 +134,8 @@ nvim_lsp.sumneko_lua.setup {
 }
 
 nvim_lsp.bashls.setup {}
+nvim_lsp.yamlls.setup {}
+nvim_lsp.jsonls.setup {}
 
 -- null-ls: use diagnostics and formatting for js/ts/jsx/tsx
 --   prettier: use for formatting
@@ -172,6 +179,9 @@ null_ls.setup {
     },
     null_ls.builtins.formatting.shfmt,
     null_ls.builtins.code_actions.shellcheck,
+    null_ls.builtins.diagnostics.yamllint,
+    null_ls.builtins.formatting.yamlfmt,
+    null_ls.builtins.formatting.jq,
     require('typescript.extensions.null-ls.code-actions'),
   },
 }
