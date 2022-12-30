@@ -62,7 +62,7 @@ vim.cmd([[
   " Replacer
   Plug 'kana/vim-operator-user'
   Plug 'kana/vim-operator-replace'
-  Plug 'tpope/vim-surround'
+  Plug 'machakann/vim-sandwich'
   Plug 'numToStr/Comment.nvim'
   " Line comparison
   Plug 'AndrewRadev/linediff.vim'

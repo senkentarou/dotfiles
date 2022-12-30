@@ -25,22 +25,16 @@
 -- t: tag (html tag)
 -- ' " ` [ { <: 'inner from symbol'
 --
--- [[vim-surround]]
--- Thanks to https://github.com/tpope/vim-surround
+-- [[vim-sandwich]]
+-- Thanks to https://github.com/machakann/vim-sandwich
+--   and https://machakann.hatenablog.com/entry/2015/07/25/205921
 --
--- Operator + Surround
---
--- [Surround]
--- [e]: exist surrounding char
--- [d]: desire surrounding char
--- [mo]: motion (a/i + Object)
---
--- [Operator]
--- ds [e]: delete surround [e]
--- cs [e] [d]: change surround from [e] to [d]
--- ys [mo] [d]: you surround with [d] on [mo]
---
--- * If you want to surround without white space, you select end part of surrounding. ) } >
+-- sa: surround add
+--  `saiw(` pattern: foo => (foo)
+-- sd: surround delete
+--  `sd(` pattern: (foo) => foo
+-- sr: surround replace
+--  `sr("` pattern: (foo) => "foo"
 --
 -- Custom mappings
 --
