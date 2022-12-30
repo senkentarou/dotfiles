@@ -100,8 +100,8 @@ vim.cmd([[
 
   " <C-w> Filer
   nmap <C-w> <Nop>
-  nmap <silent> <C-w><C-w> :<C-u>lua require('vfiler').start(vim.fn.expand('%:p:h'))<CR>
   nmap <silent> <C-w><C-q> :<C-u>close<CR>
+  nnoremap <silent> <C-w><C-w> :<C-u>lua require('telescope').extensions.file_browser.file_browser({ initial_mode = 'normal' })<CR>
 
   " <C-e> LSP
   nmap <C-e> <Nop>
