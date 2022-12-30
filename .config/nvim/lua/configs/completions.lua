@@ -368,6 +368,7 @@ require('nvim-treesitter.configs').setup {
   autoload = {
     enable = true,
     require('nvim-ts-autotag').setup({
+      enable_rename = false,
       filetypes = {
         'html',
         'xml',

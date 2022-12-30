@@ -69,7 +69,8 @@ vim.cmd([[
   Plug 'mhinz/vim-startify'
   " tree-sitter
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  Plug 'windwp/nvim-ts-autotag'
+  " Plug 'windwp/nvim-ts-autotag' " disable until https://github.com/windwp/nvim-ts-autotag/pull/83 is merged
+  Plug 'sifu/nvim-ts-autotag'
   Plug 'andymass/vim-matchup'
   Plug 'RRethy/nvim-treesitter-endwise'
 
