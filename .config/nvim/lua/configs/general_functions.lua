@@ -46,6 +46,11 @@ require('hop').setup {}
 -- Comment
 require('Comment').setup {}
 
+-- Annotation
+require('neogen').setup {
+  snippet_engine = 'luasnip',
+}
+
 -- ruby_spec
 require('ruby_spec').setup {
   marker_directory = '.git', -- .git is commonly seen on rails project

@@ -47,6 +47,7 @@ vim.cmd([[
   nnoremap Q <Nop>
   " git operations
   nnoremap <silent> <Leader><Leader> :<C-u>Lspsaga lsp_finder<CR>
+  nnoremap <silent> <Leader>a :<C-u>lua require('neogen').generate()<CR>
   nnoremap <silent> <Leader>q :<C-u>lua require('actions-preview').code_actions()<CR>
   nnoremap <silent> <Leader>r :<C-u>Lspsaga rename<CR>
   nnoremap <silent> <Leader>o :<C-u>Gobf<CR>

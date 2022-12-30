@@ -64,6 +64,8 @@ vim.cmd([[
   Plug 'kana/vim-operator-replace'
   Plug 'machakann/vim-sandwich'
   Plug 'numToStr/Comment.nvim'
+  " Annotation
+  Plug 'danymat/neogen'
   " Line comparison
   Plug 'AndrewRadev/linediff.vim'
   " Start window
