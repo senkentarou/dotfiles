@@ -16,8 +16,7 @@ vim.cmd([[
   Plug 'lukas-reineke/indent-blankline.nvim'
   " Statusline
   Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'nvim-tree/nvim-web-devicons'
   " LSP
   Plug 'nvim-lua/plenary.nvim'
   Plug 'j-hui/fidget.nvim'
