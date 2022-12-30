@@ -206,6 +206,22 @@ require('lsp-colors').setup {
 -- lsp-lines
 require('lsp_lines').setup {}
 
+-- actions-preview
+require('actions-preview').setup {
+  -- options for vim.diff(): https://neovim.io/doc/user/lua.html#vim.diff()
+  diff = {
+    algorithm = 'patience',
+    ignore_whitespace = true,
+  },
+  backend = {
+    'telescope',
+  },
+  telescope = {
+    width = '100%',
+    height = '100%',
+  },
+}
+
 -- Disable virtual_text since it's redundant due to lsp_lines.
 vim.diagnostic.config({
   update_in_insert = false,
