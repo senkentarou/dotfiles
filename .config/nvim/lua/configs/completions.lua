@@ -6,9 +6,6 @@ require('fidget').setup {
     commenced = 'Started', -- message shown when task starts
     completed = 'Completed', -- message shown when task completes
   },
-  align = {
-    bottom = false, -- align fidgets along bottom edge of buffer
-  },
 }
 
 -- mason (lsp server installer)
