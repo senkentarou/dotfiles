@@ -11,7 +11,6 @@ telescope.setup {
         ["<C-j>"] = actions.move_selection_next,
         ["<C-a>"] = function() vim.cmd ":norm! I" end,
         ["<C-e>"] = function() vim.cmd ":norm! D" end,
-        ["<C-u>"] = function() vim.cmd ":norm! c0" end,
         ["<C-q>"] = actions.close,
         ["<C-f>"] = actions.which_key,
         ["<C-u>"] = false,
@@ -60,13 +59,13 @@ telescope.setup {
     live_grep = {
       cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1],
       glob_pattern = '!.git/*/**',
-      additional_args = function(opts)
+      additional_args = function()
         return { '--hidden' }
       end,
     },
     grep_string = {
       cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1],
-      additional_args = function(opts)
+      additional_args = function()
         return { '--hidden' }
       end,
     },

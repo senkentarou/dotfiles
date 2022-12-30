@@ -105,7 +105,6 @@ end
 
 local function is_show_dir()
   local ignore_list = {
-    'FUGITIVE',
     'HELP',
   }
   for _, il in pairs(ignore_list) do
