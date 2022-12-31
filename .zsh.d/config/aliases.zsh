@@ -31,6 +31,7 @@ alias gsp='git stash pop'
 
 alias gau='git add -u'
 alias gcm='git commit -m'
+alias gca='git commit --amend'
 alias gmc='gitmoji -c'
 alias gpo='git push origin'
 alias gpu='git push upstream'
