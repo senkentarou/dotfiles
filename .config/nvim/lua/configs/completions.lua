@@ -425,6 +425,7 @@ require('nvim-treesitter.configs').setup {
     'tsx',
     'vim',
     'markdown',
+    'bash',
   },
   highlight = {
     enable = true,
