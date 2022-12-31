@@ -20,6 +20,7 @@ require('mason-tool-installer').setup {
     'json-lsp',
     'lua-language-server',
     'luaformatter',
+    'luacheck',
     'shellcheck',
     'shfmt',
     'solargraph',
@@ -120,11 +121,23 @@ nvim_lsp.sumneko_lua.setup {
   capabilities = capabilities,
   settings = {
     Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
         globals = {
           'vim',
         },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
       },
     },
   },
@@ -214,7 +227,7 @@ require('lsp-colors').setup {
 }
 
 -- lsp-lines
-require('lsp_lines').setup {}
+require('lsp_lines').setup()
 
 -- actions-preview
 require('actions-preview').setup {
@@ -276,7 +289,7 @@ require('trouble').setup {
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 local has_words_before = function()
-  local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 

@@ -13,6 +13,7 @@
 .z_history
 .zcompdump
 .zprezto
+.luarc.json
 
 # for ignore cases
 !.vim/vimrc
