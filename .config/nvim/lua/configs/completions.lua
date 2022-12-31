@@ -119,6 +119,7 @@ nvim_lsp.solargraph.setup {
 
 nvim_lsp.sumneko_lua.setup {
   capabilities = capabilities,
+  root_dir = require('lspconfig.util').root_pattern('.luarc.json', '.git'),
   settings = {
     Lua = {
       runtime = {
