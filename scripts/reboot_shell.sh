@@ -3,9 +3,9 @@ sleep 5
 
 # Reboot shell or change shell to zsh
 if [ "$SHELL" != '/bin/zsh' ]; then
-    echo_info "change shell $SHELL to /bin/zsh"
-    chsh -s /usr/local/bin/zsh
-    exec /usr/local/bin/zsh
+	echo_info "change shell $SHELL to /bin/zsh"
+	chsh -s /usr/local/bin/zsh
+	exec /usr/local/bin/zsh
 else
-    exec "${SHELL}" -l
+	exec "${SHELL}" -l
 fi
