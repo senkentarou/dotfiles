@@ -2,6 +2,7 @@
 -- Vim options
 --
 vim.cmd([[ colorscheme hybrid ]])
+vim.opt.mouse = ""
 vim.opt.undofile = true
 vim.opt.cmdheight = 2
 vim.opt.ignorecase = true
