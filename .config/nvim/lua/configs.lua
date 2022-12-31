@@ -1,6 +1,6 @@
 require('configs.auto_commands')
 require('configs.completions')
-require('configs.galaxyline')
+require('configs.lualine')
 require('configs.general_functions')
 require('configs.gits')
 require('configs.startify')
