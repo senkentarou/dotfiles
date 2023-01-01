@@ -156,6 +156,7 @@ nvim_lsp.jsonls.setup {}
 --   eslint: use for diagnostics (formatting is delegated to prettier)
 -- see: https://zenn.dev/ryusou/articles/nodejs-prettier-eslint2021 and official documentation
 local null_ls = require('null-ls')
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup {
   root_dir = require('lspconfig.util').root_pattern('package.json', '.git'),
   sources = {
@@ -198,6 +199,24 @@ null_ls.setup {
     null_ls.builtins.formatting.jq,
     require('typescript.extensions.null-ls.code-actions'),
   },
+  on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+      vim.api.nvim_clear_autocmds({
+        group = augroup,
+        buffer = bufnr,
+      })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format({
+            bufnr = bufnr,
+            async = true,
+          })
+        end,
+      })
+    end
+  end,
 }
 
 -- null-ls typescript integration
