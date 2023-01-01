@@ -46,9 +46,9 @@ saga.init_lsp_saga({
     enable_in_insert = true,
     cache_code_action = true,
     sign = true,
-    update_time = 150,
+    update_time = 800,
     sign_priority = 20,
-    virtual_text = true,
+    virtual_text = false,
   },
   finder_action_keys = {
     open = '<CR>',
