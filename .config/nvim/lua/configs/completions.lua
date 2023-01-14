@@ -32,38 +32,59 @@ require('mason-tool-installer').setup {
 }
 
 -- lspsaga
-local saga = require("lspsaga")
-saga.init_lsp_saga({
-  -- preview lines of lsp_finder and definition preview
-  max_preview_lines = 10,
-  -- use emoji lightbulb in default
-  code_action_icon = "💡",
-  -- if true can press number to execute the codeaction in codeaction window
-  code_action_num_shortcut = true,
-  -- same as nvim-lightbulb but async
-  code_action_lightbulb = {
+require("lspsaga").setup({
+  preview = {
+    lines_above = 0,
+    lines_below = 10,
+  },
+  scroll_preview = {
+    scroll_down = '<C-d>',
+    scroll_up = '<C-u>',
+  },
+  request_timeout = 2000,
+
+  -- lsp_finder
+  finder = {
+    edit = {
+      'o',
+      '<CR>',
+    },
+    quit = {
+      'q',
+      '<C-q>',
+    },
+  },
+
+  -- code_action
+  code_action = {
+    keys = {
+      exec = '<CR>',
+      quit = {
+        'q',
+        '<C-q>',
+      },
+    },
+  },
+
+  -- Lightbulb
+  lightbulb = {
     enable = true,
     enable_in_insert = true,
-    cache_code_action = true,
     sign = true,
     update_time = 800,
-    sign_priority = 20,
+    sign_priority = 40,
     virtual_text = false,
   },
-  finder_action_keys = {
-    open = '<CR>',
-    quit = '<C-q>',
-  },
-  code_action_keys = {
+
+  -- rename
+  rename = {
     exec = '<CR>',
-    quit = '<C-q>',
+    quit = {
+      'q',
+      '<C-q>',
+    },
+    in_select = true,
   },
-  definition_action_keys = {
-    edit = 'e',
-    quit = '<C-q>',
-  },
-  rename_action_quit = '<C-q>',
-  rename_in_select = true,
 })
 
 -- nvim-lspconfig: use diagnostics and formatting for ruby/rspec and nvim-compe nvim_lsp setting to auto import on typescriptreact
@@ -156,7 +177,6 @@ nvim_lsp.jsonls.setup {}
 --   eslint: use for diagnostics (formatting is delegated to prettier)
 -- see: https://zenn.dev/ryusou/articles/nodejs-prettier-eslint2021 and official documentation
 local null_ls = require('null-ls')
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup {
   root_dir = require('lspconfig.util').root_pattern('package.json', '.git'),
   sources = {
