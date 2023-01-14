@@ -59,6 +59,7 @@ vim.cmd([[
   Plug 'tyru/open-browser.vim'
   " Accelerate up/down
   Plug 'rhysd/accelerated-jk'
+  Plug 'haya14busa/vim-edgemotion'
   " Replacer
   Plug 'kana/vim-operator-user'
   Plug 'kana/vim-operator-replace'

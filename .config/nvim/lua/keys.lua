@@ -116,10 +116,11 @@ vim.cmd([[
   nnoremap <C-h> <C-w><C-h>
   " moving hop keyword
   nnoremap s <Nop>
-  nnoremap sj :<C-u>HopLineStartAC<CR>
-  nnoremap sk :<C-u>HopLineStartBC<CR>
-  nnoremap sh :<C-u>HopChar1CurrentLineBC<CR>
-  nnoremap sl :<C-u>HopChar1CurrentLineAC<CR>
+  nnoremap sj <Plug>(edgemotion-j)
+  vnoremap sj <Plug>(edgemotion-j)
+  nnoremap sk <Plug>(edgemotion-k)
+  vnoremap sk <Plug>(edgemotion-k)
+
   nnoremap f :<C-u>HopChar1CurrentLineAC<CR>
   vnoremap f <cmd>HopChar1CurrentLineAC<CR>
   nnoremap F :<C-u>HopChar1CurrentLineBC<CR>
