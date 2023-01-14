@@ -101,7 +101,8 @@ vim.cmd([[
 
   " <C-e> LSP
   nmap <C-e> <Nop>
-  nmap <silent> <C-e><C-e> :<C-u>TroubleToggle<CR>
+  nmap <silent> <C-e><C-e> :<C-u>lua vim.lsp.buf.definition()<CR>
+  nmap <silent> <C-e><C-r> :<C-u>lua vim.lsp.buf.references()<CR>
   nmap <silent> K :<C-u>Lspsaga hover_doc<CR>
 
   " Cursor moving
