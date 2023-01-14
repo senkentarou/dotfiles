@@ -25,7 +25,6 @@ vim.cmd([[
   Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
   Plug 'folke/lsp-colors.nvim'
-  Plug 'folke/trouble.nvim'
   Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
   Plug 'Maan2003/lsp_lines.nvim'
   Plug 'rafamadriz/friendly-snippets'

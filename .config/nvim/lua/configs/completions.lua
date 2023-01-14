@@ -273,40 +273,6 @@ vim.diagnostic.config({
   virtual_lines = false,
 })
 
--- trouble
-require('trouble').setup {
-  position = 'bottom',
-  height = 10,
-  width = 50,
-  icons = true,
-  fold_open = '',
-  fold_closed = '',
-  action_keys = {
-    close = 'q',
-    cancel = '<esc>',
-    jump = {
-      '<cr>',
-      '<tab>',
-    },
-    hover = 'K',
-    previous = 'k',
-    next = 'j',
-  },
-  indent_lines = true,
-  auto_open = false,
-  auto_close = true,
-  auto_preview = true,
-  auto_fold = false,
-  signs = {
-    error = '',
-    warning = '',
-    hint = '',
-    information = '',
-    other = '﫠',
-  },
-  use_diagnostic_signs = true,
-}
-
 -- nvim-compe
 local cmp = require('cmp')
 local luasnip = require('luasnip')
