@@ -55,8 +55,6 @@ require('neogen').setup {
 require('ruby_spec').setup {
   marker_directory = '.git', -- .git is commonly seen on rails project
   rspec_commands = {
-    'bundle',
-    'exec',
-    'rspec',
+    './bin/rspec',
   },
 }
