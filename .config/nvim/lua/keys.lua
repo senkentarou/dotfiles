@@ -120,6 +120,8 @@ vim.cmd([[
   vnoremap sj <Plug>(edgemotion-j)
   nnoremap sk <Plug>(edgemotion-k)
   vnoremap sk <Plug>(edgemotion-k)
+  nnoremap <silent> sl :<C-u>lua require('tsht').move({ side = "end" })<CR>
+  nnoremap <silent> sh :<C-u>lua require('tsht').move({ side = "start" })<CR>
 
   nnoremap f :<C-u>HopChar1CurrentLineAC<CR>
   vnoremap f <cmd>HopChar1CurrentLineAC<CR>

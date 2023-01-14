@@ -44,6 +44,7 @@ vim.cmd([[
   Plug 'windwp/nvim-autopairs'
   " Search word
   Plug 'phaazon/hop.nvim'
+  Plug 'mfussenegger/nvim-treehopper'
   " Finder
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
   Plug 'nvim-telescope/telescope-github.nvim'
