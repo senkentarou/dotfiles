@@ -47,7 +47,6 @@ vim.cmd([[
   Plug 'mfussenegger/nvim-treehopper'
   " Finder
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-  Plug 'nvim-telescope/telescope-github.nvim'
   Plug 'nvim-telescope/telescope-file-browser.nvim'
   " Filer
   Plug 'yegappan/mru'
@@ -83,6 +82,7 @@ vim.cmd([[
   Plug 'senkentarou/goacf.nvim'
   Plug 'senkentarou/gobf.nvim'
   Plug 'senkentarou/ruby_spec.nvim'
+  Plug 'senkentarou/telescope-gh-pr.nvim'
 
   call plug#end()
 ]])

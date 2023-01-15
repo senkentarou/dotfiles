@@ -91,7 +91,7 @@ vim.cmd([[
   nnoremap <silent> <C-g>J :<C-u>Gitsigns stage_buffer<CR>
   nnoremap <silent> <C-g><C-k> :<C-u>Gina commit --verbose<CR>
   nnoremap <silent> <C-g><C-r> :<C-u>Gitsigns reset_buffer<CR>
-  nnoremap <silent> + :<C-u>lua require('telescope').extensions.gh.pull_request({ search = 'is:pr is:open user-review-requested:@me' })<CR>
+  nnoremap <silent> + :<C-u>lua require('telescope').extensions.gh_pr.list({ search = 'is:pr is:open user-review-requested:@me' })<CR>
 
   " <C-w> Filer
   nmap <C-w> <Nop>
