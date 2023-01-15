@@ -51,8 +51,7 @@ vim.cmd([[
   nnoremap <silent> <Leader>r :<C-u>Lspsaga rename<CR>
   nnoremap <silent> <Leader>o :<C-u>Gobf<CR>
   vnoremap <silent> <Leader>o :Gobf<CR>
-  nnoremap <silent> <Leader>O :<C-u>lua require('gobf').open_git_blob_file({ on_current_hash = true })<CR>
-  vnoremap <silent> <Leader>O :lua require('gobf').open_git_blob_file({ on_current_hash = true })<CR>
+  nnoremap <silent> <Leader>O :<C-u>lua require('gobf').open_git_blob_file({ target_hash = vim.fn.input('[CommitHash] ')})<CR>
   nnoremap <silent> <Leader>p :<C-u>Gocd<CR>
   nnoremap <silent> <Leader>P :<C-u>Gopr<CR>
   " grep words
