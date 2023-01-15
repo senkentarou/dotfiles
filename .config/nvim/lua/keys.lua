@@ -45,9 +45,9 @@ vim.cmd([[
   nmap <C-z> <Nop>
   nnoremap Z <Nop>
   nnoremap Q <Nop>
+  nnoremap <silent> <Leader>a :<C-u>lua require('neogen').generate()<CR>
   " git operations
   nnoremap <silent> <Leader><Leader> :<C-u>lua require('actions-preview').code_actions()<CR>
-  nnoremap <silent> <Leader>a :<C-u>lua require('neogen').generate()<CR>
   nnoremap <silent> <Leader>r :<C-u>Lspsaga rename<CR>
   nnoremap <silent> <Leader>o :<C-u>Gobf<CR>
   vnoremap <silent> <Leader>o :Gobf<CR>
@@ -105,17 +105,17 @@ vim.cmd([[
   nmap <silent> <C-e><C-r> :<C-u>lua vim.lsp.buf.references()<CR>
   nmap <silent> K :<C-u>Lspsaga hover_doc<CR>
 
-  " Cursor moving
+  " Moving cursor
   nmap j <Plug>(accelerated_jk_gj)
   nmap k <Plug>(accelerated_jk_gk)
   nnoremap H ^
   nnoremap L $
-  " moving panes
+  " Moving panes
   nnoremap <C-j> <C-w><C-j>
   nnoremap <C-k> <C-w><C-k>
   nnoremap <C-l> <C-w><C-l>
   nnoremap <C-h> <C-w><C-h>
-  " moving hop keyword
+  " Moving hop keyword
   nnoremap s <Nop>
   nnoremap sj <Plug>(edgemotion-j)
   vnoremap sj <Plug>(edgemotion-j)
@@ -123,18 +123,15 @@ vim.cmd([[
   vnoremap sk <Plug>(edgemotion-k)
   nnoremap <silent> sl :<C-u>lua require('tsht').move({ side = "end" })<CR>
   nnoremap <silent> sh :<C-u>lua require('tsht').move({ side = "start" })<CR>
-
   nnoremap f :<C-u>HopChar1CurrentLineAC<CR>
   vnoremap f <cmd>HopChar1CurrentLineAC<CR>
   nnoremap F :<C-u>HopChar1CurrentLineBC<CR>
   vnoremap F <cmd>HopChar1CurrentLineBC<CR>
-  " moving on insert mode
+  " Moving on insert mode
   imap <C-j> <Down>
   imap <C-k> <Up>
   imap <C-l> <Right>
   imap <C-h> <Left>
-
-  " Useful settings
   " Apply ESC
   inoremap <silent> jj <ESC>
   " No highlight
@@ -145,7 +142,7 @@ vim.cmd([[
   nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
   " Replace word
   vmap p <Plug>(operator-replace)
-  " diff line
+  " Diff line
   vnoremap <silent> <C-y> :Linediff<CR>
   nnoremap <C-y> :<C-u>LinediffReset<CR>
 ]])
