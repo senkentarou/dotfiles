@@ -3,7 +3,7 @@ vim.cmd([[
 
   " bd or q command
   function! s:BufferClose() abort
-    if &filetype == 'startify'
+    if &filetype == 'alpha'
       " no action
       :
     elseif index(['DiffviewFileHistory'], &filetype) >= 0
@@ -15,13 +15,17 @@ vim.cmd([[
       " delete buffer
       execute 'bd'
     else
-      " set mhinz/vim-startify
       NotQuit
-      execute 'Startify'
+      execute 'Alpha'
     endif
   endfunction
   command! -nargs=* BufferClose call s:BufferClose()
 ]])
+
+local alpha = require('alpha')
+local dashboard = require('alpha.themes.startify')
+dashboard.section.header.val = {} -- clear header art
+alpha.setup(dashboard.config)
 
 require('indent_blankline').setup {
   show_current_context = true,

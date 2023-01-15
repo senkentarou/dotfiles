@@ -67,7 +67,7 @@ vim.cmd([[
   " Line comparison
   Plug 'AndrewRadev/linediff.vim'
   " Start window
-  Plug 'mhinz/vim-startify'
+  Plug 'goolord/alpha-nvim'
   " tree-sitter
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   " Plug 'windwp/nvim-ts-autotag' " disable until https://github.com/windwp/nvim-ts-autotag/pull/83 is merged
