@@ -1,21 +1,19 @@
 vim.cmd([[
-  command! NotQuit :bp | :sp | :bn | :bd
-
-  " bd or q command
   function! s:BufferClose() abort
     if &filetype == 'alpha'
       " no action
       :
     elseif index(['DiffviewFileHistory'], &filetype) >= 0
+      " close tab
       execute 'tabclose'
     elseif index(['help', 'vim-plug'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
       " close pane
       execute 'close'
     elseif len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1
-      " delete buffer
+      " close buffer
       execute 'bd'
     else
-      NotQuit
+      " open goolord/alpha-nvim
       execute 'Alpha'
     endif
   endfunction
