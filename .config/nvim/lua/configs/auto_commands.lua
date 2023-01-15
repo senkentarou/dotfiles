@@ -1,6 +1,3 @@
---
--- Auto commands
---
 vim.cmd([[
   " Disable auto complete comment literal on next line
   autocmd FileType * setlocal formatoptions-=ro

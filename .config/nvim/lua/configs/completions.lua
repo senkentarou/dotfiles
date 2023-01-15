@@ -1,4 +1,3 @@
--- nvim-lspconfig: use diagnostics and formatting for ruby/rspec and nvim-compe nvim_lsp setting to auto import on typescriptreact
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local nvim_lsp = require('lspconfig')
 local nvim_lsp_config = require('lspconfig.configs')
@@ -157,10 +156,8 @@ vim.diagnostic.config({
   virtual_lines = false,
 })
 
--- lsp-lines
 require('lsp_lines').setup()
 
--- actions-preview
 require('actions-preview').setup {
   -- options for vim.diff(): https://neovim.io/doc/user/lua.html#vim.diff()
   diff = {
@@ -176,7 +173,6 @@ require('actions-preview').setup {
   },
 }
 
--- mason (lsp server installer)
 require('mason').setup {}
 require('mason-lspconfig').setup {}
 require('mason-tool-installer').setup {
@@ -199,7 +195,6 @@ require('mason-tool-installer').setup {
   },
 }
 
--- lsp-colors
 require('lsp-colors').setup {
   Error = '#db4b4b',
   Warning = '#e0af68',
@@ -207,7 +202,6 @@ require('lsp-colors').setup {
   Hint = '#10B981',
 }
 
--- fidget (show starting status of language server)
 require('fidget').setup {
   text = {
     spinner = 'pipe', -- animation shown when tasks are ongoing
@@ -217,7 +211,6 @@ require('fidget').setup {
   },
 }
 
--- lspsaga
 require("lspsaga").setup({
   preview = {
     lines_above = 0,
@@ -249,7 +242,7 @@ require("lspsaga").setup({
       },
     },
   },
-  -- Lightbulb
+  -- lightbulb
   lightbulb = {
     enable = true,
     enable_in_insert = true,

@@ -1,4 +1,3 @@
--- tree-sitter
 require('nvim-treesitter.configs').setup {
   autoload = {
     enable = true,
@@ -45,7 +44,6 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
--- nvim-compe
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 local has_words_before = function()
@@ -159,5 +157,4 @@ cmp.event:on('confirm_done', require('nvim-autopairs.completion.cmp').on_confirm
 -- https://github.com/L3MON4D3/LuaSnip
 require('luasnip.loaders.from_vscode').lazy_load()
 
--- auto-pairs
 require("nvim-autopairs").setup {}
