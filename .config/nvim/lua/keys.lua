@@ -140,8 +140,6 @@ vim.cmd([[
   nnoremap <Esc><Esc> :noh<CR>
   " Show buffers
   nnoremap <silent> ; :<C-u>lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true })<CR>
-  " Open most recent buffer
-  nnoremap <silent> - :<C-u>OpenLatestClosedBuffer<CR>
   " Close buffer
   nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
   " Replace word

@@ -9,7 +9,7 @@ vim.cmd([[
     elseif index(['DiffviewFileHistory'], &filetype) >= 0
       " close diffview history
       execute 'DiffviewClose'
-    elseif index(['Trouble', 'help', 'vim-plug'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
+    elseif index(['help', 'vim-plug'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
       " close pane
       execute 'close'
     elseif len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1
@@ -22,15 +22,6 @@ vim.cmd([[
     endif
   endfunction
   command! -nargs=* BufferClose call s:BufferClose()
-
-  " re-open delete buffer (Using https://github.com/yegappan/mru)
-  function! s:OpenLatestClosedBuffer() abort
-    let mru_files = MruGetFiles()
-    if len(mru_files) > 1
-      execute 'e ' . mru_files[1]
-    endif
-  endfunction
-  command! -nargs=0 OpenLatestClosedBuffer call s:OpenLatestClosedBuffer()
 ]])
 
 -- indent setting

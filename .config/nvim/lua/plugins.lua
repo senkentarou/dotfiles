@@ -48,8 +48,6 @@ vim.cmd([[
   " Finder
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
   Plug 'nvim-telescope/telescope-file-browser.nvim'
-  " Filer
-  Plug 'yegappan/mru'
   " Git
   Plug 'lambdalisue/gina.vim'
   Plug 'sindrets/diffview.nvim'
