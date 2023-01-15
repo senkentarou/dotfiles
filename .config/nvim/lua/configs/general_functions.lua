@@ -7,8 +7,7 @@ vim.cmd([[
       " no action
       :
     elseif index(['DiffviewFileHistory'], &filetype) >= 0
-      " close diffview history
-      execute 'DiffviewClose'
+      execute 'tabclose'
     elseif index(['help', 'vim-plug'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
       " close pane
       execute 'close'
