@@ -1,4 +1,4 @@
-local function LspClient()
+local function lsp_client()
   local msg = 'No Active Lsp'
   local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
   local clients = vim.lsp.get_active_clients()
@@ -85,7 +85,7 @@ require('lualine').setup {
           newfile = '[New]', -- Text to show for new created file before first writting
         },
       },
-      LspClient,
+      lsp_client,
     },
     lualine_x = {
       'encoding',
