@@ -55,9 +55,9 @@ vim.cmd([[
   nnoremap <silent> <Leader>p :<C-u>Gocd<CR>
   nnoremap <silent> <Leader>P :<C-u>Gopr<CR>
   " grep words
-  nnoremap <silent> <Leader>, :<C-u>lua git_grep_on_current_word()<CR>
+  nnoremap <silent> <Leader>, :<C-u>execute 'Gina grep ' . expand('<cword>')<CR>
   nnoremap <silent> <Leader>< :<C-u>lua require('telescope.builtin').grep_string()<CR>
-  nnoremap <silent> <Leader>m :<C-u>lua git_grep_on_input_word()<CR>
+  nnoremap <silent> <Leader>m :<C-u>execute 'Gina grep ' . input('[GitGrep] ')<CR>
   nnoremap <silent> <Leader>M :<C-u>lua require('telescope.builtin').grep_string({ search = vim.fn.input('[GitGrep] ')})<CR>
   " buffers
   nnoremap <Leader>w :<C-u>w<CR>

@@ -1,11 +1,3 @@
-function _G.git_grep_on_input_word()
-  vim.api.nvim_command('Gina grep ' .. vim.fn.input('[GitGrep] '))
-end
-
-function _G.git_grep_on_current_word()
-  vim.api.nvim_command('Gina grep ' .. vim.fn.expand('<cword>'))
-end
-
 -- gitsigns
 require('gitsigns').setup {
   current_line_blame = true,
