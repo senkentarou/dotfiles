@@ -1,5 +1,6 @@
 require('configs.auto_commands')
 require('configs.completions')
+require('configs.treesitter')
 require('configs.lualine')
 require('configs.general_functions')
 require('configs.gits')
