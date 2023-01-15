@@ -48,7 +48,7 @@ vim.cmd([[
   nnoremap <silent> <Leader>a :<C-u>lua require('neogen').generate()<CR>
   " git operations
   nnoremap <silent> <Leader><Leader> :<C-u>lua require('actions-preview').code_actions()<CR>
-  nnoremap <silent> <Leader>r :<C-u>Lspsaga rename<CR>
+  nnoremap <silent> <Leader>r :<C-u>lua vim.lsp.buf.rename()<CR>
   nnoremap <silent> <Leader>o :<C-u>Gobf<CR>
   vnoremap <silent> <Leader>o :Gobf<CR>
   nnoremap <silent> <Leader>O :<C-u>lua require('gobf').open_git_blob_file({ target_hash = vim.fn.input('[CommitHash] ')})<CR>
@@ -103,7 +103,7 @@ vim.cmd([[
   nmap <C-e> <Nop>
   nnoremap <silent> <C-e><C-e> :<C-u>lua vim.lsp.buf.definition()<CR>
   nnoremap <silent> <C-e><C-r> :<C-u>lua vim.lsp.buf.references()<CR>
-  nnoremap <silent> K :<C-u>Lspsaga hover_doc<CR>
+  nnoremap <silent> K :<C-u>lua vim.lsp.buf.hover()<CR>
 
   " Moving cursor
   nmap j <Plug>(accelerated_jk_gj)
