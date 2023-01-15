@@ -29,6 +29,4 @@ vim.cmd([[
     " Gitsigns
     autocmd VimEnter,ColorScheme * highlight GitSignsCurrentLineBlame ctermfg=243 guifg=#707880
   augroup END
-
-  autocmd TermOpen term://* lua set_terminal_keymaps()
 ]])
