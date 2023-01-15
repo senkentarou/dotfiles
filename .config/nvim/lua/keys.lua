@@ -101,9 +101,9 @@ vim.cmd([[
 
   " <C-e> LSP
   nmap <C-e> <Nop>
-  nmap <silent> <C-e><C-e> :<C-u>lua vim.lsp.buf.definition()<CR>
-  nmap <silent> <C-e><C-r> :<C-u>lua vim.lsp.buf.references()<CR>
-  nmap <silent> K :<C-u>Lspsaga hover_doc<CR>
+  nnoremap <silent> <C-e><C-e> :<C-u>lua vim.lsp.buf.definition()<CR>
+  nnoremap <silent> <C-e><C-r> :<C-u>lua vim.lsp.buf.references()<CR>
+  nnoremap <silent> K :<C-u>Lspsaga hover_doc<CR>
 
   " Moving cursor
   nmap j <Plug>(accelerated_jk_gj)
