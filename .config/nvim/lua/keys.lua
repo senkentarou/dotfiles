@@ -77,6 +77,8 @@ vim.cmd([[
   nnoremap <silent> <C-f>m :<C-u>lua require('telescope.builtin').live_grep()<CR>
   nnoremap <silent> <C-f><C-r> :<C-u>lua require('telescope.builtin').oldfiles()<CR>
 
+  nmap <silent> <C-_> :<C-u>lua require('telescope.builtin').search_history()<CR>
+
   " <C-g> Git
   nmap <C-g> <Nop>
   nnoremap <silent> <C-g><C-g> :<C-u>lua require('telescope.builtin').git_status()<CR>
