@@ -1,0 +1,1 @@
+# Sample Issue Template
