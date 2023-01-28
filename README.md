@@ -25,7 +25,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ```
 3. tree-sitterやmasonなどデフォルトでプラグインのインストールが実行されるものがあるので正常終了することを確認する
 
-## aaquaSKKquaSKKの設定
+## aquaSKKの設定
 1. [AquaSKK](https://github.com/codefirst/aquaskk)の最新リリースをインストールする
 2. リポジトリルートにある`aquaSKK`フォルダを開く
 ```
