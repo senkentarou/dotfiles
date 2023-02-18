@@ -90,6 +90,15 @@ local null_ls = require('null-ls')
 null_ls.setup {
   root_dir = require('lspconfig.util').root_pattern('package.json', '.git'),
   sources = {
+    null_ls.builtins.diagnostics.yamllint.with {
+      args = {
+        '-d',
+        '{extends: relaxed, rules: {line-length: {max: 180}, indentation: {indent-sequences: whatever}}}',
+        '-f',
+        'parsable',
+        '-',
+      },
+    },
     null_ls.builtins.diagnostics.eslint_d.with {
       filetypes = {
         'javascript',
@@ -97,6 +106,9 @@ null_ls.setup {
         'typescript',
         'typescriptreact',
       },
+      cwd = function()
+        return vim.fn.getcwd()
+      end,
       prefer_local = 'node_modules/.bin',
     },
     null_ls.builtins.formatting.prettier.with {
@@ -105,7 +117,11 @@ null_ls.setup {
         'javascriptreact',
         'typescript',
         'typescriptreact',
+        'yaml',
       },
+      cwd = function()
+        return vim.fn.getcwd()
+      end,
       prefer_local = 'node_modules/.bin',
     },
     null_ls.builtins.formatting.lua_format.with {
@@ -123,10 +139,8 @@ null_ls.setup {
       },
     },
     null_ls.builtins.formatting.shfmt,
-    null_ls.builtins.code_actions.shellcheck,
-    null_ls.builtins.diagnostics.yamllint,
-    null_ls.builtins.formatting.yamlfmt,
     null_ls.builtins.formatting.jq,
+    null_ls.builtins.code_actions.shellcheck,
     require('typescript.extensions.null-ls.code-actions'),
   },
 }
@@ -190,7 +204,6 @@ require('mason-tool-installer').setup {
     'solargraph',
     'typescript-language-server',
     'yaml-language-server',
-    'yamlfmt',
     'yamllint',
   },
 }
