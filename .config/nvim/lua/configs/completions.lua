@@ -79,6 +79,7 @@ nvim_lsp.sumneko_lua.setup {
 }
 
 nvim_lsp.bashls.setup {}
+nvim_lsp.yamlls.setup {}
 nvim_lsp.jsonls.setup {}
 
 -- null-ls: use diagnostics and formatting for js/ts/jsx/tsx
@@ -89,6 +90,15 @@ local null_ls = require('null-ls')
 null_ls.setup {
   root_dir = require('lspconfig.util').root_pattern('package.json', '.git'),
   sources = {
+    null_ls.builtins.diagnostics.yamllint.with {
+      args = {
+        '-d',
+        '{extends: relaxed, rules: {line-length: {max: 180}, indentation: {indent-sequences: whatever}}}',
+        '-f',
+        'parsable',
+        '-',
+      },
+    },
     null_ls.builtins.diagnostics.eslint_d.with {
       filetypes = {
         'javascript',
@@ -194,6 +204,7 @@ require('mason-tool-installer').setup {
     'solargraph',
     'typescript-language-server',
     'yaml-language-server',
+    'yamllint',
   },
 }
 
