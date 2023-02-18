@@ -57,8 +57,6 @@ vim.cmd([[
   Plug 'rhysd/accelerated-jk'
   Plug 'haya14busa/vim-edgemotion'
   " Replacer
-  Plug 'kana/vim-operator-user'
-  Plug 'kana/vim-operator-replace'
   Plug 'machakann/vim-sandwich'
   Plug 'numToStr/Comment.nvim'
   " Annotation
