@@ -82,6 +82,7 @@ nvim_lsp.lua_ls.setup {
 nvim_lsp.bashls.setup {}
 nvim_lsp.yamlls.setup {}
 nvim_lsp.jsonls.setup {}
+nvim_lsp.terraformls.setup {}
 
 -- null-ls: use diagnostics and formatting for js/ts/jsx/tsx
 --   prettier: use for formatting
@@ -91,6 +92,7 @@ local null_ls = require('null-ls')
 null_ls.setup {
   root_dir = require('lspconfig.util').root_pattern('package.json', '.git'),
   sources = {
+    null_ls.builtins.diagnostics.terraform_validate,
     null_ls.builtins.diagnostics.yamllint.with {
       args = {
         '-d',
@@ -141,6 +143,7 @@ null_ls.setup {
     },
     null_ls.builtins.formatting.shfmt,
     null_ls.builtins.formatting.jq,
+    null_ls.builtins.formatting.terraform_fmt,
     null_ls.builtins.code_actions.shellcheck,
     require('typescript.extensions.null-ls.code-actions'),
   },
@@ -206,6 +209,7 @@ require('mason-tool-installer').setup {
     'typescript-language-server',
     'yaml-language-server',
     'yamllint',
+    'terraform-ls',
   },
 }
 
