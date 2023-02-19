@@ -32,6 +32,11 @@ fi
 # direnv
 eval "$(direnv hook zsh)"
 
+# rustup
+export CARGO_HOME="$HOME/.cargo"
+export RUSTUP_AARCH64_HOME="$HOME/.rustup/toolchains/stable-aarch64-apple-darwin"
+export PATH="$CARGO_HOME/bin:$RUSTUP_AARCH64_HOME/bin:$PATH"
+
 # Load Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
