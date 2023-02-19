@@ -79,10 +79,18 @@ nvim_lsp.lua_ls.setup {
   end,
 }
 
-nvim_lsp.bashls.setup {}
-nvim_lsp.yamlls.setup {}
-nvim_lsp.jsonls.setup {}
-nvim_lsp.terraformls.setup {}
+nvim_lsp.bashls.setup {
+  capabilities = capabilities,
+}
+nvim_lsp.yamlls.setup {
+  capabilities = capabilities,
+}
+nvim_lsp.jsonls.setup {
+  capabilities = capabilities,
+}
+nvim_lsp.terraformls.setup {
+  capabilities = capabilities,
+}
 
 -- null-ls: use diagnostics and formatting for js/ts/jsx/tsx
 --   prettier: use for formatting
@@ -168,6 +176,12 @@ require('typescript').setup({
   },
 })
 
+require('rust-tools').setup({
+  server = {
+    capabilities = capabilities,
+  },
+})
+
 -- Disable virtual_text since it's redundant due to lsp_lines.
 vim.diagnostic.config({
   update_in_insert = false,
@@ -210,6 +224,8 @@ require('mason-tool-installer').setup {
     'yaml-language-server',
     'yamllint',
     'terraform-ls',
+    'rust-analyzer',
+    'rustfmt',
   },
 }
 

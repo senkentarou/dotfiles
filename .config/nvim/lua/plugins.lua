@@ -38,6 +38,7 @@ vim.cmd([[
   Plug 'hrsh7th/nvim-cmp'
   Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'jose-elias-alvarez/typescript.nvim'
+  Plug 'simrat39/rust-tools.nvim'
   Plug 'aznhe21/actions-preview.nvim'
   " Auto complete for bracket pairs
   Plug 'windwp/nvim-autopairs'
