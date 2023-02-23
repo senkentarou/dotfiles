@@ -47,7 +47,9 @@ vim.cmd([[
   Plug 'mfussenegger/nvim-treehopper'
   " Finder
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-  Plug 'nvim-telescope/telescope-file-browser.nvim'
+  " Plug 'nvim-telescope/telescope-file-browser.nvim' " disable until https://github.com/nvim-telescope/telescope-file-browser.nvim/issues/104 is as fixed
+  Plug 'senkentarou/telescope-file-browser.nvim' " Use instead of nvim-telescope/telescope-file-browser.nvim
+
   " Git
   Plug 'lambdalisue/gina.vim'
   Plug 'sindrets/diffview.nvim'
@@ -69,7 +71,8 @@ vim.cmd([[
   " tree-sitter
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   " Plug 'windwp/nvim-ts-autotag' " disable until https://github.com/windwp/nvim-ts-autotag/pull/83 is merged
-  Plug 'sifu/nvim-ts-autotag'
+  Plug 'sifu/nvim-ts-autotag' " Use instead of windwp/nvim-ts-autotag
+
   Plug 'andymass/vim-matchup'
   Plug 'RRethy/nvim-treesitter-endwise'
 
