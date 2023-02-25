@@ -45,7 +45,7 @@ vim.cmd([[
   nmap <C-z> <Nop>
   nnoremap Z <Nop>
   nnoremap Q <Nop>
-  nnoremap <silent> <Leader><Leader> :<C-u>lua require('global_functions').toggle_lsp_lines_text()<CR>
+  nnoremap <Leader><Leader> :<C-u>lua require('global_functions').toggle_lsp_lines_text()<CR>
   nnoremap <silent> <Leader>a :<C-u>lua require('actions-preview').code_actions()<CR>
   nnoremap <silent> <Leader>r :<C-u>lua vim.lsp.buf.rename()<CR>
   nnoremap <silent> <Leader>o :<C-u>Gobf<CR>
