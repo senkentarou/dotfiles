@@ -138,7 +138,7 @@ vim.cmd([[
   " Apply ESC
   inoremap <silent> jj <ESC>
   " No highlight
-  nnoremap <Esc><Esc> :noh<CR>
+  nnoremap <silent> <Esc><Esc> :noh<CR>
   " Show buffers
   nnoremap <silent> ; :<C-u>lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true })<CR>
   " Close buffer
