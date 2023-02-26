@@ -147,7 +147,7 @@ vim.cmd([[
   " Show buffers
   nnoremap <silent> ; :<C-u>lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true })<CR>
   " Close buffer
-  nnoremap <silent> <C-q> :<C-u>BufferClose<CR>
+  nnoremap <silent> <C-q> :<C-u>lua require('global_functions').close_buffer()<CR>
   " Diff line
   vnoremap <silent> <C-y> :Linediff<CR>
   nnoremap <C-y> :<C-u>LinediffReset<CR>

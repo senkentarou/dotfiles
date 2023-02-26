@@ -1,25 +1,3 @@
-vim.cmd([[
-  function! s:BufferClose() abort
-    if &filetype == 'alpha'
-      " no action
-      :
-    elseif index(['DiffviewFileHistory'], &filetype) >= 0
-      " close tab
-      execute 'tabclose'
-    elseif index(['help', 'vim-plug'], &filetype) >= 0 || index(['[Command Line]'], expand('%:t')) >= 0
-      " close pane
-      execute 'close'
-    elseif len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1
-      " close buffer
-      execute 'bd'
-    else
-      " open goolord/alpha-nvim
-      execute 'Alpha'
-    endif
-  endfunction
-  command! -nargs=* BufferClose call s:BufferClose()
-]])
-
 local alpha = require('alpha')
 local dashboard = require('alpha.themes.startify')
 dashboard.section.header.val = {} -- clear header art
