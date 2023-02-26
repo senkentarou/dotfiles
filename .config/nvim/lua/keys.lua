@@ -101,7 +101,7 @@ vim.cmd([[
   nnoremap <silent> <C-g>r :<C-u>Gitsigns reset_hunk<CR>
   nnoremap <silent> <C-g>R :<C-u>Gitsigns reset_buffer<CR>
   nnoremap <silent> + :<C-u>lua require('telescope').extensions.gh_pr.list({ remote = 'upstream', search = 'is:pr is:open user-review-requested:@me' })<CR>
-  nnoremap <silent> - :<C-u>lua require('telescope').extensions.gh_pr.list({ remote = 'upstream' })<CR>
+  nnoremap <silent> _ :<C-u>lua require('telescope').extensions.gh_pr.list({ remote = 'upstream' })<CR>
 
   " <C-w> Filer
   nmap <C-w> <Nop>
