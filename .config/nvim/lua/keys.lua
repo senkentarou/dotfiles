@@ -43,6 +43,7 @@ vim.cmd([[
   " Do NOT quit on command mode.
   " This config is inspired by https://zenn.dev/monaqa/articles/2020-12-22-vim-abbrev
   cabbrev <expr> q (getcmdtype() ==# ":" && getcmdline() ==# "q") ? "echo 'use :xa'" : "q"
+  cabbrev <expr> wq (getcmdtype() ==# ":" && getcmdline() ==# "wq") ? "echo 'use :xa'" : "wq"
 
   " <Space> Leaders
   let mapleader="\<Space>"
