@@ -40,6 +40,10 @@
 --
 -- * If you cannot apply your key mappings, you can see like ':verbose imap <C-h>' and can trace whole settings about it.
 vim.cmd([[
+  " Do NOT quit on command mode.
+  " This config is inspired by https://zenn.dev/monaqa/articles/2020-12-22-vim-abbrev
+  cabbrev <expr> q (getcmdtype() ==# ":" && getcmdline() ==# "q") ? "echo 'use :xa'" : "q"
+
   " <Space> Leaders
   let mapleader="\<Space>"
   nmap <C-z> <Nop>
