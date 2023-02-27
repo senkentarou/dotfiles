@@ -185,8 +185,8 @@ require('rust-tools').setup({
 -- Disable virtual_text since it's redundant due to lsp_lines.
 vim.diagnostic.config({
   update_in_insert = false,
-  virtual_text = false,
-  virtual_lines = true,
+  virtual_text = true,
+  virtual_lines = false,
 })
 
 require('lsp_lines').setup()
