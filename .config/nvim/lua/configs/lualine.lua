@@ -14,6 +14,10 @@ local function lsp_client()
   return msg
 end
 
+local function current_repository()
+  return ' ' .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+end
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -44,6 +48,7 @@ require('lualine').setup {
       'mode',
     },
     lualine_b = {
+      current_repository,
       'branch',
       {
         'diff',
