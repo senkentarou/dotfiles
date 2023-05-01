@@ -25,5 +25,7 @@ vim.cmd([[
     autocmd VimEnter,ColorScheme * highlight TelescopeMatching ctermfg=167 guifg=#cc6666
     " Gitsigns
     autocmd VimEnter,ColorScheme * highlight GitSignsCurrentLineBlame ctermfg=243 guifg=#707880
+    " Github copilot highlight
+    autocmd VimEnter,ColorScheme * highlight CopilotSuggestion cterm=underline ctermfg=139 ctermbg=53 gui=underline guifg=#b294bb guibg=#5f005f guisp=Magenta
   augroup END
 ]])

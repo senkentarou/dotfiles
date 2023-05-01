@@ -136,11 +136,14 @@ vim.cmd([[
   vnoremap f <cmd>HopChar1CurrentLineAC<CR>
   nnoremap F :<C-u>HopChar1CurrentLineBC<CR>
   vnoremap F <cmd>HopChar1CurrentLineBC<CR>
-  " Moving on insert mode
-  imap <C-j> <Down>
-  imap <C-k> <Up>
-  imap <C-l> <Right>
-  imap <C-h> <Left>
+
+  " see https://github.com/github/copilot.vim/blob/release/doc/copilot.txt
+  imap <silent><script><expr> <C-i> copilot#Accept("\<CR>")
+  imap <silent> <C-j> <Plug>(copilot-next)
+  imap <silent> <C-k> <Plug>(copilot-previous)
+  imap <silent> <C-h> <Plug>(copilot-dismiss)
+  imap <silent> <C-l> <Plug>(copilot-suggest)
+
   " Apply ESC
   inoremap <silent> jj <ESC>
   " No highlight

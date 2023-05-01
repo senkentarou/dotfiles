@@ -47,3 +47,5 @@ local function toggle_hlsearch(char)
 end
 
 vim.on_key(toggle_hlsearch, ns)
+
+vim.g.copilot_no_tab_map = true

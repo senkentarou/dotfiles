@@ -77,6 +77,9 @@ vim.cmd([[
   Plug 'andymass/vim-matchup'
   Plug 'RRethy/nvim-treesitter-endwise'
 
+  " copilot
+  Plug 'github/copilot.vim'
+
   " my plugin
   Plug 'senkentarou/gopr.nvim'
   Plug 'senkentarou/goacf.nvim'
