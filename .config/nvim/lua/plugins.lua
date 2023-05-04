@@ -51,7 +51,6 @@ vim.cmd([[
   Plug 'senkentarou/telescope-file-browser.nvim' " Use instead of nvim-telescope/telescope-file-browser.nvim
 
   " Git
-  Plug 'lambdalisue/gina.vim'
   Plug 'sindrets/diffview.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   " Open browser window

@@ -61,10 +61,10 @@ vim.cmd([[
   nnoremap <silent> <Leader>p :<C-u>Gocd<CR>
   nnoremap <silent> <Leader>P :<C-u>Gopr<CR>
   " grep words
-  nnoremap <silent> <Leader>, :<C-u>execute 'Gina grep ' . expand('<cword>')<CR>
+  nnoremap <silent> <Leader>, :<C-u>lua require('telescope.builtin').live_grep({ default_text = vim.fn.expand("<cword>") })<CR>
   nnoremap <silent> <Leader>< :<C-u>lua require('telescope.builtin').grep_string()<CR>
-  nnoremap <silent> <Leader>m :<C-u>execute 'Gina grep ' . input('[GitGrep] ')<CR>
-  nnoremap <silent> <Leader>M :<C-u>lua require('telescope.builtin').grep_string({ search = vim.fn.input('[GitGrep] ')})<CR>
+  nnoremap <silent> <Leader>m :<C-u>lua require('telescope.builtin').live_grep({ default_text = vim.fn.input('[LiveGrep] ') })<CR>
+  nnoremap <silent> <Leader>M :<C-u>lua require('telescope.builtin').grep_string({ search = vim.fn.input('[GrepString] ') })<CR>
   " buffers
   nnoremap <Leader>w :<C-u>w<CR>
   nnoremap <silent> <Leader>W :lua vim.lsp.buf.format({ async = true })<CR>
@@ -94,7 +94,6 @@ vim.cmd([[
   nnoremap <silent> <C-g><C-j> :<C-u>Gitsigns stage_hunk<CR>
   nnoremap <silent> <C-g>j :<C-u>Gitsigns undo_stage_hunk<CR>
   nnoremap <silent> <C-g>J :<C-u>Gitsigns stage_buffer<CR>
-  nnoremap <silent> <C-g><C-k> :<C-u>Gina commit --verbose<CR>
   nnoremap <silent> <C-g><C-r> :<C-u>Gitsigns reset_hunk<CR>
   nnoremap <silent> <C-g>r :<C-u>Gitsigns reset_buffer<CR>
   nnoremap <silent> + :<C-u>lua require('telescope').extensions.gh_pr.list({ remote = 'upstream', search = 'is:pr is:open user-review-requested:@me' })<CR>

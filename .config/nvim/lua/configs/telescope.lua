@@ -73,7 +73,7 @@ telescope.setup {
     },
     live_grep = {
       cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1],
-      glob_pattern = '!.git/*/**',
+      glob_pattern = '!.git/',
       additional_args = function()
         return {
           '--hidden',
