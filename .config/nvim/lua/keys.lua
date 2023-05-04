@@ -98,8 +98,8 @@ vim.cmd([[
   nnoremap <silent> <C-g>j :<C-u>Gitsigns undo_stage_hunk<CR>
   nnoremap <silent> <C-g>J :<C-u>Gitsigns stage_buffer<CR>
   nnoremap <silent> <C-g><C-k> :<C-u>Gina commit --verbose<CR>
-  nnoremap <silent> <C-g>r :<C-u>Gitsigns reset_hunk<CR>
-  nnoremap <silent> <C-g>R :<C-u>Gitsigns reset_buffer<CR>
+  nnoremap <silent> <C-g><C-r> :<C-u>Gitsigns reset_hunk<CR>
+  nnoremap <silent> <C-g>r :<C-u>Gitsigns reset_buffer<CR>
   nnoremap <silent> + :<C-u>lua require('telescope').extensions.gh_pr.list({ remote = 'upstream', search = 'is:pr is:open user-review-requested:@me' })<CR>
   nnoremap <silent> _ :<C-u>lua require('telescope').extensions.gh_pr.list({ remote = 'upstream' })<CR>
 
