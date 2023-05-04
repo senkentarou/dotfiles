@@ -52,7 +52,8 @@ vim.cmd([[
   nnoremap Q <Nop>
   nnoremap q: <Nop>
   nnoremap <silent> <Leader><Leader> :<C-u>lua require('global_functions').toggle_lsp_lines_text()<CR>
-  nnoremap <silent> <Leader>a :<C-u>lua require('actions-preview').code_actions()<CR>
+  nnoremap <silent> <Leader>a :<C-u>lua require('neogen').generate()<CR>
+  nnoremap <silent> <Leader>A :<C-u>lua require('actions-preview').code_actions()<CR>
   nnoremap <silent> <Leader>r :<C-u>lua vim.lsp.buf.rename()<CR>
   nnoremap <silent> <Leader>o :<C-u>Gobf<CR>
   vnoremap <silent> <Leader>o :Gobf<CR>
@@ -66,12 +67,11 @@ vim.cmd([[
   nnoremap <silent> <Leader>M :<C-u>lua require('telescope.builtin').grep_string({ search = vim.fn.input('[GitGrep] ')})<CR>
   " buffers
   nnoremap <Leader>w :<C-u>w<CR>
-  nnoremap <Leader>W :lua vim.lsp.buf.format({ async = true })<CR>
+  nnoremap <silent> <Leader>W :lua vim.lsp.buf.format({ async = true })<CR>
   " comments
   nmap <Leader>c <Plug>(comment_toggle_linewise_current)
   vmap <Leader>c <Plug>(comment_toggle_linewise_visual)
   " ruby
-  nnoremap <silent> <Leader>y :<C-u>lua require('neogen').generate()<CR>
   nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
   nnoremap <silent> <Leader>z :<C-u>CopyRspecCommand<CR>
   nnoremap <silent> <Leader>Z :<C-u>CopyRspecAtLineCommand<CR>
