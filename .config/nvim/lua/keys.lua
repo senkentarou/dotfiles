@@ -44,17 +44,18 @@ vim.cmd([[
   " This config is inspired by https://zenn.dev/monaqa/articles/2020-12-22-vim-abbrev
   cabbrev <expr> q (getcmdtype() ==# ":" && getcmdline() ==# "q") ? "echo 'use :xa'" : "q"
   cabbrev <expr> wq (getcmdtype() ==# ":" && getcmdline() ==# "wq") ? "echo 'use :xa'" : "wq"
-
-  " <Space> Leaders
-  let mapleader="\<Space>"
+  " Disable unuse commands
   nmap <C-z> <Nop>
   nnoremap Z <Nop>
   nnoremap Q <Nop>
   nnoremap q: <Nop>
+
+  " <Space> Leaders
+  let mapleader="\<Space>"
   nnoremap <silent> <Leader><Leader> :<C-u>lua require('global_functions').toggle_lsp_lines_text()<CR>
-  nnoremap <silent> <Leader>a :<C-u>lua require('neogen').generate()<CR>
-  nnoremap <silent> <Leader>A :<C-u>lua require('actions-preview').code_actions()<CR>
-  nnoremap <silent> <Leader>r :<C-u>lua vim.lsp.buf.rename()<CR>
+  nnoremap <silent> <Leader>a :<C-u>lua require('actions-preview').code_actions()<CR>
+  nnoremap <silent> <Leader>A :<C-u>lua require('neogen').generate()<CR>
+  " github integrations
   nnoremap <silent> <Leader>o :<C-u>Gobf<CR>
   vnoremap <silent> <Leader>o :Gobf<CR>
   nnoremap <silent> <Leader>O :<C-u>lua require('gobf').open_git_blob_file({ target_hash = vim.fn.input('[CommitHash] ')})<CR>
@@ -71,7 +72,7 @@ vim.cmd([[
   " comments
   nmap <Leader>c <Plug>(comment_toggle_linewise_current)
   vmap <Leader>c <Plug>(comment_toggle_linewise_visual)
-  " ruby
+  " rspecs
   nnoremap <silent> <Leader>x :<C-u>ToggleRspecFile<CR>
   nnoremap <silent> <Leader>z :<C-u>CopyRspecCommand<CR>
   nnoremap <silent> <Leader>Z :<C-u>CopyRspecAtLineCommand<CR>
@@ -92,10 +93,13 @@ vim.cmd([[
   nnoremap <silent> <C-g><C-n> :<C-u>Gitsigns next_hunk<CR>
   nnoremap <silent> <C-g><C-h> :<C-u>Gitsigns preview_hunk<CR>
   nnoremap <silent> <C-g><C-j> :<C-u>Gitsigns stage_hunk<CR>
+  vnoremap <silent> <C-g><C-j> :Gitsigns stage_hunk<CR>
   nnoremap <silent> <C-g>j :<C-u>Gitsigns undo_stage_hunk<CR>
   nnoremap <silent> <C-g>J :<C-u>Gitsigns stage_buffer<CR>
   nnoremap <silent> <C-g><C-r> :<C-u>Gitsigns reset_hunk<CR>
+  vnoremap <silent> <C-g><C-r> :Gitsigns reset_hunk<CR>
   nnoremap <silent> <C-g>r :<C-u>Gitsigns reset_buffer<CR>
+  nnoremap <silent> <C-g><C-d> :<C-u>Gitsigns toggle_deleted<CR>
   nnoremap <silent> + :<C-u>lua require('telescope').extensions.gh_pr.list({ remote = 'upstream', search = 'is:pr is:open user-review-requested:@me' })<CR>
   nnoremap <silent> _ :<C-u>lua require('telescope').extensions.gh_pr.list({ remote = 'upstream' })<CR>
 
@@ -108,6 +112,7 @@ vim.cmd([[
   nmap <C-e> <Nop>
   nnoremap <silent> <C-e><C-e> :<C-u>lua vim.lsp.buf.definition()<CR>
   nnoremap <silent> <C-e><C-r> :<C-u>lua vim.lsp.buf.references()<CR>
+  nnoremap <silent> <C-e><C-d> :<C-u>lua vim.lsp.buf.rename()<CR>
   nnoremap <silent> K :<C-u>lua vim.lsp.buf.hover()<CR>
 
   " Moving cursor
@@ -133,6 +138,7 @@ vim.cmd([[
   nnoremap F :<C-u>HopChar1CurrentLineBC<CR>
   vnoremap F <cmd>HopChar1CurrentLineBC<CR>
 
+  " github copilot
   " see https://github.com/github/copilot.vim/blob/release/doc/copilot.txt
   imap <silent><script><expr> <C-i> copilot#Accept("\<CR>")
   imap <silent> <C-j> <Plug>(copilot-next)
@@ -150,5 +156,5 @@ vim.cmd([[
   nnoremap <silent> <C-q> :<C-u>lua require('global_functions').close_buffer()<CR>
   " Diff line
   vnoremap <silent> <C-y> :Linediff<CR>
-  nnoremap <C-y> :<C-u>LinediffReset<CR>
+  nnoremap <silent> <C-y> :<C-u>LinediffReset<CR>
 ]])
