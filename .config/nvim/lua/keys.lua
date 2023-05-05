@@ -105,6 +105,9 @@ vim.cmd([[
   nnoremap <silent> + :<C-u>lua require('telescope').extensions.gh_pr.list({ remote = 'upstream', search = 'is:pr is:open user-review-requested:@me' })<CR>
   nnoremap <silent> _ :<C-u>lua require('telescope').extensions.gh_pr.list({ remote = 'upstream' })<CR>
 
+  " <C-s> Status
+  nnoremap <silent> <C-s><C-s> :<C-u>SymbolsOutline<CR>
+
   " <C-w> Filer
   nmap <C-w> <Nop>
   nmap <silent> <C-w><C-q> :<C-u>close<CR>

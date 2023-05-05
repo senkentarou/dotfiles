@@ -71,6 +71,7 @@ vim.cmd([[
   Plug 'goolord/alpha-nvim'
   " tree-sitter
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'simrat39/symbols-outline.nvim'
   " Plug 'windwp/nvim-ts-autotag' " disable until https://github.com/windwp/nvim-ts-autotag/pull/83 is merged
   Plug 'sifu/nvim-ts-autotag' " Use instead of windwp/nvim-ts-autotag
 
