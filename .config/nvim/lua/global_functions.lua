@@ -25,6 +25,7 @@ G.close_buffer = function()
   elseif vim.fn.index({
     'help',
     'vim-plug',
+    'Outline',
   }, filetype) >= 0 then
     -- close pane
     command = 'close'
