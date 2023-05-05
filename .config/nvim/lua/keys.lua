@@ -42,8 +42,9 @@
 vim.cmd([[
   " Do NOT quit on command mode.
   " This config is inspired by https://zenn.dev/monaqa/articles/2020-12-22-vim-abbrev
-  cabbrev <expr> q (getcmdtype() ==# ":" && getcmdline() ==# "q") ? "echo 'use :xa'" : "q"
-  cabbrev <expr> wq (getcmdtype() ==# ":" && getcmdline() ==# "wq") ? "echo 'use :xa'" : "wq"
+  cabbrev <expr> q (getcmdtype() ==# ":" && getcmdline() ==# "q") ? "echo 'use :quit'" : "q"
+  cabbrev <expr> wq (getcmdtype() ==# ":" && getcmdline() ==# "wq") ? "echo 'use :quit'" : "wq"
+  cabbrev <expr> xa (getcmdtype() ==# ":" && getcmdline() ==# "xa") ? "echo 'use :quit'" : "xa"
   " Disable unuse commands
   nmap <C-z> <Nop>
   nnoremap Z <Nop>
