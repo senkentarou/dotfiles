@@ -81,7 +81,6 @@ vim.cmd([[
   nmap <C-f> <Nop>
   nnoremap <silent> <C-f><C-f> :<C-u>lua require('telescope.builtin').find_files()<CR>
   nnoremap <silent> <C-f><C-r> :<C-u>lua require('telescope.builtin').oldfiles()<CR>
-  nmap <silent> <C-_> :<C-u>TodoTelescope<CR>
 
   " <C-g> Git
   nmap <C-g> <Nop>
@@ -146,6 +145,8 @@ vim.cmd([[
   imap <silent> <C-h> <Plug>(copilot-dismiss)
   imap <silent> <C-l> <Plug>(copilot-suggest)
 
+  " Reload current buffer
+  nmap <C-_> :<C-u>so %<CR>
   " Apply ESC
   inoremap <silent> jj <ESC>
   " No highlight
