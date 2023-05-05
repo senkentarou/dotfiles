@@ -84,7 +84,7 @@ vim.cmd([[
 
   " <C-g> Git
   nmap <C-g> <Nop>
-  nnoremap <silent> <C-g><C-g> :<C-u>lua require('telescope.builtin').git_status()<CR>
+  nnoremap <silent> <C-g><C-g> :<C-u>LazyGit<CR>
   nnoremap <silent> <C-g><C-o> :<C-u>Goacf<CR>
   nnoremap <silent> <C-g><C-l> :<C-u>DiffviewFileHistory %<CR>
   vnoremap <silent> <C-g><C-l> :DiffviewFileHistory %<CR>
