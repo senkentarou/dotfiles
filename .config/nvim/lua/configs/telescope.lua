@@ -1,6 +1,18 @@
 local telescope = require("telescope")
 local actions = require("telescope.actions")
+local actions_state = require("telescope.actions.state")
 local file_browser_actions = telescope.extensions.file_browser.actions
+
+local open_multiple_files = function(bufnr)
+  local picker = actions_state.get_current_picker(bufnr)
+  local multi_sections = picker:get_multi_selection()
+  actions.select_default(bufnr)
+  for _, section in pairs(multi_sections) do
+    if section.path ~= nil then -- is it a file -> open it as well:
+      vim.cmd(string.format("%s %s", "edit", section.path))
+    end
+  end
+end
 
 telescope.setup {
   defaults = {
@@ -20,9 +32,11 @@ telescope.setup {
         ["<C-f>"] = actions.which_key,
         ["<C-u>"] = actions.preview_scrolling_up,
         ["<C-d>"] = actions.preview_scrolling_down,
+        ["<CR>"] = open_multiple_files,
       },
       n = {
         ["<C-q>"] = actions.close,
+        ["<CR>"] = open_multiple_files,
       },
     },
     color_devicons = true,
