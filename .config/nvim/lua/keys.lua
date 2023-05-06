@@ -151,8 +151,9 @@ vim.cmd([[
   imap <silent> <C-h> <Plug>(copilot-dismiss)
   imap <silent> <C-l> <Plug>(copilot-suggest)
 
-  " Reload current buffer
-  nmap <C-_> :<C-u>so %<CR>
+  " Search web browser
+  nmap <C-_> <Plug>(openbrowser-smart-search)
+  vmap <C-_> <Plug>(openbrowser-smart-search)
   " Apply ESC
   inoremap <silent> jj <ESC>
   " No highlight
