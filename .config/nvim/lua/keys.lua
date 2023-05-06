@@ -83,7 +83,7 @@ vim.cmd([[
   " <C-f> Find files
   nmap <C-f> <Nop>
   nnoremap <silent> <C-f><C-f> :<C-u>lua require('telescope.builtin').find_files()<CR>
-  nnoremap <silent> <C-f><C-r> :<C-u>lua require('telescope.builtin').oldfiles()<CR>
+  nnoremap <silent> <C-f><C-j> :<C-u>lua require('telescope.builtin').oldfiles()<CR>
 
   " <C-g> Git
   nmap <C-g> <Nop>
