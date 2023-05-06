@@ -10,20 +10,18 @@ vim.cmd([[
 
   " Color Scheme
   Plug 'w0ng/vim-hybrid'
-  " Syntax highlight
-  Plug 'sheerun/vim-polyglot'
-  " Indent highlight
-  Plug 'lukas-reineke/indent-blankline.nvim'
+  " Start window
+  Plug 'goolord/alpha-nvim'
   " Statusline
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'nvim-tree/nvim-web-devicons'
   " LSP
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'j-hui/fidget.nvim'
-  Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
+  Plug 'j-hui/fidget.nvim'
+  Plug 'neovim/nvim-lspconfig'
   Plug 'folke/lsp-colors.nvim'
   Plug 'Maan2003/lsp_lines.nvim'
   Plug 'rafamadriz/friendly-snippets'
@@ -36,25 +34,15 @@ vim.cmd([[
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
+  Plug 'aznhe21/actions-preview.nvim'
   Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'jose-elias-alvarez/typescript.nvim'
-  Plug 'aznhe21/actions-preview.nvim'
-  " Auto complete for bracket pairs
-  Plug 'windwp/nvim-autopairs'
-  " Search word
-  Plug 'phaazon/hop.nvim'
-  Plug 'mfussenegger/nvim-treehopper'
   " Finder
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-  " Plug 'nvim-telescope/telescope-file-browser.nvim' " disable until https://github.com/nvim-telescope/telescope-file-browser.nvim/issues/104 is as fixed
-  Plug 'senkentarou/telescope-file-browser.nvim' " Use instead of nvim-telescope/telescope-file-browser.nvim
-
   " Git
   Plug 'kdheepak/lazygit.nvim'
   Plug 'sindrets/diffview.nvim'
   Plug 'lewis6991/gitsigns.nvim'
-  " Open browser window
-  Plug 'tyru/open-browser.vim'
   " Accelerate up/down
   Plug 'rhysd/accelerated-jk'
   Plug 'haya14busa/vim-edgemotion'
@@ -66,26 +54,35 @@ vim.cmd([[
   Plug 'folke/todo-comments.nvim'
   " Line comparison
   Plug 'AndrewRadev/linediff.vim'
-  " Start window
-  Plug 'goolord/alpha-nvim'
-  " tree-sitter
+  " Open browser window
+  Plug 'tyru/open-browser.vim'
+  " Parsing
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'simrat39/symbols-outline.nvim'
-  " Plug 'windwp/nvim-ts-autotag' " disable until https://github.com/windwp/nvim-ts-autotag/pull/83 is merged
-  Plug 'sifu/nvim-ts-autotag' " Use instead of windwp/nvim-ts-autotag
-
+  " Indent highlight
+  Plug 'lukas-reineke/indent-blankline.nvim'
+  " Search word
+  Plug 'phaazon/hop.nvim'
+  Plug 'mfussenegger/nvim-treehopper'
+  " Auto complete for bracket pairs
+  Plug 'windwp/nvim-autopairs'
   Plug 'andymass/vim-matchup'
   Plug 'RRethy/nvim-treesitter-endwise'
-
-  " copilot
+  " Copilot
   Plug 'github/copilot.vim'
 
-  " my plugin
+  " My plugin
   Plug 'senkentarou/gopr.nvim'
   Plug 'senkentarou/goacf.nvim'
   Plug 'senkentarou/gobf.nvim'
   Plug 'senkentarou/ruby_spec.nvim'
   Plug 'senkentarou/telescope-gh-pr.nvim'
+
+  " Plug 'nvim-telescope/telescope-file-browser.nvim' " disable until https://github.com/nvim-telescope/telescope-file-browser.nvim/issues/104 is as fixed
+  Plug 'senkentarou/telescope-file-browser.nvim' " Use instead of nvim-telescope/telescope-file-browser.nvim
+
+  " Plug 'windwp/nvim-ts-autotag' " disable until https://github.com/windwp/nvim-ts-autotag/pull/83 is merged
+  Plug 'sifu/nvim-ts-autotag' " Use instead of windwp/nvim-ts-autotag
 
   call plug#end()
 ]])
