@@ -175,13 +175,6 @@ require('typescript').setup({
     end,
   },
 })
-
-require('rust-tools').setup({
-  server = {
-    capabilities = capabilities,
-  },
-})
-
 -- Disable virtual_text since it's redundant due to lsp_lines.
 vim.diagnostic.config({
   update_in_insert = false,
@@ -225,8 +218,6 @@ require('mason-tool-installer').setup {
     'yaml-language-server',
     'yamllint',
     'terraform-ls',
-    'rust-analyzer',
-    'rustfmt',
   },
 }
 
