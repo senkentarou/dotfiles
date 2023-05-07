@@ -77,6 +77,7 @@ vim.cmd([[
   Plug 'senkentarou/gobf.nvim'
   Plug 'senkentarou/ruby_spec.nvim'
   Plug 'senkentarou/telescope-gh-pr.nvim'
+  Plug 'senkentarou/telescope-git-log.nvim'
 
   " Plug 'nvim-telescope/telescope-file-browser.nvim' " disable until https://github.com/nvim-telescope/telescope-file-browser.nvim/issues/104 is as fixed
   Plug 'senkentarou/telescope-file-browser.nvim' " Use instead of nvim-telescope/telescope-file-browser.nvim
