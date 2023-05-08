@@ -49,3 +49,16 @@ end
 vim.on_key(toggle_hlsearch, ns)
 
 vim.g.copilot_no_tab_map = true
+vim.g.copilot_filetypes = {
+  ruby = true,
+  rspec = true,
+  javascript = true,
+  javascriptreact = true,
+  typescript = true,
+  typescriptreact = true,
+  yaml = true,
+  json = true,
+  lua = true,
+  markdown = true,
+  text = true,
+}
