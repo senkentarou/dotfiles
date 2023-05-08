@@ -145,11 +145,11 @@ vim.cmd([[
 
   " github copilot
   " see https://github.com/github/copilot.vim/blob/release/doc/copilot.txt
-  imap <silent><script><expr> <C-i> copilot#Accept("\<CR>")
   imap <silent> <C-j> <Plug>(copilot-next)
   imap <silent> <C-k> <Plug>(copilot-previous)
   imap <silent> <C-h> <Plug>(copilot-dismiss)
-  imap <silent> <C-l> <Plug>(copilot-suggest)
+  " imap <silent> <C-l> <Plug>(copilot-suggest) " maybe useless for me
+  imap <silent><script><expr> <C-l> copilot#Accept("\<CR>")
 
   " Search web browser
   nmap <C-_> <Plug>(openbrowser-smart-search)
