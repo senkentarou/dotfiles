@@ -117,9 +117,6 @@ null_ls.setup {
         'typescript',
         'typescriptreact',
       },
-      cwd = function()
-        return vim.fn.getcwd()
-      end,
       prefer_local = 'node_modules/.bin',
     },
     null_ls.builtins.formatting.prettier.with {
@@ -130,9 +127,6 @@ null_ls.setup {
         'typescriptreact',
         'yaml',
       },
-      cwd = function()
-        return vim.fn.getcwd()
-      end,
       prefer_local = 'node_modules/.bin',
     },
     null_ls.builtins.formatting.lua_format.with {
