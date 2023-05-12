@@ -50,6 +50,7 @@ vim.on_key(toggle_hlsearch, ns)
 
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_filetypes = {
+  ['*'] = false,
   ruby = true,
   rspec = true,
   javascript = true,
