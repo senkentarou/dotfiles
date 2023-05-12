@@ -57,6 +57,7 @@ vim.cmd([[
   " Open browser window
   Plug 'tyru/open-browser.vim'
   " Parsing
+  Plug 'sheerun/vim-polyglot'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'simrat39/symbols-outline.nvim'
   " Indent highlight
