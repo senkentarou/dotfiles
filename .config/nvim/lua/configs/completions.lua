@@ -1,29 +1,56 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local nvim_lsp = require('lspconfig')
-local nvim_lsp_config = require('lspconfig.configs')
 
--- For ruby (needs ruby-lsp gem on your development)
-nvim_lsp_config.ruby_lsp = {
-  default_config = {
-    cmd = {
-      'bundle',
-      'exec',
-      'ruby-lsp',
-    },
-    init_options = {
-      enabledFeatures = {
-        'formatting',
-        'codeActions',
-      },
-    },
-    filetypes = {
-      'ruby',
-      'rspec',
-    },
-    root_dir = require('lspconfig.util').root_pattern('Gemfile', '.git'),
+nvim_lsp.ruby_ls.setup {
+  init_options = {
+    formatter = 'rubocop',
   },
-}
-nvim_lsp.ruby_lsp.setup {
+  root_dir = require('lspconfig.util').root_pattern('Gemfile', '.git'),
+  cmd = {
+    'bundle',
+    'exec',
+    'ruby-lsp',
+  },
+  cmd_env = {
+    BUNDLE_GEMFILE = vim.fn.getcwd() .. '/.ruby-lsp/Gemfile',
+    BUNDLE_PATH__SYSTEM = 'true',
+  },
+  filetypes = {
+    'ruby',
+    'rspec',
+  },
+  on_attach = function(client, buffer)
+    local callback = function()
+      local params = vim.lsp.util.make_text_document_params(buffer)
+
+      client.request('textDocument/diagnostic', {
+        textDocument = params,
+      }, function(err, result)
+        if err then
+          return
+        end
+
+        vim.lsp.diagnostic.on_publish_diagnostics(nil, vim.tbl_extend('keep', params, {
+          diagnostics = result.items,
+        }), {
+          client_id = client.id,
+        })
+      end)
+    end
+
+    callback() -- call on attach
+
+    vim.api.nvim_create_autocmd({
+      'BufEnter',
+      'BufWritePre',
+      'BufReadPost',
+      'InsertLeave',
+      'TextChanged',
+    }, {
+      buffer = buffer,
+      callback = callback,
+    })
+  end,
   capabilities = capabilities,
 }
 
