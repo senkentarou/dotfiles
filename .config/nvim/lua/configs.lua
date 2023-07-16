@@ -1,8 +1,0 @@
-require('configs.start')
-require('configs.auto_commands')
-require('configs.lualine')
-require('configs.treesitter')
-require('configs.completions')
-require('configs.telescope')
-require('configs.gits')
-require('configs.utils')

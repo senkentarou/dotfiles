@@ -1,4 +1,0 @@
---
--- Load
---
-require('plugins')
