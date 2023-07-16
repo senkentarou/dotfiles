@@ -2,6 +2,12 @@
 # .bashrc Settings
 #
 
+# search command history
+bind '"\C-r": "history | fzf --reverse --height 30%\n"'
+
+# find files
+bind '"\C-f": "rg --files --hidden --glob \\!.git | fzf --reverse --height 30%\n"'
+
 # tmux automatic attachment
 function attach_tmux() {
 	# Is exist tmux?
