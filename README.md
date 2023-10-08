@@ -42,9 +42,13 @@ open ~/Library/Application\ Support/AquaSKK
 ## iTerm2の設定
 1. nvimを使用する際、Hack Nerd Fontでないと文字化けするので設定する
 ```
-iTerm2 > Settings > Profiles > Text > Hack Nerd Font
+iTerm2 > Preferences > Profiles > Text > Hack Nerd Font
 ```
-2. AquaSKKを使用する際、日本語切り替えに指定しているショートカット(ctrl-0)がデフォルトで上手く処理してくれないので設定する
+2. AquaSKKを使用する際、日本語切り替えに指定しているショートカットがデフォルトで上手く処理してくれないので設定する
 ```
-iTerm2 > Settings > Advanced > AquaSKKで検索
+iTerm2 > Preferences > Advanced > AquaSKKで検索
+```
+3. option keyをmeta keyとして認識させるために
+```
+iTerm2 > Preferences > Profiles > Keys > Left Option KeyをNormalからEsc+に。(Right Option Keyも同様)
 ```
