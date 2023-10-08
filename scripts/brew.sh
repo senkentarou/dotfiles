@@ -4,7 +4,7 @@ install_by_brew() {
 	echo 'Update and upgrade brew ..'
 	brew update && brew upgrade
 
-	local brew_commands=('wget' 'zsh' 'tmux' 'tmuxinator' 'git' 'git-secrets' 'gh' 'lazygit' 'vim' 'neovim' 'bat' 'anyenv' 'direnv' 'node' 'go' 'mysql' 'mycli' 'jq' 'ripgrep' 'fd' 'fzf' 'cmake' 'luarocks' 'docker' 'reattach-to-user-namespace' 'gitmoji' 'rustup')
+	local brew_commands=('wget' 'bash' 'tmux' 'tmuxinator' 'git' 'git-secrets' 'gh' 'lazygit' 'vim' 'neovim' 'bat' 'anyenv' 'direnv' 'node' 'go' 'mysql' 'mycli' 'jq' 'ripgrep' 'fd' 'fzf' 'cmake' 'luarocks' 'docker' 'reattach-to-user-namespace' 'gitmoji' 'gsed')
 	local brew_taps=('homebrew/cask-fonts' 'homebrew/cask-drivers')
 	local brew_casks=('docker' 'iterm2' 'google-chrome' 'slack' 'font-hack-nerd-font' 'elgato-stream-deck')
 

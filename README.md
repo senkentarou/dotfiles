@@ -12,6 +12,13 @@
   - dotfilesをローカルにリンク `make link`
   - ターミナルを再起動 `make reboot`
 
+## bashの設定
+- 履歴検索にREADLINE_LINEとREADLINE_POINTを利用しているため古いbashだと正常動作しない可能性がある (Bash 40以上が必要)
+1. `brew install bash` でbashをインストール
+2. `which bash` でインストール先を確認
+3. `sudo vim /etc/shells` を開き、bashのインストール先のパスを追加
+4. `chpass -s /opt/homebrew/bin/bash` で切り替える
+
 ## nvimの設定
 1. 初回起動時にvim-plugの設定が入っていないエラーになる場合は先にダウンロードする
 https://github.com/junegunn/vim-plug
