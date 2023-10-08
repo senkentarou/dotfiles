@@ -56,11 +56,9 @@ alias gp='git push'
 alias gsu='git stash -u'
 alias gsp='git stash pop'
 
-export GITHUB_USER=senkentarou
-
 __bash_prompt() {
     local userpart='`export XIT=$? \
-        && [ ! -z "${GITHUB_USER}" ] && echo -n "\[\033[0;32m\]@${GITHUB_USER} " || echo -n "\[\033[0;32m\]\u " \
+        && echo -n "\[\033[0;32m\]\u " \
         && [ "$XIT" -ne "0" ] && echo -n "\[\033[1;31m\]➜" || echo -n "\[\033[0m\]➜"`'
     local gitbranch='`\
         if [ "$(git config --get devcontainers-theme.hide-status 2>/dev/null)" != 1 ] && [ "$(git config --get codespaces-them e.hide-status 2>/dev/null)" != 1 ]; then \
@@ -84,7 +82,7 @@ __bash_prompt
 # tmux automatic attachment
 __attach_tmux() {
 	# Is exist tmux?
-	if [ ! type 'tmux' ] >/dev/null 2>&1; then
+  if ! (type 'tmux' >/dev/null 2>&1); then
 		echo 'tmux command not found.'
 		return 1
 	fi
@@ -98,7 +96,6 @@ __attach_tmux() {
 		return 0
 	# Is not ssh connection?
 	elif [ ! -z "$PS1" ] && [ -z "$SSH_CONECTION" ]; then
-		#
 		if tmux has-session >/dev/null 2>&1 && tmux list-sessions | grep -qE '(.*]|.*\))$'; then
 			tmux list-sessions
 			echo -n 'tmux: attach? {y(=latest)/N(=new)/<num>}: '
@@ -118,7 +115,7 @@ __attach_tmux() {
 			fi
 		fi
 		# mac OS settings (need to install: reattach-to-user-namespace (brew install reattach-to-user-namespace))
-		if [[ "$OSTYPE" == "darwin*" ]] && [ type 'reattach-to-user-namespace' ] >/dev/null 2>&1; then
+    if [[ "$OSTYPE" == "darwin*" ]] && (type 'reattach-to-user-namespace' >/dev/null 2>&1); then
 			tmux_config=$(cat $HOME/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l $SHELL"'))
 			tmux -f <(echo "$tmux_config") new-session && echo "$(tmux -V) created new session supported OS X"
 		else
