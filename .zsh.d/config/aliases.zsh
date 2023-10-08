@@ -12,33 +12,25 @@ alias ls='ls -al'
 
 alias gl='git log'
 alias glp='git log -p'
-alias glno='git log --name-only'
-alias glm='git log --merges'
 
 alias gs='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
-alias gr='git reset'
 
 alias gri='git rebase -i'
-alias grc='git rebase --continue'
 
-alias gc='git checkout'
-alias gcb='git checkout -b'
-
-alias gsu='git stash -u'
-alias gsp='git stash pop'
+# alias gc='git checkout'
+alias gc='git switch'
+# alias gcb='git checkout -b'
+alias gcb='git switch -c'
 
 alias gau='git add -u'
 alias gcm='git commit -m'
 alias gca='git commit --amend'
-alias gmc='gitmoji -c'
-alias gpo='git push origin'
-alias gpu='git push upstream'
+alias gp='git push'
 
-alias gskip='git update-index --skip-worktree'
-alias gnoskip='git update-index --no-skip-worktree'
-alias gls='git ls-files -v | grep "^S"'
+alias gsu='git stash -u'
+alias gsp='git stash pop'
 
 # vim
 [[ -f $HOME/nvim-osx64/bin/nvim ]] && alias nvim=$HOME/nvim-osx64/bin/nvim
