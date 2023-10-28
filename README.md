@@ -1,5 +1,3 @@
-# senkentarou/dotfilesへようこそ！
-
 ## 前提
 - macOSでしか動作確認していない
 - [Homebrew](https://brew.sh/index_ja)をインストールしている必要がある
