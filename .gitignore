@@ -8,14 +8,10 @@
 .vim/*
 .netrwhist
 .gitconfig
-.zshrc.local
-.zsh_history
-.z_history
-.zcompdump
-.zprezto
-.luarc.json
 
-# for ignore cases
+#
+# not ignore case
+#
 !.vim/vimrc
 !.vim/tools/*
 
