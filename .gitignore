@@ -6,6 +6,8 @@
 .DS_Store
 .env/*
 .vim/*
+.terraform
+.terraform.lock.hcl
 .netrwhist
 .gitconfig
 

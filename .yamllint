@@ -1,0 +1,13 @@
+---
+# ref. https://yamllint.readthedocs.io/en/stable/configuration.html
+yaml-files:
+  - '*.yaml'
+  - '*.yml'
+  - '.yamllint'
+extends: relaxed
+rules:
+  line-length:
+    max: 180
+  indentation:
+    indent-sequences: whatever
+  key-ordering: disable
