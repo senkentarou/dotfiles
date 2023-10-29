@@ -62,7 +62,8 @@ alias r='source ${HOME}/.bashrc'
 # vim
 # for downloading nightly build
 # download command:
-#   mkdir -p ~/work && cd ~/work && curl -L https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz > neovim.tar.gz && tar -zxvf neovim.tar.gz
+#   for linux: mkdir -p ~/work && cd ~/work && curl -L https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz > neovim.tar.gz && tar -zxvf neovim.tar.gz
+#   for macos: mkdir -p ~/work && cd ~/work && curl -L https://github.com/neovim/neovim/releases/download/stable/nvim-macos.tar.gz > neovim.tar.gz && tar -zxvf neovim.tar.gz
 if [ -e "${HOME}/work/nvim-macos/bin/nvim" ]; then
 	alias nvim='${HOME}/work/nvim-macos/bin/nvim'
 elif [ -e "${HOME}/work/nvim-linux64/bin/nvim" ]; then
