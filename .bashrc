@@ -97,7 +97,7 @@ alias g='git remote -v'
 alias gl='git log'
 alias glp='git log -p'
 
-alias gs='git status'
+alias gs='git status -u'
 alias gd='git diff'
 alias gdc='git diff --cached'
 
