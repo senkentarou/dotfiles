@@ -4,12 +4,12 @@ install_by_brew() {
 	echo 'Update and upgrade brew ..'
 	brew update && brew upgrade
 
-	local brew_commands=('wget' 'bash' 'tmux' 'tmuxinator' 'git' 'git-secrets' 'gh' 'lazygit' 'vim' 'neovim' 'bat' 'anyenv' 'direnv' 'node' 'go' 'mysql' 'mycli' 'jq' 'ripgrep' 'fd' 'fzf' 'cmake' 'luarocks' 'docker' 'reattach-to-user-namespace' 'gitmoji' 'gsed')
+	local brew_commands=('wget' 'bash' 'tmux' 'tmuxinator' 'git' 'git-secrets' 'gh' 'vim' 'neovim' 'bat' 'anyenv' 'direnv' 'node' 'go' 'terraform' 'mysql' 'mycli' 'jq' 'ripgrep' 'fd' 'fzf' 'cmake' 'luarocks' 'docker' 'gsed')
 	local brew_taps=('homebrew/cask-fonts' 'homebrew/cask-drivers')
-	local brew_casks=('docker' 'iterm2' 'google-chrome' 'slack' 'font-hack-nerd-font' 'elgato-stream-deck')
+	local brew_casks=('iterm2' 'google-chrome' 'slack' 'font-hack-nerd-font' 'elgato-stream-deck')
 
 	echo 'Install brew packages'
-	for bc in ${brew_commands[@]}; do
+	for bc in "${brew_commands[@]}"; do
 		if ! brew list | grep -wq "$bc"; then
 			echo "Installing $bc .."
 			brew install "$bc"
@@ -20,11 +20,11 @@ install_by_brew() {
 	done
 
 	echo 'Install brew taps'
-	for bt in ${brew_taps[@]}; do
+	for bt in "${brew_taps[@]}"; do
 		brew tap "$bt"
 	done
 
-	for bcs in ${brew_casks[@]}; do
+	for bcs in "${brew_casks[@]}"; do
 		if ! brew list --cask | grep -wq "$bcs"; then
 			echo "Installing $bcs .."
 			brew install --cask "$bcs"

@@ -9,8 +9,7 @@ SECONDS=0
 #
 # Main procedure
 #
-if [ -z $(echo $OSTYPE | grep 'darwin') ]; then
-	echo $OSTYPE
+if [ "$(uname)" != 'Darwin' ]; then
 	echo_error "Here is not osx."
 	exit 1
 fi
@@ -22,12 +21,18 @@ if ! is_exist_command 'brew'; then
 fi
 
 MODULES=('brew' 'npm' 'gem' 'anyenv')
-for m in ${MODULES[@]}; do
-	if is_exist_command $m; then
+for m in "${MODULES[@]}"; do
+	if is_exist_command "$m"; then
 		echo_normal "Installing by ${m} .."
+
+		#shellcheck disable=SC1090
 		. "./scripts/${m}.sh"
 	fi
 done
+
+echo "execute below:"
+echo "  edit /etc/shells and append '/opt/homebrew/bin/bash'"
+echo "  chsh -s /opt/homebrew/bin/bash"
 
 #
 # Finish procedure

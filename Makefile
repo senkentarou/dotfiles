@@ -1,6 +1,6 @@
-.PHONY: all install setup link reboot
+.PHONY: all install setup link
 
-all: install setup link reboot
+all: install setup link
 
 install:
 	sh ./scripts/install.sh
@@ -11,6 +11,3 @@ setup:
 
 link:
 	sh ./scripts/link.sh
-
-reboot:
-	sh ./scripts/reboot_shell.sh

@@ -7,9 +7,9 @@ install_by_anyenv() {
 	anyenv install --init
 
 	echo 'Install anyenv packages'
-	for e in ${envs[@]}; do
+	for e in "${envs[@]}"; do
 		echo "Installing $e .."
-		anyenv install -f $e
+		anyenv install -f "$e"
 	done
 
 	return 0

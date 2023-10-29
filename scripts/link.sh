@@ -17,12 +17,12 @@ link_my_dotfiles() {
 	# add symbolic links about dotfiles from $HOME to
 	# first, find the dotfiles on $MY_DOTFILES_PATH,
 	# and next, select the dotdirs yourself.
-	dots=$(find $MY_DOTFILES_PATH -type f -maxdepth 1 -name '.??*' | awk -F/ '{print $NF}')
-	dots="$dots .zsh.d .vim .config/nvim .config/efm-langserver .config/tmuxinator .config/git"
+	dots=$(find "$MY_DOTFILES_PATH" -type f -maxdepth 1 -name '.??*' | awk -F/ '{print $NF}')
+	dots="$dots .zsh.d .vim .config/nvim .config/tmuxinator .config/git"
 
 	for dot in $dots; do
-		[[ -L $HOME/$dot ]] && unlink $HOME/$dot
-		ln -sv $MY_DOTFILES_PATH/$dot $HOME/$dot
+		[[ -L $HOME/$dot ]] && unlink "$HOME/$dot"
+		ln -sv "$MY_DOTFILES_PATH/$dot" "$HOME/$dot"
 	done
 
 	echo_normal 'Deployed'
