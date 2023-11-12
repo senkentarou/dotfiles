@@ -20,7 +20,7 @@ if ! is_exist_command 'brew'; then
 	exit 1
 fi
 
-MODULES=('brew' 'npm' 'gem' 'anyenv')
+MODULES=('brew' 'asdf')
 for m in "${MODULES[@]}"; do
 	if is_exist_command "$m"; then
 		echo_normal "Installing by ${m} .."
