@@ -3,6 +3,8 @@
 # ref.: https://qiita.com/ono_matope/items/feebac51afb346d9db0e
 #
 export LSCOLORS=gxfxcxdxbxegedabagacad
+# load brew go
+export PATH="$HOME/go/bin:$PATH"
 
 #
 # stty
