@@ -203,3 +203,6 @@ __attach_tmux() {
 	fi
 }
 __attach_tmux
+
+# Check .bashrc.local
+test -r "${HOME}/.bashrc.local" && . "${HOME}/.bashrc.local"
