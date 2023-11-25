@@ -1,17 +1,24 @@
-## 前提
-- macOSでしか動作確認していない
-- [Homebrew](https://brew.sh/index_ja)をインストールしている必要がある
+## 動作確認環境
+- macOS (Venture)
 
 ## 導入方法
-1. cloneする `git clone https://github.com/senkentarou/dotfiles.git`
-2. リポジトリルートで `make` コマンドを実行すると以下の要素が順に処理される(途中でパスワード入力が必要・ユーザ入力が必要な場合がある)
+- 初期セットアップ直後を想定する。
+1. Terminal.appを開く
+2. xcodeをインストールする。 (取り急ぎ `git` を実行するとインストールを促されるのでそれでもOK)
+```
+xcode-select --install
+```
+3. dotfilesを手元に落とす。(git submoduleを利用しているので--recursiveを付ける)
+```
+git clone --recursive https://github.com/senkentarou/dotfiles.git
+```
+4. リポジトリルートで `make` コマンドを実行すると以下の要素が順に処理される。(途中でパスワード入力が必要・ユーザ入力が必要な場合がある)
   - 使用するアプリをインストール `make install`
   - アプリをセットアップ `make setup`
   - dotfilesをローカルにリンク `make link`
-  - ターミナルを再起動 `make reboot`
 
 ## bashの設定
-- 履歴検索にREADLINE_LINEとREADLINE_POINTを利用しているため古いbashだと正常動作しない可能性がある (Bash 40以上が必要)
+- 履歴検索にREADLINE_LINEとREADLINE_POINTを利用しているため古いbashだと正常動作しない可能性がある (Bash 4.0以上が必要)
 1. `brew install bash` でbashをインストール
 2. `which bash` でインストール先を確認
 3. `sudo vim /etc/shells` を開き、bashのインストール先のパスを追加
