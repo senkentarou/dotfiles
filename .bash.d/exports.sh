@@ -5,6 +5,3 @@
 
 # prompt color
 export LSCOLORS=gxfxcxdxbxegedabagacad
-
-# load brew go
-export PATH="$HOME/go/bin:$PATH"

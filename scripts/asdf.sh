@@ -6,28 +6,22 @@ SECONDS=0
 # Load util functions
 . './scripts/utils.sh'
 
-ruby_global_version='3.1.2'
-gem_libs=('solargraph' 'rubocop' 'rubocop-daemon')
+GEM_LIBS=('solargraph' 'rubocop' 'rubocop-daemon')
+NPM_LIBS=('eslint_d' 'prettier')
+GO_LIBS=('github.com/mattn/memo@latest')
 
-nodejs_global_version='18.16.0'
-npm_libs=('eslint_d' 'prettier')
+PLUGINS=('ruby' 'nodejs' 'golang')
 
 if is_exist_command 'asdf'; then
-	if ! is_exist_command 'ruby'; then
-		asdf plugin add ruby
-		asdf install ruby "${ruby_global_version}"
-		asdf global ruby "${ruby_global_version}"
-	fi
-
-	if ! is_exist_command 'node'; then
-		asdf plugin add nodejs
-		asdf install nodejs "${nodejs_global_version}"
-		asdf global nodejs "${nodejs_global_version}"
-	fi
+	for p in "${PLUGINS[@]}"; do
+		asdf plugin add "${p}"
+		asdf install "${p}" latest
+		asdf global "${p}" latest
+	done
 fi
 
 if is_exist_command 'gem'; then
-	for gl in "${gem_libs[@]}"; do
+	for gl in "${GEM_LIBS[@]}"; do
 		if ! is_exist_command "${gl}"; then
 			gem install "${gl}"
 		fi
@@ -35,9 +29,17 @@ if is_exist_command 'gem'; then
 fi
 
 if is_exist_command 'npm'; then
-	for nl in "${npm_libs[@]}"; do
+	for nl in "${NPM_LIBS[@]}"; do
 		if ! is_exist_command "${nl}"; then
 			npm install -g "${nl}"
+		fi
+	done
+fi
+
+if is_exist_command 'go'; then
+	for gl in "${GO_LIBS[@]}"; do
+		if ! is_exist_command "${gl}"; then
+			go install "${gl}"
 		fi
 	done
 fi
