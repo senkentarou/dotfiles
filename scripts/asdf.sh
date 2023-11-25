@@ -28,13 +28,17 @@ fi
 
 if is_exist_command 'gem'; then
 	for gl in "${gem_libs[@]}"; do
-		gem install "${gl}"
+		if ! is_exist_command "${gl}"; then
+			gem install "${gl}"
+		fi
 	done
 fi
 
 if is_exist_command 'npm'; then
 	for nl in "${npm_libs[@]}"; do
-		npm install -g "${nl}"
+		if ! is_exist_command "${nl}"; then
+			npm install -g "${nl}"
+		fi
 	done
 fi
 

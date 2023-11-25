@@ -4,13 +4,13 @@ install_by_brew() {
 	echo 'Update and upgrade brew ..'
 	brew update && brew upgrade
 
-	local brew_commands=('wget' 'bash' 'tmux' 'tmuxinator' 'git' 'git-secrets' 'gh' 'vim' 'neovim' 'bat' 'asdf' 'direnv' 'node' 'go' 'terraform' 'mysql' 'mycli' 'jq' 'ripgrep' 'fd' 'fzf' 'cmake' 'luarocks' 'docker' 'gsed')
-	local brew_taps=('homebrew/cask-fonts' 'homebrew/cask-drivers')
+	local brew_commands=('wget' 'bash' 'tmux' 'tmuxinator' 'git' 'git-secrets' 'gh' 'vim' 'neovim' 'bat' 'asdf' 'direnv' 'node' 'ruby' 'go' 'terraform' 'mysql' 'mycli' 'jq' 'ripgrep' 'fd' 'fzf' 'cmake' 'luarocks' 'docker' 'gnu-sed')
+	local brew_taps=('homebrew/cask-fonts')
 	local brew_casks=('iterm2' 'google-chrome' 'slack' 'font-hack-nerd-font' 'elgato-stream-deck')
 
 	echo 'Install brew packages'
 	for bc in "${brew_commands[@]}"; do
-		if ! brew list | grep -wq "$bc"; then
+		if ! brew list | (grep -wq "$bc"; ret=$?; cat > /dev/null; exit $ret); then
 			echo "Installing $bc .."
 			brew install "$bc"
 			echo "Installed $bc"
@@ -25,7 +25,7 @@ install_by_brew() {
 	done
 
 	for bcs in "${brew_casks[@]}"; do
-		if ! brew list --cask | grep -wq "$bcs"; then
+		if ! brew list --cask | (grep -q "$bcs"; ret=$?; cat > /dev/null; exit $ret); then
 			echo "Installing $bcs .."
 			brew install --cask "$bcs"
 			echo "Installed $bcs"

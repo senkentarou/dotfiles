@@ -16,7 +16,8 @@ fi
 
 if ! is_exist_command 'brew'; then
 	echo_normal 'Installing brew ..'
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || echo_error 'installing brew was failed'
+	# see https://brew.sh/
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || echo_error 'installing brew was failed'
 	exit 1
 fi
 
@@ -30,9 +31,12 @@ for m in "${MODULES[@]}"; do
 	fi
 done
 
-echo "execute below:"
-echo "  edit /etc/shells and append '/opt/homebrew/bin/bash'"
-echo "  chsh -s /opt/homebrew/bin/bash"
+# change shell
+echo_normal 'Change shell ..'
+TARGET_SHELL='/opt/homebrew/bin/bash'
+if [ "$SHELL" != "$TARGET_SHELL" ] && [ -e "$TARGET_SHELL" ]; then
+	echo $TARGET_SHELL | sudo tee -a /etc/shells && chsh -s $TARGET_SHELL
+fi
 
 #
 # Finish procedure
