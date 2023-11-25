@@ -10,6 +10,7 @@
 .terraform.lock.hcl
 .netrwhist
 .gitconfig
+.bashrc.local
 
 #
 # not ignore case
