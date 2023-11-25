@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Time
-SECONDS=0
-
 # Load util functions
 . './scripts/utils.sh'
 
@@ -12,7 +9,7 @@ link_my_dotfiles() {
 		exit 1
 	fi
 
-	echo_normal 'Deploying dotfiles..'
+	echo_info 'Deploying dotfiles ...'
 	# link
 	# add symbolic links about dotfiles from $HOME to
 	# first, find the dotfiles on $MY_DOTFILES_PATH,
@@ -25,7 +22,7 @@ link_my_dotfiles() {
 		ln -sv "$MY_DOTFILES_PATH/$dot" "$HOME/$dot"
 	done
 
-	echo_normal 'Deployed'
+	echo_success 'Deployed dotfiles.'
 	return 0
 }
 
@@ -37,9 +34,3 @@ if [ -z "${MY_DOTFILES_PATH:-}" ]; then
 fi
 
 link_my_dotfiles
-
-#
-# Finish procedure
-#
-echo "Linking is done: Time=${SECONDS}(Sec.)"
-exit 0

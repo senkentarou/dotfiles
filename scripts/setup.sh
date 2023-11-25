@@ -1,12 +1,11 @@
 #!/bin/bash
 
-# Time
-SECONDS=0
-
 # Load util functions
 . './scripts/utils.sh'
 
 set_git_config() {
+	echo_info 'setting git config ...'
+
 	if ! is_exist_command 'git'; then
 		echo_error "git command is not found."
 		return 1
@@ -27,19 +26,12 @@ set_git_config() {
 	git secrets --install ~/.git-templates/git-secrets
 	git config --global init.templatedir "${HOME}/.git-templates/git-secrets"
 	git config --global branch.master.remote 'upstream'
+
+	echo_success 'set git config.'
+	return 0
 }
 
 #
 # Main procedure
 #
-if [ -z "${MY_DOTFILES_PATH:-}" ]; then
-	export MY_DOTFILES_PATH="${HOME}/mywork/dotfiles"
-fi
-
 set_git_config
-
-#
-# Finish procedure
-#
-echo "Setupping is done: Time=${SECONDS}(Sec.)"
-exit 0
