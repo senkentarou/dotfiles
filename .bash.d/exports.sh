@@ -5,3 +5,5 @@
 
 # prompt color
 export LSCOLORS=gxfxcxdxbxegedabagacad
+
+export PATH="$HOME/go/bin:$PATH"
