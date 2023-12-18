@@ -1,0 +1,20 @@
+set colored-stats on
+set completion-ignore-case on
+
+# vi bind on bash
+# usage, see https://dev.to/brandonwallace/how-to-use-vim-mode-on-the-command-line-in-bash-fnn
+set editing-mode vi
+
+# keymaps in vi-insert mode
+set keymap vi-insert
+Control-l: clear-screen
+"jj": vi-movement-mode
+
+# keymaps in vi-command mode
+set keymap vi-command
+# disable v
+v: ""
+
+set show-mode-in-prompt on
+set vi-ins-mode-string \1\e[34;1m\2[i] \1\e[0m\2
+set vi-cmd-mode-string \1\e[31;1m\2[c] \1\e[0m\2
