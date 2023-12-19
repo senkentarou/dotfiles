@@ -1,3 +1,5 @@
+set bell-style none
+
 set colored-stats on
 set completion-ignore-case on
 
@@ -8,6 +10,11 @@ set editing-mode vi
 # keymaps in vi-insert mode
 set keymap vi-insert
 Control-l: clear-screen
+Control-a: beginning-of-line
+Control-e: end-of-line
+Control-k: kill-line
+Control-n: backward-word
+Control-m: forward-word
 "jj": vi-movement-mode
 
 # keymaps in vi-command mode
