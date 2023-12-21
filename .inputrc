@@ -16,6 +16,7 @@ Control-k: kill-line
 Control-n: backward-word
 Control-m: forward-word
 "jj": vi-movement-mode
+RETURN: "\n"
 
 # keymaps in vi-command mode
 set keymap vi-command
