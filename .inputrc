@@ -15,6 +15,7 @@ Control-e: end-of-line
 Control-k: kill-line
 Control-n: backward-word
 Control-m: forward-word
+Control-d: delete-char
 "jj": vi-movement-mode
 RETURN: "\n"
 
