@@ -19,7 +19,7 @@ test -r "${HOME}/.bashrc.local" && . "${HOME}/.bashrc.local"
 #
 __bash_prompt() {
 	# shellcheck disable=SC2016
-	local userpart='`export XIT=$? && echo -n "\[\033[0;32m\]\u " && [ "$XIT" -ne "0" ] && echo -n "\[\033[1;31m\]➜" || echo -n "\[\033[0m\]➜"`'
+	local userpart='`export XIT=$? && echo -n "\[\033[0;32m\]\u@\h " && [ "$XIT" -ne "0" ] && echo -n "\[\033[1;31m\]➜" || echo -n "\[\033[0m\]➜"`'
 	# shellcheck disable=SC2016
 	local gitbranch='`\
         if [ "$(git config --get devcontainers-theme.hide-status 2>/dev/null)" != 1 ] && [ "$(git config --get codespaces-them e.hide-status 2>/dev/null)" != 1 ]; then \
