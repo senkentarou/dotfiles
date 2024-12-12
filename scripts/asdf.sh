@@ -6,11 +6,10 @@
 install_by_asdf() {
 	echo_info 'Installing by asdf ...'
 
-	local plugins=('ruby' 'nodejs' 'golang')
+	local plugins=('ruby' 'nodejs')
 
-	local gem_libs=('solargraph' 'rubocop' 'rubocop-daemon')
-	local npm_libs=('eslint_d' 'prettier')
-	local go_libs=('github.com/mattn/memo@latest')
+	local gem_libs=('ruby-lsp')
+	local npm_libs=('eslint' 'prettier')
 
 	if is_exist_command 'asdf'; then
 		for p in "${plugins[@]}"; do
@@ -32,14 +31,6 @@ install_by_asdf() {
 		for nl in "${npm_libs[@]}"; do
 			if ! is_exist_command "${nl}"; then
 				npm install -g "${nl}"
-			fi
-		done
-	fi
-
-	if is_exist_command 'go'; then
-		for gl in "${go_libs[@]}"; do
-			if ! is_exist_command "${gl}"; then
-				go install "${gl}"
 			fi
 		done
 	fi
