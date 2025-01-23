@@ -19,7 +19,7 @@ set_git_config() {
 
 	git config --global core.editor 'vim -c "set fenc=utf-8"'
 	git config --global user.name 'senkentarou'
-	git config --global user.email 'masahiro-senda@c-fo.com'
+	git config --global user.email 'senkentarou@gmail.com'
 	git config --global merge.ff false
 	git config --global pull.ff only
 
