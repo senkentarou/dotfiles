@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Time
-SECONDS=0
-
 # Load util functions
 . './scripts/utils.sh'
 
@@ -12,20 +9,20 @@ link_my_dotfiles() {
 		exit 1
 	fi
 
-	echo_normal 'Deploying dotfiles..'
+	echo_info 'Deploying dotfiles ...'
 	# link
 	# add symbolic links about dotfiles from $HOME to
 	# first, find the dotfiles on $MY_DOTFILES_PATH,
 	# and next, select the dotdirs yourself.
 	dots=$(find "$MY_DOTFILES_PATH" -type f -maxdepth 1 -name '.??*' | awk -F/ '{print $NF}')
-	dots="$dots .zsh.d .vim .config/nvim .config/tmuxinator .config/git"
+	dots="$dots .bash.d .vim .config/nvim .config/tmuxinator .config/git"
 
 	for dot in $dots; do
 		[[ -L $HOME/$dot ]] && unlink "$HOME/$dot"
 		ln -sv "$MY_DOTFILES_PATH/$dot" "$HOME/$dot"
 	done
 
-	echo_normal 'Deployed'
+	echo_success 'Deployed dotfiles.'
 	return 0
 }
 
@@ -37,9 +34,3 @@ if [ -z "${MY_DOTFILES_PATH:-}" ]; then
 fi
 
 link_my_dotfiles
-
-#
-# Finish procedure
-#
-echo "Linking is done: Time=${SECONDS}(Sec.)"
-exit 0

@@ -1,4 +1,4 @@
-.PHONY: all install setup link
+.PHONY: all install setup link deploy
 
 all: install setup link
 
@@ -7,7 +7,10 @@ install:
 
 setup:
 	sh ./scripts/setup.sh
-	sh ./scripts/link.sh
 
 link:
+	sh ./scripts/link.sh
+
+deploy:
+	sh ./scripts/setup.sh
 	sh ./scripts/link.sh

@@ -1,45 +1,45 @@
 #!/bin/bash
 
-# Time
-SECONDS=0
-
 # Load util functions
 . './scripts/utils.sh'
 
-ruby_global_version='3.1.2'
-gem_libs=('solargraph' 'rubocop' 'rubocop-daemon')
+install_by_asdf() {
+	echo_info 'Installing by asdf ...'
 
-nodejs_global_version='18.16.0'
-npm_libs=('eslint_d' 'prettier')
+	local plugins=('ruby' 'nodejs')
 
-if is_exist_command 'asdf'; then
-	if ! is_exist_command 'ruby'; then
-		asdf plugin add ruby
-		asdf install ruby "${ruby_global_version}"
-		asdf global ruby "${ruby_global_version}"
+	local gem_libs=('ruby-lsp')
+	local npm_libs=('eslint' 'prettier')
+
+	if is_exist_command 'asdf'; then
+		for p in "${plugins[@]}"; do
+			asdf plugin add "${p}"
+			asdf install "${p}" latest
+			asdf global "${p}" latest
+		done
 	fi
 
-	if ! is_exist_command 'node'; then
-		asdf plugin add nodejs
-		asdf install nodejs "${nodejs_global_version}"
-		asdf global nodejs "${nodejs_global_version}"
+	if is_exist_command 'gem'; then
+		for gl in "${gem_libs[@]}"; do
+			if ! is_exist_command "${gl}"; then
+				gem install "${gl}"
+			fi
+		done
 	fi
-fi
 
-if is_exist_command 'gem'; then
-	for gl in "${gem_libs[@]}"; do
-		gem install "${gl}"
-	done
-fi
+	if is_exist_command 'npm'; then
+		for nl in "${npm_libs[@]}"; do
+			if ! is_exist_command "${nl}"; then
+				npm install -g "${nl}"
+			fi
+		done
+	fi
 
-if is_exist_command 'npm'; then
-	for nl in "${npm_libs[@]}"; do
-		npm install -g "${nl}"
-	done
-fi
+	echo_success 'Installed by asdf.'
+	return 0
+}
 
 #
-# Finish procedure
+# Main procedure
 #
-echo "Linking is done: Time=${SECONDS}(Sec.)"
-exit 0
+install_by_asdf
