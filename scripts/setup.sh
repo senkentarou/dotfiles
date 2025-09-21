@@ -11,21 +11,20 @@ set_git_config() {
 		return 1
 	fi
 
-	if ! is_exist_command 'git-secrets'; then
-		echo_error "git-secrets command is not found."
-		return 1
-	fi
-
 	git config --global core.editor 'vim -c "set fenc=utf-8"'
 	git config --global user.name 'senkentarou'
 	git config --global user.email 'senkentarou@gmail.com'
 	git config --global merge.ff false
 	git config --global pull.ff only
 
+	if ! is_exist_command 'git-secrets'; then
+		echo_error "git-secrets command is not found."
+		return 1
+	fi
+
 	git secrets --register-aws --global
 	git secrets --install ~/.git-templates/git-secrets
 	git config --global init.templatedir "${HOME}/.git-templates/git-secrets"
-	git config --global branch.master.remote 'upstream'
 
 	echo_success 'set git config.'
 	return 0
