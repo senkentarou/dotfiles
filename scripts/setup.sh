@@ -11,9 +11,15 @@ set_git_config() {
 		return 1
 	fi
 
+	if [ -z "$(git config --get user.email)" ]; then
+		git config --global user.email 'senkentarou@gmail.com'
+	fi
+	if [ -z "$(git config --get user.name)" ]; then
+		git config --global user.name 'senkentarou'
+	fi
+
 	git config --global core.editor 'vim -c "set fenc=utf-8"'
-	git config --global user.name 'senkentarou'
-	git config --global user.email 'senkentarou@gmail.com'
+  git config --global url."git@github.com:".insteadOf "https://github.com/"
 	git config --global merge.ff false
 	git config --global pull.ff only
 
