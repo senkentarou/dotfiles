@@ -13,7 +13,7 @@ alias g='git'
 # alias h=''
 # alias i=''
 # alias j=''
-# alias k='kubectl'
+# alias k=''
 alias l='ls'
 # alias m=''
 # alias n=''
@@ -22,13 +22,13 @@ alias o='open'
 alias q='exit'
 # alias r=''
 # alias s=''
-# alias t=''
+alias t='tmux'
 # alias u=''
-# alias v='vim'
-# alias w='w'
+alias v='vim'
+alias w='w'
 # alias x=''
 # alias y=''
-# alias z='z'
+alias z='z'
 
 # settings
 alias reload='source ${HOME}/.bashrc'
@@ -54,6 +54,9 @@ alias vim='nvim'
 # ls
 alias ls='ls -G --color=auto'
 alias ll='ls -alF'
+
+# cd
+# alias cd='z'
 
 # docker
 alias dp='docker ps'
@@ -92,4 +95,19 @@ alias grs='git reset --soft HEAD^'
 gcopr() {
 	git fetch upstream "pull/$1/head:pr/$1"
 	git checkout "pr/$1"
+}
+
+# tmux
+alias tl='tmux ls'
+alias td='tmux detach'
+alias tk='tmux kill-session'
+
+# tmux attach
+ta() {
+	local session='main'
+	if [ -z "$TMUX" ]; then
+		if ! tmux attach -t $session >/dev/null 2>&1; then
+			tmux new -s $session
+		fi
+	fi
 }

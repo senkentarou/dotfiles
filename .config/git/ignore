@@ -25,3 +25,7 @@
 
 # for empty dirs
 !.gitkeep
+
+**/.claude/settings.local.json
+
+**/.claude/settings.local.json

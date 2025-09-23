@@ -10,7 +10,7 @@ install_by_brew() {
 	brew update && brew upgrade
 
 	local brew_taps=('homebrew/cask-fonts')
-	local brew_commands=('wget' 'bash' 'tmux' 'git' 'git-secrets' 'gh' 'vim' 'neovim' 'jq' 'ripgrep' 'fd' 'fzf' 'cmake' 'gnu-sed')
+	local brew_commands=('wget' 'bash' 'tmux' 'git' 'git-secrets' 'gh' 'vim' 'neovim' 'jq' 'ripgrep' 'fd' 'fzf' 'cmake' 'zoxide')
 	local brew_casks=('font-hack-nerd-font' 'iterm2' 'google-chrome' 'visual-studio-code' 'slack' 'notion' 'obsidian' 'docker' 'karabiner-elements' 'raycast')
 
 	echo_normal 'Tapping brew ...'

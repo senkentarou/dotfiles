@@ -4,7 +4,7 @@
 . './scripts/utils.sh'
 
 install() {
-	local modules=('brew' 'asdf')
+	local modules=('brew')
 	for m in "${modules[@]}"; do
 		if is_exist_command "$m"; then
 			#shellcheck disable=SC1090

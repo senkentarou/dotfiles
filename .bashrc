@@ -1,3 +1,8 @@
+# only attach on interactive shell
+if [ ! -n "$PS1" ]; then
+  return
+fi
+
 #
 # Load .bash.d
 #
@@ -39,45 +44,3 @@ __bash_prompt() {
 	unset -f __bash_prompt
 }
 __bash_prompt
-
-# tmux automatic attachment
-__attach_tmux() {
-	# Is exist tmux?
-	if ! (type 'tmux' >/dev/null 2>&1); then
-		echo 'tmux command not found.'
-		return 1
-	fi
-	# Is tmux mode?
-	if [ -n "$TMUX" ]; then
-		echo 'Hello, tmux!'
-		return 0
-	# Is sty mode?
-	elif [ -n "$STY" ]; then
-		echo 'This is on screen.'
-		return 0
-	# Is not ssh connection?
-	elif [ -n "$PS1" ] && [ -z "$SSH_CONECTION" ]; then
-		if tmux has-session >/dev/null 2>&1 && tmux list-sessions | grep -qE '(.*]|.*\))$'; then
-			tmux list-sessions
-			echo -n 'tmux: attach? {y(=latest)/N(=new)/<num>}: '
-			read -r
-
-			if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" == '' ]]; then
-				if tmux attach-session; then
-					echo "$(tmux -V) attached session."
-					return 0
-				fi
-			elif [[ "$REPLY" =~ ^[0-9]+$ ]]; then
-
-				if tmux attach -t "$REPLY"; then
-					echo "$(tmux -V) attached session"
-					return 0
-				fi
-			fi
-		fi
-
-		# Create new session
-		tmux new-session && echo "tmux created new session"
-	fi
-}
-__attach_tmux
