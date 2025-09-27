@@ -99,8 +99,6 @@ gcopr() {
 
 # tmux
 alias tl='tmux ls'
-alias td='tmux detach'
-alias tk='tmux kill-session'
 
 # tmux attach
 ta() {
