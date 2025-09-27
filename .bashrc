@@ -1,6 +1,6 @@
 # only attach on interactive shell
 if [ ! -n "$PS1" ]; then
-  return
+	return
 fi
 
 #
