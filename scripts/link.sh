@@ -15,7 +15,7 @@ link_my_dotfiles() {
 	# first, find the dotfiles on $MY_DOTFILES_PATH,
 	# and next, select the dotdirs yourself.
 	dots=$(find "$MY_DOTFILES_PATH" -type f -maxdepth 1 -name '.??*' | awk -F/ '{print $NF}')
-	dots="$dots .bash.d .vim .config/nvim .config/git"
+	dots="$dots .bash.d .vim .config/nvim .config/git .config/tmux"
 
 	for dot in $dots; do
 		[[ -L $HOME/$dot ]] && unlink "$HOME/$dot"
