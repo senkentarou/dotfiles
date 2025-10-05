@@ -37,13 +37,11 @@ else
 				# CPU使用率に基づいて色とステータスを決定
 				cpu_float=$(echo "$cpu" | bc -l 2>/dev/null || echo "$cpu")
 				if (($(echo "$cpu_float == 0" | bc -l 2>/dev/null || [ "$cpu" = "0.0" ]))); then
-					status_color="#[fg=blue]○"
-				elif (($(echo "$cpu_float <= 7" | bc -l 2>/dev/null || [ "${cpu%.*}" -le 7 ]))); then
-					status_color="#[fg=green]◇"
+					status_color="#[fg=green]="
 				elif (($(echo "$cpu_float <= 100" | bc -l 2>/dev/null || [ "${cpu%.*}" -le 100 ]))); then
 					status_color="#[fg=yellow]●"
 				else
-					status_color="#[fg=red,bold]◆"
+					status_color="#[fg=red,bold]!!!"
 				fi
 				claude_info+="${pane_id} ${status_color} ${cpu}%#[default]"
 			fi
