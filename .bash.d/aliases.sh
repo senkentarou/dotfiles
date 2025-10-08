@@ -3,9 +3,9 @@
 #
 
 # one char commands
-# alias a=''
+alias a='git add'
 # alias b=''
-alias c='code'
+alias c='git commit -m'
 alias d='docker'
 # alias e=''
 # alias f=''
@@ -21,7 +21,7 @@ alias o='open'
 # alias p=''
 alias q='exit'
 # alias r=''
-# alias s=''
+alias s='git status'
 alias t='tmux'
 # alias u=''
 alias v='vim'
@@ -42,11 +42,11 @@ alias tmux.conf='vim ${HOME}/.tmux.conf'
 #   for linux: mkdir -p ~/work && cd ~/work && curl -L https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz > neovim.tar.gz && tar -zxvf neovim.tar.gz
 #   for macos: mkdir -p ~/work && cd ~/work && curl -L https://github.com/neovim/neovim/releases/download/stable/nvim-macos.tar.gz > neovim.tar.gz && tar -zxvf neovim.tar.gz
 if [ -e "${HOME}/work/nvim-macos/bin/nvim" ]; then
-	alias nvim='${HOME}/work/nvim-macos/bin/nvim'
+  alias nvim='${HOME}/work/nvim-macos/bin/nvim'
 elif [ -e "${HOME}/work/nvim-linux64/bin/nvim" ]; then
-	alias nvim='${HOME}/work/nvim-linux64/bin/nvim'
+  alias nvim='${HOME}/work/nvim-linux64/bin/nvim'
 else
-	alias nvim='nvim'
+  alias nvim='nvim'
 fi
 alias vi='nvim'
 alias vim='nvim'
@@ -93,8 +93,8 @@ alias grs='git reset --soft HEAD^'
 
 # git check out pull request
 gcopr() {
-	git fetch upstream "pull/$1/head:pr/$1"
-	git checkout "pr/$1"
+  git fetch upstream "pull/$1/head:pr/$1"
+  git checkout "pr/$1"
 }
 
 # tmux
@@ -102,10 +102,10 @@ alias tl='tmux ls'
 
 # tmux attach
 ta() {
-	local session='main'
-	if [ -z "$TMUX" ]; then
-		if ! tmux attach -t $session >/dev/null 2>&1; then
-			tmux new -s $session
-		fi
-	fi
+  local session='main'
+  if [ -z "$TMUX" ]; then
+    if ! tmux attach -t $session >/dev/null 2>&1; then
+      tmux new -s $session
+    fi
+  fi
 }
