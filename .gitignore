@@ -18,5 +18,8 @@
 !.vim/vimrc
 !.vim/tools/*
 
+# Claude Code
+.claude/
+
 # for empty dirs
 !.gitkeep

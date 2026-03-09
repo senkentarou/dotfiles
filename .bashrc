@@ -1,16 +1,16 @@
 # only attach on interactive shell
 if [ ! -n "$PS1" ]; then
-	return
+  return
 fi
 
 #
 # Load .bash.d
 #
 for file in "${HOME}/.bash.d"/*; do
-	if [ -f "$file" ]; then
-		# shellcheck disable=SC1090
-		. "$file"
-	fi
+  if [ -f "$file" ]; then
+    # shellcheck disable=SC1090
+    . "$file"
+  fi
 done
 
 #
@@ -23,8 +23,8 @@ test -r "${HOME}/.bashrc.local" && . "${HOME}/.bashrc.local"
 # Setup prompt
 #
 __bash_prompt() {
-	# shellcheck disable=SC2016
-	local gitbranch='`\
+  # shellcheck disable=SC2016
+  local gitbranch='`\
         if [ "$(git config --get devcontainers-theme.hide-status 2>/dev/null)" != 1 ] && [ "$(git config --get codespaces-them e.hide-status 2>/dev/null)" != 1 ]; then \
             export BRANCH=$(git --no-optional-locks symbolic-ref --short HEAD 2>/dev/null || git --no-optional-locks rev-parse --short HEAD 2>/dev/null); \
             if [ "${BRANCH}" != "" ]; then \
@@ -36,9 +36,9 @@ __bash_prompt() {
                 && echo -n "\[\033[0;36m\]) "; \
             fi; \
         fi`'
-	local lightblue='\[\033[1;34m\]'
-	local removecolor='\[\033[0m\]'
-	PS1="${lightblue}\w ${gitbranch}${removecolor}\$ "
-	unset -f __bash_prompt
+  local lightblue='\[\033[1;34m\]'
+  local removecolor='\[\033[0m\]'
+  PS1="${lightblue}\w ${gitbranch}${removecolor}\$ "
+  unset -f __bash_prompt
 }
 __bash_prompt

@@ -9,5 +9,5 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 export HISTCONTROL=erasedups
 export HISTIGNORE='history:exit:?:??' # ignore 1,2 chars commands
 
-export PROMPT_COMMAND="history -a;${PROMPT_COMMAND}"
-shopt -u histappend
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -c; history -r;${PROMPT_COMMAND}"
