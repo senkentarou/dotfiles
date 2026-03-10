@@ -20,6 +20,9 @@
 
 # Claude Code
 .claude/
+.claude-worktrees/
+.husky/
+tasks/todo.md
 
 # for empty dirs
 !.gitkeep
